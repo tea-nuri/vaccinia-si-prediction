@@ -1,0 +1,224 @@
+{
+  "model": "V9 submitted candidate",
+  "local_mean_group_mse": 990846.175504518,
+  "scaffold_mse": 4841474.132959828,
+  "confirmed_public_score": 3532699.0074,
+  "coverage": {
+    "train_rows": 320,
+    "test_rows": 597,
+    "retrieval_train": 57,
+    "retrieval_test": 112
+  },
+  "error_concentration": {
+    "largest_row_share": 0.3146694623441688,
+    "top10_rows_share": 0.78771374196666,
+    "matched_mse": 1750617.2901482387,
+    "unmatched_mse": 826180.9529391489
+  },
+  "similarity": {
+    "fingerprint": "Morgan radius2, 2048 bits, chirality; nearest training molecule",
+    "quantiles": [
+      0,
+      0.1,
+      0.25,
+      0.5,
+      0.75,
+      0.9,
+      1
+    ],
+    "grouped_cv42": [
+      0.14864864864864866,
+      0.2738480697384807,
+      0.5265521064301552,
+      0.6461079723791587,
+      0.7555555555555555,
+      0.8148148148148148,
+      1.0
+    ],
+    "test": [
+      0.11764705882352941,
+      0.34757393051966695,
+      0.5531914893617021,
+      0.7045454545454546,
+      0.7916666666666666,
+      0.95,
+      1.0
+    ]
+  },
+  "source_sha256": {
+    "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "data/test.csv": "8bcc39b10a0ef8595eaf0bd58880c9bcda51c8de69b573ecc840ff1cf19ab864",
+    "results/candidate_camphor2022.csv": "dce8727ccf5a7f8045e8bf742afefe8aa03127ddc2d2eeec5e11b35f467c81bf"
+  },
+  "limitations": [
+    "The exact causes of hidden test errors cannot be determined without its labels.",
+    "Scaffold MSE is a stress test, not an unbiased prediction of Kaggle MSE.",
+    "Primary sources were sought after analyzing training errors; CV is exploratory.",
+    "No competition concentration columns, missingness, Title or index are predictors."
+  ],
+  "largest_errors": [
+    {
+      "prediction": 11.381944444444445,
+      "source": "10.1039/C8MD00347E",
+      "match_method": "matched_ChEMBL_assay_pair_exact_stereo",
+      "source_row": 173,
+      "target": 10000.0,
+      "mean_oof": 11.381944444444445,
+      "mean_squared_error": 99772490.65977043
+    },
+    {
+      "prediction": "",
+      "source": "",
+      "match_method": "",
+      "source_row": 115,
+      "target": 10000.0,
+      "mean_oof": 3868.489540547108,
+      "mean_squared_error": 38625295.9584794
+    },
+    {
+      "prediction": "",
+      "source": "",
+      "match_method": "",
+      "source_row": 230,
+      "target": 10000.0,
+      "mean_oof": 4754.151673796564,
+      "mean_squared_error": 27895288.55120153
+    },
+    {
+      "prediction": "",
+      "source": "",
+      "match_method": "",
+      "source_row": 264,
+      "target": 5000.0,
+      "mean_oof": 634.741983816155,
+      "mean_squared_error": 19065403.238820687
+    },
+    {
+      "prediction": "",
+      "source": "",
+      "match_method": "",
+      "source_row": 199,
+      "target": 5000.0,
+      "mean_oof": 642.254446904966,
+      "mean_squared_error": 19037125.0455985
+    },
+    {
+      "prediction": "",
+      "source": "",
+      "match_method": "",
+      "source_row": 74,
+      "target": 2.773,
+      "mean_oof": 3673.5395834437077,
+      "mean_squared_error": 14741366.682431469
+    },
+    {
+      "prediction": "",
+      "source": "",
+      "match_method": "",
+      "source_row": 276,
+      "target": 3.51052631578947,
+      "mean_oof": 3371.7782417222234,
+      "mean_squared_error": 11425935.242837217
+    },
+    {
+      "prediction": "",
+      "source": "",
+      "match_method": "",
+      "source_row": 12,
+      "target": 10000.0,
+      "mean_oof": 7282.377392287104,
+      "mean_squared_error": 8481352.03093938
+    },
+    {
+      "prediction": "",
+      "source": "",
+      "match_method": "",
+      "source_row": 70,
+      "target": 18.081,
+      "mean_oof": 2212.204495349807,
+      "mean_squared_error": 5964168.409121365
+    },
+    {
+      "prediction": "",
+      "source": "",
+      "match_method": "",
+      "source_row": 307,
+      "target": 5.0,
+      "mean_oof": 2144.1751958909836,
+      "mean_squared_error": 4752581.7392056985
+    }
+  ],
+  "culture_distribution": {
+    "a549": {
+      "train_fraction": 0.021875,
+      "test_fraction": 0.05360134003350084
+    },
+    "bhk21": {
+      "train_fraction": 0.009375,
+      "test_fraction": 0.0016750418760469012
+    },
+    "bsc1": {
+      "train_fraction": 0.03125,
+      "test_fraction": 0.04355108877721943
+    },
+    "bsc40": {
+      "train_fraction": 0.053125,
+      "test_fraction": 0.03350083752093802
+    },
+    "cem": {
+      "train_fraction": 0.021875,
+      "test_fraction": 0.021775544388609715
+    },
+    "cv1": {
+      "train_fraction": 0.003125,
+      "test_fraction": 0.0033500837520938024
+    },
+    "e6sm": {
+      "train_fraction": 0.00625,
+      "test_fraction": 0.02680067001675042
+    },
+    "hel": {
+      "train_fraction": 0.06875,
+      "test_fraction": 0.05695142378559464
+    },
+    "hela": {
+      "train_fraction": 0.0875,
+      "test_fraction": 0.07202680067001675
+    },
+    "humanforeskinfibroblast": {
+      "train_fraction": 0.078125,
+      "test_fraction": 0.10217755443886097
+    },
+    "lungfibroblast": {
+      "train_fraction": 0.040625,
+      "test_fraction": 0.021775544388609715
+    },
+    "mt4": {
+      "train_fraction": 0.025,
+      "test_fraction": 0.021775544388609715
+    },
+    "prk": {
+      "train_fraction": 0.046875,
+      "test_fraction": 0.03685092127303183
+    },
+    "vero": {
+      "train_fraction": 0.50625,
+      "test_fraction": 0.5041876046901173
+    }
+  },
+  "observed_row_subset_sensitivity": {
+    "rows_per_draw": 179,
+    "draws": 10000,
+    "quantiles": [
+      0.025,
+      0.5,
+      0.975
+    ],
+    "mse_quantiles": [
+      417327.0798107284,
+      1022112.7351899452,
+      1500834.3305754936
+    ],
+    "interpretation": "Finite-sample illustration only; does not model unseen labels, new outliers or test shift."
+  }
+}

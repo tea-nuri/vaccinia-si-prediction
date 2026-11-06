@@ -1,0 +1,107 @@
+{
+  "status": "local_only_not_submitted",
+  "scores": {
+    "42": {
+      "baseline": 898540.9316354111,
+      "cap5000_alpha0.1_weight0.5": 883461.6146122701,
+      "cap5000_alpha0.1_weight1": 875886.0606041576,
+      "cap5000_alpha1_weight0.5": 885137.7441290002,
+      "cap5000_alpha1_weight1": 877195.6947057614,
+      "cap5000_alpha10_weight0.5": 889941.0181081509,
+      "cap5000_alpha10_weight1": 887889.3205143467,
+      "capNone_alpha0.1_weight0.5": 919158.0551348524,
+      "capNone_alpha0.1_weight1": 999800.2425836459,
+      "capNone_alpha1_weight0.5": 896379.8271989506,
+      "capNone_alpha1_weight1": 912416.3915757455,
+      "capNone_alpha10_weight0.5": 893270.8792047973,
+      "capNone_alpha10_weight1": 896937.0860918623
+    },
+    "2026": {
+      "baseline": 1118452.666829103,
+      "cap5000_alpha0.1_weight0.5": 1111198.0872686494,
+      "cap5000_alpha0.1_weight1": 1111341.4449420641,
+      "cap5000_alpha1_weight0.5": 1105232.9338179396,
+      "cap5000_alpha1_weight1": 1097460.661966398,
+      "cap5000_alpha10_weight0.5": 1103877.160215098,
+      "cap5000_alpha10_weight1": 1095785.2175273988,
+      "capNone_alpha0.1_weight0.5": 1262345.068312016,
+      "capNone_alpha0.1_weight1": 1538296.052818933,
+      "capNone_alpha1_weight0.5": 1160793.74171167,
+      "capNone_alpha1_weight1": 1234815.9857436586,
+      "capNone_alpha10_weight0.5": 1120242.8296819038,
+      "capNone_alpha10_weight1": 1130542.2540169538
+    },
+    "scaffold": {
+      "baseline": 4841474.132959828,
+      "cap5000_alpha0.1_weight0.5": 4825738.394373645,
+      "cap5000_alpha0.1_weight1": 4816933.21050405,
+      "cap5000_alpha1_weight0.5": 4842855.168343522,
+      "cap5000_alpha1_weight1": 4846951.534900045,
+      "cap5000_alpha10_weight0.5": 4839071.4893173,
+      "cap5000_alpha10_weight1": 4838413.991824133,
+      "capNone_alpha0.1_weight0.5": 4807586.832343831,
+      "capNone_alpha0.1_weight1": 4836895.522251686,
+      "capNone_alpha1_weight0.5": 4862865.563955726,
+      "capNone_alpha1_weight1": 4905113.502464825,
+      "capNone_alpha10_weight0.5": 4840781.017766729,
+      "capNone_alpha10_weight1": 4845132.734523825
+    },
+    "117": {
+      "baseline": 1014795.8902375378,
+      "cap5000_alpha0.1_weight0.5": 1011637.1412568192,
+      "cap5000_alpha0.1_weight1": 1014598.1312207745,
+      "cap5000_alpha1_weight0.5": 1011424.3481341049,
+      "cap5000_alpha1_weight1": 1011588.4517307107,
+      "cap5000_alpha10_weight0.5": 1015561.487051649,
+      "cap5000_alpha10_weight1": 1021165.1898075693,
+      "capNone_alpha0.1_weight0.5": 1119119.6519724797,
+      "capNone_alpha0.1_weight1": 1337179.0668312237,
+      "capNone_alpha1_weight0.5": 1048361.6594833195,
+      "capNone_alpha1_weight1": 1106355.4573237412,
+      "capNone_alpha10_weight0.5": 1026561.9643103536,
+      "capNone_alpha10_weight1": 1045538.0325102272
+    },
+    "2027": {
+      "baseline": 1027635.4640442783,
+      "cap5000_alpha0.1_weight0.5": 1031368.1830360604,
+      "cap5000_alpha0.1_weight1": 1040354.6396060741,
+      "cap5000_alpha1_weight0.5": 1026059.1584630202,
+      "cap5000_alpha1_weight1": 1027369.6029380426,
+      "cap5000_alpha10_weight0.5": 1026569.4569363033,
+      "cap5000_alpha10_weight1": 1029506.8164000768,
+      "capNone_alpha0.1_weight0.5": 1143721.5106880504,
+      "capNone_alpha0.1_weight1": 1358581.569405003,
+      "capNone_alpha1_weight0.5": 1063786.8943577658,
+      "capNone_alpha1_weight1": 1117134.7834012392,
+      "capNone_alpha10_weight0.5": 1038137.1640925475,
+      "capNone_alpha10_weight1": 1054110.418772315
+    },
+    "7": {
+      "baseline": 894805.9247762595,
+      "cap5000_alpha0.1_weight0.5": 897896.0218008248,
+      "cap5000_alpha0.1_weight1": 905296.044543463,
+      "cap5000_alpha1_weight0.5": 894804.6254828885,
+      "cap5000_alpha1_weight1": 898287.3927269375,
+      "cap5000_alpha10_weight0.5": 897404.8428242244,
+      "cap5000_alpha10_weight1": 905406.7977552355,
+      "capNone_alpha0.1_weight0.5": 1000035.2463460177,
+      "capNone_alpha0.1_weight1": 1187917.356922305,
+      "capNone_alpha1_weight0.5": 928171.5851191195,
+      "capNone_alpha1_weight1": 981401.3134609677,
+      "capNone_alpha10_weight0.5": 908530.0122123942,
+      "capNone_alpha10_weight1": 929457.5330733567
+    }
+  },
+  "selection": "Strict improvement on 42/2026/scaffold then 117/2027/7; no public-score tuning.",
+  "hypothesis": "Active-only cap5000 and sparse structural features can underestimate large measured SI.",
+  "settings": "Replace only active regressor in V6 context branch by active-only TFIDF 2-6 + Ridge alpha .1/1/10, cap5000 or no target cap; nonnegative predictions. Other branches and V9 retrieval frozen.",
+  "limitations": [
+    "Repeated exploratory validation on previously studied molecules.",
+    "Uncapped models can produce unstable large predictions."
+  ],
+  "passing": [],
+  "source_sha256": {
+    "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "results/candidate_camphor2022.csv": "dce8727ccf5a7f8045e8bf742afefe8aa03127ddc2d2eeec5e11b35f467c81bf"
+  }
+}

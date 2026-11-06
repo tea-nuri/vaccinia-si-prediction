@@ -1,0 +1,26 @@
+{
+  "reviewed_date": "2026-11-07",
+  "doi": "10.1021/jm061484y",
+  "publication_url": "https://pubmed.ncbi.nlm.nih.gov/17335190/",
+  "api_url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1142975&limit=1000",
+  "response_sha256": "577be595857240043bf9651fe8b75f529cf8ee20f843bce61843dbd546a31697",
+  "selected_assays": [
+    "CHEMBL918571",
+    "CHEMBL918574"
+  ],
+  "source_compounds": 17,
+  "endpoint": "EC50, not IC50",
+  "cc50_lower_bounds": 17,
+  "ec50_exact": 16,
+  "ec50_lower_bounds": 1,
+  "connectivity_matches_train": 15,
+  "connectivity_matches_test": 17,
+  "exact_stereochemical_matches_train": 0,
+  "exact_stereochemical_matches_test": 0,
+  "decision": "Not added to numerical lookup. Source SMILES specify fewer stereocentres than competition structures; independently verify primary drawings before mapping. Preserve all bounds; do not treat CC50/EC50 bound as an exact SI.",
+  "additional_source": {
+    "doi": "10.1002/ardp.202100038",
+    "url": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1002/ardp.202100038",
+    "finding": "Table 1 concerns other orthopoxviruses; Table 2 contains four new VACV compounds. Figure 2 summarizes previous VACV results. No non-VACV endpoints imported and no new structures mapped in this check."
+  }
+}

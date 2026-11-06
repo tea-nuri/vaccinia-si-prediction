@@ -1,0 +1,85 @@
+{
+  "status": "local_only_not_submitted",
+  "scores": {
+    "42": {
+      "v9": 898540.9316354111,
+      "agreement": 586974.5389604548,
+      "agreement_and_gate": 579098.4984082112
+    },
+    "2026": {
+      "v9": 1118452.666829103,
+      "agreement": 816130.0844250924,
+      "agreement_and_gate": 732015.4112507275
+    },
+    "117": {
+      "v9": 1014795.8902375378,
+      "agreement": 705363.4125762301,
+      "agreement_and_gate": 669060.7949950481
+    },
+    "2027": {
+      "v9": 1027635.4640442783,
+      "agreement": 716276.0970078344,
+      "agreement_and_gate": 689679.7874228307
+    },
+    "7": {
+      "v9": 894805.9247762595,
+      "agreement": 585099.6327393545,
+      "agreement_and_gate": 560489.4406444642
+    },
+    "scaffold": {
+      "v9": 4841474.132959828,
+      "agreement": 4535040.955480069,
+      "agreement_and_gate": 4425560.256432788
+    },
+    "23": {
+      "v9": 1244719.1285806731,
+      "agreement": 933084.7957400021,
+      "agreement_and_gate": 819318.7961419784
+    },
+    "101": {
+      "v9": 1042648.5019032869,
+      "agreement": 730915.4541209802,
+      "agreement_and_gate": 708396.3347354317
+    },
+    "509": {
+      "v9": 1080786.4926445805,
+      "agreement": 769933.0012155367,
+      "agreement_and_gate": 734597.8066146811
+    }
+  },
+  "rule": "Refuse fixed lookup if eligible measurements disagree by more than max(1, .05*mean); use fold-trained ML. No row/source-ID exceptions.",
+  "fixed_classifier": "logistic_C100_context0_power2_weight0.25",
+  "train_conflicts": 1,
+  "test_conflicts": 1,
+  "limitations": [
+    "Rule developed after error analysis; all splits reuse the same molecules.",
+    "Effect of agreement guard currently depends on one training and one test molecule.",
+    "Disagreeing numerical measurements can still both indicate activity; ML fallback is not biological ground truth.",
+    "No claim of Public Score below one million; no Kaggle submission."
+  ],
+  "source_sha256": {
+    "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "data/test.csv": "8bcc39b10a0ef8595eaf0bd58880c9bcda51c8de69b573ecc840ff1cf19ab864",
+    "data/external.csv": "a578c00918581120ddead1ed68f71f46bcaa836b09605ba07b0a03b8235bd1a0",
+    "data/primary_literature.csv": "9caf3fac7f1aa1fbce11c9611c3b6fe51891b7cb6a9bbeda9e0300c9cd7fc204",
+    "data/literature_candidates.csv": "12df79381aa0d2c0b0eed88209f946580d857667a87d039652880550e16d38da",
+    "data/camphor2022.csv": "bb98ffaba6f5a05030ab76150adafb3ee24cdd9cf2417a56b777d973c4e1be2c",
+    "results/candidate_camphor2022.csv": "dce8727ccf5a7f8045e8bf742afefe8aa03127ddc2d2eeec5e11b35f467c81bf"
+  },
+  "mean_group_mse": {
+    "v9": 990846.175504518,
+    "agreement": 681968.7531417932,
+    "agreement_and_gate": 646068.7865442563
+  },
+  "additional_mean_mse": {
+    "v9": 1122718.0410428469,
+    "agreement": 811311.083692173,
+    "agreement_and_gate": 754104.3124973638
+  },
+  "all_splits_improved": {
+    "agreement": true,
+    "agreement_and_gate": true
+  },
+  "candidate_submission_sha256": "88163ce3b1fb5b6231b3b5d75982115b9513eecf125aca0df963defebe0eeb81",
+  "verification": "30 tests passed; V9 rebuilt within each original validation split and agrees with frozen predictions within 1e-6; all preprocessing fitted inside folds."
+}
