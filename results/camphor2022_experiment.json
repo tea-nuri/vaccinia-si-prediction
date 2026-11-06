@@ -1,0 +1,42 @@
+{
+  "model": "V9 local: V8 plus exact stereochemical camphor 2022 measurements",
+  "status": "local_only_not_submitted",
+  "scores": {
+    "42": 898540.9316354111,
+    "2026": 1118452.666829103,
+    "117": 1014795.8902375378,
+    "2027": 1027635.4640442783,
+    "7": 894805.9247762595,
+    "scaffold": 4841474.132959828,
+    "mean_group_mse": 990846.175504518
+  },
+  "baseline_v8_scores": {
+    "42": 899384.262937878,
+    "2026": 1194028.792219374,
+    "117": 1015529.7102538918,
+    "2027": 1030404.3928241335,
+    "7": 895244.3314487627,
+    "scaffold": 4918731.102001798,
+    "mean_group_mse": 1006918.297936808
+  },
+  "all_splits_improved": true,
+  "new_train_matches": 6,
+  "new_test_matches": 10,
+  "train_overlaps_skipped": 1,
+  "test_overlaps_skipped": 1,
+  "train_conflicts_skipped": 1,
+  "test_conflicts_skipped": 1,
+  "candidate_submission_sha256": "dce8727ccf5a7f8045e8bf742afefe8aa03127ddc2d2eeec5e11b35f467c81bf",
+  "source_sha256": {
+    "train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "test.csv": "8bcc39b10a0ef8595eaf0bd58880c9bcda51c8de69b573ecc840ff1cf19ab864",
+    "camphor2022.csv": "bb98ffaba6f5a05030ab76150adafb3ee24cdd9cf2417a56b777d973c4e1be2c",
+    "literature_candidates.csv": "12df79381aa0d2c0b0eed88209f946580d857667a87d039652880550e16d38da"
+  },
+  "limitations": [
+    "Six new training molecules with published measurements; all splits reuse the same molecules.",
+    "Retrieval-assisted exploratory validation, not novel-compound generalization or a public-score result.",
+    "No override of old measurements, even when a later study disagrees.",
+    "No stereochemistry stripping, no NT-to-inactive conversion, no competition concentration columns."
+  ]
+}

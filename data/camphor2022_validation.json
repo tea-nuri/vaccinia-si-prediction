@@ -1,0 +1,11 @@
+{
+  "records": 36,
+  "measured": 23,
+  "inactive": 9,
+  "not_tested": 4,
+  "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9331314/",
+  "xml_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9331314/fullTextXML",
+  "reviewed_xml_sha256": "1f015fe7ee344f26f267b6fb5a1b8cc7bc0a08cde7d3abf0c2456830e72efa99",
+  "sha256": "bb98ffaba6f5a05030ab76150adafb3ee24cdd9cf2417a56b777d973c4e1be2c",
+  "caveat": "Exact stereochemical matches only. Existing measurements are not overridden if studies disagree. Table 3 is not VACV."
+}
