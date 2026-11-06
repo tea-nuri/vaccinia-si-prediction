@@ -55,7 +55,7 @@ def run():
         base = previous[protocol].to_numpy()
         for fold, (ix, va) in enumerate(GroupKFold(5, shuffle=seed is not None, random_state=seed).split(tr, groups=groups)):
             assert not set(canonical[ix]) & set(canonical[va])
-            original, models = core.fit_predict(tr.iloc[ix], y[ix], tr.iloc[va])
+            original, models = core.fit_predict_v6(tr.iloc[ix], y[ix], tr.iloc[va])
             np.testing.assert_allclose(original, base[va], atol=1e-06, rtol=1e-10)
             active[va] = np.clip(models['active_regressor'].predict(core.serialization_features(tr.iloc[va].SMILES)), 0, 5000)
             protected[va] = core.apply_inactivity_evidence(tr.iloc[ix], y[ix], tr.iloc[va], np.zeros(len(va)))[0] == 10000

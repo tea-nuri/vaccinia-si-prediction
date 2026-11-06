@@ -154,5 +154,15 @@
     ],
     "submitted": false,
     "limitation": "Exact training-identity correction cannot be validated by disjoint-molecule CV. Not combined with V7 for this submission."
+  },
+  "kaggle_observation": {
+    "date": "2026-11-06",
+    "filename": "submission_v7.csv",
+    "author": "Stepan Ivanov",
+    "description_code_commit": "5e5be6c",
+    "public_mse": 3783018.17208,
+    "previous_v6_public_mse": 5144257.81271,
+    "duplicate_submission_sent": false,
+    "source": "Authenticated Kaggle Submissions page; uploaded file hash not independently compared."
   }
 }
