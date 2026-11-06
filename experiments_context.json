@@ -1,0 +1,644 @@
+{
+  "search": [
+    {
+      "config": {
+        "name": "cat_False_spike_5",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "depth": 5,
+        "normalize": false
+      },
+      "mse42": 6723829.831413263,
+      "mse2026": 7710968.747279137,
+      "mse117": 6567263.782366753,
+      "mse2027": 7313351.519388221,
+      "mse7": 7004274.975947363,
+      "mean": 7063937.771278948
+    },
+    {
+      "config": {
+        "name": "cat_False_spike_7",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "depth": 7,
+        "normalize": false
+      },
+      "mse42": 6761756.487312366,
+      "mse2026": 7611616.82456474,
+      "mse117": 6584928.014903405,
+      "mse2027": 7264051.797255832,
+      "mse7": 7240860.131952678,
+      "mean": 7092642.651197804
+    },
+    {
+      "config": {
+        "name": "linear_strain_Culture_cap_0.3",
+        "family": "linear",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "weight": 0.3,
+        "alpha": 0.03
+      },
+      "mse42": 7408923.587116991,
+      "mse2026": 7412703.74383488,
+      "mse117": 6727767.8717876915,
+      "mse2027": 7357297.038166076,
+      "mse7": 7626125.901400356,
+      "mean": 7306563.628461199
+    },
+    {
+      "config": {
+        "name": "linear_Culture_cap_1.0",
+        "family": "linear",
+        "columns": [
+          "Culture"
+        ],
+        "mode": "cap",
+        "weight": 1.0,
+        "alpha": 0.03
+      },
+      "mse42": 7433159.185455695,
+      "mse2026": 7408248.668596342,
+      "mse117": 6699522.186944945,
+      "mse2027": 7500397.144655125,
+      "mse7": 7659776.754034276,
+      "mean": 7340220.787937276
+    },
+    {
+      "config": {
+        "name": "cat_True_spike_5",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "depth": 5,
+        "normalize": true
+      },
+      "mse42": 7372162.09217604,
+      "mse2026": 7919575.56255081,
+      "mse117": 6516681.019675725,
+      "mse2027": 7376553.203182824,
+      "mse7": 7649826.341012289,
+      "mean": 7366959.643719537
+    },
+    {
+      "config": {
+        "name": "cat_False_spike_3",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "depth": 3,
+        "normalize": false
+      },
+      "mse42": 7154356.741352459,
+      "mse2026": 7757433.970492639,
+      "mse117": 6959560.388194102,
+      "mse2027": 7575369.538986789,
+      "mse7": 7417485.329061234,
+      "mean": 7372841.193617444
+    },
+    {
+      "config": {
+        "name": "linear_Culture_cap_0.1",
+        "family": "linear",
+        "columns": [
+          "Culture"
+        ],
+        "mode": "cap",
+        "weight": 0.1,
+        "alpha": 0.03
+      },
+      "mse42": 7554508.040117338
+    },
+    {
+      "config": {
+        "name": "linear_Culture_cap_0.3",
+        "family": "linear",
+        "columns": [
+          "Culture"
+        ],
+        "mode": "cap",
+        "weight": 0.3,
+        "alpha": 0.03
+      },
+      "mse42": 7455622.106408182
+    },
+    {
+      "config": {
+        "name": "linear_Culture_cap_3.0",
+        "family": "linear",
+        "columns": [
+          "Culture"
+        ],
+        "mode": "cap",
+        "weight": 3.0,
+        "alpha": 0.03
+      },
+      "mse42": 7472101.929350953
+    },
+    {
+      "config": {
+        "name": "linear_Culture_spike_0.1",
+        "family": "linear",
+        "columns": [
+          "Culture"
+        ],
+        "mode": "spike",
+        "weight": 0.1,
+        "alpha": 0.03
+      },
+      "mse42": 7881697.964421609
+    },
+    {
+      "config": {
+        "name": "linear_Culture_spike_0.3",
+        "family": "linear",
+        "columns": [
+          "Culture"
+        ],
+        "mode": "spike",
+        "weight": 0.3,
+        "alpha": 0.03
+      },
+      "mse42": 7770765.189261124
+    },
+    {
+      "config": {
+        "name": "linear_Culture_spike_1.0",
+        "family": "linear",
+        "columns": [
+          "Culture"
+        ],
+        "mode": "spike",
+        "weight": 1.0,
+        "alpha": 0.03
+      },
+      "mse42": 7754425.124584881
+    },
+    {
+      "config": {
+        "name": "linear_Culture_spike_3.0",
+        "family": "linear",
+        "columns": [
+          "Culture"
+        ],
+        "mode": "spike",
+        "weight": 3.0,
+        "alpha": 0.03
+      },
+      "mse42": 7839237.02533772
+    },
+    {
+      "config": {
+        "name": "linear_strain_cap_0.1",
+        "family": "linear",
+        "columns": [
+          "strain"
+        ],
+        "mode": "cap",
+        "weight": 0.1,
+        "alpha": 0.03
+      },
+      "mse42": 7578398.319297765
+    },
+    {
+      "config": {
+        "name": "linear_strain_cap_0.3",
+        "family": "linear",
+        "columns": [
+          "strain"
+        ],
+        "mode": "cap",
+        "weight": 0.3,
+        "alpha": 0.03
+      },
+      "mse42": 7486674.680655943
+    },
+    {
+      "config": {
+        "name": "linear_strain_cap_1.0",
+        "family": "linear",
+        "columns": [
+          "strain"
+        ],
+        "mode": "cap",
+        "weight": 1.0,
+        "alpha": 0.03
+      },
+      "mse42": 7519565.340003967
+    },
+    {
+      "config": {
+        "name": "linear_strain_cap_3.0",
+        "family": "linear",
+        "columns": [
+          "strain"
+        ],
+        "mode": "cap",
+        "weight": 3.0,
+        "alpha": 0.03
+      },
+      "mse42": 7624956.185870111
+    },
+    {
+      "config": {
+        "name": "linear_strain_spike_0.1",
+        "family": "linear",
+        "columns": [
+          "strain"
+        ],
+        "mode": "spike",
+        "weight": 0.1,
+        "alpha": 0.03
+      },
+      "mse42": 7915952.202857566
+    },
+    {
+      "config": {
+        "name": "linear_strain_spike_0.3",
+        "family": "linear",
+        "columns": [
+          "strain"
+        ],
+        "mode": "spike",
+        "weight": 0.3,
+        "alpha": 0.03
+      },
+      "mse42": 7817458.749519939
+    },
+    {
+      "config": {
+        "name": "linear_strain_spike_1.0",
+        "family": "linear",
+        "columns": [
+          "strain"
+        ],
+        "mode": "spike",
+        "weight": 1.0,
+        "alpha": 0.03
+      },
+      "mse42": 7731375.983890611
+    },
+    {
+      "config": {
+        "name": "linear_strain_spike_3.0",
+        "family": "linear",
+        "columns": [
+          "strain"
+        ],
+        "mode": "spike",
+        "weight": 3.0,
+        "alpha": 0.03
+      },
+      "mse42": 7740819.231305177
+    },
+    {
+      "config": {
+        "name": "linear_strain_Culture_cap_0.1",
+        "family": "linear",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "weight": 0.1,
+        "alpha": 0.03
+      },
+      "mse42": 7543953.858408583
+    },
+    {
+      "config": {
+        "name": "linear_strain_Culture_cap_1.0",
+        "family": "linear",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "weight": 1.0,
+        "alpha": 0.03
+      },
+      "mse42": 7494146.195189488
+    },
+    {
+      "config": {
+        "name": "linear_strain_Culture_cap_3.0",
+        "family": "linear",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "weight": 3.0,
+        "alpha": 0.03
+      },
+      "mse42": 7592869.867330062
+    },
+    {
+      "config": {
+        "name": "linear_strain_Culture_spike_0.1",
+        "family": "linear",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "weight": 0.1,
+        "alpha": 0.03
+      },
+      "mse42": 7900135.271632795
+    },
+    {
+      "config": {
+        "name": "linear_strain_Culture_spike_0.3",
+        "family": "linear",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "weight": 0.3,
+        "alpha": 0.03
+      },
+      "mse42": 7716535.577931002
+    },
+    {
+      "config": {
+        "name": "linear_strain_Culture_spike_1.0",
+        "family": "linear",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "weight": 1.0,
+        "alpha": 0.03
+      },
+      "mse42": 7731056.666822821
+    },
+    {
+      "config": {
+        "name": "linear_strain_Culture_spike_3.0",
+        "family": "linear",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "weight": 3.0,
+        "alpha": 0.03
+      },
+      "mse42": 7974025.283503085
+    },
+    {
+      "config": {
+        "name": "cat_False_cap_3",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "depth": 3,
+        "normalize": false
+      },
+      "mse42": 8191734.768412873
+    },
+    {
+      "config": {
+        "name": "cat_False_cap_5",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "depth": 5,
+        "normalize": false
+      },
+      "mse42": 7828422.254539507
+    },
+    {
+      "config": {
+        "name": "cat_False_cap_7",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "depth": 7,
+        "normalize": false
+      },
+      "mse42": 7624872.694814387
+    },
+    {
+      "config": {
+        "name": "cat_True_cap_3",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "depth": 3,
+        "normalize": true
+      },
+      "mse42": 8065435.0560965
+    },
+    {
+      "config": {
+        "name": "cat_True_cap_5",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "depth": 5,
+        "normalize": true
+      },
+      "mse42": 7765405.91134304
+    },
+    {
+      "config": {
+        "name": "cat_True_cap_7",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "cap",
+        "depth": 7,
+        "normalize": true
+      },
+      "mse42": 7602722.767985215
+    },
+    {
+      "config": {
+        "name": "cat_True_spike_3",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "depth": 3,
+        "normalize": true
+      },
+      "mse42": 7559012.992016904
+    },
+    {
+      "config": {
+        "name": "cat_True_spike_7",
+        "family": "cat",
+        "columns": [
+          "strain",
+          "Culture"
+        ],
+        "mode": "spike",
+        "depth": 7,
+        "normalize": true
+      },
+      "mse42": 7461035.453207898
+    }
+  ],
+  "blend_search": [
+    {
+      "name": "cat_False_spike_5",
+      "context_weight": 0,
+      "scores": {
+        "42": 7137807.1156290965,
+        "2026": 7100840.065596041,
+        "117": 6582681.18949963,
+        "2027": 7153205.257484918,
+        "7": 7665566.691862596
+      },
+      "mean": 7128020.064014457
+    },
+    {
+      "name": "cat_False_spike_5",
+      "context_weight": 0.25,
+      "scores": {
+        "42": 6777491.3095926065,
+        "2026": 6880981.246525606,
+        "117": 6310495.099707231,
+        "2027": 6957530.945060317,
+        "7": 7235485.9086842295
+      },
+      "mean": 6832396.901913998
+    },
+    {
+      "name": "cat_False_spike_5",
+      "context_weight": 0.5,
+      "scores": {
+        "42": 6588389.826877801,
+        "2026": 6909383.087115979,
+        "117": 6217196.835254285,
+        "2027": 6918997.217902666,
+        "7": 6981910.361638901
+      },
+      "mean": 6723175.465757927
+    },
+    {
+      "name": "cat_False_spike_5",
+      "context_weight": 0.75,
+      "scores": {
+        "42": 6570502.667484688,
+        "2026": 7186045.5873671565,
+        "117": 6302786.396140793,
+        "2027": 7037604.076011969,
+        "7": 6904840.050726613
+      },
+      "mean": 6800355.755546245
+    },
+    {
+      "name": "cat_False_spike_5",
+      "context_weight": 1,
+      "scores": {
+        "42": 6723829.831413263,
+        "2026": 7710968.747279137,
+        "117": 6567263.782366753,
+        "2027": 7313351.519388221,
+        "7": 7004274.975947363
+      },
+      "mean": 7063937.771278948
+    },
+    {
+      "name": "cat_False_spike_7",
+      "context_weight": 0,
+      "scores": {
+        "42": 7137807.1156290965,
+        "2026": 7100840.065596041,
+        "117": 6582681.18949963,
+        "2027": 7153205.257484918,
+        "7": 7665566.691862596
+      },
+      "mean": 7128020.064014457
+    },
+    {
+      "name": "cat_False_spike_7",
+      "context_weight": 0.25,
+      "scores": {
+        "42": 6795388.153010587,
+        "2026": 6864740.393620377,
+        "117": 6291929.545257295,
+        "2027": 6956569.93691822,
+        "7": 7327476.754248309
+      },
+      "mean": 6847220.956610957
+    },
+    {
+      "name": "cat_False_spike_7",
+      "context_weight": 0.5,
+      "scores": {
+        "42": 6618573.394084962,
+        "2026": 6871169.962789938,
+        "117": 6195386.801410479,
+        "2027": 6909499.253357805,
+        "7": 7143995.681725228
+      },
+      "mean": 6747725.018673683
+    },
+    {
+      "name": "cat_False_spike_7",
+      "context_weight": 0.75,
+      "scores": {
+        "42": 6607362.838852221,
+        "2026": 7120128.773104727,
+        "117": 6293052.957959181,
+        "2027": 7011993.206803677,
+        "7": 7115123.474293348
+      },
+      "mean": 6829532.250202631
+    },
+    {
+      "name": "cat_False_spike_7",
+      "context_weight": 1,
+      "scores": {
+        "42": 6761756.487312366,
+        "2026": 7611616.82456474,
+        "117": 6584928.014903405,
+        "2027": 7264051.797255832,
+        "7": 7240860.131952678
+      },
+      "mean": 7092642.651197804
+    }
+  ]
+}
