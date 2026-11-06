@@ -1,8 +1,8 @@
 {
-  "records": 75,
-  "exact_usable_records": 67,
-  "unique_usable_smiles": 49,
-  "documents": 4,
+  "records": 107,
+  "exact_usable_records": 98,
+  "unique_usable_smiles": 78,
+  "documents": 6,
   "assay_mapping": [
     {
       "document": "CHEMBL6092128",
@@ -32,6 +32,24 @@
       "duration": "Published ratio: IC50 96 h; CC50 72 h"
     },
     {
+      "document": "CHEMBL5223146",
+      "cell": "Vero",
+      "strain": "Copenhagen",
+      "ic": "CHEMBL5225279",
+      "cc": "CHEMBL5225278",
+      "si": "CHEMBL5225280",
+      "duration": "IC50 and CC50: 4 days"
+    },
+    {
+      "document": "CHEMBL4699424",
+      "cell": "Vero",
+      "strain": "Copenhagen",
+      "ic": "CHEMBL4700293",
+      "cc": "CHEMBL4700294",
+      "si": "CHEMBL4700295",
+      "duration": "Matched Table 1; antiviral assay: 4 days"
+    },
+    {
       "document": "CHEMBL4368876",
       "cell": "Vero",
       "strain": "Copenhagen",
@@ -55,10 +73,19 @@
     "IC50:data_validity_flag": 3,
     "CC50:bound_or_unknown_relation": 3,
     "IC50:bound_or_unknown_relation": 2,
+    "ratio_inconsistent_beyond_rounding": 1,
     "SI:missing_value": 2
   },
+  "per_document": {
+    "10.1039/d4md00181h": 25,
+    "10.1016/j.ejmech.2023.115601": 38,
+    "10.1016/j.bmcl.2022.129080": 12,
+    "10.1039/d0md00108b": 20,
+    "10.1039/C8MD00442K": 6,
+    "10.1021/jm301735k": 6
+  },
   "limitations": [
-    "Four curated publications, not an exhaustive literature collection.",
+    "Six curated publications, not an exhaustive literature collection.",
     "Published SI retained; bounds are excluded from exact-label training.",
     "2023 paper reports 72 h CC50 / 96 h IC50; that context is retained.",
     "2013 paper reports overnight IC50 / 20 h CC50; that context is retained.",

@@ -19,6 +19,12 @@ STUDIES = [
     dict(document='CHEMBL5625166', cell='A549', strain='VACV; strain unspecified in assay record',
          ic='CHEMBL5625832', cc='CHEMBL5625833', si='CHEMBL5625834',
          duration='Published ratio: IC50 96 h; CC50 72 h'),
+    dict(document='CHEMBL5223146', cell='Vero', strain='Copenhagen',
+         ic='CHEMBL5225279', cc='CHEMBL5225278', si='CHEMBL5225280',
+         duration='IC50 and CC50: 4 days'),
+    dict(document='CHEMBL4699424', cell='Vero', strain='Copenhagen',
+         ic='CHEMBL4700293', cc='CHEMBL4700294', si='CHEMBL4700295',
+         duration='Matched Table 1; antiviral assay: 4 days'),
     dict(document='CHEMBL4368876', cell='Vero', strain='Copenhagen',
          ic='CHEMBL4369494', cc='CHEMBL4369495', si='CHEMBL4369496',
          duration='IC50 and CC50: 4 days'),
@@ -49,7 +55,8 @@ def measurement(record, kind):
     elif unit not in [None, '', 'dimensionless']:
         return '', '', 'unsupported_ratio_units'
     relation = record.get('standard_relation') or record.get('relation') or ''
-    flag = 'data_validity_flag' if record.get('data_validity_comment') else ''
+    flag = ('data_validity_flag' if record.get('data_validity_comment')
+            not in [None, '', 'Manually validated'] else '')
     return value, relation, flag
 
 
@@ -80,17 +87,24 @@ def load_sources(refresh=False, offline=False):
     if archive.exists() and not refresh:
         with zipfile.ZipFile(archive) as z:
             payloads = {name: z.read(name) for name in endpoints if name in z.namelist()}
-    missing = set(endpoints) - set(payloads)
+    # A saved snapshot must agree with its committed manifest before rebuilding.
+    manifest_path = DATA / 'sources.json'
+    if not refresh and manifest_path.exists():
+        previous = json.loads(manifest_path.read_text())
+        for name, raw in payloads.items():
+            if name not in previous or hashlib.sha256(raw).hexdigest() != previous[name]['sha256']:
+                raise ValueError(f'Snapshot integrity check failed: {name}')
+    missing = set(endpoints)-set(payloads)
     if missing:
         if offline:
-            raise FileNotFoundError('Incomplete data/chembl_snapshot.zip; missing: ' + ', '.join(sorted(missing)))
+            raise FileNotFoundError('Incomplete data/chembl_snapshot.zip; missing: '+', '.join(sorted(missing)))
         for name in sorted(missing):
-            print('Fetching ' + endpoints[name], flush=True)
+            print('Fetching '+endpoints[name],flush=True)
             payloads[name] = fetch(endpoints[name])
         temporary = archive.with_suffix('.tmp')
         with zipfile.ZipFile(temporary, 'w', zipfile.ZIP_DEFLATED) as z:
-            for name, data in payloads.items():
-                z.writestr(name, data)
+            for name, raw in payloads.items():
+                z.writestr(name,raw)
         temporary.replace(archive)
     manifest = {name: {'url': endpoints[name], 'sha256': hashlib.sha256(data).hexdigest()}
                 for name, data in payloads.items()}
@@ -135,6 +149,7 @@ def build(payloads):
                        doi=payloads[f'document_{doc}.json'].get('doi') or '',
                        cell=study['cell'], strain=study['strain'], duration=study['duration'],
                        document_id=doc, molecule_id=molecule, concentration_units='uM')
+            row['publication_url'] = 'https://doi.org/' + row['doi'] if row['doi'] else ''
             for kind, column in [('ic', 'IC50'), ('cc', 'CC50'), ('si', 'SI')]:
                 val, relation, issue = measurement(selected[kind], kind)
                 row[column] = val
@@ -175,6 +190,12 @@ def load_evidence_sources(refresh=False, offline=False):
     if archive.exists() and not refresh:
         with zipfile.ZipFile(archive) as z:
             payloads = {name: z.read(name) for name in z.namelist()}
+    manifest_path = DATA / 'evidence_sources.json'
+    if not refresh and manifest_path.exists():
+        previous = json.loads(manifest_path.read_text())
+        for name, raw in payloads.items():
+            if name not in previous or hashlib.sha256(raw).hexdigest() != previous[name]['sha256']:
+                raise ValueError('Evidence snapshot integrity check failed: ' + name)
     endpoints, records = {}, []
     offset = 0
     changed = False
@@ -288,12 +309,13 @@ def main():
     rows = build(load_sources(args.refresh, args.offline))
     clean = [r for r in rows if r['usable_for_training']]
     with (DATA / 'external.csv').open('w', newline='') as f:
-        w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
+        w = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator='\n'); w.writeheader(); w.writerows(rows)
     report = dict(records=len(rows), exact_usable_records=len(clean),
                   unique_usable_smiles=len({r['smiles'] for r in clean}),
                   documents=len({r['doi'] for r in rows}), assay_mapping=STUDIES,
                   rejected_reasons=dict(Counter(flag for r in rows for flag in r['quality_flags'].split(';') if flag)),
-                  limitations=['Four curated publications, not an exhaustive literature collection.',
+                  per_document=dict(Counter(r['doi'] for r in rows)),
+                  limitations=['Six curated publications, not an exhaustive literature collection.',
                                'Published SI retained; bounds are excluded from exact-label training.',
                                '2023 paper reports 72 h CC50 / 96 h IC50; that context is retained.',
                                '2013 paper reports overnight IC50 / 20 h CC50; that context is retained.',
