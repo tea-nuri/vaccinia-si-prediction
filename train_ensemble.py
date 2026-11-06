@@ -60,6 +60,10 @@ def main():
         scores['mean_group_mse'] = float(np.mean([scores[str(s)] for s in [42, 2026, 117, 2027, 7]]))
         oof.to_csv(args.output/'oof.csv', index=False)
     pred, model = fit_predict(x, y, te.SMILES.to_numpy())
+    pd.DataFrame({'SMILES': x, 'original_SI': y,
+                  'training_target': np.minimum(y, 10000),
+                  'source': 'competition_train'}).to_csv(
+                      args.output/'training_used_text.csv', index=False)
     sample = pd.read_csv(ROOT/'sample_submit.csv')
     assert sample.columns.tolist() == ['index', 'SI VACV']
     assert sample['index'].equals(te['index']) and np.isfinite(pred).all()

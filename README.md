@@ -2,7 +2,7 @@
 
 Решение [Molecular Activity Prediction](https://www.kaggle.com/competitions/molecular-activity-prediction-hack): предсказание индекса селективности SI по SMILES. Официальная метрика — MSE в исходной шкале, меньше — лучше.
 
-Проверенный public score `submission_v3.csv`: **5 351 782.35466**. Версия `submission_v2.csv` получила 10 060 443.90200, первая версия — 10 903 744.73108. Public leaderboard использует примерно 30% теста и не является финальной оценкой.
+Проверенный public score `submission_v4.csv`: **5 154 554.48738**. Версия `submission_v3.csv` получила 5 351 782.35466, `submission_v2.csv` — 10 060 443.90200, первая версия — 10 903 744.73108. Public leaderboard использует примерно 30% теста и не является финальной оценкой. История подтверждённых отправок сохранена в `submission_history.json`.
 
 ## Быстрый запуск
 
@@ -14,10 +14,10 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 python collect_data.py --offline
 python -m unittest test_validation.py -v
-python train_text.py --output run_text
+python train_ensemble.py --output run_ensemble
 ```
 
-Результат: `run_text/submission_v3.csv`, `run_text/model.joblib`, `run_text/training_used_text.csv`, `run_text/oof.csv`, `run_text/metrics.json`. Только обучение и предсказание без повторной CV: `python train_text.py --skip-cv --output run_text`.
+Результат: `run_ensemble/submission_v4.csv`, `run_ensemble/model.joblib`, `run_ensemble/training_used_text.csv`, `run_ensemble/oof.csv`, `run_ensemble/metrics.json`. Только обучение и предсказание без повторной CV: `python train_ensemble.py --skip-cv --output run_ensemble`.
 
 Предыдущая модель и эксперимент с внешними данными воспроизводятся командой `python train_model.py --external --output run`.
 
@@ -29,7 +29,26 @@ python collect_data.py --refresh
 
 Сетевой доступ нужен только для `--refresh`. В репозитории сохранён `chembl_snapshot.zip`, поэтому обычное воспроизведение не зависит от доступности API. Скрипт проверяет полноту ответов, сохраняет URL и SHA-256 исходных JSON в `sources.json`.
 
-## Текущая модель v3
+## Текущая модель v4
+
+Ансамбль: 85% текстовой модели v3 ниже и 15% ExtraTrees (500 деревьев, лист минимум 1, все признаки, seed 42). Дополнительные признаки вычисляются только из SMILES: длина, количества отдельных символов, позиции первого `c`/`@`, количества `C1`/`c1`. После смешивания применяется `clip((prediction - 5000) * 1.5 + 5000, 0, 10000)`. Вес и преобразование выбраны по локальной CV. Оба компонента используют один и тот же набор `training_used_text.csv`.
+
+| Проверка | MSE v4 |
+|---|---:|
+| Canonical GroupKFold, seed 42 | 7 137 807 |
+| Canonical GroupKFold, seed 2026 | 7 100 840 |
+| Canonical GroupKFold, seed 117 | 6 582 681 |
+| Canonical GroupKFold, seed 2027 | 7 153 205 |
+| Canonical GroupKFold, seed 7 | 7 665 567 |
+| Среднее пяти разбиений | 7 128 020 |
+| Scaffold GroupKFold | 11 197 739 |
+| Kaggle public | 5 154 554.48738 |
+
+Scaffold-оценка v4 немного хуже v3, поэтому сохранены обе версии. На тех же пяти случайных разбиениях v3 имеет средний MSE 7 537 319. Повторное обучение v4 воспроизвело все 597 прогнозов с максимальным расхождением 4.6e-13 (порядок суммирования параллельных деревьев). V3 воспроизвелась побайтно.
+
+## Текстовая модель v3
+
+Воспроизведение: `python train_text.py --output run_text`.
 
 Используются только исходные строки `SMILES`: символьные фрагменты длины 2–6, TF-IDF с сохранением регистра и sublinear TF, Ridge с `alpha=0.03`. Словарь и IDF обучаются только внутри обучающей части каждого fold. `CC50_uM`, `IC50_uM_VACV`, `Title`, `strain`, `Culture`, `index` не входят в признаки.
 
@@ -47,6 +66,21 @@ python collect_data.py --refresh
 `metrics_text.json` содержит настройки и SHA-256 файлов данных; `validation_text.csv` — out-of-fold прогнозы. `experiments_text.json` фиксирует сравнения с CatBoost, XGBoost, классификацией группы SI=10 000, деревьями и разными текстовыми представлениями. Для выбранной v3 достаточно исходного `requirements.txt`; CatBoost/XGBoost при её воспроизведении не нужны.
 
 Важное ограничение: исходная запись SMILES сохраняет соглашения источника о записи структуры. Канонизация заметно ухудшила локальные результаты; эквивалентные записи одной молекулы могут получать разные ответы. Это модель данного набора, а не доказательство устойчивого переноса между лабораториями. Ограничение цели также может занижать реально высокие SI. Модель и параметры выбраны по этим же небольшим данным, поэтому CV-оценка оптимистична; несколько разбиений не являются независимыми наборами молекул.
+
+## Продолжение экспериментов командой
+
+Скрипты в `experiments/` используют файлы данных из корня репозитория и сохраняют результаты/кэши в исключённую из Git папку `run_search/`. Первый запуск создаёт химические признаки локально; веса и большой кэш не нужны в репозитории.
+
+```bash
+pip install -r requirements-experiments.txt
+python experiments/experiment_v3.py
+python experiments/experiment_text.py
+python experiments/refine_v4.py
+python experiments/text_kernels.py
+python experiments/text_trees.py
+```
+
+Это соответственно: бустинг/деревья/классификация SI=10 000; текстовые и молекулярные ядра; подтверждение текстовых моделей и счётчиков на трёх разбиениях; нелинейные текстовые ядра; деревья по символьным фрагментам. Перенесённый в репозиторий код поиска повторно проверен на выбранной конфигурации: MSE seed 42 совпал с 7 589 981.619882645. Полный журнал оценок — `experiments_text.json`; калибровка дополнительно проверялась на seed 2027 и 7.
 
 ## Данные и предыдущая модель v2
 
