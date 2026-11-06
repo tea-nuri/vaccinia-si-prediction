@@ -33,7 +33,10 @@ class DataValidationTests(unittest.TestCase):
         with zipfile.ZipFile(ROOT/'data/chembl_snapshot.zip') as z:
             payloads = {n: json.loads(z.read(n)) for n in z.namelist()}
         rows = build(payloads)
-        self.assertEqual(len(rows), 63)
+        self.assertEqual(len(rows), 75)
+        self.assertEqual(len({r["doi"] for r in rows}), 4)
+        self.assertEqual(sum(r["usable_for_training"] for r in rows), 67)
+        self.assertTrue(all(not r["usable_for_training"] for r in rows if r["SI"] == ""))
         self.assertTrue(all(r['doi'] for r in rows))
         self.assertTrue(all(r['SI_relation']=='=' for r in rows if r['usable_for_training']))
         self.assertTrue(all(not r['usable_for_training'] for r in rows

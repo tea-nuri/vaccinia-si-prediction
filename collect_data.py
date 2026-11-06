@@ -19,6 +19,12 @@ STUDIES = [
     dict(document='CHEMBL5625166', cell='A549', strain='VACV; strain unspecified in assay record',
          ic='CHEMBL5625832', cc='CHEMBL5625833', si='CHEMBL5625834',
          duration='Published ratio: IC50 96 h; CC50 72 h'),
+    dict(document='CHEMBL4368876', cell='Vero', strain='Copenhagen',
+         ic='CHEMBL4369494', cc='CHEMBL4369495', si='CHEMBL4369496',
+         duration='IC50 and CC50: 4 days'),
+    dict(document='CHEMBL2321819', cell='BSC1', strain='WR',
+         ic='CHEMBL2330536', cc='CHEMBL2330528', si='CHEMBL2330527',
+         duration='Published ratio: IC50 overnight; CC50 20 h'),
 ]
 FACTORS = {'nM': .001, 'uM': 1., 'µM': 1., 'mM': 1000., 'M': 1e6}
 
@@ -70,16 +76,22 @@ def load_sources(refresh=False, offline=False):
     for document in sorted({s['document'] for s in STUDIES}):
         endpoints[f'paper_{document}.json'] = API + f'activity.json?document_chembl_id={document}&limit=1000'
         endpoints[f'document_{document}.json'] = API + f'document/{document}.json'
+    payloads = {}
     if archive.exists() and not refresh:
         with zipfile.ZipFile(archive) as z:
-            payloads = {name: z.read(name) for name in endpoints}
-    else:
+            payloads = {name: z.read(name) for name in endpoints if name in z.namelist()}
+    missing = set(endpoints) - set(payloads)
+    if missing:
         if offline:
-            raise FileNotFoundError('data/chembl_snapshot.zip is required for --offline')
-        payloads = {name: fetch(url) for name, url in endpoints.items()}
-        with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as z:
+            raise FileNotFoundError('Incomplete data/chembl_snapshot.zip; missing: ' + ', '.join(sorted(missing)))
+        for name in sorted(missing):
+            print('Fetching ' + endpoints[name], flush=True)
+            payloads[name] = fetch(endpoints[name])
+        temporary = archive.with_suffix('.tmp')
+        with zipfile.ZipFile(temporary, 'w', zipfile.ZIP_DEFLATED) as z:
             for name, data in payloads.items():
                 z.writestr(name, data)
+        temporary.replace(archive)
     manifest = {name: {'url': endpoints[name], 'sha256': hashlib.sha256(data).hexdigest()}
                 for name, data in payloads.items()}
     (DATA / 'sources.json').write_text(json.dumps(manifest, indent=2))
@@ -159,9 +171,11 @@ def main():
                   unique_usable_smiles=len({r['smiles'] for r in clean}),
                   documents=len({r['doi'] for r in rows}), assay_mapping=STUDIES,
                   rejected_reasons=dict(Counter(flag for r in rows for flag in r['quality_flags'].split(';') if flag)),
-                  limitations=['Two curated publications, not an exhaustive literature collection.',
+                  limitations=['Four curated publications, not an exhaustive literature collection.',
                                'Published SI retained; bounds are excluded from exact-label training.',
                                '2023 paper reports 72 h CC50 / 96 h IC50; that context is retained.',
+                               '2013 paper reports overnight IC50 / 20 h CC50; that context is retained.',
+                               'Missing IC50 or SI is not automatically an inactivity label.',
                                'Distinct cell lines remain separate observations.'])
     (DATA / 'external_validation.json').write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
