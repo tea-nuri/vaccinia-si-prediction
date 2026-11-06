@@ -1,0 +1,43 @@
+{
+  "status": "user_requested_experimental_export_not_submitted",
+  "candidate": "neighbor0.25_context0.25",
+  "promoted": false,
+  "passed_selection": false,
+  "rejection_reasons": [
+    "new_known_culture_mean_improves",
+    "each_known_culture_scaffold_within_10_percent"
+  ],
+  "rows": 597,
+  "unseen_scaffold_rows": 198,
+  "changed_rows": 158,
+  "baseline_full_refit_max_abs_difference": 3.410605131648481e-13,
+  "local_scores": {
+    "scaffold": 4044410.4924514117,
+    "scaffold_shuffle42": 5753408.346653017,
+    "scaffold_shuffle2026": 4832032.470158884,
+    "42": 524367.010725459,
+    "2026": 597763.3931062978,
+    "117": 571163.8838693217,
+    "2027": 607362.0967310355,
+    "7": 483685.41464567033,
+    "23": 686657.6673382313,
+    "101": 616712.6415636297,
+    "509": 623252.2348983919
+  },
+  "source_sha256": {
+    "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "data/test.csv": "8bcc39b10a0ef8595eaf0bd58880c9bcda51c8de69b573ecc840ff1cf19ab864",
+    "data/external.csv": "a578c00918581120ddead1ed68f71f46bcaa836b09605ba07b0a03b8235bd1a0",
+    "data/external_inactivity.csv": "0f2159430306eaf24701d6c8340be597ff5b7cecf40cb8464020f264f88f75f9",
+    "data/primary_literature.csv": "9caf3fac7f1aa1fbce11c9611c3b6fe51891b7cb6a9bbeda9e0300c9cd7fc204",
+    "data/literature_candidates.csv": "12df79381aa0d2c0b0eed88209f946580d857667a87d039652880550e16d38da",
+    "data/camphor2022.csv": "bb98ffaba6f5a05030ab76150adafb3ee24cdd9cf2417a56b777d973c4e1be2c",
+    "data/bailey2007_bounds.csv": "d5dabf42a731ef3ce5f173d531b19b83b0c49d537a1e553804ebd0af2aa6dc56",
+    "results/candidate_bounded_features.csv": "348bd9e53b11bc8bd9e852d55cbad08c170b079fe4e7b554731121afb2950ee6"
+  },
+  "submission_sha256": "7e25a3f4a55e3a881f855bd564ee8346585cf2d65ef2eb3f33d4c0101b473c8c",
+  "limitations": [
+    "Rejected by robustness criteria; exported at user request for manual inspection or submission.",
+    "Scaffold and molecular CV are exploratory local scores, not Kaggle Public Score."
+  ]
+}

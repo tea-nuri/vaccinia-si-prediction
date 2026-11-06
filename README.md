@@ -298,3 +298,13 @@ python -m unittest discover -v
 ```
 
 Отчёт с причинами отклонения — `results/scaffold_generalization_experiment.json`. Полные OOF и все семейства воспроизводятся в `run_scaffold_generalization/`; в сводке сохранены десять наиболее ошибочных групп каждого scaffold-протокола. Аудит также воспроизводит два отклонённых варианта усреднения с тренировочным prior при Morgan Tanimoto <0,3. Новый CSV не создан; Kaggle и выбранная модель не изменены.
+
+### Экспериментальный экспорт по запросу пользователя
+
+После проверки пользователь запросил файл варианта с исходной scaffold MSE **4 044 410.49** для ручной загрузки. Это `neighbor0.25_context0.25`: для новых каркасов 50% прежней модели, 25% текстовых соседей k=7 и 25% контекстного классификатора; внешние коррекции сохраняются. Средняя molecular MSE — 556 868.36. Вариант по-прежнему **отклонён проверками устойчивости** и не заменяет выбранную модель. Экспорт не является отправкой в Kaggle.
+
+```bash
+OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 python experiments/export_scaffold_candidate.py --candidate neighbor0.25_context0.25
+```
+
+Проверенная копия: `results/candidate_scaffold_experimental.csv`; метаданные: `results/scaffold_export.json`. Экспорт повторно обучает baseline на всём train, сверяет его с зафиксированным CSV, проверяет исходные хеши, схему sample_submit и порядок ID. 597 строк, изменено 158 прогнозов. SHA-256: **7e25a3f4a55e3a881f855bd564ee8346585cf2d65ef2eb3f33d4c0101b473c8c**.
