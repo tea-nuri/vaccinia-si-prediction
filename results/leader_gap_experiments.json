@@ -1,0 +1,119 @@
+{
+  "date": "2026-11-06",
+  "baseline": "V6",
+  "decision": "Keep verified V6; no tested candidate passes validation.",
+  "rules_url": "https://www.kaggle.com/competitions/molecular-activity-prediction-hack/data",
+  "leaderboard_snapshot": {
+    "our_public_mse": 5144257.81271,
+    "first_public_mse": 0.0,
+    "second_public_mse": 4885.90376,
+    "fifth_public_mse": 4649016.44406
+  },
+  "required_relative_improvement_to_snapshot_fifth": 0.09627071322638603,
+  "evidence_ablation": {
+    "coverage": {
+      "positive_train": 37,
+      "positive_test": 83,
+      "numeric_train": 19,
+      "numeric_test": 44
+    },
+    "scores": {
+      "42": {
+        "baseline": 6541600.6189004285,
+        "active": 6846553.515482319,
+        "numeric": 6842779.295039211,
+        "both": 6837587.982092257,
+        "active_soft": 6619056.9664404625,
+        "numeric_soft": 6615747.183956609
+      },
+      "2026": {
+        "baseline": 6808110.522445816,
+        "active": 7099576.234800244,
+        "numeric": 7108025.706910337,
+        "both": 7098165.035095558,
+        "active_soft": 6899064.892704492,
+        "numeric_soft": 6904309.122717428
+      },
+      "117": {
+        "baseline": 6183182.083331672,
+        "active": 6480561.242834692,
+        "numeric": 6490625.849871749,
+        "both": 6480684.322892604,
+        "active_soft": 6265508.484421691,
+        "numeric_soft": 6271415.452303943
+      },
+      "2027": {
+        "baseline": 6870298.426347534,
+        "active": 7165599.338548323,
+        "numeric": 7174328.119911531,
+        "both": 7160082.476660597,
+        "active_soft": 6942945.5178447785,
+        "numeric_soft": 6948199.228560989
+      },
+      "7": {
+        "baseline": 6937490.141152248,
+        "active": 7215429.437608121,
+        "numeric": 7234410.434570394,
+        "both": 7215380.918621749,
+        "active_soft": 7005456.086973826,
+        "numeric_soft": 7017012.505301572
+      },
+      "scaffold": {
+        "baseline": 10650743.19983826,
+        "active": 10906206.152960274,
+        "numeric": 10917051.706466628,
+        "both": 10900165.354381274,
+        "active_soft": 10706913.37292333,
+        "numeric_soft": 10715001.13961056
+      }
+    }
+  },
+  "evidence_settings": {
+    "positive": "Exact stereochemical canonical SMILES; assay description contains normalized cell name; IC50/EC50/MIC/MIC50 with relation =, positive finite reported value and no validity flag; no explicit Not active in that cell. In-fold cell mapping requires >=3 positive-evidence training rows, all non-sentinel. Replace with active-only ExtraTrees prediction.",
+    "numeric": "Exact stereochemical canonical SMILES plus normalized cell; usable_for_training rows only; require max SI <= 1.2 * min SI, use median; no train/test competition concentration columns.",
+    "soft": "Equal average of correction and baseline prediction.",
+    "selection_warning": "Published external labels can disagree with competition annotations; one training sentinel has exact external SI=11 in the same cell. Do not overwrite it automatically."
+  },
+  "kernel_ablation": {
+    "baseline_mean_three_seeds": 6510964.408225972,
+    "best_candidate": {
+      "variant": "rdkit_text0.5_alpha0.01",
+      "weight": 0.25,
+      "scores": [
+        6587132.564595484,
+        6814204.641071369,
+        6214673.641293893
+      ],
+      "mean": 6538670.282320249
+    },
+    "number_candidates": 72,
+    "settings": "Tanimoto kernels: Morgan radius 2 and 3, 2048 bits with chirality; RDKit 2048-bit path fingerprint; equal average of those three. Optional 50% cosine TF-IDF char kernel (2,6), vocabulary fitted inside fold. Ridge alpha .01/.1/1. Targets and predictions capped 10000. Existing inactivity correction. Blend weights .25/.5/1 with V6. GroupKFold seeds 42/2026/117."
+  },
+  "limitations": [
+    "Leaderboard values do not reveal competing methods or establish a rules violation.",
+    "These are repeated exploratory CV comparisons, not an independent holdout.",
+    "No new candidate was submitted to Kaggle.",
+    "No reduction of public MSE has been demonstrated in this investigation."
+  ],
+  "cap_ablation": {
+    "settings": "Remove target caps 10000/5000 and all upper prediction clips from the existing V6 components; keep features, hyperparameters and inactivity correction unchanged.",
+    "scores": {
+      "42": {
+        "baseline": 6541600.6189004285,
+        "uncapped": 8173344.61069431
+      },
+      "2026": {
+        "baseline": 6808110.522445816,
+        "uncapped": 9160558.360746196
+      },
+      "117": {
+        "baseline": 6183182.083331672,
+        "uncapped": 7785505.079437072
+      },
+      "scaffold": {
+        "baseline": 10650743.19983826,
+        "uncapped": 11624239.38410255
+      }
+    }
+  }
+}

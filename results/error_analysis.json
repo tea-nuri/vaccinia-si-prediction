@@ -1,0 +1,309 @@
+{
+  "metric": "MSE on original uncapped targets; supplementary slices do not replace it",
+  "source_sha256": {
+    "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "results/validation.csv": "e1ed7782d5227d3b540b9dd49530527f1f04684f6087ef1c38ad80a03b17aeb0"
+  },
+  "train_rows": 320,
+  "inactive_rows": 81,
+  "targets_above_prediction_cap": 1,
+  "largest_target": 36066.667,
+  "minimum_possible_train_mse_with_cap_10000": 2123347.2765277782,
+  "splits": {
+    "42": {
+      "mse": 6541600.6189004285,
+      "largest_target_error_share": 0.6177921869185691,
+      "top20_error_share": 0.9494948163405514,
+      "mse_on_targets_at_most_10000": 2508088.64361336,
+      "inactive_mse": 3694135.8467782773,
+      "other_target_mse": 7506640.981000408,
+      "threshold_5000_inactivity_disagreements": 10
+    },
+    "2026": {
+      "mse": 6808110.522445816,
+      "largest_target_error_share": 0.5957407536430281,
+      "top20_error_share": 0.9334612691968025,
+      "mse_on_targets_at_most_10000": 2760869.34562399,
+      "inactive_mse": 5041518.541491049,
+      "other_target_mse": 7406829.980426301,
+      "threshold_5000_inactivity_disagreements": 9
+    },
+    "117": {
+      "mse": 6183182.083331672,
+      "largest_target_error_share": 0.6548381346363724,
+      "top20_error_share": 0.9551410735739307,
+      "mse_on_targets_at_most_10000": 2140888.9397022906,
+      "inactive_mse": 3006089.023159361,
+      "other_target_mse": 7259937.471925634,
+      "threshold_5000_inactivity_disagreements": 8
+    },
+    "2027": {
+      "mse": 6870298.426347534,
+      "largest_target_error_share": 0.5897803317818391,
+      "top20_error_share": 0.9555849487185922,
+      "mse_on_targets_at_most_10000": 2827166.43612894,
+      "inactive_mse": 3693059.1293750657,
+      "other_target_mse": 7947103.3763674935,
+      "threshold_5000_inactivity_disagreements": 12
+    },
+    "7": {
+      "mse": 6937490.141152248,
+      "largest_target_error_share": 0.5843241777145038,
+      "top20_error_share": 0.9470303115357767,
+      "mse_on_targets_at_most_10000": 2892786.8780147806,
+      "inactive_mse": 4050773.259733365,
+      "other_target_mse": 7915833.519373712,
+      "threshold_5000_inactivity_disagreements": 11
+    },
+    "scaffold": {
+      "mse": 10650743.19983826,
+      "largest_target_error_share": 0.3798188979596868,
+      "top20_error_share": 0.8429966039679931,
+      "mse_on_targets_at_most_10000": 6626096.205867398,
+      "inactive_mse": 18697330.585096464,
+      "other_target_mse": 7923657.09855828,
+      "threshold_5000_inactivity_disagreements": 22
+    }
+  },
+  "limitations": [
+    "Training OOF error decomposition does not identify errors on the hidden Kaggle test.",
+    "Removing the largest target is a diagnostic slice only, not a replacement metric.",
+    "The lower bound applies to these training targets, not to the unseen test distribution.",
+    "A low leaderboard score alone does not establish how a team generated predictions.",
+    "No CC50, IC50, concentration missingness, Title or index is used as a predictor."
+  ],
+  "culture_error_seed42": [
+    {
+      "Culture": "Vero",
+      "rows": 162,
+      "mse": 12507572.00820233
+    },
+    {
+      "Culture": "BSC-40 ",
+      "rows": 10,
+      "mse": 4881294.444053428
+    },
+    {
+      "Culture": "Human foreskin fibroblast",
+      "rows": 25,
+      "mse": 329050.741620898
+    },
+    {
+      "Culture": "cells BSC1",
+      "rows": 10,
+      "mse": 269216.55155119527
+    },
+    {
+      "Culture": "cells HEL",
+      "rows": 22,
+      "mse": 260281.5269894823
+    },
+    {
+      "Culture": "BSC40",
+      "rows": 2,
+      "mse": 258008.61543180005
+    },
+    {
+      "Culture": "A549 cells",
+      "rows": 7,
+      "mse": 109100.5686142331
+    },
+    {
+      "Culture": " cells E6SM",
+      "rows": 1,
+      "mse": 100383.67982907603
+    },
+    {
+      "Culture": "BHK-21",
+      "rows": 3,
+      "mse": 8189.388919512591
+    },
+    {
+      "Culture": " lung fibroblast cells",
+      "rows": 13,
+      "mse": 8144.431551710524
+    },
+    {
+      "Culture": "BSC-40 cells",
+      "rows": 5,
+      "mse": 7740.7684649719395
+    },
+    {
+      "Culture": "CV-1",
+      "rows": 1,
+      "mse": 6479.5216961417245
+    },
+    {
+      "Culture": "E6SM cells",
+      "rows": 1,
+      "mse": 5500.546569804762
+    },
+    {
+      "Culture": "PRK cells",
+      "rows": 15,
+      "mse": 2556.413091880715
+    },
+    {
+      "Culture": "MT-4",
+      "rows": 8,
+      "mse": 1081.872922169526
+    },
+    {
+      "Culture": "HeLa cells",
+      "rows": 17,
+      "mse": 904.3996840398129
+    },
+    {
+      "Culture": "CEM Cells",
+      "rows": 7,
+      "mse": 621.4394463949668
+    },
+    {
+      "Culture": "HELA cells",
+      "rows": 11,
+      "mse": 0.0
+    }
+  ],
+  "largest_errors_seed42": [
+    {
+      "source_row": 14,
+      "target": 36066.667,
+      "prediction": 105.1330959035879,
+      "squared_error": 1293231920.7354755,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 23,
+      "target": 1.62,
+      "prediction": 9811.936624290582,
+      "squared_error": 96242312.26883213,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 52,
+      "target": 21.686,
+      "prediction": 9116.522085975606,
+      "squared_error": 82716043.4307641,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 42,
+      "target": 186.25,
+      "prediction": 9058.828169739205,
+      "squared_error": 78722643.3781327,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 51,
+      "target": 5.999,
+      "prediction": 8055.548097385514,
+      "squared_error": 64795240.671219945,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 115,
+      "target": 10000.0,
+      "prediction": 2988.9235491340696,
+      "squared_error": 49155192.99988681,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 88,
+      "target": 10000.0,
+      "prediction": 3088.950435228452,
+      "squared_error": 47762606.086729005,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 63,
+      "target": 102.887,
+      "prediction": 6215.863719671802,
+      "squared_error": 37368484.37524942,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 152,
+      "target": 10000.0,
+      "prediction": 4198.44651796075,
+      "squared_error": 33658022.80496175,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 44,
+      "target": 3.964,
+      "prediction": 5554.815336076228,
+      "squared_error": 30811950.555219248,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 262,
+      "target": 10000.0,
+      "prediction": 4833.438083249452,
+      "squared_error": 26693362.0396171,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 83,
+      "target": 10000.0,
+      "prediction": 5099.663955551833,
+      "squared_error": 24013293.348517906,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 107,
+      "target": 10000.0,
+      "prediction": 5162.6808989279525,
+      "squared_error": 23399656.085596483,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 199,
+      "target": 5000.0,
+      "prediction": 700.070775201585,
+      "squared_error": 18489391.338275496,
+      "culture": "BSC-40 "
+    },
+    {
+      "source_row": 264,
+      "target": 5000.0,
+      "prediction": 738.425384389465,
+      "squared_error": 18161018.20441608,
+      "culture": "BSC-40 "
+    },
+    {
+      "source_row": 230,
+      "target": 10000.0,
+      "prediction": 5757.290877945867,
+      "squared_error": 18000580.694361355,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 216,
+      "target": 10000.0,
+      "prediction": 6370.0646642184765,
+      "squared_error": 13176430.541955322,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 269,
+      "target": 10000.0,
+      "prediction": 6713.831688452442,
+      "squared_error": 10798902.171819327,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 171,
+      "target": 10000.0,
+      "prediction": 6734.406507783214,
+      "squared_error": 10664100.856408626,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 276,
+      "target": 3.51052631578947,
+      "prediction": 3122.4732451878554,
+      "squared_error": 9727928.44171383,
+      "culture": "Vero"
+    }
+  ]
+}
