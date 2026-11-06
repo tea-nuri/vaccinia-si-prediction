@@ -1,0 +1,55 @@
+{
+  "model": "V8 local candidate: V7 plus new unambiguous primary measurements",
+  "status": "local_only_not_submitted",
+  "scores": {
+    "42": 899384.262937878,
+    "2026": 1194028.792219374,
+    "117": 1015529.7102538918,
+    "2027": 1030404.3928241335,
+    "7": 895244.3314487627,
+    "scaffold": 4918731.102001798,
+    "mean_group_mse": 1006918.297936808
+  },
+  "baseline_scores": {
+    "42": 1357441.5756418915,
+    "2026": 1539876.7258945308,
+    "117": 1445965.3684941554,
+    "2027": 1524010.0152305046,
+    "7": 1629329.7921037113,
+    "scaffold": 5686744.461882243,
+    "mean_group_mse": 1499324.6954729587
+  },
+  "unchanged_rows_scores": {
+    "42": 916567.2922255734,
+    "2026": 1216841.9717481174,
+    "117": 1034932.0792992178,
+    "2027": 1050090.9914727123,
+    "7": 912348.2537653284,
+    "scaffold": 5012716.937131478,
+    "mean_group_mse": 1026156.1177021901
+  },
+  "new_train_matches": 6,
+  "new_test_matches": 7,
+  "overlapping_train_matches_skipped": 0,
+  "overlapping_test_matches_skipped": 1,
+  "train_rows": 320,
+  "test_rows": 597,
+  "features_allowed": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "selection": "Local candidate only; preserve selected public V7. No Kaggle submission authorized.",
+  "limitations": [
+    "Retrieval-assisted CV includes published measurements for validation molecules; not novel-compound generalization.",
+    "The source was sought after inspecting training errors. All six CV splits reuse the same molecules.",
+    "Published SI and ratios of rounded means differ; assay context cannot resolve every discrepancy.",
+    "Existing V7 external matches are retained; additional conflicting studies cannot silently override them."
+  ],
+  "artifact_sha256": {
+    "data/literature_candidates.csv": "12df79381aa0d2c0b0eed88209f946580d857667a87d039652880550e16d38da",
+    "results/submission.csv": "3fdde8b7e0a8ee5cbae496090bb5a167c79e83dc3e91c36d1618300ab38f1615",
+    "results/validation.csv": "d6a562f18c91516c5fdf7d6821e7e64fbd18f41903fb3e6c245e97b28cd02e63"
+  },
+  "candidate_submission_sha256": "ef1854858b53f6bbb50f52085dbaf6154568586ca1d92c34b94676afc5214edf"
+}

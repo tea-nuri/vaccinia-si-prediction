@@ -2,7 +2,7 @@
   "records": 98,
   "papers": 5,
   "eligible_records": 72,
-  "explicit_inactive_records": 40,
+  "explicit_inactive_records": 39,
   "method": "Manual primary-table transcription and chemical-name/scheme translation; RDKit validates graph, formula and named CIP. No competition files are read.",
   "source_locations": {
     "10.1002/cmdc.202100771": [
@@ -29,5 +29,5 @@
     "BMCL 2022.129080: primary structures have 4-methyl groups; the ChEMBL records encode 4-hydroxy groups. Primary graph is used only in this separate curated dataset.",
     "Published SI and ratio of rounded external means can differ. Retrieval experiment explicitly evaluates the latter; never derives SI from competition concentrations."
   ],
-  "sha256": "b67830003c566fb17276935ee78e29801827f038017ed53f91bb3cb61193aef7"
+  "sha256": "9caf3fac7f1aa1fbce11c9611c3b6fe51891b7cb6a9bbeda9e0300c9cd7fc204"
 }

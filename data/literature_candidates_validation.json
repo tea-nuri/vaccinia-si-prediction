@@ -1,0 +1,10 @@
+{
+  "records": 17,
+  "papers": 1,
+  "source_url": "https://www.lookchem.com/FreePDFArticle_5896-17-3_76541533.htm",
+  "publication_url": "https://doi.org/10.1007/s11172-019-2467-6",
+  "sha256": "12df79381aa0d2c0b0eed88209f946580d857667a87d039652880550e16d38da",
+  "explicit_inactive_records": 13,
+  "exact_numeric_records": 3,
+  "note": "Manually transcribed primary tables; no competition files are read. V7 sources remain frozen. Mass concentrations converted with RDKit molecular weight. All bounds preserved."
+}
