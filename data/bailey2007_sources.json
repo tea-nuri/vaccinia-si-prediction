@@ -1,0 +1,6 @@
+{
+  "activities.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?assay_chembl_id__in=CHEMBL918571,CHEMBL918574&limit=1000",
+    "sha256": "1460933a78513a6c0f1b9b3722acd173baede5e2567f0eb52c0d476e0c6a19af"
+  }
+}

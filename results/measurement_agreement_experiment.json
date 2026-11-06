@@ -1,5 +1,5 @@
 {
-  "status": "local_only_not_submitted",
+  "status": "submitted_score_reported_by_user",
   "scores": {
     "42": {
       "v9": 898540.9316354111,
@@ -55,7 +55,7 @@
     "Rule developed after error analysis; all splits reuse the same molecules.",
     "Effect of agreement guard currently depends on one training and one test molecule.",
     "Disagreeing numerical measurements can still both indicate activity; ML fallback is not biological ground truth.",
-    "No claim of Public Score below one million; no Kaggle submission."
+    "No claim of Public Score below one million; submission score reported by user: 3484766.18267."
   ],
   "source_sha256": {
     "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
@@ -81,5 +81,8 @@
     "agreement_and_gate": true
   },
   "candidate_submission_sha256": "88163ce3b1fb5b6231b3b5d75982115b9513eecf125aca0df963defebe0eeb81",
-  "verification": "30 tests passed; V9 rebuilt within each original validation split and agrees with frozen predictions within 1e-6; all preprocessing fitted inside folds."
+  "verification": "30 tests passed; V9 rebuilt within each original validation split and agrees with frozen predictions within 1e-6; all preprocessing fitted inside folds.",
+  "kaggle_public_score": 3484766.18267,
+  "score_evidence": "User reported score in chat on 2026-11-07; not independently checked in UI this turn",
+  "submission_filename": "submission_agreement_text_local.csv"
 }

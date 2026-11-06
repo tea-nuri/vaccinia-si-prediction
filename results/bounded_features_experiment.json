@@ -1,0 +1,379 @@
+{
+  "status": "local_only_not_submitted",
+  "scores": {
+    "42": {
+      "baseline": 579098.4984082112,
+      "0.5": 463436.592777244,
+      "1.0": 424882.62421846914
+    },
+    "2026": {
+      "baseline": 732015.4112507275,
+      "0.5": 603418.3387802156,
+      "1.0": 560552.6478195915
+    },
+    "117": {
+      "baseline": 669060.7949950481,
+      "0.5": 579177.8920114395,
+      "1.0": 549216.9243571253
+    },
+    "2027": {
+      "baseline": 689679.7874228307,
+      "0.5": 586745.3145935996,
+      "1.0": 552433.8235123947
+    },
+    "7": {
+      "baseline": 560489.4406444642,
+      "0.5": 469007.84017670417,
+      "1.0": 438513.97326595744
+    },
+    "scaffold": {
+      "baseline": 4425560.256432788,
+      "0.5": 4425130.24051166,
+      "1.0": 4424986.901871293
+    },
+    "23": {
+      "baseline": 819318.7961419784,
+      "0.5": 733160.037649458,
+      "1.0": 704440.4514725234
+    },
+    "101": {
+      "baseline": 708396.3347354317,
+      "0.5": 626933.179927164,
+      "1.0": 599778.7948657997
+    },
+    "509": {
+      "baseline": 734597.8066146811,
+      "0.5": 656907.2373246381,
+      "1.0": 631010.3808791918
+    }
+  },
+  "fold_calibration": {
+    "42": [
+      {
+        "applied_rows": 0,
+        "slope": 0.9999999999258664,
+        "support_rows": 14,
+        "support_molecules": 10
+      },
+      {
+        "applied_rows": 1,
+        "slope": 0.9999999998733838,
+        "support_rows": 13,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 0,
+        "slope": 0.9999999999258664,
+        "support_rows": 14,
+        "support_molecules": 10
+      },
+      {
+        "applied_rows": 6,
+        "slope": 1.0000000001606435,
+        "support_rows": 8,
+        "support_molecules": 6
+      },
+      {
+        "applied_rows": 7,
+        "slope": 0.9999999998378436,
+        "support_rows": 7,
+        "support_molecules": 5
+      }
+    ],
+    "2026": [
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999998572099,
+        "support_rows": 12,
+        "support_molecules": 8
+      },
+      {
+        "applied_rows": 6,
+        "slope": 1.000000000077331,
+        "support_rows": 8,
+        "support_molecules": 6
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999998461557,
+        "support_rows": 12,
+        "support_molecules": 8
+      },
+      {
+        "applied_rows": 2,
+        "slope": 1.0000000000198939,
+        "support_rows": 12,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999997545767,
+        "support_rows": 12,
+        "support_molecules": 9
+      }
+    ],
+    "117": [
+      {
+        "applied_rows": 0,
+        "slope": 0.9999999999258664,
+        "support_rows": 14,
+        "support_molecules": 10
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999999258171,
+        "support_rows": 12,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 1,
+        "slope": 0.9999999999206007,
+        "support_rows": 13,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999999172945,
+        "support_rows": 12,
+        "support_molecules": 8
+      },
+      {
+        "applied_rows": 9,
+        "slope": 1.0,
+        "support_rows": 5,
+        "support_molecules": 4
+      }
+    ],
+    "2027": [
+      {
+        "applied_rows": 4,
+        "slope": 0.9999999998459437,
+        "support_rows": 10,
+        "support_molecules": 7
+      },
+      {
+        "applied_rows": 2,
+        "slope": 1.0000000000198939,
+        "support_rows": 12,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 4,
+        "slope": 0.9999999995808184,
+        "support_rows": 10,
+        "support_molecules": 7
+      },
+      {
+        "applied_rows": 1,
+        "slope": 0.999999999925865,
+        "support_rows": 13,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 3,
+        "slope": 1.0000000000827691,
+        "support_rows": 11,
+        "support_molecules": 8
+      }
+    ],
+    "7": [
+      {
+        "applied_rows": 7,
+        "slope": 0.9999999995266489,
+        "support_rows": 7,
+        "support_molecules": 5
+      },
+      {
+        "applied_rows": 0,
+        "slope": 0.9999999999258664,
+        "support_rows": 14,
+        "support_molecules": 10
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999998733835,
+        "support_rows": 12,
+        "support_molecules": 8
+      },
+      {
+        "applied_rows": 1,
+        "slope": 0.9999999999172964,
+        "support_rows": 13,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 4,
+        "slope": 1.0000000001713385,
+        "support_rows": 10,
+        "support_molecules": 8
+      }
+    ],
+    "scaffold": [
+      {
+        "applied_rows": 0,
+        "slope": 0.9999999999258664,
+        "support_rows": 14,
+        "support_molecules": 10
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999999258171,
+        "support_rows": 12,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 0,
+        "reason": "insufficient_fold_support"
+      },
+      {
+        "applied_rows": 0,
+        "slope": 0.9999999999258664,
+        "support_rows": 14,
+        "support_molecules": 10
+      },
+      {
+        "applied_rows": 0,
+        "slope": 0.9999999999258664,
+        "support_rows": 14,
+        "support_molecules": 10
+      }
+    ],
+    "23": [
+      {
+        "applied_rows": 3,
+        "slope": 0.9999999998732402,
+        "support_rows": 11,
+        "support_molecules": 8
+      },
+      {
+        "applied_rows": 0,
+        "slope": 0.9999999999258664,
+        "support_rows": 14,
+        "support_molecules": 10
+      },
+      {
+        "applied_rows": 0,
+        "slope": 0.9999999999258664,
+        "support_rows": 14,
+        "support_molecules": 10
+      },
+      {
+        "applied_rows": 10,
+        "slope": 1.0,
+        "support_rows": 4,
+        "support_molecules": 3
+      },
+      {
+        "applied_rows": 1,
+        "slope": 0.9999999999206007,
+        "support_rows": 13,
+        "support_molecules": 9
+      }
+    ],
+    "101": [
+      {
+        "applied_rows": 3,
+        "slope": 0.9999999997545721,
+        "support_rows": 11,
+        "support_molecules": 8
+      },
+      {
+        "applied_rows": 1,
+        "slope": 0.9999999999172964,
+        "support_rows": 13,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999999258171,
+        "support_rows": 12,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999998733835,
+        "support_rows": 12,
+        "support_molecules": 8
+      },
+      {
+        "applied_rows": 6,
+        "slope": 1.000000000330121,
+        "support_rows": 8,
+        "support_molecules": 6
+      }
+    ],
+    "509": [
+      {
+        "applied_rows": 5,
+        "slope": 0.9999999998393153,
+        "support_rows": 9,
+        "support_molecules": 7
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.9999999999258171,
+        "support_rows": 12,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 1,
+        "slope": 0.9999999999206007,
+        "support_rows": 13,
+        "support_molecules": 9
+      },
+      {
+        "applied_rows": 2,
+        "slope": 0.999999999917296,
+        "support_rows": 12,
+        "support_molecules": 8
+      },
+      {
+        "applied_rows": 4,
+        "slope": 1.0000000000339793,
+        "support_rows": 10,
+        "support_molecules": 7
+      }
+    ]
+  },
+  "features": "Published CC50/EC50 lower limit, same connectivity, agreement of every source-specified stereocentre, BSC40/IHD-J context. Partial stereo is explicit uncertainty.",
+  "model": "Nonnegative least-squares slope without intercept learned separately in each training fold; inverse source-molecule count weights; minimum 3 source molecules.",
+  "weights": [
+    0.5,
+    1.0
+  ],
+  "selection": "A tested weight must improve every original and additional split to be considered; choose lower five-seed mean among passing weights.",
+  "source_sha256": {
+    "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "data/test.csv": "8bcc39b10a0ef8595eaf0bd58880c9bcda51c8de69b573ecc840ff1cf19ab864",
+    "data/bailey2007_bounds.csv": "d5dabf42a731ef3ce5f173d531b19b83b0c49d537a1e553804ebd0af2aa6dc56",
+    "results/candidate_agreement_text.csv": "88163ce3b1fb5b6231b3b5d75982115b9513eecf125aca0df963defebe0eeb81"
+  },
+  "limitations": [
+    "Bounds are features, not exact external labels; predictions target the competition annotation convention.",
+    "Partial stereochemistry does not prove chemical identity; new stereoisomers can behave differently.",
+    "Source investigated after observing training errors; these are exploratory retrieval-assisted scores.",
+    "Repeated split protocols reuse the same dataset; validation molecules are excluded from their own training fold. No public score below one million is claimed."
+  ],
+  "passing": [
+    "0.5",
+    "1.0"
+  ],
+  "selected": "1.0",
+  "mean_original_seeds": {
+    "baseline": 646068.7865442563,
+    "0.5": 540357.1956678407,
+    "1.0": 505119.99863470753
+  },
+  "mean_additional_seeds": {
+    "baseline": 754104.3124973638,
+    "0.5": 672333.4849670867,
+    "1.0": 645076.5424058383
+  },
+  "full_fit": {
+    "applied_rows": 16,
+    "slope": 0.9999999999258664,
+    "support_rows": 14,
+    "support_molecules": 10
+  },
+  "candidate_submission_sha256": "348bd9e53b11bc8bd9e852d55cbad08c170b079fe4e7b554731121afb2950ee6"
+}
