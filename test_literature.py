@@ -1,4 +1,7 @@
 import json
+import csv
+import hashlib
+import io
 import unittest
 import numpy as np
 import pandas as pd
@@ -9,6 +12,17 @@ from literature import DATA, lookup_predictions, structure_key, strain_compatibl
 
 
 class LiteratureTests(unittest.TestCase):
+    def test_committed_primary_data_and_hash_reproduce(self):
+        rows = build()
+        output = io.StringIO(newline='')
+        writer = csv.DictWriter(output, fieldnames=list(rows[0]), lineterminator='\n')
+        writer.writeheader()
+        writer.writerows(rows)
+        generated = output.getvalue().encode('utf-8')
+        self.assertEqual(generated, (DATA/'primary_literature.csv').read_bytes())
+        report = json.loads((DATA/'primary_literature_validation.json').read_text())
+        self.assertEqual(hashlib.sha256(generated).hexdigest(), report['sha256'])
+
     def test_bounds_endpoints_and_explicit_inactivity(self):
         rows = build()
         self.assertEqual(len(rows), 89)

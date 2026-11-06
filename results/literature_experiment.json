@@ -1,6 +1,6 @@
 {
-  "model": "V7 candidate: V6 plus curated primary literature and matched external assay pairs",
-  "status": "local_candidate_not_submitted",
+  "model": "V7: V6 plus curated primary literature and matched external assay pairs",
+  "status": "confirmed_public_best_selected",
   "features_allowed": [
     "SMILES",
     "strain",
@@ -53,7 +53,15 @@
   },
   "artifact_sha256": {
     "data/external.csv": "a578c00918581120ddead1ed68f71f46bcaa836b09605ba07b0a03b8235bd1a0",
-    "data/primary_literature.csv": "872d13ece95eb6135ef0c078699eaa5a0815fb80d7fc8291098944bbe5a6b230",
+    "data/primary_literature.csv": "477d7a2212995e0c19e078299ccdce036d1a236dd264b516bcaa61e065ce57f7",
     "data/primary_structure_evidence.json": "568ad0dbd662530ea8279b9ab0566f334960ac4891cddd844b2a24586bb59b15"
-  }
+  },
+  "confirmed_public_mse": 3783018.17208,
+  "confirmed_public_date": "2026-11-06",
+  "previous_public_mse": 5144257.81271,
+  "submission_filename": "submission_v7.csv",
+  "submission_sha256": "3fdde8b7e0a8ee5cbae496090bb5a167c79e83dc3e91c36d1618300ab38f1615",
+  "confirmed_public_rank": 6,
+  "submission_code_commit": "5e5be6c",
+  "confirmation_url": "https://www.kaggle.com/competitions/molecular-activity-prediction-hack/submissions"
 }

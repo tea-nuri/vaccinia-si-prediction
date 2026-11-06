@@ -124,7 +124,16 @@ def fit_predict_v6(training, targets, target, sample_weight=None):
 
 
 def fit_predict(training, targets, target, sample_weight=None):
-    return fit_predict_v6(training, targets, target, sample_weight)
+    from literature import apply_literature
+    baseline, model = fit_predict_v6(training, targets, target, sample_weight)
+    prediction, audit = apply_literature(target, baseline)
+    model['literature_retrieval'] = {
+        'corrected_rows': int(audit.prediction.notna().sum()),
+        'method': 'Fixed external measurements matched by structure and assay context',
+        'artifact_sha256': {name: hashlib.sha256((DATA/name).read_bytes()).hexdigest()
+                            for name in ['external.csv', 'primary_literature.csv',
+                                         'primary_structure_evidence.json']}}
+    return prediction, model
 
 
 def prepare_external(frame, original_smiles):
@@ -186,7 +195,7 @@ def external_ablation(output):
     baseline = pd.read_csv(ROOT/'results/validation.csv')
     np.testing.assert_allclose(baseline.target, y)
     np.testing.assert_array_equal(baseline.canonical_smiles, canonical)
-    report = dict(model='selected V6 with weighted external augmentation', original_train_rows=len(training),
+    report = dict(model='selected V7 with weighted external augmentation', original_train_rows=len(training),
                   exclusion_rule='Exclude every original-train canonical and neutralized fragment-parent structure; also exclude validation scaffolds for scaffold CV.',
                   external_candidate_records=len(external),
                   external_candidate_molecules=int(external.canonical.nunique()),
@@ -246,9 +255,9 @@ def main():
     parser.add_argument('--output', type=Path, default=ROOT / 'run')
     parser.add_argument('--skip-cv', action='store_true')
     parser.add_argument('--external-ablation', action='store_true',
-                        help='Compare selected V6 with external molecule weights 0.1, 0.3 and 1')
+                        help='Compare selected V7 with external molecule weights 0.1, 0.3 and 1')
     parser.add_argument('--literature-ablation', action='store_true',
-                        help='Evaluate traceable literature retrieval over the selected V6 baseline')
+                        help='Rebuild the V6 baseline and evaluate traceable literature retrieval')
     args = parser.parse_args()
     if args.literature_ablation:
         if args.external_ablation or args.skip_cv:
@@ -298,7 +307,15 @@ def main():
     used['v4_training_target'] = np.minimum(y,10000)
     used['active_regression_target'] = np.where(y!=10000, np.minimum(y,5000), np.nan)
     used['external_single_source_inactivity'] = evidence_flags(train.SMILES)
+    from literature import lookup_predictions
+    train_lookup = lookup_predictions(train)
+    for column in ['prediction', 'source', 'match_method']:
+        used['literature_'+column] = train_lookup[column].to_numpy()
     used.to_csv(args.output / 'training_used.csv', index=False)
+    test_lookup = lookup_predictions(test)
+    test_lookup.insert(0, 'index', test['index'])
+    test_lookup['final_prediction'] = pred
+    test_lookup.to_csv(args.output / 'test_lookup_audit.csv', index=False)
     assert sample.columns.tolist() == ['index', 'SI VACV']
     assert sample['index'].equals(test['index'])
     assert np.isfinite(pred).all() and len(pred) == len(test)
@@ -306,7 +323,8 @@ def main():
     sample.to_csv(args.output / 'submission.csv', index=False)
     joblib.dump(model, args.output / 'model.joblib')
     report = {
-        'model': 'V6: V5 with single-source external inactivity and in-fold culture mapping',
+        'model': 'V7: V6 plus curated primary literature and matched external assay pairs',
+        'literature_retrieval': model['literature_retrieval'],
         'inactivity_evidence': {k: v for k, v in model['inactivity_evidence'].items()
                                 if k != 'inactive_smiles'},
         'external_evidence_sha256': hashlib.sha256((DATA/'external_inactivity.csv').read_bytes()).hexdigest(),
@@ -314,7 +332,8 @@ def main():
         'inactive_classifier': {'iterations':700,'depth':5,'learning_rate':.035,'l2_leaf_reg':5,'seed':42},
         'tree_weight': .15, 'calibration_slope': 1.5, 'calibration_center': 5000,
         'ngram_range': [2, 6], 'alpha': 0.03,
-        'training_target_cap': 10000, 'prediction_bounds': [0, 10000],
+        'training_target_cap': 10000, 'baseline_prediction_bounds': [0, 10000],
+        'prediction_bounds': [0, None],
         'features_allowed': ALLOWED, 'train_rows': len(y),
         'test_rows': len(test), 'scores': scores,
         'source_sha256': {name: hashlib.sha256((DATA/name).read_bytes()).hexdigest()
@@ -323,7 +342,10 @@ def main():
             'CV selection uses the same small set of molecules; it is optimistic.',
             'Raw SMILES serialization carries source conventions. Equivalent rewritten SMILES can receive different predictions.',
             'Train targets are capped, but all validation MSE values use the ORIGINAL uncapped targets.',
-            'The target cap can underestimate genuinely high SI values.',
+            'The baseline target cap can underestimate high SI; exact external retrieval is not capped.',
+            'Validation includes retrieval of measurements for published molecules, not compound-disjoint external-data generalization.',
+            'Sources and curation rules were selected after inspecting training errors; the large training outlier dominates the local improvement.',
+            'Rounded external concentration ratios and coarse assay context can differ from competition annotations.',
             'SI=10000 is an inactivity sentinel per organizer clarification, not measured high selectivity.',
             'External inactivity can differ by assay; a single-source guard and in-fold culture mapping reduce but do not eliminate this risk.',
         ],

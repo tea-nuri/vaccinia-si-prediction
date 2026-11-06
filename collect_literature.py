@@ -165,7 +165,7 @@ def main():
     data=Path(__file__).resolve().parent/'data'
     records=build()
     with (data/'primary_literature.csv').open('w',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=list(records[0]));w.writeheader();w.writerows(records)
+        w=csv.DictWriter(f,fieldnames=list(records[0]),lineterminator='\n');w.writeheader();w.writerows(records)
     report={
         'records':len(records),'papers':len({r['doi'] for r in records}),
         'eligible_records':sum(r['retrieval_status']=='eligible' for r in records),

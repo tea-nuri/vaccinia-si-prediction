@@ -140,8 +140,8 @@ def run_experiment(output):
     train_audit['target'] = y
     train_audit['absolute_error'] = abs(train_audit.prediction-y)
     report = dict(
-        model='V7 candidate: V6 plus curated primary literature and matched external assay pairs',
-        status='local_candidate_not_submitted', features_allowed=ALLOWED,
+        model='V7: V6 plus curated primary literature and matched external assay pairs',
+        status='local_reproduction_no_automatic_submission', features_allowed=ALLOWED,
         scores=scores, baseline_scores=baseline_scores,
         external_unmatched_rows_scores=unseen_scores,
         covered_train_rows=int(matched.sum()),
