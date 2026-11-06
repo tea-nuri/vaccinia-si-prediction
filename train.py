@@ -96,11 +96,11 @@ def apply_known_compounds(training, targets, target, prediction):
                         conflicting_contexts=len(groups)-len(known))
 
 
-def make_model():
+def make_model(alpha=.03):
     return make_pipeline(
         TfidfVectorizer(analyzer='char', ngram_range=(2, 6),
                         lowercase=False, sublinear_tf=True),
-        Ridge(alpha=0.03))
+        Ridge(alpha=alpha))
 
 
 def serialization_features(smiles):
@@ -109,30 +109,35 @@ def serialization_features(smiles):
                        for s in smiles], dtype=float)
 
 
-def _predict_smiles(train_smiles, targets, predict_smiles, sample_weight=None):
+def _predict_smiles(train_smiles, targets, predict_smiles, sample_weight=None,
+                    alpha=.03, slope=1.5):
     kwargs = {} if sample_weight is None else {'ridge__sample_weight': sample_weight}
-    text_model = make_model().fit(train_smiles, np.minimum(targets, 10000), **kwargs)
+    text_model = make_model(alpha).fit(train_smiles, np.minimum(targets, 10000), **kwargs)
     tree_model = ExtraTreesRegressor(n_estimators=500, max_features=1.0,
                                     min_samples_leaf=1, n_jobs=4, random_state=42)
     tree_model.fit(serialization_features(train_smiles), np.minimum(targets, 10000), sample_weight=sample_weight)
     text_pred = np.clip(text_model.predict(predict_smiles), 0, 10000)
     tree_pred = np.clip(tree_model.predict(serialization_features(predict_smiles)), 0, 10000)
     blended = .85*text_pred+.15*tree_pred
-    prediction = np.clip((blended-5000)*1.5+5000, 0, 10000)
+    prediction = np.clip((blended-5000)*slope+5000, 0, 10000)
     return prediction, {'text':text_model, 'trees':tree_model,
-                        'tree_weight':.15, 'slope':1.5, 'center':5000,
+                        'tree_weight':.15, 'slope':slope, 'alpha':alpha, 'center':5000,
                         'characters':CHARACTERS}
 
 
-def fit_predict_v6(training, targets, target, sample_weight=None, inactive_odds_power=1.):
+def fit_predict_v6(training, targets, target, sample_weight=None, inactive_odds_power=1.,
+                   smiles_alpha=.03, smiles_slope=1.5):
     if not np.isfinite(inactive_odds_power) or inactive_odds_power <= 0:
         raise ValueError("inactive_odds_power must be positive and finite")
+    if any(not np.isfinite(value) or value <= 0 for value in [smiles_alpha, smiles_slope]):
+        raise ValueError('SMILES alpha and slope must be positive and finite')
     # The allowlist excludes concentrations, missingness and identifiers even
     # when a caller passes a full competition dataframe.
     training = training[ALLOWED]
     target = target[ALLOWED]
     smiles_pred, smiles_models = _predict_smiles(
-        training.SMILES.to_numpy(), targets, target.SMILES.to_numpy(), sample_weight)
+        training.SMILES.to_numpy(), targets, target.SMILES.to_numpy(), sample_weight,
+        alpha=smiles_alpha, slope=smiles_slope)
     xt = pd.DataFrame(serialization_features(training.SMILES)).astype(float)
     xv = pd.DataFrame(serialization_features(target.SMILES)).astype(float)
     categorical = []
