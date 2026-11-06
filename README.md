@@ -2,7 +2,7 @@
 
 Решение [Molecular Activity Prediction](https://www.kaggle.com/competitions/molecular-activity-prediction-hack): предсказание индекса селективности SI по SMILES. Официальная метрика — MSE в исходной шкале, меньше — лучше.
 
-Проверенный public score `submission_v2.csv`: **10 060 443.90200**. Первая версия получила 10 903 744.73108. Public leaderboard использует примерно 30% теста и не является финальной оценкой.
+Проверенный public score `submission_v3.csv`: **5 351 782.35466**. Версия `submission_v2.csv` получила 10 060 443.90200, первая версия — 10 903 744.73108. Public leaderboard использует примерно 30% теста и не является финальной оценкой.
 
 ## Быстрый запуск
 
@@ -14,10 +14,12 @@ source .venv/bin/activate
 python -m pip install -r requirements.txt
 python collect_data.py --offline
 python -m unittest test_validation.py -v
-python train_model.py --external --output run
+python train_text.py --output run_text
 ```
 
-Результат: `run/submission.csv`, `run/model.joblib`, `run/training_used.csv`, `run/oof.csv`, `run/metrics.json`. Для обучения только на данных соревнования запустите `python train_model.py --output run_baseline`.
+Результат: `run_text/submission_v3.csv`, `run_text/model.joblib`, `run_text/training_used_text.csv`, `run_text/oof.csv`, `run_text/metrics.json`. Только обучение и предсказание без повторной CV: `python train_text.py --skip-cv --output run_text`.
+
+Предыдущая модель и эксперимент с внешними данными воспроизводятся командой `python train_model.py --external --output run`.
 
 Для новой загрузки открытых данных:
 
@@ -27,7 +29,26 @@ python collect_data.py --refresh
 
 Сетевой доступ нужен только для `--refresh`. В репозитории сохранён `chembl_snapshot.zip`, поэтому обычное воспроизведение не зависит от доступности API. Скрипт проверяет полноту ответов, сохраняет URL и SHA-256 исходных JSON в `sources.json`.
 
-## Данные и модель
+## Текущая модель v3
+
+Используются только исходные строки `SMILES`: символьные фрагменты длины 2–6, TF-IDF с сохранением регистра и sublinear TF, Ridge с `alpha=0.03`. Словарь и IDF обучаются только внутри обучающей части каждого fold. `CC50_uM`, `IC50_uM_VACV`, `Title`, `strain`, `Culture`, `index` не входят в признаки.
+
+Цель при обучении ограничена сверху 10 000; предсказания — диапазоном 0–10 000. Порог выбран по локальной проверке. **Все MSE считаются по исходным, не обрезанным целевым значениям**, включая 36 066.667. В `training_used_text.csv` сохранены исходная и фактическая обучающая цели.
+
+| Проверка | MSE v3 |
+|---|---:|
+| Canonical GroupKFold, seed 42 | 7 589 982 |
+| Canonical GroupKFold, seed 2026 | 7 575 296 |
+| Canonical GroupKFold, seed 117 | 7 029 456 |
+| Среднее трёх разбиений | 7 398 245 |
+| Scaffold GroupKFold, без перемешивания | 10 795 255 |
+| Kaggle public | 5 351 782.35466 |
+
+`metrics_text.json` содержит настройки и SHA-256 файлов данных; `validation_text.csv` — out-of-fold прогнозы. `experiments_text.json` фиксирует сравнения с CatBoost, XGBoost, классификацией группы SI=10 000, деревьями и разными текстовыми представлениями. Для выбранной v3 достаточно исходного `requirements.txt`; CatBoost/XGBoost при её воспроизведении не нужны.
+
+Важное ограничение: исходная запись SMILES сохраняет соглашения источника о записи структуры. Канонизация заметно ухудшила локальные результаты; эквивалентные записи одной молекулы могут получать разные ответы. Это модель данного набора, а не доказательство устойчивого переноса между лабораториями. Ограничение цели также может занижать реально высокие SI. Модель и параметры выбраны по этим же небольшим данным, поэтому CV-оценка оптимистична; несколько разбиений не являются независимыми наборами молекул.
+
+## Данные и предыдущая модель v2
 
 - `train.csv`: 320 наблюдений, 312 уникальных канонических молекул.
 - `test.csv`: 597 наблюдений; порядок `index` сохраняется по `sample_submit.csv`.

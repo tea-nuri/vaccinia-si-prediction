@@ -1,0 +1,28 @@
+{
+  "features_allowed": [
+    "SMILES"
+  ],
+  "tree_weight": 0.15,
+  "calibration_slope": 1.5,
+  "calibration_center": 5000,
+  "target_cap": 10000,
+  "prediction_bounds": [
+    0,
+    10000
+  ],
+  "scores": {
+    "42": 7137807.1156290965,
+    "2026": 7100840.065596041,
+    "117": 6582681.18949963,
+    "2027": 7153205.257484918,
+    "7": 7665566.691862596,
+    "scaffold": 11197739.146271626,
+    "mean_group_mse": 7128020.064014457
+  },
+  "test_rows": 597,
+  "source_sha256": {
+    "train.csv": "239efa4b3aa667b3681f6e1062d86ca5b0ba441364b8f2b894b4c428e272ba81",
+    "test.csv": "1b0c6a014bbe556c42ef2277e867d2e1a647ad31c157a9cd81bbc7e262481abd"
+  },
+  "limitations": "Model/weight/calibration chosen using repeated CV on the same small training set. Scores are optimistic. Original SMILES serialization affects predictions. MSE uses original uncapped targets."
+}
