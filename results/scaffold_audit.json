@@ -1,0 +1,174 @@
+{
+  "status": "diagnostic_not_test_labels",
+  "overall_mse": 4424986.901871293,
+  "folds": [
+    {
+      "fold": 0,
+      "rows": 64,
+      "mse": 18937554.66222219,
+      "unseen_culture_rows": 13
+    },
+    {
+      "fold": 1,
+      "rows": 64,
+      "mse": 480718.92672666564,
+      "unseen_culture_rows": 0
+    },
+    {
+      "fold": 2,
+      "rows": 64,
+      "mse": 1133764.8031801088,
+      "unseen_culture_rows": 0
+    },
+    {
+      "fold": 3,
+      "rows": 64,
+      "mse": 1238124.183671337,
+      "unseen_culture_rows": 0
+    },
+    {
+      "fold": 4,
+      "rows": 64,
+      "mse": 334771.9335561576,
+      "unseen_culture_rows": 1
+    }
+  ],
+  "known_culture_rows": 306,
+  "known_culture_mse": 1159487.2965657336,
+  "dominant_scaffold": {
+    "key": "O=c1[nH]c(=O)c2cc(-c3cn(Cc4ccccc4)nn3)ccc2[nH]1",
+    "rows": 13,
+    "sentinel_rows": 11,
+    "share_of_sse": 0.749430404006224,
+    "contribution_to_overall_mse": 3316219.7215916524,
+    "mean_prediction": 162.54314238157875,
+    "mean_target": 8469.26853846154,
+    "existing_inactivity_matches": 0,
+    "test_rows": 13
+  },
+  "outside_dominant_mse": 1155718.2335162377,
+  "sentinel_share_of_sse": 0.8959007274610684,
+  "outside_dominant_sentinel_mse": 2962898.9165389887,
+  "outside_dominant_numerical_mse": 621951.7870538216,
+  "test_new_scaffold_rows": 198,
+  "test_new_culture_rows": 0,
+  "scaffold_cv_nearest_similarity_median": 0.5,
+  "test_new_scaffold_nearest_similarity_median": 0.5056436271401394,
+  "test_known_scaffold_nearest_similarity_median": 0.7446808510638298,
+  "test_similarity_below_point3": 46,
+  "limitations": [
+    "This is exploratory reuse of the training dataset and external retrieval.",
+    "No test targets or forbidden competition concentrations are read.",
+    "Known Culture is diagnostic only: no row or culture-specific prediction exception is added.",
+    "Both full scaffold and known-Culture scaffold scores must be reported; neither estimates Public Score."
+  ],
+  "source_sha256": {
+    "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "data/test.csv": "8bcc39b10a0ef8595eaf0bd58880c9bcda51c8de69b573ecc840ff1cf19ab864",
+    "run_bounded_features/validation_scaffold.csv": "e79910085c29bf5420662fdb48554aaf48e4ba2a657ae01255db5781ed4d9bc3",
+    "results/bounded_features_experiment.json": "0b133a736fd4f5c42e2f9ed25c4449a96c2b5920172753253e5a3f02db5f2cd9"
+  },
+  "uncertainty_prior_probe": {
+    "threshold": 0.3,
+    "weights": [
+      0.25,
+      0.5
+    ],
+    "prior": "Mean capped-at-10000 training target after averaging by canonical molecule",
+    "scores": {
+      "scaffold": {
+        "0.25": 4191584.6913998565,
+        "0.5": 4072255.839360955,
+        "baseline": 4424986.901871293
+      },
+      "42": {
+        "0.25": 510108.8198959086,
+        "0.5": 679580.9739956489,
+        "baseline": 424882.62421846914
+      },
+      "2026": {
+        "0.25": 648305.7102863272,
+        "0.5": 816983.9585928661,
+        "baseline": 560552.6478195915
+      },
+      "117": {
+        "0.25": 634489.4446520687,
+        "0.5": 799623.8194494785,
+        "baseline": 549216.9243571253
+      },
+      "2027": {
+        "0.25": 636274.7222222954,
+        "0.5": 798887.1195632587,
+        "baseline": 552433.8235123947
+      },
+      "7": {
+        "0.25": 531221.8454468515,
+        "0.5": 708996.8170442383,
+        "baseline": 438513.97326595744
+      },
+      "23": {
+        "0.25": 784369.6881890509,
+        "0.5": 936241.2140847419,
+        "baseline": 704440.4514725234
+      },
+      "101": {
+        "0.25": 686131.8187105196,
+        "0.5": 855855.3735091466,
+        "baseline": 599778.7948657997
+      },
+      "509": {
+        "0.25": 722851.162735123,
+        "0.5": 891991.6287582796,
+        "baseline": 631010.3808791918
+      }
+    },
+    "known_culture_scores": {
+      "scaffold": {
+        "0.25": 1273726.9221970313,
+        "0.5": 1483718.0594708272,
+        "baseline": 1159487.2965657336
+      },
+      "42": {
+        "0.25": 509987.0017532198,
+        "0.5": 675418.40586638,
+        "baseline": 426201.29732226464
+      },
+      "2026": {
+        "0.25": 648696.7625801233,
+        "0.5": 813864.0283532866,
+        "baseline": 562277.9174126034
+      },
+      "117": {
+        "0.25": 636603.9648554182,
+        "0.5": 794751.7823477593,
+        "baseline": 554117.0062474845
+      },
+      "2027": {
+        "0.25": 636699.595906383,
+        "0.5": 795359.6409980806,
+        "baseline": 554163.1119506166
+      },
+      "7": {
+        "0.25": 536259.7320146556,
+        "0.5": 711689.5901763411,
+        "baseline": 444003.77140346885
+      },
+      "23": {
+        "0.25": 772559.6956263963,
+        "0.5": 920968.1576523329,
+        "baseline": 694184.9584542607
+      },
+      "101": {
+        "0.25": 686512.8015364822,
+        "0.5": 852711.9877321204,
+        "baseline": 601597.9822618046
+      },
+      "509": {
+        "0.25": 720482.3807651767,
+        "0.5": 883981.242206004,
+        "baseline": 631838.1369556464
+      }
+    },
+    "decision": "Rejected: both weights improve whole original scaffold but worsen known-Culture scaffold and all eight molecular protocols."
+  }
+}

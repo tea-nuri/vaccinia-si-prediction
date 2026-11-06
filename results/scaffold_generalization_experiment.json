@@ -1,0 +1,1318 @@
+{
+  "status": "local_only_not_submitted",
+  "scores": {
+    "scaffold": {
+      "baseline": 4424986.901871293,
+      "neighbor0.25": 4163367.652456872,
+      "neighbor0.5": 4048966.484226664,
+      "context0.25": 4282832.623327857,
+      "neighbor0.25_context0.25": 4044410.4924514117
+    },
+    "scaffold_shuffle42": {
+      "baseline": 5916824.338595955,
+      "neighbor0.25": 5774924.277482971,
+      "neighbor0.5": 5820055.76626499,
+      "context0.25": 5904981.70735844,
+      "neighbor0.25_context0.25": 5753408.346653017
+    },
+    "scaffold_shuffle2026": {
+      "baseline": 4753541.580457434,
+      "neighbor0.25": 4492903.720900996,
+      "neighbor0.5": 4428657.564638464,
+      "context0.25": 5126335.311398057,
+      "neighbor0.25_context0.25": 4832032.470158884
+    },
+    "42": {
+      "baseline": 424882.62421846914,
+      "neighbor0.25": 469183.97323179187,
+      "neighbor0.5": 568551.7455812106,
+      "context0.25": 469804.94711012504,
+      "neighbor0.25_context0.25": 524367.010725459
+    },
+    "2026": {
+      "baseline": 560552.6478195915,
+      "neighbor0.25": 572226.6650839506,
+      "neighbor0.5": 656670.282321793,
+      "context0.25": 589261.6377356527,
+      "neighbor0.25_context0.25": 597763.3931062978
+    },
+    "117": {
+      "baseline": 549216.9243571253,
+      "neighbor0.25": 575648.9723068036,
+      "neighbor0.5": 662965.0141724919,
+      "context0.25": 549066.0265942833,
+      "neighbor0.25_context0.25": 571163.8838693217
+    },
+    "2027": {
+      "baseline": 552433.8235123947,
+      "neighbor0.25": 607537.4815678528,
+      "neighbor0.5": 747165.2346969832,
+      "context0.25": 561565.8242052741,
+      "neighbor0.25_context0.25": 607362.0967310355
+    },
+    "7": {
+      "baseline": 438513.97326595744,
+      "neighbor0.25": 491205.58636858576,
+      "neighbor0.5": 613758.7228857202,
+      "context0.25": 433041.34456948255,
+      "neighbor0.25_context0.25": 483685.41464567033
+    },
+    "23": {
+      "baseline": 704440.4514725234,
+      "neighbor0.25": 738032.8638594287,
+      "neighbor0.5": 875481.1392393023,
+      "context0.25": 651672.6490380424,
+      "neighbor0.25_context0.25": 686657.6673382313
+    },
+    "101": {
+      "baseline": 599778.7948657997,
+      "neighbor0.25": 654499.6605202,
+      "neighbor0.5": 800018.7024741462,
+      "context0.25": 567155.9928111578,
+      "neighbor0.25_context0.25": 616712.6415636297
+    },
+    "509": {
+      "baseline": 631010.3808791918,
+      "neighbor0.25": 655662.3975259673,
+      "neighbor0.5": 744431.6765005896,
+      "context0.25": 601382.6094088961,
+      "neighbor0.25_context0.25": 623252.2348983919
+    }
+  },
+  "folds": {
+    "scaffold": [
+      {
+        "fold": 0,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 51,
+        "unseen_scaffold_rows": 64
+      },
+      {
+        "fold": 1,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 64
+      },
+      {
+        "fold": 2,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 64
+      },
+      {
+        "fold": 3,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 64
+      },
+      {
+        "fold": 4,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 63,
+        "unseen_scaffold_rows": 64
+      }
+    ],
+    "scaffold_shuffle42": [
+      {
+        "fold": 0,
+        "training_rows": 253,
+        "validation_rows": 67,
+        "known_culture_rows": 67,
+        "unseen_scaffold_rows": 67
+      },
+      {
+        "fold": 1,
+        "training_rows": 257,
+        "validation_rows": 63,
+        "known_culture_rows": 63,
+        "unseen_scaffold_rows": 63
+      },
+      {
+        "fold": 2,
+        "training_rows": 258,
+        "validation_rows": 62,
+        "known_culture_rows": 62,
+        "unseen_scaffold_rows": 62
+      },
+      {
+        "fold": 3,
+        "training_rows": 257,
+        "validation_rows": 63,
+        "known_culture_rows": 41,
+        "unseen_scaffold_rows": 63
+      },
+      {
+        "fold": 4,
+        "training_rows": 255,
+        "validation_rows": 65,
+        "known_culture_rows": 65,
+        "unseen_scaffold_rows": 65
+      }
+    ],
+    "scaffold_shuffle2026": [
+      {
+        "fold": 0,
+        "training_rows": 262,
+        "validation_rows": 58,
+        "known_culture_rows": 50,
+        "unseen_scaffold_rows": 58
+      },
+      {
+        "fold": 1,
+        "training_rows": 261,
+        "validation_rows": 59,
+        "known_culture_rows": 58,
+        "unseen_scaffold_rows": 59
+      },
+      {
+        "fold": 2,
+        "training_rows": 243,
+        "validation_rows": 77,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 77
+      },
+      {
+        "fold": 3,
+        "training_rows": 267,
+        "validation_rows": 53,
+        "known_culture_rows": 51,
+        "unseen_scaffold_rows": 53
+      },
+      {
+        "fold": 4,
+        "training_rows": 247,
+        "validation_rows": 73,
+        "known_culture_rows": 73,
+        "unseen_scaffold_rows": 73
+      }
+    ],
+    "42": [
+      {
+        "fold": 0,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 29
+      },
+      {
+        "fold": 1,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 20
+      },
+      {
+        "fold": 2,
+        "training_rows": 258,
+        "validation_rows": 62,
+        "known_culture_rows": 61,
+        "unseen_scaffold_rows": 29
+      },
+      {
+        "fold": 3,
+        "training_rows": 254,
+        "validation_rows": 66,
+        "known_culture_rows": 66,
+        "unseen_scaffold_rows": 29
+      },
+      {
+        "fold": 4,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 29
+      }
+    ],
+    "2026": [
+      {
+        "fold": 0,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 25
+      },
+      {
+        "fold": 1,
+        "training_rows": 254,
+        "validation_rows": 66,
+        "known_culture_rows": 66,
+        "unseen_scaffold_rows": 27
+      },
+      {
+        "fold": 2,
+        "training_rows": 258,
+        "validation_rows": 62,
+        "known_culture_rows": 62,
+        "unseen_scaffold_rows": 25
+      },
+      {
+        "fold": 3,
+        "training_rows": 255,
+        "validation_rows": 65,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 20
+      },
+      {
+        "fold": 4,
+        "training_rows": 257,
+        "validation_rows": 63,
+        "known_culture_rows": 63,
+        "unseen_scaffold_rows": 27
+      }
+    ],
+    "117": [
+      {
+        "fold": 0,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 21
+      },
+      {
+        "fold": 1,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 62,
+        "unseen_scaffold_rows": 26
+      },
+      {
+        "fold": 2,
+        "training_rows": 258,
+        "validation_rows": 62,
+        "known_culture_rows": 62,
+        "unseen_scaffold_rows": 30
+      },
+      {
+        "fold": 3,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 63,
+        "unseen_scaffold_rows": 23
+      },
+      {
+        "fold": 4,
+        "training_rows": 254,
+        "validation_rows": 66,
+        "known_culture_rows": 66,
+        "unseen_scaffold_rows": 24
+      }
+    ],
+    "2027": [
+      {
+        "fold": 0,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 63,
+        "unseen_scaffold_rows": 24
+      },
+      {
+        "fold": 1,
+        "training_rows": 255,
+        "validation_rows": 65,
+        "known_culture_rows": 65,
+        "unseen_scaffold_rows": 23
+      },
+      {
+        "fold": 2,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 27
+      },
+      {
+        "fold": 3,
+        "training_rows": 257,
+        "validation_rows": 63,
+        "known_culture_rows": 63,
+        "unseen_scaffold_rows": 22
+      },
+      {
+        "fold": 4,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 28
+      }
+    ],
+    "7": [
+      {
+        "fold": 0,
+        "training_rows": 254,
+        "validation_rows": 66,
+        "known_culture_rows": 66,
+        "unseen_scaffold_rows": 30
+      },
+      {
+        "fold": 1,
+        "training_rows": 257,
+        "validation_rows": 63,
+        "known_culture_rows": 60,
+        "unseen_scaffold_rows": 25
+      },
+      {
+        "fold": 2,
+        "training_rows": 258,
+        "validation_rows": 62,
+        "known_culture_rows": 62,
+        "unseen_scaffold_rows": 22
+      },
+      {
+        "fold": 3,
+        "training_rows": 257,
+        "validation_rows": 63,
+        "known_culture_rows": 62,
+        "unseen_scaffold_rows": 25
+      },
+      {
+        "fold": 4,
+        "training_rows": 254,
+        "validation_rows": 66,
+        "known_culture_rows": 66,
+        "unseen_scaffold_rows": 30
+      }
+    ],
+    "23": [
+      {
+        "fold": 0,
+        "training_rows": 255,
+        "validation_rows": 65,
+        "known_culture_rows": 65,
+        "unseen_scaffold_rows": 31
+      },
+      {
+        "fold": 1,
+        "training_rows": 257,
+        "validation_rows": 63,
+        "known_culture_rows": 63,
+        "unseen_scaffold_rows": 19
+      },
+      {
+        "fold": 2,
+        "training_rows": 257,
+        "validation_rows": 63,
+        "known_culture_rows": 61,
+        "unseen_scaffold_rows": 27
+      },
+      {
+        "fold": 3,
+        "training_rows": 255,
+        "validation_rows": 65,
+        "known_culture_rows": 65,
+        "unseen_scaffold_rows": 18
+      },
+      {
+        "fold": 4,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 63,
+        "unseen_scaffold_rows": 27
+      }
+    ],
+    "101": [
+      {
+        "fold": 0,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 23
+      },
+      {
+        "fold": 1,
+        "training_rows": 257,
+        "validation_rows": 63,
+        "known_culture_rows": 63,
+        "unseen_scaffold_rows": 28
+      },
+      {
+        "fold": 2,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 24
+      },
+      {
+        "fold": 3,
+        "training_rows": 258,
+        "validation_rows": 62,
+        "known_culture_rows": 61,
+        "unseen_scaffold_rows": 23
+      },
+      {
+        "fold": 4,
+        "training_rows": 253,
+        "validation_rows": 67,
+        "known_culture_rows": 67,
+        "unseen_scaffold_rows": 30
+      }
+    ],
+    "509": [
+      {
+        "fold": 0,
+        "training_rows": 254,
+        "validation_rows": 66,
+        "known_culture_rows": 66,
+        "unseen_scaffold_rows": 30
+      },
+      {
+        "fold": 1,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 25
+      },
+      {
+        "fold": 2,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 62,
+        "unseen_scaffold_rows": 22
+      },
+      {
+        "fold": 3,
+        "training_rows": 258,
+        "validation_rows": 62,
+        "known_culture_rows": 61,
+        "unseen_scaffold_rows": 20
+      },
+      {
+        "fold": 4,
+        "training_rows": 256,
+        "validation_rows": 64,
+        "known_culture_rows": 64,
+        "unseen_scaffold_rows": 24
+      }
+    ]
+  },
+  "known_culture_scores": {
+    "scaffold": {
+      "rows": 306,
+      "baseline": 1159487.2965657336,
+      "neighbor0.25": 1166880.0711184172,
+      "neighbor0.5": 1315240.5384316044,
+      "context0.25": 997036.7616529933,
+      "neighbor0.25_context0.25": 1029355.363058931
+    },
+    "scaffold_shuffle42": {
+      "rows": 298,
+      "baseline": 743524.1428720528,
+      "neighbor0.25": 876187.8237189577,
+      "neighbor0.5": 1179318.4514922602,
+      "context0.25": 724873.8856575267,
+      "neighbor0.25_context0.25": 853768.9415001455
+    },
+    "scaffold_shuffle2026": {
+      "rows": 296,
+      "baseline": 777735.4108241377,
+      "neighbor0.25": 907080.565998284,
+      "neighbor0.5": 1192863.6118738137,
+      "context0.25": 798825.2993023313,
+      "neighbor0.25_context0.25": 927008.864411814
+    },
+    "42": {
+      "rows": 319,
+      "baseline": 426201.29732226464,
+      "neighbor0.25": 470647.6974939381,
+      "neighbor0.5": 570331.2206982076,
+      "context0.25": 471268.82342195045,
+      "neighbor0.25_context0.25": 526006.8053549322
+    },
+    "2026": {
+      "rows": 319,
+      "baseline": 562277.9174126034,
+      "neighbor0.25": 574003.0474214128,
+      "neighbor0.5": 658721.5310463287,
+      "context0.25": 591088.7695538175,
+      "neighbor0.25_context0.25": 599628.2340414957
+    },
+    "117": {
+      "rows": 317,
+      "baseline": 554117.0062474845,
+      "neighbor0.25": 578377.399610034,
+      "neighbor0.5": 661496.0330073503,
+      "context0.25": 554113.2456791875,
+      "neighbor0.25_context0.25": 574414.2694076229
+    },
+    "2027": {
+      "rows": 319,
+      "baseline": 554163.1119506166,
+      "neighbor0.25": 609440.780413346,
+      "neighbor0.5": 749507.0571983282,
+      "context0.25": 563324.8217901494,
+      "neighbor0.25_context0.25": 609265.5544415253
+    },
+    "7": {
+      "rows": 316,
+      "baseline": 444003.77140346885,
+      "neighbor0.25": 497358.86179927905,
+      "neighbor0.5": 621458.0918165597,
+      "context0.25": 438461.25380856724,
+      "neighbor0.25_context0.25": 489742.5124445599
+    },
+    "23": {
+      "rows": 317,
+      "baseline": 694184.9584542607,
+      "neighbor0.25": 723974.9641704293,
+      "neighbor0.5": 858096.6785640545,
+      "context0.25": 648646.9426111099,
+      "neighbor0.25_context0.25": 680889.2504237547
+    },
+    "101": {
+      "rows": 319,
+      "baseline": 601597.9822618046,
+      "neighbor0.25": 656518.4055748949,
+      "neighbor0.5": 802513.0906588968,
+      "context0.25": 568899.8643114369,
+      "neighbor0.25_context0.25": 618631.7154081992
+    },
+    "509": {
+      "rows": 317,
+      "baseline": 631838.1369556464,
+      "neighbor0.25": 653946.2660800768,
+      "neighbor0.5": 740179.0880542928,
+      "context0.25": 604360.1210722873,
+      "neighbor0.25_context0.25": 624341.1957238335
+    }
+  },
+  "group_diagnostics": {
+    "scaffold": {
+      "largest_baseline_error_group": "O=c1[nH]c(=O)c2cc(-c3cn(Cc4ccccc4)nn3)ccc2[nH]1",
+      "outside_largest_group": {
+        "rows": 307,
+        "baseline": 1155718.2335162377,
+        "neighbor0.25": 1163083.2025154314,
+        "neighbor0.5": 1310957.8914642786,
+        "context0.25": 993794.1718482712,
+        "neighbor0.25_context0.25": 1026004.601749944
+      },
+      "top10_groups_sorted_by_baseline_sse": [
+        {
+          "scaffold": "O=c1[nH]c(=O)c2cc(-c3cn(Cc4ccccc4)nn3)ccc2[nH]1",
+          "rows": 13,
+          "known_culture_rows": 0,
+          "mse": {
+            "baseline": 81630023.91610222,
+            "neighbor0.25": 75016238.89338166,
+            "neighbor0.5": 68708092.48253839,
+            "context0.25": 81954740.66980731,
+            "neighbor0.25_context0.25": 75325226.52670912
+          },
+          "sse": {
+            "baseline": 1061190310.9093288,
+            "neighbor0.25": 975211105.6139615,
+            "neighbor0.5": 893205202.272999,
+            "context0.25": 1065411628.7074951,
+            "neighbor0.25_context0.25": 979227944.8472186
+          }
+        },
+        {
+          "scaffold": "O=C(NNC12CC3CC(CC(C3)C1)C2)c1ccccc1",
+          "rows": 1,
+          "known_culture_rows": 1,
+          "mse": {
+            "baseline": 61655225.05752626,
+            "neighbor0.25": 62622554.86982192,
+            "neighbor0.5": 63597414.11448586,
+            "context0.25": 69127826.05625468,
+            "neighbor0.25_context0.25": 70151878.27217342
+          },
+          "sse": {
+            "baseline": 61655225.05752626,
+            "neighbor0.25": 62622554.86982192,
+            "neighbor0.5": 63597414.11448586,
+            "context0.25": 69127826.05625468,
+            "neighbor0.25_context0.25": 70151878.27217342
+          }
+        },
+        {
+          "scaffold": "O=C(c1ccccc1)c1ccccc1OCCn1ccc(=O)[nH]c1=O",
+          "rows": 5,
+          "known_culture_rows": 5,
+          "mse": {
+            "baseline": 10478540.390517155,
+            "neighbor0.25": 7416220.717142312,
+            "neighbor0.5": 4883366.408238425,
+            "context0.25": 6044249.038315489,
+            "neighbor0.25_context0.25": 3781460.556596269
+          },
+          "sse": {
+            "baseline": 52392701.95258577,
+            "neighbor0.25": 37081103.58571156,
+            "neighbor0.5": 24416832.041192126,
+            "context0.25": 30221245.191577446,
+            "neighbor0.25_context0.25": 18907302.782981344
+          }
+        },
+        {
+          "scaffold": "C1C2CC3CC1CC(C2)C3",
+          "rows": 2,
+          "known_culture_rows": 2,
+          "mse": {
+            "baseline": 18178106.03407057,
+            "neighbor0.25": 16521960.15247508,
+            "neighbor0.5": 14945092.925484445,
+            "context0.25": 18026773.40064685,
+            "neighbor0.25_context0.25": 16377809.956081662
+          },
+          "sse": {
+            "baseline": 36356212.06814114,
+            "neighbor0.25": 33043920.30495016,
+            "neighbor0.5": 29890185.85096889,
+            "context0.25": 36053546.8012937,
+            "neighbor0.25_context0.25": 32755619.912163325
+          }
+        },
+        {
+          "scaffold": "O=C(NN1C(=O)C2C3C=CC(C4CC34)C2C1=O)c1ccccc1",
+          "rows": 10,
+          "known_culture_rows": 10,
+          "mse": {
+            "baseline": 3337386.9026433853,
+            "neighbor0.25": 3299331.7031355957,
+            "neighbor0.5": 3263614.041593229,
+            "context0.25": 3335731.9463288477,
+            "neighbor0.25_context0.25": 3299456.0360051817
+          },
+          "sse": {
+            "baseline": 33373869.026433855,
+            "neighbor0.25": 32993317.03135596,
+            "neighbor0.5": 32636140.41593229,
+            "context0.25": 33357319.46328848,
+            "neighbor0.25_context0.25": 32994560.36005182
+          }
+        },
+        {
+          "scaffold": "O=C(NN1C(=O)C2C3CCC(C4CC43)C2C1=O)c1ccccc1",
+          "rows": 1,
+          "known_culture_rows": 1,
+          "mse": {
+            "baseline": 21270720.954090185,
+            "neighbor0.25": 21661006.729660127,
+            "neighbor0.5": 22054840.606880914,
+            "context0.25": 21877102.985608574,
+            "neighbor0.25_context0.25": 22272887.6586742
+          },
+          "sse": {
+            "baseline": 21270720.954090185,
+            "neighbor0.25": 21661006.729660127,
+            "neighbor0.5": 22054840.606880914,
+            "context0.25": 21877102.985608574,
+            "neighbor0.25_context0.25": 22272887.6586742
+          }
+        },
+        {
+          "scaffold": "O=C(NC1CC2CCC1C2)C1CCCCC1",
+          "rows": 3,
+          "known_culture_rows": 3,
+          "mse": {
+            "baseline": 6535812.394885448,
+            "neighbor0.25": 3705002.1830918365,
+            "neighbor0.5": 1672288.5850862644,
+            "context0.25": 3728304.942693202,
+            "neighbor0.25_context0.25": 1687886.0264995694
+          },
+          "sse": {
+            "baseline": 19607437.184656344,
+            "neighbor0.25": 11115006.54927551,
+            "neighbor0.5": 5016865.755258793,
+            "context0.25": 11184914.828079605,
+            "neighbor0.25_context0.25": 5063658.079498708
+          }
+        },
+        {
+          "scaffold": "O=C(c1ccccc1)n1ccnc1-c1ccccc1",
+          "rows": 6,
+          "known_culture_rows": 6,
+          "mse": {
+            "baseline": 3156943.8668507854,
+            "neighbor0.25": 5834427.910569097,
+            "neighbor0.5": 9917981.388325263,
+            "context0.25": 1776734.371152779,
+            "neighbor0.25_context0.25": 3963496.7662365064
+          },
+          "sse": {
+            "baseline": 18941663.20110471,
+            "neighbor0.25": 35006567.46341458,
+            "neighbor0.5": 59507888.32995158,
+            "context0.25": 10660406.226916675,
+            "neighbor0.25_context0.25": 23780980.59741904
+          }
+        },
+        {
+          "scaffold": "O=C(Nc1ccccc1)NN1C(=O)C2C3C=CC(C4CC34)C2C1=O",
+          "rows": 4,
+          "known_culture_rows": 4,
+          "mse": {
+            "baseline": 3647514.756025572,
+            "neighbor0.25": 4058707.2016322226,
+            "neighbor0.5": 4496389.4206231,
+            "context0.25": 4771411.220627669,
+            "neighbor0.25_context0.25": 5241939.098328989
+          },
+          "sse": {
+            "baseline": 14590059.024102287,
+            "neighbor0.25": 16234828.80652889,
+            "neighbor0.5": 17985557.6824924,
+            "context0.25": 19085644.882510677,
+            "neighbor0.25_context0.25": 20967756.393315956
+          }
+        },
+        {
+          "scaffold": "c1ncc2nc[nH]c2n1",
+          "rows": 9,
+          "known_culture_rows": 9,
+          "mse": {
+            "baseline": 1302820.7673224267,
+            "neighbor0.25": 739499.096512272,
+            "neighbor0.5": 334796.0968890474,
+            "context0.25": 758092.9985158452,
+            "neighbor0.25_context0.25": 347314.1250449175
+          },
+          "sse": {
+            "baseline": 11725386.90590184,
+            "neighbor0.25": 6655491.868610448,
+            "neighbor0.5": 3013164.8720014268,
+            "context0.25": 6822836.986642607,
+            "neighbor0.25_context0.25": 3125827.125404258
+          }
+        }
+      ],
+      "total_groups": 165
+    },
+    "scaffold_shuffle42": {
+      "largest_baseline_error_group": "O=c1[nH]c(=O)c2cc(-c3cn(Cc4ccccc4)nn3)ccc2[nH]1",
+      "outside_largest_group": {
+        "rows": 307,
+        "baseline": 2880713.7428178615,
+        "neighbor0.25": 2947148.876034281,
+        "neighbor0.5": 3200044.8298284416,
+        "context0.25": 2813080.5776976757,
+        "neighbor0.25_context0.25": 2871369.649325164
+      },
+      "top10_groups_sorted_by_baseline_sse": [
+        {
+          "scaffold": "O=c1[nH]c(=O)c2cc(-c3cn(Cc4ccccc4)nn3)ccc2[nH]1",
+          "rows": 13,
+          "known_culture_rows": 0,
+          "mse": {
+            "baseline": 77615743.79274017,
+            "neighbor0.25": 72553927.9886174,
+            "neighbor0.5": 67692621.72672808,
+            "context0.25": 78921416.07703958,
+            "neighbor0.25_context0.25": 73813860.6604723
+          },
+          "sse": {
+            "baseline": 1009004669.3056221,
+            "neighbor0.25": 943201063.8520262,
+            "neighbor0.5": 880004082.4474651,
+            "context0.25": 1025978409.0015147,
+            "neighbor0.25_context0.25": 959580188.5861399
+          }
+        },
+        {
+          "scaffold": "O=C(c1ccccc1)c1ccccc1OCCn1ccc(=O)[nH]c1=O",
+          "rows": 5,
+          "known_culture_rows": 0,
+          "mse": {
+            "baseline": 82272737.77479361,
+            "neighbor0.25": 76521232.42657761,
+            "neighbor0.5": 72014451.91731429,
+            "context0.25": 78797128.06741208,
+            "neighbor0.25_context0.25": 72752625.68881303
+          },
+          "sse": {
+            "baseline": 411363688.87396806,
+            "neighbor0.25": 382606162.1328881,
+            "neighbor0.5": 360072259.58657146,
+            "context0.25": 393985640.3370604,
+            "neighbor0.25_context0.25": 363763128.44406515
+          }
+        },
+        {
+          "scaffold": "O=c1ccn(CCOc2ccccc2Cc2ccccc2)c(=O)[nH]1",
+          "rows": 3,
+          "known_culture_rows": 0,
+          "mse": {
+            "baseline": 83814746.4616438,
+            "neighbor0.25": 87021368.28005901,
+            "neighbor0.5": 90301489.75499111,
+            "context0.25": 84538980.31904371,
+            "neighbor0.25_context0.25": 87774637.77961093
+          },
+          "sse": {
+            "baseline": 251444239.3849314,
+            "neighbor0.25": 261064104.84017703,
+            "neighbor0.5": 270904469.26497334,
+            "context0.25": 253616940.95713115,
+            "neighbor0.25_context0.25": 263323913.3388328
+          }
+        },
+        {
+          "scaffold": "C1C2CC3CC1CC(C2)C3",
+          "rows": 2,
+          "known_culture_rows": 2,
+          "mse": {
+            "baseline": 31064293.549213346,
+            "neighbor0.25": 27309689.677336697,
+            "neighbor0.5": 23797450.42633691,
+            "context0.25": 34746977.22448009,
+            "neighbor0.25_context0.25": 30769184.897382386
+          },
+          "sse": {
+            "baseline": 62128587.09842669,
+            "neighbor0.25": 54619379.35467339,
+            "neighbor0.5": 47594900.85267382,
+            "context0.25": 69493954.44896019,
+            "neighbor0.25_context0.25": 61538369.79476477
+          }
+        },
+        {
+          "scaffold": "O=C(c1ccccc1)n1ccnc1-c1ccccc1",
+          "rows": 6,
+          "known_culture_rows": 6,
+          "mse": {
+            "baseline": 3184829.125973543,
+            "neighbor0.25": 7207055.633971726,
+            "neighbor0.5": 13214130.626845067,
+            "context0.25": 1806102.431184425,
+            "neighbor0.25_context0.25": 5085661.036215986
+          },
+          "sse": {
+            "baseline": 19108974.75584126,
+            "neighbor0.25": 43242333.803830355,
+            "neighbor0.5": 79284783.7610704,
+            "context0.25": 10836614.58710655,
+            "neighbor0.25_context0.25": 30513966.217295915
+          }
+        },
+        {
+          "scaffold": "O=C(CCc1ccccc1)OC1C=C2CC(=O)C3CCC4OCC4C3C(OC(=O)c3ccccc3)C(C2)C1",
+          "rows": 1,
+          "known_culture_rows": 1,
+          "mse": {
+            "baseline": 16175912.848085938,
+            "neighbor0.25": 9722077.557901569,
+            "neighbor0.5": 4902328.493630502,
+            "context0.25": 10481129.072763206,
+            "neighbor0.25_context0.25": 5445468.767670755
+          },
+          "sse": {
+            "baseline": 16175912.848085938,
+            "neighbor0.25": 9722077.557901569,
+            "neighbor0.5": 4902328.493630502,
+            "context0.25": 10481129.072763206,
+            "neighbor0.25_context0.25": 5445468.767670755
+          }
+        },
+        {
+          "scaffold": "O=C(Nc1ccccc1)NN1C(=O)C2C3C=CC(C4CC34)C2C1=O",
+          "rows": 4,
+          "known_culture_rows": 4,
+          "mse": {
+            "baseline": 3699222.228075364,
+            "neighbor0.25": 4794433.923253758,
+            "neighbor0.5": 6037700.667881007,
+            "context0.25": 5834832.418371867,
+            "neighbor0.25_context0.25": 7195714.89526891
+          },
+          "sse": {
+            "baseline": 14796888.912301457,
+            "neighbor0.25": 19177735.69301503,
+            "neighbor0.5": 24150802.67152403,
+            "context0.25": 23339329.67348747,
+            "neighbor0.25_context0.25": 28782859.58107564
+          }
+        },
+        {
+          "scaffold": "O=C(NNC12CC3CC(CC(C3)C1)C2)c1ccccc1",
+          "rows": 1,
+          "known_culture_rows": 1,
+          "mse": {
+            "baseline": 12219135.4253895,
+            "neighbor0.25": 11794572.18170674,
+            "neighbor0.5": 11377515.818641923,
+            "context0.25": 22807652.951955244,
+            "neighbor0.25_context0.25": 22226232.353390783
+          },
+          "sse": {
+            "baseline": 12219135.4253895,
+            "neighbor0.25": 11794572.18170674,
+            "neighbor0.5": 11377515.818641923,
+            "context0.25": 22807652.951955244,
+            "neighbor0.25_context0.25": 22226232.353390783
+          }
+        },
+        {
+          "scaffold": "O=C(NC1CC2CCC1C2)C1CCCCC1",
+          "rows": 3,
+          "known_culture_rows": 3,
+          "mse": {
+            "baseline": 3586447.8659868054,
+            "neighbor0.25": 2039746.8938882549,
+            "neighbor0.5": 926619.1285836389,
+            "context0.25": 2049635.683193217,
+            "neighbor0.25_context0.25": 933257.2238625064
+          },
+          "sse": {
+            "baseline": 10759343.597960416,
+            "neighbor0.25": 6119240.681664765,
+            "neighbor0.5": 2779857.385750917,
+            "context0.25": 6148907.049579651,
+            "neighbor0.25_context0.25": 2799771.6715875193
+          }
+        },
+        {
+          "scaffold": "c1ccc(-c2csc(=NN=C3CC4CCC3C4)n2-c2ccccc2)cc1",
+          "rows": 2,
+          "known_culture_rows": 2,
+          "mse": {
+            "baseline": 4920140.858031434,
+            "neighbor0.25": 3049053.8144247513,
+            "neighbor0.5": 1623829.9332259027,
+            "context0.25": 2901918.9759266977,
+            "neighbor0.25_context0.25": 1517202.1833795893
+          },
+          "sse": {
+            "baseline": 9840281.716062868,
+            "neighbor0.25": 6098107.628849503,
+            "neighbor0.5": 3247659.8664518055,
+            "context0.25": 5803837.951853395,
+            "neighbor0.25_context0.25": 3034404.3667591787
+          }
+        }
+      ],
+      "total_groups": 165
+    },
+    "scaffold_shuffle2026": {
+      "largest_baseline_error_group": "O=c1[nH]c(=O)c2cc(-c3cn(Cc4ccccc4)nn3)ccc2[nH]1",
+      "outside_largest_group": {
+        "rows": 307,
+        "baseline": 2978841.837824278,
+        "neighbor0.25": 3042788.561247882,
+        "neighbor0.5": 3274598.6650405196,
+        "context0.25": 3022526.581793813,
+        "neighbor0.25_context0.25": 3081194.977699288
+      },
+      "top10_groups_sorted_by_baseline_sse": [
+        {
+          "scaffold": "O=c1[nH]c(=O)c2cc(-c3cn(Cc4ccccc4)nn3)ccc2[nH]1",
+          "rows": 13,
+          "known_culture_rows": 0,
+          "mse": {
+            "baseline": 46663758.5795635,
+            "neighbor0.25": 38737930.952709146,
+            "neighbor0.5": 31682202.34745145,
+            "context0.25": 54808587.61820596,
+            "neighbor0.25_context0.25": 46178733.25362779
+          },
+          "sse": {
+            "baseline": 606628861.5343255,
+            "neighbor0.25": 503593102.38521886,
+            "neighbor0.5": 411868630.5168688,
+            "context0.25": 712511639.0366775,
+            "neighbor0.25_context0.25": 600323532.2971613
+          }
+        },
+        {
+          "scaffold": "O=C(c1ccccc1)c1ccccc1OCCn1ccc(=O)[nH]c1=O",
+          "rows": 5,
+          "known_culture_rows": 0,
+          "mse": {
+            "baseline": 83664457.391197,
+            "neighbor0.25": 78413761.4404134,
+            "neighbor0.5": 74032494.83198836,
+            "context0.25": 84737536.64152619,
+            "neighbor0.25_context0.25": 79266666.8759447
+          },
+          "sse": {
+            "baseline": 418322286.95598495,
+            "neighbor0.25": 392068807.202067,
+            "neighbor0.5": 370162474.1599418,
+            "context0.25": 423687683.20763093,
+            "neighbor0.25_context0.25": 396333334.37972355
+          }
+        },
+        {
+          "scaffold": "O=c1ccn(CCOc2ccccc2Cc2ccccc2)c(=O)[nH]1",
+          "rows": 3,
+          "known_culture_rows": 0,
+          "mse": {
+            "baseline": 88516896.79106931,
+            "neighbor0.25": 90671437.33386546,
+            "neighbor0.5": 92860367.39489287,
+            "context0.25": 89179757.99651267,
+            "neighbor0.25_context0.25": 91351495.68224818
+          },
+          "sse": {
+            "baseline": 265550690.37320796,
+            "neighbor0.25": 272014312.0015964,
+            "neighbor0.5": 278581102.1846786,
+            "context0.25": 267539273.989538,
+            "neighbor0.25_context0.25": 274054487.0467445
+          }
+        },
+        {
+          "scaffold": "O=C(NNC12CC3CC(CC(C3)C1)C2)c1ccccc1",
+          "rows": 1,
+          "known_culture_rows": 1,
+          "mse": {
+            "baseline": 65491425.222210795,
+            "neighbor0.25": 67446110.56832722,
+            "neighbor0.5": 69429538.74706203,
+            "context0.25": 72643662.007577,
+            "neighbor0.25_context0.25": 74701552.26053582
+          },
+          "sse": {
+            "baseline": 65491425.222210795,
+            "neighbor0.25": 67446110.56832722,
+            "neighbor0.5": 69429538.74706203,
+            "context0.25": 72643662.007577,
+            "neighbor0.25_context0.25": 74701552.26053582
+          }
+        },
+        {
+          "scaffold": "C1C2CC3CC1CC(C2)C3",
+          "rows": 2,
+          "known_culture_rows": 2,
+          "mse": {
+            "baseline": 30570486.150489856,
+            "neighbor0.25": 28441775.63992392,
+            "neighbor0.5": 26390308.80936208,
+            "context0.25": 34715078.530260414,
+            "neighbor0.25_context0.25": 32444122.89275108
+          },
+          "sse": {
+            "baseline": 61140972.30097971,
+            "neighbor0.25": 56883551.27984784,
+            "neighbor0.5": 52780617.61872416,
+            "context0.25": 69430157.06052083,
+            "neighbor0.25_context0.25": 64888245.78550216
+          }
+        },
+        {
+          "scaffold": "O=C(CN1CCNCC1)OC1CC2CCC1C2",
+          "rows": 1,
+          "known_culture_rows": 1,
+          "mse": {
+            "baseline": 14477638.530363398,
+            "neighbor0.25": 21693403.601200435,
+            "neighbor0.5": 30363256.11409947,
+            "context0.25": 8545788.989919528,
+            "neighbor0.25_context0.25": 14258075.824932767
+          },
+          "sse": {
+            "baseline": 14477638.530363398,
+            "neighbor0.25": 21693403.601200435,
+            "neighbor0.5": 30363256.11409947,
+            "context0.25": 8545788.989919528,
+            "neighbor0.25_context0.25": 14258075.824932767
+          }
+        },
+        {
+          "scaffold": "O=C(c1ccccc1)n1ccnc1-c1ccccc1",
+          "rows": 6,
+          "known_culture_rows": 6,
+          "mse": {
+            "baseline": 1612144.4420303227,
+            "neighbor0.25": 3172493.4259825074,
+            "neighbor0.5": 6108319.614170857,
+            "context0.25": 930618.0224468153,
+            "neighbor0.25_context0.25": 2309649.207767371
+          },
+          "sse": {
+            "baseline": 9672866.652181936,
+            "neighbor0.25": 19034960.555895045,
+            "neighbor0.5": 36649917.68502514,
+            "context0.25": 5583708.134680891,
+            "neighbor0.25_context0.25": 13857895.246604227
+          }
+        },
+        {
+          "scaffold": "O=C(c1ccsn1)N(Cc1ccc(OCc2ccsn2)cc1)CC12CC3CC(CC(C3)C1)C2",
+          "rows": 2,
+          "known_culture_rows": 2,
+          "mse": {
+            "baseline": 3735341.0802092,
+            "neighbor0.25": 5998723.075418251,
+            "neighbor0.5": 8795703.344975062,
+            "context0.25": 9419386.940986685,
+            "neighbor0.25_context0.25": 12856728.182320151
+          },
+          "sse": {
+            "baseline": 7470682.1604184,
+            "neighbor0.25": 11997446.150836501,
+            "neighbor0.5": 17591406.689950123,
+            "context0.25": 18838773.88197337,
+            "neighbor0.25_context0.25": 25713456.364640303
+          }
+        },
+        {
+          "scaffold": "c1ccc(-c2csc(=NN=C3CC4CCC3C4)n2-c2ccccc2)cc1",
+          "rows": 2,
+          "known_culture_rows": 2,
+          "mse": {
+            "baseline": 3370425.555548907,
+            "neighbor0.25": 2394235.653085823,
+            "neighbor0.5": 1587047.5951956108,
+            "context0.25": 2420276.7277869564,
+            "neighbor0.25_context0.25": 1601512.4420398953
+          },
+          "sse": {
+            "baseline": 6740851.111097814,
+            "neighbor0.25": 4788471.306171646,
+            "neighbor0.5": 3174095.1903912215,
+            "context0.25": 4840553.455573913,
+            "neighbor0.25_context0.25": 3203024.8840797907
+          }
+        },
+        {
+          "scaffold": "O=C(Nc1ccccc1)NN1C(=O)C2C3C=CC(C4CC34)C2C1=O",
+          "rows": 4,
+          "known_culture_rows": 4,
+          "mse": {
+            "baseline": 1478616.5016143876,
+            "neighbor0.25": 2357824.010580704,
+            "neighbor0.5": 3452365.2895564972,
+            "context0.25": 2852294.315792586,
+            "neighbor0.25_context0.25": 4039553.248248688
+          },
+          "sse": {
+            "baseline": 5914466.00645755,
+            "neighbor0.25": 9431296.042322816,
+            "neighbor0.5": 13809461.158225989,
+            "context0.25": 11409177.263170345,
+            "neighbor0.25_context0.25": 16158212.992994752
+          }
+        }
+      ],
+      "total_groups": 165
+    }
+  },
+  "candidates": [
+    "neighbor0.25",
+    "neighbor0.5",
+    "context0.25",
+    "neighbor0.25_context0.25"
+  ],
+  "model": "Fold-local text TFIDF 2-6 k=7 neighbors at weights .25/.5; or additional .25 text+context LogisticRegression C100 odds power2; or combined .5 baseline + .25 neighbors + .25 context head. Changes apply only when target Murcko scaffold is absent in training. Existing evidence and trusted measurement precedence retained.",
+  "baseline": "Measurement agreement + selected text gate + fold-trained bounded features, weight 1.0",
+  "selection_rule": "Both whole-set and known-normalized-Culture MSE improve on original scaffold; both metrics improve on average over two new shuffled-scaffold protocols; neither metric in either new protocol worsens >10%; five original canonical seeds and three additional seeds each worsen <=25% on average. Choose lowest mean known-Culture MSE over three scaffold protocols among passing candidates.",
+  "selection_context": "Four candidates and guards frozen before new shuffled-scaffold results. The initial all-scaffold guard was revised after discovering a dominant unseen-Culture family and observing original-split candidate results; this is exploratory, not a preregistered independent study.",
+  "limitations": [
+    "All protocols reuse the same 320 rows and external retrieval sources; shuffled scaffold protocols are sensitivity checks, not independent confirmation.",
+    "No assertion that scaffold MSE estimates Kaggle Public Score or that public MSE below one million is reached.",
+    "A dominant held-out family has an unseen Culture; per-family and known-Culture diagnostics are shown because test Culture coverage may differ.",
+    "External bounds and partial stereochemistry retain the uncertainty documented in bounded_features_experiment.json."
+  ],
+  "source_sha256": {
+    "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "data/test.csv": "8bcc39b10a0ef8595eaf0bd58880c9bcda51c8de69b573ecc840ff1cf19ab864",
+    "data/external.csv": "a578c00918581120ddead1ed68f71f46bcaa836b09605ba07b0a03b8235bd1a0",
+    "data/external_inactivity.csv": "0f2159430306eaf24701d6c8340be597ff5b7cecf40cb8464020f264f88f75f9",
+    "data/primary_literature.csv": "9caf3fac7f1aa1fbce11c9611c3b6fe51891b7cb6a9bbeda9e0300c9cd7fc204",
+    "data/literature_candidates.csv": "12df79381aa0d2c0b0eed88209f946580d857667a87d039652880550e16d38da",
+    "data/camphor2022.csv": "bb98ffaba6f5a05030ab76150adafb3ee24cdd9cf2417a56b777d973c4e1be2c",
+    "data/bailey2007_bounds.csv": "d5dabf42a731ef3ce5f173d531b19b83b0c49d537a1e553804ebd0af2aa6dc56",
+    "results/candidate_bounded_features.csv": "348bd9e53b11bc8bd9e852d55cbad08c170b079fe4e7b554731121afb2950ee6"
+  },
+  "mean_original_seeds": {
+    "baseline": 505119.99863470753,
+    "neighbor0.25": 543160.535711797,
+    "neighbor0.5": 649822.1999316398,
+    "context0.25": 520547.95604296355,
+    "neighbor0.25_context0.25": 556868.3598155568
+  },
+  "mean_additional_seeds": {
+    "baseline": 645076.5424058383,
+    "neighbor0.25": 682731.6406351987,
+    "neighbor0.5": 806643.8394046794,
+    "context0.25": 606737.0837526987,
+    "neighbor0.25_context0.25": 642207.5146000843
+  },
+  "mean_scaffold_mse": {
+    "baseline": 5031784.27364156,
+    "neighbor0.25": 4810398.5502802795,
+    "neighbor0.5": 4765893.271710039,
+    "context0.25": 5104716.547361451,
+    "neighbor0.25_context0.25": 4876617.103087771
+  },
+  "mean_scaffold_known_culture_mse": {
+    "baseline": 893582.2834206414,
+    "neighbor0.25": 983382.820278553,
+    "neighbor0.5": 1229140.867265893,
+    "context0.25": 840245.3155376171,
+    "neighbor0.25_context0.25": 936711.0563236302
+  },
+  "passing": [],
+  "selected": null,
+  "selection_checks": {
+    "neighbor0.25": {
+      "original_scaffold_improves": true,
+      "original_known_culture_improves": false,
+      "new_scaffold_mean_improves": true,
+      "new_known_culture_mean_improves": false,
+      "each_new_scaffold_within_10_percent": true,
+      "each_known_culture_scaffold_within_10_percent": false,
+      "original_canonical_mean_within_25_percent": true,
+      "additional_canonical_mean_within_25_percent": true
+    },
+    "neighbor0.5": {
+      "original_scaffold_improves": true,
+      "original_known_culture_improves": false,
+      "new_scaffold_mean_improves": true,
+      "new_known_culture_mean_improves": false,
+      "each_new_scaffold_within_10_percent": true,
+      "each_known_culture_scaffold_within_10_percent": false,
+      "original_canonical_mean_within_25_percent": false,
+      "additional_canonical_mean_within_25_percent": false
+    },
+    "context0.25": {
+      "original_scaffold_improves": true,
+      "original_known_culture_improves": true,
+      "new_scaffold_mean_improves": false,
+      "new_known_culture_mean_improves": false,
+      "each_new_scaffold_within_10_percent": true,
+      "each_known_culture_scaffold_within_10_percent": true,
+      "original_canonical_mean_within_25_percent": true,
+      "additional_canonical_mean_within_25_percent": true
+    },
+    "neighbor0.25_context0.25": {
+      "original_scaffold_improves": true,
+      "original_known_culture_improves": true,
+      "new_scaffold_mean_improves": true,
+      "new_known_culture_mean_improves": false,
+      "each_new_scaffold_within_10_percent": true,
+      "each_known_culture_scaffold_within_10_percent": false,
+      "original_canonical_mean_within_25_percent": true,
+      "additional_canonical_mean_within_25_percent": true
+    }
+  },
+  "rejection_reasons": {
+    "neighbor0.25": [
+      "original_known_culture_improves",
+      "new_known_culture_mean_improves",
+      "each_known_culture_scaffold_within_10_percent"
+    ],
+    "neighbor0.5": [
+      "original_known_culture_improves",
+      "new_known_culture_mean_improves",
+      "each_known_culture_scaffold_within_10_percent",
+      "original_canonical_mean_within_25_percent",
+      "additional_canonical_mean_within_25_percent"
+    ],
+    "context0.25": [
+      "new_scaffold_mean_improves",
+      "new_known_culture_mean_improves"
+    ],
+    "neighbor0.25_context0.25": [
+      "new_known_culture_mean_improves",
+      "each_known_culture_scaffold_within_10_percent"
+    ]
+  },
+  "candidate_artifact_created": false,
+  "full_diagnostics": "Reproduce experiments/scaffold_generalization.py; full group tables and OOF remain in ignored run_scaffold_generalization/."
+}
