@@ -1,3 +1,0 @@
--r requirements.txt
-catboost==1.2.10
-xgboost==3.4.1

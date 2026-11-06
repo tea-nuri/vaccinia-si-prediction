@@ -5,6 +5,8 @@ __pycache__/
 run*/
 experiment_external/
 *.joblib
+cache/
+models/
 .env
 .env.*
 !.env.example

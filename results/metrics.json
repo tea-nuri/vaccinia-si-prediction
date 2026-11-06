@@ -24,5 +24,12 @@
     "train.csv": "239efa4b3aa667b3681f6e1062d86ca5b0ba441364b8f2b894b4c428e272ba81",
     "test.csv": "1b0c6a014bbe556c42ef2277e867d2e1a647ad31c157a9cd81bbc7e262481abd"
   },
-  "limitations": "Model/weight/calibration chosen using repeated CV on the same small training set. Scores are optimistic. Original SMILES serialization affects predictions. MSE uses original uncapped targets."
+  "limitations": "Model/weight/calibration chosen using repeated CV on the same small training set. Scores are optimistic. Original SMILES serialization affects predictions. MSE uses original uncapped targets.",
+  "kaggle_submission": {
+    "file": "submission_v4.csv",
+    "public_mse": 5154554.48738,
+    "verified_on": "2026-11-06",
+    "submission_description": "",
+    "sha256": "b98dad82c1f70125442cb4f71fd9e3c1ca999008a0c82aceefb43f3f3594e557"
+  }
 }

@@ -5,6 +5,7 @@ from collections import Counter
 from rdkit import Chem
 
 ROOT = Path(__file__).resolve().parent
+DATA = ROOT / 'data'
 API = 'https://www.ebi.ac.uk/chembl/api/data/'
 # Assay descriptions explicitly identify the denominator, numerator and cell line.
 # SI is the published value, not a ratio invented by joining unrelated experiments.
@@ -63,7 +64,8 @@ def fetch(url):
 
 
 def load_sources(refresh=False, offline=False):
-    archive = ROOT / 'chembl_snapshot.zip'
+    DATA.mkdir(parents=True, exist_ok=True)
+    archive = DATA / 'chembl_snapshot.zip'
     endpoints = {}
     for document in sorted({s['document'] for s in STUDIES}):
         endpoints[f'paper_{document}.json'] = API + f'activity.json?document_chembl_id={document}&limit=1000'
@@ -73,14 +75,14 @@ def load_sources(refresh=False, offline=False):
             payloads = {name: z.read(name) for name in endpoints}
     else:
         if offline:
-            raise FileNotFoundError('chembl_snapshot.zip is required for --offline')
+            raise FileNotFoundError('data/chembl_snapshot.zip is required for --offline')
         payloads = {name: fetch(url) for name, url in endpoints.items()}
         with zipfile.ZipFile(archive, 'w', zipfile.ZIP_DEFLATED) as z:
             for name, data in payloads.items():
                 z.writestr(name, data)
     manifest = {name: {'url': endpoints[name], 'sha256': hashlib.sha256(data).hexdigest()}
                 for name, data in payloads.items()}
-    (ROOT / 'sources.json').write_text(json.dumps(manifest, indent=2))
+    (DATA / 'sources.json').write_text(json.dumps(manifest, indent=2))
     return {name: json.loads(data) for name, data in payloads.items()}
 
 
@@ -151,19 +153,17 @@ def main():
         p.error('--refresh and --offline cannot be combined')
     rows = build(load_sources(args.refresh, args.offline))
     clean = [r for r in rows if r['usable_for_training']]
-    for filename, data in [('external_data.csv', rows), ('external_training.csv', clean)]:
-        with (ROOT / filename).open('w', newline='') as f:
-            w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(data)
+    with (DATA / 'external.csv').open('w', newline='') as f:
+        w = csv.DictWriter(f, fieldnames=list(rows[0])); w.writeheader(); w.writerows(rows)
     report = dict(records=len(rows), exact_usable_records=len(clean),
                   unique_usable_smiles=len({r['smiles'] for r in clean}),
-                  documents=len({r['doi'] for r in rows}),
+                  documents=len({r['doi'] for r in rows}), assay_mapping=STUDIES,
                   rejected_reasons=dict(Counter(flag for r in rows for flag in r['quality_flags'].split(';') if flag)),
                   limitations=['Two curated publications, not an exhaustive literature collection.',
                                'Published SI retained; bounds are excluded from exact-label training.',
                                '2023 paper reports 72 h CC50 / 96 h IC50; that context is retained.',
                                'Distinct cell lines remain separate observations.'])
-    (ROOT / 'external_validation.json').write_text(json.dumps(report, indent=2))
-    (ROOT / 'assay_mapping.json').write_text(json.dumps(STUDIES, indent=2))
+    (DATA / 'external_validation.json').write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
 
 
