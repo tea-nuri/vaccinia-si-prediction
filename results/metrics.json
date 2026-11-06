@@ -82,5 +82,11 @@
   "submission_sha256": "3fdde8b7e0a8ee5cbae496090bb5a167c79e83dc3e91c36d1618300ab38f1615",
   "confirmed_public_rank": 6,
   "submission_code_commit": "5e5be6c",
-  "confirmation_url": "https://www.kaggle.com/competitions/molecular-activity-prediction-hack/submissions"
+  "confirmation_url": "https://www.kaggle.com/competitions/molecular-activity-prediction-hack/submissions",
+  "known_compound_correction": {
+    "enabled": false,
+    "corrected_positions": [],
+    "key": "canonical isomeric SMILES + case/punctuation-normalized strain and Culture",
+    "conflicting_contexts": 0
+  }
 }

@@ -6,12 +6,34 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 from collect_data import measurement, build, build_inactivity, inactive_field
-from train import fit_predict, ALLOWED, apply_inactivity_evidence, prepare_external, augment
+from train import fit_predict, ALLOWED, apply_inactivity_evidence, prepare_external, augment, apply_known_compounds
 
 ROOT = Path(__file__).resolve().parent
 
 
 class DataValidationTests(unittest.TestCase):
+    def test_equivalent_smiles_use_observation_only_in_matching_context(self):
+        training = pd.DataFrame([dict(SMILES='CCO',strain='VACV (Copenhagen)',Culture='Vero')])
+        target = pd.DataFrame([
+            dict(SMILES='OCC',strain='vacv copenhagen',Culture='VERO'),
+            dict(SMILES='OCC',strain='VACV WR',Culture='Vero'),
+            dict(SMILES='OCC',strain='VACV (Copenhagen)',Culture=None)])
+        result, info = apply_known_compounds(training,np.array([79.931]),target,np.array([9000.,9000.,9000.]))
+        np.testing.assert_allclose(result,[79.931,9000.,9000.])
+        self.assertEqual(info['corrected_positions'],[0])
+
+    def test_conflicting_observations_and_other_stereoisomers_fall_back(self):
+        training = pd.DataFrame([
+            dict(SMILES='CCO',strain='VACV',Culture='Vero'),
+            dict(SMILES='OCC',strain='VACV',Culture='Vero'),
+            dict(SMILES='C[C@H](O)C(=O)O',strain='VACV',Culture='Vero')])
+        target = pd.DataFrame([
+            dict(SMILES='CCO',strain='VACV',Culture='Vero'),
+            dict(SMILES='C[C@@H](O)C(=O)O',strain='VACV',Culture='Vero')])
+        result, info = apply_known_compounds(training,np.array([80.,10000.,5.]),target,np.array([50.,50.]))
+        np.testing.assert_array_equal(result,[50.,50.])
+        self.assertEqual(info['conflicting_contexts'],1)
+
     def test_inactivity_requires_explicit_antiviral_evidence(self):
         self.assertIsNone(inactive_field({'standard_type':'IC50', 'standard_value':None}))
         self.assertIsNone(inactive_field({'standard_type':'CC50', 'standard_text_value':'Not active'}))

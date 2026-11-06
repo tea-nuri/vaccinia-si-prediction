@@ -52,11 +52,48 @@ def apply_inactivity_evidence(training, targets, target, prediction, inactive_sm
             supported.append(cell)
     apply = evidence_flags(target.SMILES, inactive_smiles) & target.Culture.fillna(
         'UNKNOWN').astype(str).isin(supported).to_numpy()
-    result = np.asarray(prediction).copy()
+    result = np.asarray(prediction, dtype=float).copy()
     result[apply] = 10000
     return result, {'supported_cultures': supported, 'minimum_support': 3,
                     'inactive_smiles': inactive_smiles,
                     'corrected_rows': int(apply.sum())}
+
+
+def known_compound_key(row):
+    """Exact chemical identity (including stereo) and provided assay context."""
+    values = []
+    for column in ['strain', 'Culture']:
+        value = row[column]
+        if pd.isna(value) or not str(value).strip() or str(value).casefold() == 'unknown':
+            return None
+        normalized = ''.join(c for c in str(value).casefold() if c.isalnum())
+        if not normalized or normalized == 'unknown':
+            return None
+        values.append(normalized)
+    mol = Chem.MolFromSmiles(row['SMILES'])
+    if mol is None:
+        raise ValueError('Invalid SMILES')
+    return (Chem.MolToSmiles(mol, isomericSmiles=True), *values)
+
+
+def apply_known_compounds(training, targets, target, prediction):
+    """A distance-zero identity regressor; conflicting observations fall back."""
+    groups = {}
+    for (_, row), y in zip(training.iterrows(), targets):
+        key = known_compound_key(row)
+        if key is not None:
+            groups.setdefault(key, []).append(float(y))
+    known = {key:float(np.mean(values)) for key,values in groups.items()
+             if np.allclose(values, values[0], rtol=.01, atol=.001)}
+    result = np.asarray(prediction, dtype=float).copy()
+    corrected = []
+    for position, (_, row) in enumerate(target.iterrows()):
+        key = known_compound_key(row)
+        if key in known:
+            result[position] = known[key]
+            corrected.append(position)
+    return result, dict(known=known, corrected_positions=corrected,
+                        conflicting_contexts=len(groups)-len(known))
 
 
 def make_model():
@@ -123,7 +160,7 @@ def fit_predict_v6(training, targets, target, sample_weight=None):
         'inactivity_evidence': evidence_model}
 
 
-def fit_predict(training, targets, target, sample_weight=None):
+def fit_predict(training, targets, target, sample_weight=None, known_compounds=False):
     from literature import apply_literature
     baseline, model = fit_predict_v6(training, targets, target, sample_weight)
     prediction, audit = apply_literature(target, baseline)
@@ -133,6 +170,11 @@ def fit_predict(training, targets, target, sample_weight=None):
         'artifact_sha256': {name: hashlib.sha256((DATA/name).read_bytes()).hexdigest()
                             for name in ['external.csv', 'primary_literature.csv',
                                          'primary_structure_evidence.json']}}
+    known_model = None
+    if known_compounds:
+        prediction, known_model = apply_known_compounds(
+            training[ALLOWED], targets, target[ALLOWED], prediction)
+    model['known_compounds'] = known_model
     return prediction, model
 
 
@@ -254,18 +296,22 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, default=ROOT / 'run')
     parser.add_argument('--skip-cv', action='store_true')
+    parser.add_argument('--known-compounds', action='store_true',
+                        help='Use observed SI for exact chemical identity and matching context over V7; disabled by default')
     parser.add_argument('--external-ablation', action='store_true',
                         help='Compare selected V7 with external molecule weights 0.1, 0.3 and 1')
     parser.add_argument('--literature-ablation', action='store_true',
                         help='Rebuild the V6 baseline and evaluate traceable literature retrieval')
     args = parser.parse_args()
     if args.literature_ablation:
-        if args.external_ablation or args.skip_cv:
+        if args.external_ablation or args.skip_cv or args.known_compounds:
             parser.error('--literature-ablation must be used without other experiment switches')
         from literature import run_experiment
         run_experiment(args.output)
         return
     if args.external_ablation:
+        if args.known_compounds:
+            parser.error("--known-compounds cannot be combined with --external-ablation")
         if args.skip_cv:
             parser.error('--external-ablation requires CV; omit --skip-cv')
         external_ablation(args.output)
@@ -294,13 +340,13 @@ def main():
             for ix, va in splitter.split(x, y, groups if seed is not None else scaffolds):
                 assert not set(groups[ix]) & set(groups[va])
                 # Vocabulary and IDF are fitted strictly inside this training fold.
-                p[va], _ = fit_predict(train.iloc[ix], y[ix], train.iloc[va])
+                p[va], _ = fit_predict(train.iloc[ix], y[ix], train.iloc[va], known_compounds=args.known_compounds)
             scores[label] = float(np.mean((y-p)**2))
             oof[label] = p
             print(label, scores[label], flush=True)
         scores['mean_group_mse'] = float(np.mean([scores[str(s)] for s in [42, 2026, 117, 2027, 7]]))
         oof.to_csv(args.output / 'validation.csv', index=False)
-    pred, model = fit_predict(train, y, test)
+    pred, model = fit_predict(train, y, test, known_compounds=args.known_compounds)
     used = train[ALLOWED].copy()
     used['original_SI'] = y
     used['inactive_label'] = (y==10000).astype(int)
@@ -323,8 +369,13 @@ def main():
     sample.to_csv(args.output / 'submission.csv', index=False)
     joblib.dump(model, args.output / 'model.joblib')
     report = {
-        'model': 'V7: V6 plus curated primary literature and matched external assay pairs',
+        'model': ('V7 with experimental known-compound correction' if args.known_compounds
+                  else 'V7: V6 plus curated primary literature and matched external assay pairs'),
         'literature_retrieval': model['literature_retrieval'],
+        'known_compound_correction': dict(enabled=args.known_compounds,
+             corrected_positions=[] if model['known_compounds'] is None else model['known_compounds']['corrected_positions'],
+             key='canonical isomeric SMILES + case/punctuation-normalized strain and Culture',
+             conflicting_contexts=0 if model['known_compounds'] is None else model['known_compounds']['conflicting_contexts']),
         'inactivity_evidence': {k: v for k, v in model['inactivity_evidence'].items()
                                 if k != 'inactive_smiles'},
         'external_evidence_sha256': hashlib.sha256((DATA/'external_inactivity.csv').read_bytes()).hexdigest(),
