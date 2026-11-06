@@ -76,7 +76,7 @@ class LiteratureTests(unittest.TestCase):
         self.assertTrue(lookup_predictions(target,empty,p).prediction.isna().all())
         values=lookup_predictions(target,empty,p,include_2019=True).prediction.to_numpy()
         inactive=p.outcome.eq('Not active').to_numpy()
-        np.testing.assert_array_equal(values[inactive],np.full(6,10000.))
+        np.testing.assert_array_equal(values[inactive],np.full(5,10000.))
         self.assertTrue(np.isnan(values[~inactive]).all())
         np.testing.assert_array_equal(qualitative_active_flags(target),~inactive)
         # An active qualitative result is not converted into a numerical SI.
