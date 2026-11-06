@@ -8,8 +8,6 @@ from collections import defaultdict
 import hashlib
 import json
 import re
-import zipfile
-from functools import lru_cache
 import numpy as np
 import pandas as pd
 from rdkit import Chem
@@ -17,67 +15,6 @@ from rdkit import Chem
 ROOT = Path(__file__).resolve().parent
 DATA = ROOT / 'data'
 SPLITS = ['42', '2026', '117', '2027', '7', 'scaffold']
-
-
-def additional_viruses(text):
-    """Species mentioned in context, excluding the common VACV endpoint."""
-    aliases = {
-        'cowpox': r'\bcowpox\b|\bcpxv\b',
-        'ectromelia': r'\bectromelia\b|\bectv\b',
-        'variola': r'\bvariola\b|\bvarv\b',
-    }
-    return frozenset(name for name, pattern in aliases.items()
-                     if re.search(pattern, str(text), flags=re.I))
-
-
-@lru_cache(maxsize=1)
-def document_virus_context():
-    """Read source coverage from the verified snapshot, never competition labels.
-
-    A missing species means insufficient provenance for this conservative rule,
-    not proof that a measurement or an entire publication is incorrect.
-    """
-    manifest = json.loads((DATA/'sources.json').read_text())
-    coverage = {}
-    with zipfile.ZipFile(DATA/'chembl_snapshot.zip') as archive:
-        payloads = {}
-        for name, entry in manifest.items():
-            raw = archive.read(name)
-            if hashlib.sha256(raw).hexdigest() != entry['sha256']:
-                raise ValueError('Snapshot integrity check failed: '+name)
-            payloads[name] = json.loads(raw)
-    for name, paper in payloads.items():
-        if not name.startswith('paper_'):
-            continue
-        document = payloads['document_'+name[len('paper_'):]]
-        descriptions = ' '.join(str(r.get('target_organism') or '')+' '+
-                                str(r.get('assay_description') or '')
-                                for r in paper['activities'])
-        coverage[document['doi'].casefold()] = additional_viruses(descriptions)
-    return coverage
-
-
-def source_context_rejections(target, audit, coverage=None):
-    """Opt-in abstention on numerical retrieval with unsupported source context.
-
-    Extra virus names are used only as a provenance cue. They do not change the
-    VACV endpoint, become activity labels, or enter an SI ratio. Primary-table
-    mappings are outside this rule. The selected V7 lookup is unchanged.
-    """
-    if len(target) != len(audit):
-        raise ValueError('Target/audit row count mismatch')
-    coverage = document_virus_context() if coverage is None else coverage
-    rows = []
-    for strain, record in zip(target['strain'], audit.itertuples(index=False)):
-        required = additional_viruses(strain)
-        sources = str(record.source).casefold().split(';')
-        supported = any(required <= coverage.get(doi, frozenset()) for doi in sources)
-        reject = (record.match_method == 'matched_ChEMBL_assay_pair_exact_stereo'
-                  and bool(required) and not supported)
-        rows.append(dict(reject_numerical_lookup=reject,
-                         required_virus_context=';'.join(sorted(required)),
-                         reason='source_context_not_verified' if reject else ''))
-    return pd.DataFrame(rows)
 
 
 def structure_key(smiles, stereo=True):
