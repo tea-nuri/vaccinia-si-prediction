@@ -1,6 +1,6 @@
 {
-  "model": "V8 candidate: V7 plus qualitative primary imidazole evidence (Nikitina 2019)",
-  "status": "verified_local_not_submitted",
+  "model": "Candidate: selected V7 plus qualitative primary imidazole evidence (Nikitina 2019)",
+  "status": "not_submitted_user_requested_git_only",
   "scores": {
     "42": 1087335.7361036486,
     "2026": 1254695.1851279233,
@@ -536,5 +536,6 @@
       "passing": [],
       "runtime_seconds": 27.490353667060845
     }
-  }
+  },
+  "candidate_csv": "results/candidate_primary2019.csv"
 }
