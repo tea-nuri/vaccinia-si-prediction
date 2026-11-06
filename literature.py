@@ -41,7 +41,7 @@ def strain_compatible(source, target):
     return a is None or b is None or a == b
 
 
-def lookup_predictions(target, numerical=None, primary=None):
+def lookup_predictions(target, numerical=None, primary=None, include_2019=False):
     """Only SMILES, cell and strain are inspected; labels never enter lookup."""
     numerical = pd.read_csv(DATA/'external.csv') if numerical is None else numerical
     primary = pd.read_csv(DATA/'primary_literature.csv') if primary is None else primary
@@ -49,9 +49,11 @@ def lookup_predictions(target, numerical=None, primary=None):
     for _, row in numerical.iterrows():
         if row.usable_for_training == True:
             lookup[(structure_key(row.smiles), cell_key(row.cell))].append(row)
+    if not include_2019:
+        primary = primary[primary.doi.ne('10.1007/s11172-019-2467-6')]
     exact, mixture = {}, {}
     for _, row in primary.iterrows():
-        if row.retrieval_status != 'eligible':
+        if row.retrieval_status != 'eligible' or row.outcome == 'Active':
             continue
         mapping = exact if row.match_scope == 'exact_stereo' else mixture
         key = structure_key(row.smiles, stereo=mapping is exact)
@@ -86,8 +88,23 @@ def lookup_predictions(target, numerical=None, primary=None):
     return pd.DataFrame(audit)
 
 
-def apply_literature(target, baseline):
-    audit = lookup_predictions(target)
+
+def qualitative_active_flags(target):
+    """Exact matches to independently reported active 2019 structures only.
+
+    No quantitative SI is invented from an activity label. The caller estimates
+    SI using its active-only regressor fitted on the current training fold.
+    """
+    p = pd.read_csv(DATA/'primary_literature.csv')
+    p = p[p.doi.eq('10.1007/s11172-019-2467-6') & p.outcome.eq('Active')]
+    keys = {structure_key(s) for s in p.smiles}
+    return np.array([structure_key(r.SMILES) in keys and cell_key(r.Culture)=='vero'
+                     and 'copenhagen' in str(r.strain).lower()
+                     for _,r in target[['SMILES','Culture','strain']].iterrows()],dtype=bool)
+
+
+def apply_literature(target, baseline, include_2019=False):
+    audit = lookup_predictions(target, include_2019=include_2019)
     result = np.asarray(baseline, dtype=float).copy()
     matched = audit.prediction.notna().to_numpy()
     result[matched] = audit.loc[matched, 'prediction']

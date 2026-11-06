@@ -124,7 +124,9 @@ def _predict_smiles(train_smiles, targets, predict_smiles, sample_weight=None):
                         'characters':CHARACTERS}
 
 
-def fit_predict_v6(training, targets, target, sample_weight=None):
+def fit_predict_v6(training, targets, target, sample_weight=None, inactive_odds_power=1.):
+    if not np.isfinite(inactive_odds_power) or inactive_odds_power <= 0:
+        raise ValueError("inactive_odds_power must be positive and finite")
     # The allowlist excludes concentrations, missingness and identifiers even
     # when a caller passes a full competition dataframe.
     training = training[ALLOWED]
@@ -142,7 +144,12 @@ def fit_predict_v6(training, targets, target, sample_weight=None):
                                  l2_leaf_reg=5, verbose=False, thread_count=4,
                                  allow_writing_files=False, random_seed=42)
     inactive.fit(xt, (targets == 10000).astype(int), cat_features=categorical, sample_weight=sample_weight)
-    inactive_part = 10000 * inactive.predict_proba(xv)[:, 1]
+    probability = inactive.predict_proba(xv)[:, 1]
+    if inactive_odds_power != 1.:
+        bounded = np.clip(probability, 1e-12, 1-1e-12)
+        log_odds = np.log(bounded)-np.log1p(-bounded)
+        probability = 1/(1+np.exp(-np.clip(inactive_odds_power*log_odds, -700, 700)))
+    inactive_part = 10000 * probability
     active = targets != 10000
     active_model = ExtraTreesRegressor(n_estimators=300, min_samples_leaf=3,
                                       max_features=.5, random_state=42, n_jobs=4)
@@ -157,15 +164,24 @@ def fit_predict_v6(training, targets, target, sample_weight=None):
         'smiles_models': smiles_models, 'inactive_classifier': inactive,
         'active_regressor': active_model, 'categorical_positions': categorical,
         'context_weight': .5, 'features_allowed': ALLOWED,
-        'inactivity_evidence': evidence_model}
+        'inactivity_evidence': evidence_model, 'inactive_odds_power': inactive_odds_power}
 
 
-def fit_predict(training, targets, target, sample_weight=None, known_compounds=False):
+def fit_predict(training, targets, target, sample_weight=None, known_compounds=False, inactive_odds_power=1., primary_2019=False):
     from literature import apply_literature
-    baseline, model = fit_predict_v6(training, targets, target, sample_weight)
-    prediction, audit = apply_literature(target, baseline)
+    baseline, model = fit_predict_v6(training, targets, target, sample_weight, inactive_odds_power)
+    prediction, audit = apply_literature(target, baseline, include_2019=primary_2019)
+    qualitative_active = np.zeros(len(target), dtype=bool)
+    if primary_2019:
+        from literature import qualitative_active_flags
+        qualitative_active = qualitative_active_flags(target) & audit.prediction.isna().to_numpy()
+        if qualitative_active.any():
+            prediction[qualitative_active] = np.clip(model['active_regressor'].predict(
+                serialization_features(target.loc[qualitative_active, 'SMILES'])), 0, 5000)
     model['literature_retrieval'] = {
         'corrected_rows': int(audit.prediction.notna().sum()),
+        'primary_2019_enabled': primary_2019,
+        'qualitative_active_estimates': int(qualitative_active.sum()),
         'method': 'Fixed external measurements matched by structure and assay context',
         'artifact_sha256': {name: hashlib.sha256((DATA/name).read_bytes()).hexdigest()
                             for name in ['external.csv', 'primary_literature.csv',
@@ -296,6 +312,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, default=ROOT / 'run')
     parser.add_argument('--skip-cv', action='store_true')
+    parser.add_argument('--primary-2019', action='store_true',
+                        help='Include qualitative imidazole measurements from Nikitina 2019')
+    parser.add_argument('--inactive-odds-power', type=float, default=1.,
+                        help='Experimental inactivity calibration; 1 preserves selected V7')
     parser.add_argument('--known-compounds', action='store_true',
                         help='Use observed SI for exact chemical identity and matching context over V7; disabled by default')
     parser.add_argument('--external-ablation', action='store_true',
@@ -303,6 +323,12 @@ def main():
     parser.add_argument('--literature-ablation', action='store_true',
                         help='Rebuild the V6 baseline and evaluate traceable literature retrieval')
     args = parser.parse_args()
+    if not np.isfinite(args.inactive_odds_power) or args.inactive_odds_power <= 0:
+        parser.error("--inactive-odds-power must be positive and finite")
+    if (args.inactive_odds_power != 1. or args.primary_2019) and (args.literature_ablation or args.external_ablation):
+        parser.error("Calibration cannot be combined with standalone ablations")
+    if (args.inactive_odds_power != 1. or args.primary_2019) and args.output.resolve() == (ROOT/"results").resolve():
+        parser.error("Use a candidate directory; selected results require a confirmed Kaggle score")
     if args.literature_ablation:
         if args.external_ablation or args.skip_cv or args.known_compounds:
             parser.error('--literature-ablation must be used without other experiment switches')
@@ -340,13 +366,13 @@ def main():
             for ix, va in splitter.split(x, y, groups if seed is not None else scaffolds):
                 assert not set(groups[ix]) & set(groups[va])
                 # Vocabulary and IDF are fitted strictly inside this training fold.
-                p[va], _ = fit_predict(train.iloc[ix], y[ix], train.iloc[va], known_compounds=args.known_compounds)
+                p[va], _ = fit_predict(train.iloc[ix], y[ix], train.iloc[va], known_compounds=args.known_compounds, inactive_odds_power=args.inactive_odds_power, primary_2019=args.primary_2019)
             scores[label] = float(np.mean((y-p)**2))
             oof[label] = p
             print(label, scores[label], flush=True)
         scores['mean_group_mse'] = float(np.mean([scores[str(s)] for s in [42, 2026, 117, 2027, 7]]))
         oof.to_csv(args.output / 'validation.csv', index=False)
-    pred, model = fit_predict(train, y, test, known_compounds=args.known_compounds)
+    pred, model = fit_predict(train, y, test, known_compounds=args.known_compounds, inactive_odds_power=args.inactive_odds_power, primary_2019=args.primary_2019)
     used = train[ALLOWED].copy()
     used['original_SI'] = y
     used['inactive_label'] = (y==10000).astype(int)
@@ -354,12 +380,17 @@ def main():
     used['active_regression_target'] = np.where(y!=10000, np.minimum(y,5000), np.nan)
     used['external_single_source_inactivity'] = evidence_flags(train.SMILES)
     from literature import lookup_predictions
-    train_lookup = lookup_predictions(train)
+    train_lookup = lookup_predictions(train, include_2019=args.primary_2019)
     for column in ['prediction', 'source', 'match_method']:
         used['literature_'+column] = train_lookup[column].to_numpy()
+    if args.primary_2019:
+        from literature import qualitative_active_flags
+        used['literature_qualitative_active'] = qualitative_active_flags(train)
     used.to_csv(args.output / 'training_used.csv', index=False)
-    test_lookup = lookup_predictions(test)
+    test_lookup = lookup_predictions(test, include_2019=args.primary_2019)
     test_lookup.insert(0, 'index', test['index'])
+    if args.primary_2019:
+        test_lookup['qualitative_active_evidence'] = qualitative_active_flags(test)
     test_lookup['final_prediction'] = pred
     test_lookup.to_csv(args.output / 'test_lookup_audit.csv', index=False)
     assert sample.columns.tolist() == ['index', 'SI VACV']
@@ -371,6 +402,8 @@ def main():
     report = {
         'model': ('V7 with experimental known-compound correction' if args.known_compounds
                   else 'V7: V6 plus curated primary literature and matched external assay pairs'),
+        'inactive_odds_power': args.inactive_odds_power,
+        'candidate_status': 'unsubmitted' if args.inactive_odds_power != 1. or args.primary_2019 else 'selected_configuration',
         'literature_retrieval': model['literature_retrieval'],
         'known_compound_correction': dict(enabled=args.known_compounds,
              corrected_positions=[] if model['known_compounds'] is None else model['known_compounds']['corrected_positions'],

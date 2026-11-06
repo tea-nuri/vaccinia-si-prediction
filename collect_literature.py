@@ -120,6 +120,39 @@ for j,ar in enumerate(aryl):
             note='Table 1, Scheme 1: 1-hydroxy-4-methylimidazole; R1/R2 taken from Table 1. ChEMBL 4-OH transcription is not used.')
 
 
+# Nikitina et al., 2019: Scheme 2 (4a-c, 5a-c), Scheme 3 (6a-c),
+# Table 2 and the publisher abstract explicitly report these six included compounds
+# inactive against VACV Copenhagen in Vero. Substituents are defined by the
+# scheme caption: a=acetyl/methyl, b=ethoxycarbonyl/methyl,
+# c=fused CH2-C(CH3)2-CH2 ring. No competition structure or value is read.
+# Concentration numbers are deliberately NOT transcribed from an inaccessible
+# table; only the published qualitative outcome is represented.
+for letter, base in [
+    ('a', 'CC(=O)c1c(C)nc(-c2ccccc2O)n1O'),
+    ('b', 'CCOC(=O)c1c(C)nc(-c2ccccc2O)n1O'),
+    ('c', 'O=C1CC(C)(C)Cc2nc(-c3ccccc3O)n(O)c21')]:
+    add('10.1007/s11172-019-2467-6','1'+letter,base,None,'Active',None,cc_type='TC50',
+        note='Scheme 1 and Table 1 discussion explicitly identify 1a-c as active, low-cytotoxicity compounds. Only qualitative outcome transcribed; rounded numerical table columns not used.')
+    # Map published functional-group changes to the named imidazole nitrogens.
+    mol=Chem.MolFromSmiles(base)
+    for series in [5,6]:
+        changed=Chem.RWMol(mol)
+        n1=next(a.GetIdx() for a in changed.GetAtoms() if a.GetSymbol()=='N' and
+                any(b.GetSymbol()=='O' and b.GetDegree()==1 for b in a.GetNeighbors()))
+        oxygen=next(a.GetIdx() for a in changed.GetAtomWithIdx(n1).GetNeighbors() if a.GetSymbol()=='O')
+        n3=next(a.GetIdx() for a in changed.GetAtoms() if a.GetSymbol()=='N' and a.GetIdx()!=n1)
+        if series==5:
+            methyl=changed.AddAtom(Chem.Atom('C'))
+            changed.AddBond(oxygen,methyl,Chem.BondType.SINGLE)
+        else:
+            changed.GetAtomWithIdx(n1).SetNumExplicitHs(1)
+            changed.RemoveAtom(oxygen)
+        result=changed.GetMol();Chem.SanitizeMol(result)
+        add('10.1007/s11172-019-2467-6',str(series)+letter,
+            Chem.MolToSmiles(result),None,'NA',None,cc_type='TC50',
+            note='Scheme 2/3 and Table 2: explicitly inactive 5a-c, 6a-c. Publisher abstract confirms these series inactive. N-methyl N-oxides 4a-c excluded pending regioisomer review. Only qualitative outcome transcribed; no numerical concentrations available. Exact achiral graphs reconstructed from the scheme substituent definitions.')
+
+
 
 def build():
     """Normalize manually transcribed facts without reading competition files."""
@@ -127,16 +160,17 @@ def build():
     for record in rows:
         r=record.copy()
         def measured(value):
-            if value is None or value=='NA': return '', ''
+            if value is None or value in ['NA','Active']: return '', ''
             if isinstance(value,str) and value.startswith('>'): return float(value[1:]), '>'
             return float(value), '='
+        qualitative_active = r['antiviral']=='Active'
         cc,ccrel=measured(r.pop('cytotoxicity'))
         av,avrel=measured(r.pop('antiviral'))
         si,sirel=measured(r.pop('SI_published'))
         r.update(CC50=cc, CC50_relation=ccrel, IC50=av if r['antiviral_type']=='IC50' else '',
                  EC50=av if r['antiviral_type']=='EC50' else '', antiviral_relation=avrel,
                  SI=si, SI_relation=sirel, concentration_units='uM',
-                 outcome='Not active' if av=='' else 'Measured',
+                 outcome='Active' if qualitative_active else ('Not active' if av=='' else 'Measured'),
                  SI_from_rounded_means=cc/av if cc and av and ccrel==avrel=='=' else '')
         # A TC50 is stored in the cytotoxicity column with its original type,
         # as in the existing collector. An EC50 never masquerades as an IC50.
@@ -153,6 +187,9 @@ def build():
             r['source_url']='https://pmc.ncbi.nlm.nih.gov/articles/PMC9865139/'
         if r['doi']=='10.1016/j.bmcl.2022.129080':
             r['source_url']='https://pmc.ncbi.nlm.nih.gov/articles/PMC9674569/'
+        if r['doi']=='10.1007/s11172-019-2467-6':
+            r['concentration_units']='ug/mL (source; qualitative outcome only)'
+            r['source_location']='Schemes 1/2/3, Tables 1/2 discussion, publisher abstract'
         r['quality_note']=''
         if r['SI'] and r['SI_from_rounded_means'] and abs(r['SI']-r['SI_from_rounded_means'])>max(1.,.05*r['SI']):
             r['quality_note']='Published SI differs from ratio of rounded concentration means; both retained.'
