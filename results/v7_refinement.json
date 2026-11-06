@@ -537,5 +537,12 @@
       "runtime_seconds": 27.490353667060845
     }
   },
-  "candidate_csv": "results/candidate_primary2019.csv"
+  "candidate_csv": "results/candidate_primary2019.csv",
+  "audit_correction": {
+    "status": "historical_pre_correction_results",
+    "affected_candidate": "primary_2019 qualitative evidence",
+    "issue": "Compound 5b was incorrectly transcribed as inactive. Table 2 reports IC50=42.926 ug/mL, TC50>100 ug/mL, SI>2.32. Corrected projection is Active; historical metrics are not revalidated results of the corrected flag.",
+    "replacement_report": "results/literature_candidate_experiment.json",
+    "source": "https://doi.org/10.1007/s11172-019-2467-6"
+  }
 }

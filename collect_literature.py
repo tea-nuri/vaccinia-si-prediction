@@ -120,38 +120,20 @@ for j,ar in enumerate(aryl):
             note='Table 1, Scheme 1: 1-hydroxy-4-methylimidazole; R1/R2 taken from Table 1. ChEMBL 4-OH transcription is not used.')
 
 
-# Nikitina et al., 2019: Scheme 2 (4a-c, 5a-c), Scheme 3 (6a-c),
-# Table 2 and the publisher abstract explicitly report these six included compounds
-# inactive against VACV Copenhagen in Vero. Substituents are defined by the
-# scheme caption: a=acetyl/methyl, b=ethoxycarbonyl/methyl,
-# c=fused CH2-C(CH3)2-CH2 ring. No competition structure or value is read.
-# Concentration numbers are deliberately NOT transcribed from an inaccessible
-# table; only the published qualitative outcome is represented.
-for letter, base in [
-    ('a', 'CC(=O)c1c(C)nc(-c2ccccc2O)n1O'),
-    ('b', 'CCOC(=O)c1c(C)nc(-c2ccccc2O)n1O'),
-    ('c', 'O=C1CC(C)(C)Cc2nc(-c3ccccc3O)n(O)c21')]:
-    add('10.1007/s11172-019-2467-6','1'+letter,base,None,'Active',None,cc_type='TC50',
-        note='Scheme 1 and Table 1 discussion explicitly identify 1a-c as active, low-cytotoxicity compounds. Only qualitative outcome transcribed; rounded numerical table columns not used.')
-    # Map published functional-group changes to the named imidazole nitrogens.
-    mol=Chem.MolFromSmiles(base)
-    for series in [5,6]:
-        changed=Chem.RWMol(mol)
-        n1=next(a.GetIdx() for a in changed.GetAtoms() if a.GetSymbol()=='N' and
-                any(b.GetSymbol()=='O' and b.GetDegree()==1 for b in a.GetNeighbors()))
-        oxygen=next(a.GetIdx() for a in changed.GetAtomWithIdx(n1).GetNeighbors() if a.GetSymbol()=='O')
-        n3=next(a.GetIdx() for a in changed.GetAtoms() if a.GetSymbol()=='N' and a.GetIdx()!=n1)
-        if series==5:
-            methyl=changed.AddAtom(Chem.Atom('C'))
-            changed.AddBond(oxygen,methyl,Chem.BondType.SINGLE)
-        else:
-            changed.GetAtomWithIdx(n1).SetNumExplicitHs(1)
-            changed.RemoveAtom(oxygen)
-        result=changed.GetMol();Chem.SanitizeMol(result)
-        add('10.1007/s11172-019-2467-6',str(series)+letter,
-            Chem.MolToSmiles(result),None,'NA',None,cc_type='TC50',
-            note='Scheme 2/3 and Table 2: explicitly inactive 5a-c, 6a-c. Publisher abstract confirms these series inactive. N-methyl N-oxides 4a-c excluded pending regioisomer review. Only qualitative outcome transcribed; no numerical concentrations available. Exact achiral graphs reconstructed from the scheme substituent definitions.')
-
+# Compatibility projection for the opt-in qualitative experiment. The audited
+# table is authoritative: 5b has IC50=42.926 ug/mL and TC50>100, not NA.
+# Keep this projection qualitative so the historical flag has explicit semantics;
+# the numerical candidate is evaluated separately against frozen V7 predictions.
+from collect_literature_candidates import build as build_2019
+for record in build_2019():
+    if record['compound'] not in {'1a','1b','1c','5a','5b','5c','6a','6b','6c'}:
+        continue
+    add(record['doi'],record['compound'],record['smiles'],None,
+        'NA' if record['outcome']=='Not active' else 'Active',None,
+        formula=record['formula'],cc_type='TC50',
+        note='Qualitative projection of audited Tables 1/2 and Schemes 1-3. '
+             '5b is measured with a cytotoxicity bound, never inactive. '
+             'Full concentrations, units, bounds and source URL: literature_candidates.csv.')
 
 
 def build():
