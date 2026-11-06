@@ -1,8 +1,9 @@
-"""Reproduce selected V5 using SMILES and allowed assay context."""
+"""Reproduce V6: SMILES/context model with traceable external inactivity evidence."""
 from pathlib import Path
 import argparse
 import json
 import hashlib
+from functools import lru_cache
 import joblib
 import numpy as np
 import pandas as pd
@@ -19,6 +20,42 @@ ROOT = Path(__file__).resolve().parent
 DATA = ROOT / 'data'
 ALLOWED = ['SMILES', 'strain', 'Culture']
 CHARACTERS = list('cCnNoOpPsSFIBr[]=#@/\\123456789%()+-.')
+
+
+@lru_cache(maxsize=1)
+def load_inactive_smiles():
+    evidence = pd.read_csv(DATA / 'external_inactivity.csv')
+    # A compound reported in several VACV publications can have contradictory
+    # assay outcomes. Such evidence is never used for the correction.
+    return frozenset(evidence.loc[evidence.single_source == True, 'smiles'])
+
+
+def evidence_flags(smiles, inactive_smiles=None):
+    if inactive_smiles is None:
+        inactive_smiles = load_inactive_smiles()
+    return np.array([Chem.MolToSmiles(Chem.MolFromSmiles(s)) in inactive_smiles
+                     for s in smiles], dtype=bool)
+
+
+def apply_inactivity_evidence(training, targets, target, prediction, inactive_smiles=None):
+    if inactive_smiles is None:
+        inactive_smiles = load_inactive_smiles()
+    flags = evidence_flags(training.SMILES, inactive_smiles)
+    culture = training.Culture.fillna('UNKNOWN').astype(str).to_numpy()
+    supported = []
+    for cell in sorted(set(culture[flags])):
+        peers = flags & (culture == cell)
+        # This mapping is learned ONLY from the current training fold.
+        # No external annotation is directly converted into a training target.
+        if peers.sum() >= 3 and np.all(targets[peers] == 10000):
+            supported.append(cell)
+    apply = evidence_flags(target.SMILES, inactive_smiles) & target.Culture.fillna(
+        'UNKNOWN').astype(str).isin(supported).to_numpy()
+    result = np.asarray(prediction).copy()
+    result[apply] = 10000
+    return result, {'supported_cultures': supported, 'minimum_support': 3,
+                    'inactive_smiles': inactive_smiles,
+                    'corrected_rows': int(apply.sum())}
 
 
 def make_model():
@@ -74,10 +111,13 @@ def fit_predict(training, targets, target):
                      np.minimum(targets[active], 5000))
     active_pred = np.clip(active_model.predict(serialization_features(target.SMILES)), 0, 5000)
     context_pred = np.clip(inactive_part + (1-inactive_part/10000)*active_pred, 0, 10000)
-    return .5*smiles_pred+.5*context_pred, {
+    prediction, evidence_model = apply_inactivity_evidence(
+        training, targets, target, .5*smiles_pred+.5*context_pred)
+    return prediction, {
         'smiles_models': smiles_models, 'inactive_classifier': inactive,
         'active_regressor': active_model, 'categorical_positions': categorical,
-        'context_weight': .5, 'features_allowed': ALLOWED}
+        'context_weight': .5, 'features_allowed': ALLOWED,
+        'inactivity_evidence': evidence_model}
 
 
 def main():
@@ -121,6 +161,7 @@ def main():
     used['inactive_label'] = (y==10000).astype(int)
     used['v4_training_target'] = np.minimum(y,10000)
     used['active_regression_target'] = np.where(y!=10000, np.minimum(y,5000), np.nan)
+    used['external_single_source_inactivity'] = evidence_flags(train.SMILES)
     used.to_csv(args.output / 'training_used.csv', index=False)
     assert sample.columns.tolist() == ['index', 'SI VACV']
     assert sample['index'].equals(test['index'])
@@ -129,7 +170,10 @@ def main():
     sample.to_csv(args.output / 'submission.csv', index=False)
     joblib.dump(model, args.output / 'model.joblib')
     report = {
-        'model': 'V5: equal blend of calibrated SMILES model and assay-context inactivity classifier',
+        'model': 'V6: V5 with single-source external inactivity and in-fold culture mapping',
+        'inactivity_evidence': {k: v for k, v in model['inactivity_evidence'].items()
+                                if k != 'inactive_smiles'},
+        'external_evidence_sha256': hashlib.sha256((DATA/'external_inactivity.csv').read_bytes()).hexdigest(),
         'context_weight': .5,
         'inactive_classifier': {'iterations':700,'depth':5,'learning_rate':.035,'l2_leaf_reg':5,'seed':42},
         'tree_weight': .15, 'calibration_slope': 1.5, 'calibration_center': 5000,
@@ -145,6 +189,7 @@ def main():
             'Train targets are capped, but all validation MSE values use the ORIGINAL uncapped targets.',
             'The target cap can underestimate genuinely high SI values.',
             'SI=10000 is an inactivity sentinel per organizer clarification, not measured high selectivity.',
+            'External inactivity can differ by assay; a single-source guard and in-fold culture mapping reduce but do not eliminate this risk.',
         ],
     }
     (args.output / 'metrics.json').write_text(json.dumps(report, indent=2))

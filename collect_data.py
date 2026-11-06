@@ -156,6 +156,128 @@ def build(payloads):
     return rows
 
 
+# Qualitative antiviral outcomes are kept separately from numerical SI values.
+ANTIVIRAL_ENDPOINTS = {'Activity', 'Inhibition', 'Antiviral activity', 'IC50',
+                       'EC50', 'EC90', 'MIC', 'MIC50', 'ID50', 'ED50'}
+OUTCOME_FIELDS = ['activity_comment', 'standard_text_value', 'text_value']
+
+
+def inactive_field(record):
+    if record.get('standard_type') not in ANTIVIRAL_ENDPOINTS:
+        return None
+    return next((field for field in OUTCOME_FIELDS
+                 if str(record.get(field)).strip().lower() == 'not active'), None)
+
+
+def load_evidence_sources(refresh=False, offline=False):
+    archive = DATA / 'vacv_evidence_snapshot.zip'
+    payloads = {}
+    if archive.exists() and not refresh:
+        with zipfile.ZipFile(archive) as z:
+            payloads = {name: z.read(name) for name in z.namelist()}
+    endpoints, records = {}, []
+    offset = 0
+    changed = False
+
+    def obtain(name, url):
+        nonlocal changed
+        endpoints[name] = url
+        if name not in payloads:
+            if offline:
+                raise FileNotFoundError('Incomplete VACV evidence snapshot: ' + name)
+            print('Fetching ' + url, flush=True)
+            payloads[name] = fetch(url)
+            changed = True
+        return json.loads(payloads[name])
+
+    while True:
+        name = f'activity_{offset}.json'
+        page = obtain(name, API + 'activity.json?target_organism=Orthopoxvirus+vaccinia'
+                      + f'&limit=1000&offset={offset}')
+        meta = page['page_meta']
+        if meta['offset'] != offset or not page['activities']:
+            raise ValueError('Invalid ChEMBL pagination')
+        records.extend(page['activities'])
+        if not meta.get('next'):
+            if len(records) != meta['total_count']:
+                raise ValueError('Incomplete ChEMBL activity snapshot')
+            break
+        offset += len(page['activities'])
+    if len({r['activity_id'] for r in records}) != len(records):
+        raise ValueError('Duplicate activity IDs in ChEMBL pagination')
+    if any(r['target_organism'] != 'Orthopoxvirus vaccinia' for r in records):
+        raise ValueError('Unexpected organism in VACV evidence')
+    documents = {}
+    for doc in sorted({r['document_chembl_id'] for r in records if inactive_field(r)}):
+        documents[doc] = obtain(f'document_{doc}.json', API + f'document/{doc}.json')
+    if changed:
+        temporary = archive.with_suffix('.tmp')
+        with zipfile.ZipFile(temporary, 'w', zipfile.ZIP_DEFLATED) as z:
+            for name in endpoints:
+                z.writestr(name, payloads[name])
+        temporary.replace(archive)
+    manifest = {name: {'url': url, 'sha256': hashlib.sha256(payloads[name]).hexdigest()}
+                for name, url in endpoints.items()}
+    (DATA / 'evidence_sources.json').write_text(json.dumps(manifest, indent=2))
+    return records, documents
+
+
+def build_inactivity(records, documents):
+    from collections import defaultdict
+    document_sets = defaultdict(set)
+    canonical = {}
+    for record in records:
+        s = record.get('canonical_smiles') or ''
+        if s not in canonical:
+            mol = Chem.MolFromSmiles(s)
+            canonical[s] = Chem.MolToSmiles(mol) if mol and mol.GetNumAtoms() else None
+        if canonical[s]:
+            document_sets[canonical[s]].add(record['document_chembl_id'])
+    rows = []
+    for record in records:
+        field = inactive_field(record)
+        if field is None:
+            continue
+        s = canonical[record.get('canonical_smiles') or '']
+        if s is None:
+            raise ValueError('Invalid SMILES in inactivity evidence')
+        doc = record['document_chembl_id']
+        doi = documents[doc].get('doi') or ''
+        if not doi:
+            raise ValueError('Missing DOI for inactivity evidence: ' + doc)
+        rows.append(dict(smiles=s, outcome='Not active', evidence_field=field,
+                         reported_text=record[field], endpoint=record['standard_type'],
+                         doi=doi, document_id=doc, molecule_id=record['molecule_chembl_id'],
+                         activity_id=record['activity_id'], assay_id=record['assay_chembl_id'],
+                         assay_description=record['assay_description'],
+                         vacv_document_count=len(document_sets[s]),
+                         single_source=len(document_sets[s]) == 1,
+                         source_url=API + f"activity/{record['activity_id']}.json"))
+    return rows
+
+
+def collect_inactivity(refresh=False, offline=False):
+    records, documents = load_evidence_sources(refresh, offline)
+    rows = build_inactivity(records, documents)
+    with (DATA / 'external_inactivity.csv').open('w', newline='') as f:
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer.writeheader(); writer.writerows(rows)
+    report = dict(scanned_activities=len(records), records=len(rows),
+                  unique_smiles=len({r['smiles'] for r in rows}),
+                  documents=len(documents),
+                  unique_single_source_smiles=len({r['smiles'] for r in rows if r['single_source']}),
+                  limitations=[
+                      'Only explicit Not active text in antiviral endpoints is accepted.',
+                      'Cytotoxicity, CC50 and MCC50 outcomes are not antiviral inactivity.',
+                      'Absence of a measurement never creates an inactivity annotation.',
+                      'An external outcome is not automatically the competition SI=10000 target.',
+                      'Different strains, cells and assay conditions may disagree.',
+                      'Multiple VACV publications for a molecule prevent the single-source flag.',
+                  ])
+    (DATA / 'inactivity_validation.json').write_text(json.dumps(report, indent=2))
+    print(json.dumps(report, indent=2))
+
+
 def main():
     p = argparse.ArgumentParser()
     p.add_argument('--refresh', action='store_true')
@@ -179,6 +301,7 @@ def main():
                                'Distinct cell lines remain separate observations.'])
     (DATA / 'external_validation.json').write_text(json.dumps(report, indent=2))
     print(json.dumps(report, indent=2))
+    collect_inactivity(args.refresh, args.offline)
 
 
 if __name__ == '__main__':

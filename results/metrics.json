@@ -1,5 +1,15 @@
 {
-  "model": "V5: equal blend of calibrated SMILES model and assay-context inactivity classifier",
+  "model": "V6: V5 with single-source external inactivity and in-fold culture mapping",
+  "inactivity_evidence": {
+    "supported_cultures": [
+      "HELA cells",
+      "MT-4",
+      "cells HEL"
+    ],
+    "minimum_support": 3,
+    "corrected_rows": 46
+  },
+  "external_evidence_sha256": "0f2159430306eaf24701d6c8340be597ff5b7cecf40cb8464020f264f88f75f9",
   "context_weight": 0.5,
   "inactive_classifier": {
     "iterations": 700,
@@ -29,13 +39,13 @@
   "train_rows": 320,
   "test_rows": 597,
   "scores": {
-    "42": 6588389.826877801,
-    "2026": 6909383.087115979,
-    "117": 6217196.835254285,
-    "2027": 6918997.217902666,
-    "7": 6981910.361638901,
-    "scaffold": 10687404.677048635,
-    "mean_group_mse": 6723175.465757927
+    "42": 6541600.6189004285,
+    "2026": 6808110.522445816,
+    "117": 6183182.083331672,
+    "2027": 6870298.426347534,
+    "7": 6937490.141152248,
+    "scaffold": 10650743.19983826,
+    "mean_group_mse": 6668136.3584355395
   },
   "source_sha256": {
     "train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
@@ -46,14 +56,11 @@
     "Raw SMILES serialization carries source conventions. Equivalent rewritten SMILES can receive different predictions.",
     "Train targets are capped, but all validation MSE values use the ORIGINAL uncapped targets.",
     "The target cap can underestimate genuinely high SI values.",
-    "SI=10000 is an inactivity sentinel per organizer clarification, not measured high selectivity."
+    "SI=10000 is an inactivity sentinel per organizer clarification, not measured high selectivity.",
+    "External inactivity can differ by assay; a single-source guard and in-fold culture mapping reduce but do not eliminate this risk."
   ],
-  "kaggle_submission": {
-    "file": "submission_v5.csv",
-    "public_mse": 5148656.84097,
-    "verified_on": "2026-11-06",
-    "submission_description": "",
-    "sha256": "34108a5954eea2ed9570e65897b01d6543abe0eb3d811cff15849f5ef005cbf2"
-  },
-  "previous_best_public_mse": 5154554.48738
+  "confirmed_public_mse": 5144257.81271,
+  "confirmed_public_date": "2026-11-06",
+  "submission_sha256": "ccae4d5c5fc9e4e27d57d46f3a720a8828f5ac7792a69b555c3b8f9d54c63d49",
+  "previous_public_mse": 5148656.84097
 }

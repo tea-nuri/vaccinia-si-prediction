@@ -1,0 +1,362 @@
+{
+  "activity_0.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_organism=Orthopoxvirus+vaccinia&limit=1000&offset=0",
+    "sha256": "ec25b5c3c00d8c18337849e1fe95e52415081ad69453138201f98fae85e7ffb7"
+  },
+  "activity_1000.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_organism=Orthopoxvirus+vaccinia&limit=1000&offset=1000",
+    "sha256": "c0ace12162c8270175076f3c23dc7e086b1fbacc17427beb47b8ee21d9ec55ac"
+  },
+  "activity_2000.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_organism=Orthopoxvirus+vaccinia&limit=1000&offset=2000",
+    "sha256": "342ba9c9f12babf5aa317db505183d721361cf740837b7b889229b6f52e06947"
+  },
+  "activity_3000.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_organism=Orthopoxvirus+vaccinia&limit=1000&offset=3000",
+    "sha256": "721e6418e56a74d0ad879ab971f91da3600244fb5251820cd23798c24b78784f"
+  },
+  "activity_4000.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?target_organism=Orthopoxvirus+vaccinia&limit=1000&offset=4000",
+    "sha256": "9a232434917add3530b19bf7d5dffe02c96652bacf093d919f263ab0d200ba1b"
+  },
+  "document_CHEMBL1123381.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1123381.json",
+    "sha256": "bc9e78afef8606026320391d99ff00665ef5e6216b138409db7be6a057baf97a"
+  },
+  "document_CHEMBL1124664.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1124664.json",
+    "sha256": "79e18cd9f4b08f64d26fe5a5ef9918aa80cdc4720afd24a291a3fe6040c2c050"
+  },
+  "document_CHEMBL1124827.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1124827.json",
+    "sha256": "93eaaeeec8f4b4d78dbe628e113b80e20b5b789acd847715d6039d3f9ba7c603"
+  },
+  "document_CHEMBL1132160.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1132160.json",
+    "sha256": "4f6898638c233144996a6d1e408826c86f0148b25cd9abcbd453896b5c996dea"
+  },
+  "document_CHEMBL1138488.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1138488.json",
+    "sha256": "832a1cb83110af7f9ee149a0b39a4dc4443c9a420cbda497607b30a9f4086f85"
+  },
+  "document_CHEMBL1140035.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1140035.json",
+    "sha256": "ee8005aef00185fb36d4680e8628bdd0dee473a6e288598f256515fbf00fdf72"
+  },
+  "document_CHEMBL1140145.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1140145.json",
+    "sha256": "009457c1750c08ff354574861e1cfb7fc0fa75f1f3b46cc7dbc3c4ddf4366764"
+  },
+  "document_CHEMBL1140758.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1140758.json",
+    "sha256": "afc6e2db5fb456b6d966cbaeb8c2c93a5e84b07674fe710e39adcf4c727ea948"
+  },
+  "document_CHEMBL1142254.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1142254.json",
+    "sha256": "068cb80a38c8293cb4aff0e9546829f0adfeeebd45b36e07fc21d150a6d0a765"
+  },
+  "document_CHEMBL1144007.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1144007.json",
+    "sha256": "3309484f38c12ed65f6db57b0bad5b377a83f6ca6f7616dfde8c81d1f9c61fa9"
+  },
+  "document_CHEMBL1144182.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1144182.json",
+    "sha256": "fd808d1687cce7c120f41e18478dfd1c9c6dc71d34f11356005934d7d192157b"
+  },
+  "document_CHEMBL1144203.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1144203.json",
+    "sha256": "53b5de025b330aab12df685cb5fc5e967fd3abf0317b7d8032626a1fed8f09a9"
+  },
+  "document_CHEMBL1144551.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1144551.json",
+    "sha256": "18323b12fbc0e140341d6310f1019db85e959e11bc787563d01778a134fb3629"
+  },
+  "document_CHEMBL1146075.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1146075.json",
+    "sha256": "40f612fc20edb871ed698404c4ac6aeb03104eca623a85f4142643b83effa390"
+  },
+  "document_CHEMBL1146876.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1146876.json",
+    "sha256": "d50007fa3b667ef95aa4a9346ee3094657125753c23ffb7397e80046d62bcdc2"
+  },
+  "document_CHEMBL1150051.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1150051.json",
+    "sha256": "1a1c9409060e45f11c553802b5d4e2a65180ad27c5e1b0e29176911da8e4fc3f"
+  },
+  "document_CHEMBL1151696.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1151696.json",
+    "sha256": "ee0785eba58828d636a912cf8d740a416d264e6db57ba713edbbcd20077bd8dd"
+  },
+  "document_CHEMBL1151929.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1151929.json",
+    "sha256": "3d3a60df97dc4a25cea0ecdf6699ea54d6395f99e687841aa74fd3c2a65e5798"
+  },
+  "document_CHEMBL1152768.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1152768.json",
+    "sha256": "ea5c38c1e4a00cecaf172b25be6728209b32f7400d324725ef26452f7f347167"
+  },
+  "document_CHEMBL1152844.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1152844.json",
+    "sha256": "429d01e50a6607b23578ef351aa5b47e5c889d02f12a84f7bc1abe1c5bbf0b0b"
+  },
+  "document_CHEMBL1152859.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1152859.json",
+    "sha256": "b8e34a475ee6aa66fb63bcf7ab502c2a59d6b5b4a194c68029f4a00c0839d5a3"
+  },
+  "document_CHEMBL1153449.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1153449.json",
+    "sha256": "e7b369bc6770e7790938b8d2d33572eb9706ed81ecd91661e87b3507a6a66836"
+  },
+  "document_CHEMBL1153616.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1153616.json",
+    "sha256": "4447db7d73addebe55353a1ff38b62fb158014eed89a7cdc098ab707cc434b94"
+  },
+  "document_CHEMBL1153936.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1153936.json",
+    "sha256": "fe2e1a72bb0327d897ccbefc7fa6e6850178ae6a0fca1bb55c130da5a219a603"
+  },
+  "document_CHEMBL1154067.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1154067.json",
+    "sha256": "1de06bfad2a9e683cafd24fe977fa6523f57ebc1d748234a502a31121d4012b9"
+  },
+  "document_CHEMBL1154091.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1154091.json",
+    "sha256": "df9fb9ba78837e49596701a388620a12c217d7f5e318112d08bd5050b0295c5b"
+  },
+  "document_CHEMBL1154819.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1154819.json",
+    "sha256": "77528a531850538b233a2fc9b5425819d60aed77e1c49b1e83bb5eda4dfec735"
+  },
+  "document_CHEMBL1156068.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1156068.json",
+    "sha256": "41bb7c2a056bd3a09da94c90a4fe7e63407e92f3f328a20059e74d0817f07b01"
+  },
+  "document_CHEMBL1156147.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1156147.json",
+    "sha256": "6f6568eb5bfc2cb0b289d38e1617a415f7751077db01191423fb0150fd21d8cb"
+  },
+  "document_CHEMBL1156237.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1156237.json",
+    "sha256": "1dcefd7752482e7e02b7679f55dc1679b6b3fbce9d5ef0f50c0fbd1215740212"
+  },
+  "document_CHEMBL1156333.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1156333.json",
+    "sha256": "80e61a72443c2808991477cd444097b094fc49c26b9600040797051e4d1144ce"
+  },
+  "document_CHEMBL1156695.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1156695.json",
+    "sha256": "520cfe251d3b02340fb0eddbcdfc24dd9a034107b167d03963be8e32a352a574"
+  },
+  "document_CHEMBL1177846.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1177846.json",
+    "sha256": "db6ba770c3bd67452adb0286c468c5dd9db127b1c2f25a828ae8133d3cf7f1a0"
+  },
+  "document_CHEMBL1177887.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1177887.json",
+    "sha256": "f8d7e987a3311a6f98fed0b33180bb524969bf1a9c8e2ed30e2c35e61e0b3579"
+  },
+  "document_CHEMBL1221337.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1221337.json",
+    "sha256": "f7a46e94e089f8ce17bb900aef1fb78673b03d33255bb5dcea057779e3cae711"
+  },
+  "document_CHEMBL1629567.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1629567.json",
+    "sha256": "769149ee7942df5b7aa551af3afb8fa5129e97bf5929abbd711885214c489ec3"
+  },
+  "document_CHEMBL1629620.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1629620.json",
+    "sha256": "a0f1b0394f140d0e4775755950a3e1d6f3da8d3cf64d7eac01590c0a12b722d0"
+  },
+  "document_CHEMBL1671794.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1671794.json",
+    "sha256": "e65277d2ad60f493b92e530f36bac7e2743a8ecccea82048820d4776c6dd0671"
+  },
+  "document_CHEMBL1759968.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1759968.json",
+    "sha256": "822d4f1d4439e4a450e8a26a65ccf505875ce5eac69fa4d990bc55a5a760343d"
+  },
+  "document_CHEMBL1773001.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1773001.json",
+    "sha256": "8a6a5d4d81a6ba35df4077a9d6d4f935e572a078b446997c4a02540aa3402731"
+  },
+  "document_CHEMBL1799947.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1799947.json",
+    "sha256": "bde8640c504ce4192ac34dbc1c061d6fb3ccfe11632499af7e818395fa983a77"
+  },
+  "document_CHEMBL1806434.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1806434.json",
+    "sha256": "312cd85060c5d1d0411b691aaa0c20d32b47e2adcbe06a0761d83e689dd5a45f"
+  },
+  "document_CHEMBL1821600.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1821600.json",
+    "sha256": "4139d69e18f54877899983cb9ec8c873292d54678fc79530666530b7800a1f3d"
+  },
+  "document_CHEMBL1833830.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1833830.json",
+    "sha256": "c4907e59aecac922c9721d2dfa460ce8ceaeb68b1bf12ccf4678fc63ea64b227"
+  },
+  "document_CHEMBL1909580.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1909580.json",
+    "sha256": "81c9583d71dd5dea4d5c41a1cfa2a6fd86cdf981d0429b73ccd521fbce8a54b9"
+  },
+  "document_CHEMBL1926651.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1926651.json",
+    "sha256": "33c7614a7c0108ebf20161271ce4288e03f5fbbcdd3fc8c3614ad68e0359c3fa"
+  },
+  "document_CHEMBL1933044.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1933044.json",
+    "sha256": "ac801faed45932f161ad8acb03b5776319c644d43def42fc0228e4afbf318a18"
+  },
+  "document_CHEMBL2010769.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2010769.json",
+    "sha256": "e06b26ab27e953bb5ba3dd0619835607b6348a20fad68da9d2ff9ce08a7b837a"
+  },
+  "document_CHEMBL2010803.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2010803.json",
+    "sha256": "9c172c7a7e0bbf1fadaa83df4de81a7279ff0e36b564675d1d8fa31b1083800c"
+  },
+  "document_CHEMBL2040790.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2040790.json",
+    "sha256": "cfd9c639666b3457017b60c6f72a5111559f07eb91aaaad06d7640883f13fd57"
+  },
+  "document_CHEMBL2203037.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2203037.json",
+    "sha256": "700a6b9b60f36a62db0bb8ef8dee39a61fd7b1542ed5ccdd89d5e7a7144d2d32"
+  },
+  "document_CHEMBL2311354.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2311354.json",
+    "sha256": "129ffb1d7f1d009f323695ec7e7ccfc138c974bf7b7415b4c09025730468a0df"
+  },
+  "document_CHEMBL2331282.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2331282.json",
+    "sha256": "cf0abd9754c44ffaac86e2524328c2187cf26cab8bbdadfcab6ca0e4fcb635d5"
+  },
+  "document_CHEMBL2331304.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2331304.json",
+    "sha256": "96ec321c978f1292a56c41ca17dd8b4844752c5a31e4b8dbe4c9c1380a54da79"
+  },
+  "document_CHEMBL2331506.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2331506.json",
+    "sha256": "4d0861b5cff0369e75ad6cd949843ad57a1e0d4215c29bd60f770be13049138a"
+  },
+  "document_CHEMBL2331518.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2331518.json",
+    "sha256": "5fb1ece00757f1b8774ad3dab869854c339f4a56f1218491ae20fb628ce19d7b"
+  },
+  "document_CHEMBL2384920.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2384920.json",
+    "sha256": "7fbd3fa8d497371267e47e558059eb59ce1759534b573e10f57aef085679e218"
+  },
+  "document_CHEMBL2396525.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2396525.json",
+    "sha256": "9aea5864a06256580cd91e19dde92391cf990751f455ffcb2e0c48142fdd4647"
+  },
+  "document_CHEMBL3045051.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3045051.json",
+    "sha256": "386e593b3657a0d80277cc7332b3ded9744bcf1789ecdaa5de266099b613d6a5"
+  },
+  "document_CHEMBL3085678.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3085678.json",
+    "sha256": "5484f8fedeea02b065e358d27379f182370b3a09ea4db282087d71cd8eda1f68"
+  },
+  "document_CHEMBL3112527.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3112527.json",
+    "sha256": "6146d3a10bc3140a7746093fe3037421a80dce412ed60eeacc8599a2049376f7"
+  },
+  "document_CHEMBL3132850.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3132850.json",
+    "sha256": "d85835fc3bfe8e4a8f01f5a9110c8db12877bbdab4c088551be1a02ace33327a"
+  },
+  "document_CHEMBL3227941.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3227941.json",
+    "sha256": "18aa8da2db6ae2ff5381c0aaa368dcf959cbd7fe63f1cee2202ac2b2fde818a6"
+  },
+  "document_CHEMBL3227988.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3227988.json",
+    "sha256": "a46a50509568e85fd93c90a6ffc70c9fe7942833daaae611c3bbfe107e2821fe"
+  },
+  "document_CHEMBL3244072.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3244072.json",
+    "sha256": "0d003d7f3d88dfdd4cb003bdcc915c031a9154b0506c9ad1e535a071d3c67157"
+  },
+  "document_CHEMBL3244073.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3244073.json",
+    "sha256": "3cd3f07c9724e64a87cd8349a60e733aad4f5f5c5dd70a97c0681a2feae9e5a0"
+  },
+  "document_CHEMBL3244145.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3244145.json",
+    "sha256": "78d863942bfc4691a0b1e88475424044b5ff1dcf60941b012c0ecf2b1cf7e905"
+  },
+  "document_CHEMBL3259765.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3259765.json",
+    "sha256": "e1245370ee4e4e15721d5013b41d05d5f8e010d4737d6cf70702565b929d3b9a"
+  },
+  "document_CHEMBL3271965.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3271965.json",
+    "sha256": "47bb5357515337b2d2bd8f522742110fa423325519e61112616fe481da2f3ab1"
+  },
+  "document_CHEMBL3286377.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3286377.json",
+    "sha256": "47f5d0288fbb66685dab336ad6030857583b9ec41aaaca358c26cfb3b009e444"
+  },
+  "document_CHEMBL3351357.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3351357.json",
+    "sha256": "efafaf3b499936befebc672f5bbac58824dc392e954520c76db18bdf5917857e"
+  },
+  "document_CHEMBL3396947.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3396947.json",
+    "sha256": "1d3100230737259b014d26e1afd87ff0e99963507b7c35f16c589190c5626762"
+  },
+  "document_CHEMBL3407452.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3407452.json",
+    "sha256": "92cc060575b7868350f1b121c82003bed0588e6d266a6fa59e34d18931df1cdb"
+  },
+  "document_CHEMBL3603790.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3603790.json",
+    "sha256": "593fb9ee658f27ee1748146a562b220d78c75da99c1a08f6c28afcc0eb540f15"
+  },
+  "document_CHEMBL3621200.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3621200.json",
+    "sha256": "bd4a3e0682c9190736eed144e1eb8fc02b76d0b874870df9012ceba0c6ac1d79"
+  },
+  "document_CHEMBL3751697.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL3751697.json",
+    "sha256": "4264f98a8197ff692dbd60fce5c3f3c21baf567933984dedbb59c7c9670b8ac2"
+  },
+  "document_CHEMBL4152296.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4152296.json",
+    "sha256": "04c516288094fa8e2b060143a6c3cb336859b036c765e0cd5d78d7eb7e7df065"
+  },
+  "document_CHEMBL4219208.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4219208.json",
+    "sha256": "48e3727cc8c4197927f83b37744c9a273ea92067488afd5b86c6ca07f48c256e"
+  },
+  "document_CHEMBL4257560.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4257560.json",
+    "sha256": "61c4c984e7054dc5ec87923c85507440e60fe1038c3b6f643f90aa8a24bcbf6d"
+  },
+  "document_CHEMBL4334462.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4334462.json",
+    "sha256": "2e927260613a581183875edc8950a1043ea80e027b4a4e6bcb21760d98088945"
+  },
+  "document_CHEMBL4368876.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4368876.json",
+    "sha256": "3b9400bb07a48463f46d1b11e170a4b640eb5adadcfeacfaefedffe74f8e4e7b"
+  },
+  "document_CHEMBL4406859.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4406859.json",
+    "sha256": "b19977d1597aa1a9289c31480ace4e4fa89ab53c8560f6a103a21da6fb3ac3fe"
+  },
+  "document_CHEMBL4808183.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4808183.json",
+    "sha256": "2b9be765f62a319064dcb6f157da53d6b9ee4d198553139f1c42c07abaad52a4"
+  },
+  "document_CHEMBL5223146.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL5223146.json",
+    "sha256": "74ddb325de98a3ec8152359b8f87793a784ac20dcf36f28b88fa722f033d4204"
+  },
+  "document_CHEMBL6092128.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL6092128.json",
+    "sha256": "4d9a034fc65a77f6de1aeeee7f6ecefe50602c89e1f3517e2fbbdc6f2ed9e2e7"
+  }
+}

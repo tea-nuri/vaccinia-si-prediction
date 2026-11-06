@@ -1,0 +1,15 @@
+{
+  "scanned_activities": 4849,
+  "records": 1116,
+  "unique_smiles": 1050,
+  "documents": 85,
+  "unique_single_source_smiles": 1026,
+  "limitations": [
+    "Only explicit Not active text in antiviral endpoints is accepted.",
+    "Cytotoxicity, CC50 and MCC50 outcomes are not antiviral inactivity.",
+    "Absence of a measurement never creates an inactivity annotation.",
+    "An external outcome is not automatically the competition SI=10000 target.",
+    "Different strains, cells and assay conditions may disagree.",
+    "Multiple VACV publications for a molecule prevent the single-source flag."
+  ]
+}
