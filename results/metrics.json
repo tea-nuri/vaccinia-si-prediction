@@ -1,35 +1,59 @@
 {
-  "features_allowed": [
-    "SMILES"
-  ],
+  "model": "V5: equal blend of calibrated SMILES model and assay-context inactivity classifier",
+  "context_weight": 0.5,
+  "inactive_classifier": {
+    "iterations": 700,
+    "depth": 5,
+    "learning_rate": 0.035,
+    "l2_leaf_reg": 5,
+    "seed": 42
+  },
   "tree_weight": 0.15,
   "calibration_slope": 1.5,
   "calibration_center": 5000,
-  "target_cap": 10000,
+  "ngram_range": [
+    2,
+    6
+  ],
+  "alpha": 0.03,
+  "training_target_cap": 10000,
   "prediction_bounds": [
     0,
     10000
   ],
-  "scores": {
-    "42": 7137807.1156290965,
-    "2026": 7100840.065596041,
-    "117": 6582681.18949963,
-    "2027": 7153205.257484918,
-    "7": 7665566.691862596,
-    "scaffold": 11197739.146271626,
-    "mean_group_mse": 7128020.064014457
-  },
+  "features_allowed": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "train_rows": 320,
   "test_rows": 597,
-  "source_sha256": {
-    "train.csv": "239efa4b3aa667b3681f6e1062d86ca5b0ba441364b8f2b894b4c428e272ba81",
-    "test.csv": "1b0c6a014bbe556c42ef2277e867d2e1a647ad31c157a9cd81bbc7e262481abd"
+  "scores": {
+    "42": 6588389.826877801,
+    "2026": 6909383.087115979,
+    "117": 6217196.835254285,
+    "2027": 6918997.217902666,
+    "7": 6981910.361638901,
+    "scaffold": 10687404.677048635,
+    "mean_group_mse": 6723175.465757927
   },
-  "limitations": "Model/weight/calibration chosen using repeated CV on the same small training set. Scores are optimistic. Original SMILES serialization affects predictions. MSE uses original uncapped targets.",
+  "source_sha256": {
+    "train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "test.csv": "8bcc39b10a0ef8595eaf0bd58880c9bcda51c8de69b573ecc840ff1cf19ab864"
+  },
+  "limitations": [
+    "CV selection uses the same small set of molecules; it is optimistic.",
+    "Raw SMILES serialization carries source conventions. Equivalent rewritten SMILES can receive different predictions.",
+    "Train targets are capped, but all validation MSE values use the ORIGINAL uncapped targets.",
+    "The target cap can underestimate genuinely high SI values.",
+    "SI=10000 is an inactivity sentinel per organizer clarification, not measured high selectivity."
+  ],
   "kaggle_submission": {
-    "file": "submission_v4.csv",
-    "public_mse": 5154554.48738,
+    "file": "submission_v5.csv",
+    "public_mse": 5148656.84097,
     "verified_on": "2026-11-06",
     "submission_description": "",
-    "sha256": "b98dad82c1f70125442cb4f71fd9e3c1ca999008a0c82aceefb43f3f3594e557"
-  }
+    "sha256": "34108a5954eea2ed9570e65897b01d6543abe0eb3d811cff15849f5ef005cbf2"
+  },
+  "previous_best_public_mse": 5154554.48738
 }

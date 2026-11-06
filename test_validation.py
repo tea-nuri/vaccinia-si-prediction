@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 from collect_data import measurement, build
-from train import fit_predict
+from train import fit_predict, ALLOWED
 
 ROOT = Path(__file__).resolve().parent
 
@@ -22,10 +22,10 @@ class DataValidationTests(unittest.TestCase):
         self.assertEqual(measurement(r, 'ic')[2], 'unsupported_units')
 
     def test_selected_submission_is_reproducible(self):
-        train = pd.read_csv(ROOT/'data/train.csv', usecols=['SMILES', 'SI VACV'])
-        test = pd.read_csv(ROOT/'data/test.csv', usecols=['index', 'SMILES'])
+        train = pd.read_csv(ROOT/'data/train.csv', usecols=ALLOWED+['SI VACV'])
+        test = pd.read_csv(ROOT/'data/test.csv', usecols=['index']+ALLOWED)
         reference = pd.read_csv(ROOT/'results/submission.csv')
-        pred, _ = fit_predict(train.SMILES.to_numpy(), train['SI VACV'].to_numpy(), test.SMILES.to_numpy())
+        pred, _ = fit_predict(train, train['SI VACV'].to_numpy(), test)
         np.testing.assert_array_equal(test['index'], reference['index'])
         np.testing.assert_allclose(pred, reference['SI VACV'], rtol=1e-10, atol=1e-6)
 
