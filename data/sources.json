@@ -7,6 +7,22 @@
     "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2321819.json",
     "sha256": "5ca95825ef40a920475d0485f332cbb28119839855b7ab80e1bc70f4fb330c1d"
   },
+  "paper_CHEMBL4052722.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL4052722&limit=1000",
+    "sha256": "a7ffd1b873f044f95557ef58926209604c1a57e28c174d5b28eac74bac62427d"
+  },
+  "document_CHEMBL4052722.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4052722.json",
+    "sha256": "8bdd08a1ba748ec8019ccf51c65076a242532666e86984915ab7ef5d0c2be053"
+  },
+  "paper_CHEMBL4257560.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL4257560&limit=1000",
+    "sha256": "44c9ae766d6d26f7adbf809e9d6261e44879c117f8c27aeb94a0c79e6b61ef1c"
+  },
+  "document_CHEMBL4257560.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4257560.json",
+    "sha256": "61c4c984e7054dc5ec87923c85507440e60fe1038c3b6f643f90aa8a24bcbf6d"
+  },
   "paper_CHEMBL4368876.json": {
     "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL4368876&limit=1000",
     "sha256": "05c6d870b69223f7c3d08a6b2dd5418054dfe6a69cca63657d737b6c164af955"
@@ -22,6 +38,14 @@
   "document_CHEMBL4699424.json": {
     "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4699424.json",
     "sha256": "a3a702954d817b2c9807c810466c947efecf8f575726f4acd345c9091cee3731"
+  },
+  "paper_CHEMBL4837211.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL4837211&limit=1000",
+    "sha256": "b6deaf43b5203551132131a90ea07c7077a727929ba62b2146d837ba5f6eb49d"
+  },
+  "document_CHEMBL4837211.json": {
+    "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL4837211.json",
+    "sha256": "061b1dc3091ff0fb97b7fc8ee13deb8ea70d100aad28633647d96f39ff5eec2a"
   },
   "paper_CHEMBL5223146.json": {
     "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL5223146&limit=1000",

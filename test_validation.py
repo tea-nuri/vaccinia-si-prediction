@@ -68,9 +68,9 @@ class DataValidationTests(unittest.TestCase):
         with zipfile.ZipFile(ROOT/'data/chembl_snapshot.zip') as z:
             payloads = {n: json.loads(z.read(n)) for n in z.namelist()}
         rows = build(payloads)
-        self.assertEqual(len(rows), 107)
-        self.assertEqual(len({r['doi'] for r in rows}), 6)
-        self.assertEqual(sum(r['usable_for_training'] for r in rows), 98)
+        self.assertEqual(len(rows), 221)
+        self.assertEqual(len({r['doi'] for r in rows}), 9)
+        self.assertEqual(sum(r['usable_for_training'] for r in rows), 114)
         self.assertTrue(all(not r['usable_for_training'] for r in rows if r['SI']==''))
         self.assertTrue(all(r['doi'] for r in rows))
         self.assertTrue(all(r['SI_relation']=='=' for r in rows if r['usable_for_training']))
@@ -104,6 +104,22 @@ class DataValidationTests(unittest.TestCase):
         original = pd.DataFrame([dict(SMILES='CCO',strain='Copenhagen',Culture='Vero')])
         _,_,weights,_ = augment(original,np.array([10.]),external,.3)
         np.testing.assert_allclose(weights,[1.,.15,.15])
+
+
+    def test_curated_tc50_and_missing_si(self):
+        with zipfile.ZipFile(ROOT/'data/chembl_snapshot.zip') as z:
+            payloads = {n: json.loads(z.read(n)) for n in z.namelist()}
+        rows = build(payloads)
+        camphor = [r for r in rows if r['document_id'] == 'CHEMBL4257560']
+        self.assertTrue(any(r['usable_for_training'] for r in camphor))
+        self.assertTrue(all(r['CC50_source_type'] == 'TC50' for r in camphor if r['CC50_activity_id']))
+        self.assertTrue(any(r['SI'] == '' for r in camphor))
+        r = dict(standard_type='TC50', standard_value='1', standard_units='uM', standard_relation='=')
+        self.assertEqual(measurement(r, 'cc')[2], 'wrong_endpoint')
+        self.assertEqual(measurement(r, 'cc', 'TC50'), (1., '=', ''))
+        # The CV1 source has inconsistent published ratios; do not train on them.
+        cv1 = [r for r in rows if r['document_id'] == 'CHEMBL4052722']
+        self.assertTrue(all(not r['usable_for_training'] for r in cv1))
 
 
 if __name__ == '__main__':

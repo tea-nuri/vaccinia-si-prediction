@@ -31,14 +31,24 @@ STUDIES = [
     dict(document='CHEMBL2321819', cell='BSC1', strain='WR',
          ic='CHEMBL2330536', cc='CHEMBL2330528', si='CHEMBL2330527',
          duration='Published ratio: IC50 overnight; CC50 20 h'),
+    dict(document='CHEMBL4257560', cell='Vero', strain='Copenhagen',
+         ic='CHEMBL4260272', cc='CHEMBL4260273', si='CHEMBL4260274',
+         cc_type='TC50', si_type='Selectivity Index',
+         duration='IC50 and TC50: 4 days'),
+    dict(document='CHEMBL4837211', cell='Vero', strain='Copenhagen',
+         ic='CHEMBL4838274', cc='CHEMBL4838273', si='CHEMBL4838275',
+         duration='IC50: 4 days; CC50 duration unspecified in assay record'),
+    dict(document='CHEMBL4052722', cell='CV1', strain='LIVP-GFP',
+         ic='CHEMBL4056706', cc='CHEMBL4056694', si='CHEMBL4056707',
+         duration='Published ratio: IC50 48 h; CC50 24 h; 4 h pretreatment'),
 ]
 FACTORS = {'nM': .001, 'uM': 1., 'µM': 1., 'mM': 1000., 'M': 1e6}
 
 
-def measurement(record, kind):
+def measurement(record, kind, expected=None):
     if record is None:
         return '', '', 'missing_measurement'
-    expected = {'ic': 'IC50', 'cc': 'CC50', 'si': 'Ratio CC50/IC50'}[kind]
+    expected = expected or {'ic': 'IC50', 'cc': 'CC50', 'si': 'Ratio CC50/IC50'}[kind]
     if record['standard_type'] != expected:
         return '', '', 'wrong_endpoint'
     try:
@@ -126,7 +136,8 @@ def build(payloads):
                 raise ValueError('Document mismatch')
             key = (r['molecule_chembl_id'], r['assay_chembl_id'])
             lookup.setdefault(key, []).append(r)
-        molecules = sorted({r['molecule_chembl_id'] for r in records if r['assay_chembl_id'] == study['si']})
+        molecules = sorted({r['molecule_chembl_id'] for r in records
+                            if r['assay_chembl_id'] in [study['ic'], study['si']]})
         for molecule in molecules:
             selected = {}
             issues = []
@@ -136,13 +147,14 @@ def build(payloads):
                     raise ValueError(f'Ambiguous measurement: {doc}, {molecule}, {kind}')
                 selected[kind] = candidates[0] if candidates else None
             si = selected['si']
+            source = si or selected['ic']
             # The allowlisted SI assays explicitly refer to VACV and the paired cell line.
-            description = si['assay_description'].lower()
+            description = source['assay_description'].lower()
             if not any(s in description for s in ['vaccinia', 'vacv', 'vavc']):
                 raise ValueError('Selected SI assay does not describe VACV')
             if study['cell'].lower() not in description:
                 raise ValueError('Cell context mismatch')
-            mol = Chem.MolFromSmiles(si.get('canonical_smiles') or '')
+            mol = Chem.MolFromSmiles(source.get('canonical_smiles') or '')
             if mol is None or mol.GetNumAtoms() == 0:
                 raise ValueError(f'Invalid SMILES for {molecule}')
             row = dict(smiles=Chem.MolToSmiles(mol), IC50='', CC50='', SI='',
@@ -151,11 +163,14 @@ def build(payloads):
                        document_id=doc, molecule_id=molecule, concentration_units='uM')
             row['publication_url'] = 'https://doi.org/' + row['doi'] if row['doi'] else ''
             for kind, column in [('ic', 'IC50'), ('cc', 'CC50'), ('si', 'SI')]:
-                val, relation, issue = measurement(selected[kind], kind)
+                val, relation, issue = measurement(selected[kind], kind, study.get(kind + '_type'))
                 row[column] = val
                 row[column + '_relation'] = relation
                 row[column + '_activity_id'] = selected[kind]['activity_id'] if selected[kind] else ''
                 row[column + '_assay_id'] = study[kind]
+                row[column + '_source_type'] = selected[kind]['standard_type'] if selected[kind] else ''
+                for field in ['activity_comment', 'standard_text_value', 'text_value']:
+                    row[column + '_' + field] = (selected[kind].get(field) or '') if selected[kind] else ''
                 if issue:
                     issues.append(column + ':' + issue)
                 if relation != '=':
@@ -164,7 +179,7 @@ def build(payloads):
             if all(row[c] for c in ['IC50', 'CC50', 'SI']) and all(row[c + '_relation'] == '=' for c in ['IC50', 'CC50', 'SI']):
                 if abs(row['SI'] - row['SI_computed_for_check']) > max(1., .05 * row['SI']):
                     issues.append('ratio_inconsistent_beyond_rounding')
-            row['source_url'] = API + 'activity/' + str(si['activity_id']) + '.json'
+            row['source_url'] = API + 'activity/' + str(source['activity_id']) + '.json'
             row['quality_flags'] = ';'.join(issues)
             row['usable_for_training'] = not issues
             rows.append(row)
@@ -281,7 +296,7 @@ def collect_inactivity(refresh=False, offline=False):
     records, documents = load_evidence_sources(refresh, offline)
     rows = build_inactivity(records, documents)
     with (DATA / 'external_inactivity.csv').open('w', newline='') as f:
-        writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator='\n')
         writer.writeheader(); writer.writerows(rows)
     report = dict(scanned_activities=len(records), records=len(rows),
                   unique_smiles=len({r['smiles'] for r in rows}),
@@ -315,8 +330,10 @@ def main():
                   documents=len({r['doi'] for r in rows}), assay_mapping=STUDIES,
                   rejected_reasons=dict(Counter(flag for r in rows for flag in r['quality_flags'].split(';') if flag)),
                   per_document=dict(Counter(r['doi'] for r in rows)),
-                  limitations=['Six curated publications, not an exhaustive literature collection.',
+                  limitations=['Nine curated publications, not an exhaustive literature collection.',
                                'Published SI retained; bounds are excluded from exact-label training.',
+                               'TC50 maps to CC50 only in the curated cytotoxicity assay; original types and text are retained.',
+                               'Incomplete IC50 observations are retained for audit, never assigned SI=10000.',
                                '2023 paper reports 72 h CC50 / 96 h IC50; that context is retained.',
                                '2013 paper reports overnight IC50 / 20 h CC50; that context is retained.',
                                'Missing IC50 or SI is not automatically an inactivity label.',

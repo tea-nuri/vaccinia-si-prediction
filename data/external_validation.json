@@ -1,8 +1,8 @@
 {
-  "records": 107,
-  "exact_usable_records": 98,
-  "unique_usable_smiles": 78,
-  "documents": 6,
+  "records": 221,
+  "exact_usable_records": 114,
+  "unique_usable_smiles": 93,
+  "documents": 9,
   "assay_mapping": [
     {
       "document": "CHEMBL6092128",
@@ -66,27 +66,65 @@
       "cc": "CHEMBL2330528",
       "si": "CHEMBL2330527",
       "duration": "Published ratio: IC50 overnight; CC50 20 h"
+    },
+    {
+      "document": "CHEMBL4257560",
+      "cell": "Vero",
+      "strain": "Copenhagen",
+      "ic": "CHEMBL4260272",
+      "cc": "CHEMBL4260273",
+      "si": "CHEMBL4260274",
+      "cc_type": "TC50",
+      "si_type": "Selectivity Index",
+      "duration": "IC50 and TC50: 4 days"
+    },
+    {
+      "document": "CHEMBL4837211",
+      "cell": "Vero",
+      "strain": "Copenhagen",
+      "ic": "CHEMBL4838274",
+      "cc": "CHEMBL4838273",
+      "si": "CHEMBL4838275",
+      "duration": "IC50: 4 days; CC50 duration unspecified in assay record"
+    },
+    {
+      "document": "CHEMBL4052722",
+      "cell": "CV1",
+      "strain": "LIVP-GFP",
+      "ic": "CHEMBL4056706",
+      "cc": "CHEMBL4056694",
+      "si": "CHEMBL4056707",
+      "duration": "Published ratio: IC50 48 h; CC50 24 h; 4 h pretreatment"
     }
   ],
   "rejected_reasons": {
-    "SI:bound_or_unknown_relation": 6,
-    "IC50:data_validity_flag": 3,
-    "CC50:bound_or_unknown_relation": 3,
-    "IC50:bound_or_unknown_relation": 2,
-    "ratio_inconsistent_beyond_rounding": 1,
-    "SI:missing_value": 2
+    "SI:bound_or_unknown_relation": 99,
+    "IC50:data_validity_flag": 4,
+    "IC50:missing_value": 24,
+    "IC50:bound_or_unknown_relation": 52,
+    "SI:missing_measurement": 79,
+    "CC50:bound_or_unknown_relation": 81,
+    "ratio_inconsistent_beyond_rounding": 5,
+    "CC50:missing_measurement": 54,
+    "SI:missing_value": 2,
+    "CC50:invalid_value": 1
   },
   "per_document": {
-    "10.1039/d4md00181h": 25,
+    "10.1039/d4md00181h": 27,
     "10.1016/j.ejmech.2023.115601": 38,
-    "10.1016/j.bmcl.2022.129080": 12,
+    "10.1016/j.bmcl.2022.129080": 20,
     "10.1039/d0md00108b": 20,
-    "10.1039/C8MD00442K": 6,
-    "10.1021/jm301735k": 6
+    "10.1039/C8MD00442K": 15,
+    "10.1021/jm301735k": 58,
+    "10.1039/C8MD00347E": 19,
+    "10.1016/j.ejmech.2021.113485": 19,
+    "10.1016/j.bmcl.2017.06.035": 5
   },
   "limitations": [
-    "Six curated publications, not an exhaustive literature collection.",
+    "Nine curated publications, not an exhaustive literature collection.",
     "Published SI retained; bounds are excluded from exact-label training.",
+    "TC50 maps to CC50 only in the curated cytotoxicity assay; original types and text are retained.",
+    "Incomplete IC50 observations are retained for audit, never assigned SI=10000.",
     "2023 paper reports 72 h CC50 / 96 h IC50; that context is retained.",
     "2013 paper reports overnight IC50 / 20 h CC50; that context is retained.",
     "Missing IC50 or SI is not automatically an inactivity label.",

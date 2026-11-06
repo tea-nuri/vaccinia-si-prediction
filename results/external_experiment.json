@@ -1,95 +1,95 @@
 {
-  "model": "fixed selected V5",
+  "model": "selected V6 with weighted external augmentation",
   "original_train_rows": 320,
   "exclusion_rule": "Exclude every original-train canonical and neutralized fragment-parent structure; also exclude validation scaffolds for scaffold CV.",
-  "external_candidate_records": 77,
-  "external_candidate_molecules": 61,
-  "external_sha256": "c1012447d37e1f3c5b8a38837951245fb117da2bfc4ba6a582903a39a464a451",
-  "baseline_validation_sha256": "9f0f51d06cfbe2ee90b8dd3e5618a8ce48482fd163d4932568dc8d0dfef97f95",
+  "external_candidate_records": 89,
+  "external_candidate_molecules": 73,
+  "external_sha256": "a578c00918581120ddead1ed68f71f46bcaa836b09605ba07b0a03b8235bd1a0",
+  "baseline_validation_sha256": "e1ed7782d5227d3b540b9dd49530527f1f04684f6087ef1c38ad80a03b17aeb0",
   "selection_rule": "Improve both molecule splits and scaffold split; among passing weights choose lowest mean molecule MSE; otherwise retain weight 0.",
   "caveat": "Repeated CV on previously explored molecules; not an independent holdout.",
   "weights": {
     "0": {
-      "42": 6588389.826877801,
-      "2026": 6909383.087115979,
-      "scaffold": 10687404.677048635
+      "42": 6541600.6189004285,
+      "2026": 6808110.522445816,
+      "scaffold": 10650743.19983826
     },
     "0.1": {
-      "42": 6857013.848636737,
+      "42": 6680339.241575681,
       "42_external_records_per_fold": [
-        77,
-        77,
-        77,
-        77,
-        77
+        89,
+        89,
+        89,
+        89,
+        89
       ],
-      "2026": 6916329.82997706,
+      "2026": 7117473.952975964,
       "2026_external_records_per_fold": [
-        77,
-        77,
-        77,
-        77,
-        77
+        89,
+        89,
+        89,
+        89,
+        89
       ],
-      "scaffold": 10724434.412503788,
+      "scaffold": 10526167.320642333,
       "scaffold_external_records_per_fold": [
-        73,
-        72,
-        69,
-        40,
-        63
+        83,
+        82,
+        79,
+        49,
+        75
       ]
     },
     "0.3": {
-      "42": 6917083.659749413,
+      "42": 6787851.194489038,
       "42_external_records_per_fold": [
-        77,
-        77,
-        77,
-        77,
-        77
+        89,
+        89,
+        89,
+        89,
+        89
       ],
-      "2026": 6983460.492696688,
+      "2026": 7131957.991109992,
       "2026_external_records_per_fold": [
-        77,
-        77,
-        77,
-        77,
-        77
+        89,
+        89,
+        89,
+        89,
+        89
       ],
-      "scaffold": 10442737.745401673,
+      "scaffold": 10431709.279445803,
       "scaffold_external_records_per_fold": [
-        73,
-        72,
-        69,
-        40,
-        63
+        83,
+        82,
+        79,
+        49,
+        75
       ]
     },
     "1.0": {
-      "42": 6780012.477480982,
+      "42": 6806240.780612761,
       "42_external_records_per_fold": [
-        77,
-        77,
-        77,
-        77,
-        77
+        89,
+        89,
+        89,
+        89,
+        89
       ],
-      "2026": 6964251.639765574,
+      "2026": 7104358.698016638,
       "2026_external_records_per_fold": [
-        77,
-        77,
-        77,
-        77,
-        77
+        89,
+        89,
+        89,
+        89,
+        89
       ],
-      "scaffold": 10391042.167867124,
+      "scaffold": 10276421.342407884,
       "scaffold_external_records_per_fold": [
-        73,
-        72,
-        69,
-        40,
-        63
+        83,
+        82,
+        79,
+        49,
+        75
       ]
     }
   },
