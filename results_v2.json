@@ -1,0 +1,32 @@
+{
+  "validation": {
+    "et_desc_l1_f0.5": {
+      "seed42": 13813491.456514502,
+      "seed2026": 16597931.903831441
+    },
+    "et_desc_l3_f0.5": {
+      "seed42": 13909341.202334613,
+      "seed2026": 13750241.176021328
+    },
+    "et_desc_l3_f1.0": {
+      "seed42": 14109386.442823064,
+      "seed2026": 14015842.403256748
+    },
+    "original_et": {
+      "seed42": 14169252.009815386,
+      "seed2026": 14088727.578136861
+    },
+    "ensemble": {
+      "seed42": 13802685.826916229,
+      "seed2026": 14362480.338022998
+    }
+  },
+  "selected": [
+    "et_desc_l3_f0.5"
+  ],
+  "scaffold_mse": 19306606.47527922,
+  "note": "SMILES only. Selection across candidates is optimistic; seed2026 reuses the same molecules. No test labels or CC50/IC50 used.",
+  "kaggle_public_mse": 10060443.902,
+  "leaderboard_rank_at_submission": 4,
+  "team": "Чай"
+}
