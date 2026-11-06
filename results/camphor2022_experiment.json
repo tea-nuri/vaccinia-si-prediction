@@ -1,6 +1,6 @@
 {
   "model": "V9 local: V8 plus exact stereochemical camphor 2022 measurements",
-  "status": "local_only_not_submitted",
+  "status": "kaggle_complete",
   "scores": {
     "42": 898540.9316354111,
     "2026": 1118452.666829103,
@@ -38,5 +38,13 @@
     "Retrieval-assisted exploratory validation, not novel-compound generalization or a public-score result.",
     "No override of old measurements, even when a later study disagrees.",
     "No stereochemistry stripping, no NT-to-inactive conversion, no competition concentration columns."
-  ]
+  ],
+  "submission_code_commit": "2baf6a4",
+  "submission_filename": "submission_v9.csv",
+  "confirmation_url": "https://www.kaggle.com/competitions/molecular-activity-prediction-hack/submissions",
+  "kaggle_public_score": 3532699.0074,
+  "kaggle_verified_date": "2026-11-07",
+  "team_best_public_score_at_submission": 3496268.68289,
+  "team_best_submission_at_submission": "candidate_provenance_calibrated.csv",
+  "improves_team_best": false
 }
