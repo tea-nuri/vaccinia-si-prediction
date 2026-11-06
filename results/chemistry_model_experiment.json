@@ -1,0 +1,170 @@
+{
+  "baseline": {
+    "42": 1357441.5756418915,
+    "2026": 1539876.7258945308,
+    "117": 1445965.3684941554,
+    "scaffold": 5686744.461882243
+  },
+  "scores": {
+    "cat_d3_direct_blend0.25": {
+      "42": 1630480.176960629,
+      "2026": 1826478.654579661,
+      "117": 1634060.70762073,
+      "scaffold": 5958160.616533952
+    },
+    "cat_d3_direct_blend0.5": {
+      "42": 2205847.885268451,
+      "2026": 2353401.809155277,
+      "117": 2087108.8154355455,
+      "scaffold": 6575226.082854069
+    },
+    "cat_d3_direct_blend1.0": {
+      "42": 4263570.622851352,
+      "2026": 4128211.7959779673,
+      "117": 3788063.3371298998,
+      "scaffold": 8846304.950499535
+    },
+    "cat_d3_two_stage_blend0.25": {
+      "42": 1468335.2724120433,
+      "2026": 1665215.5871909233,
+      "117": 1511191.4019617755,
+      "scaffold": 5830657.688769304
+    },
+    "cat_d3_two_stage_blend0.5": {
+      "42": 1692989.8281086353,
+      "2026": 1915264.8891712017,
+      "117": 1680218.1230567642,
+      "scaffold": 6122106.704404242
+    },
+    "cat_d3_two_stage_blend1.0": {
+      "42": 2483581.5162811405,
+      "2026": 2789494.815183418,
+      "117": 2329673.628128848,
+      "scaffold": 7147612.101917754
+    },
+    "cat_d5_direct_blend0.25": {
+      "42": 1586087.2653841905,
+      "2026": 1823954.6832102924,
+      "117": 1596778.2098232245,
+      "scaffold": 5913408.1310739955
+    },
+    "cat_d5_direct_blend0.5": {
+      "42": 2064293.955371193,
+      "2026": 2330059.4769855095,
+      "117": 1954332.513863063,
+      "scaffold": 6428717.753126065
+    },
+    "cat_d5_direct_blend1.0": {
+      "42": 3769390.336079307,
+      "2026": 4008349.5739143104,
+      "117": 3289665.5100750453,
+      "scaffold": 8325274.8558111545
+    },
+    "cat_d5_two_stage_blend0.25": {
+      "42": 1515934.6241616737,
+      "2026": 1702193.7221003447,
+      "117": 1518806.6914382852,
+      "scaffold": 5872077.006390391
+    },
+    "cat_d5_two_stage_blend0.5": {
+      "42": 1770048.781361812,
+      "2026": 1967998.0489609987,
+      "117": 1673817.2511806241,
+      "scaffold": 6206473.130670932
+    },
+    "cat_d5_two_stage_blend1.0": {
+      "42": 2565140.421803157,
+      "2026": 2810068.6946468265,
+      "117": 2230346.081059932,
+      "scaffold": 7322456.118549201
+    },
+    "cat_d7_direct_blend0.25": {
+      "42": 1596586.1347791047,
+      "2026": 1817769.9525264918,
+      "117": 1618161.264713609,
+      "scaffold": 5884395.339468378
+    },
+    "cat_d7_direct_blend0.5": {
+      "42": 2071851.3531063148,
+      "2026": 2291882.1251435922,
+      "117": 1984377.5816271105,
+      "scaffold": 6348829.317617317
+    },
+    "cat_d7_direct_blend1.0": {
+      "42": 3730743.767330724,
+      "2026": 3828763.3083332097,
+      "117": 3298871.4775362583,
+      "scaffold": 8078046.575603606
+    },
+    "cat_d7_two_stage_blend0.25": {
+      "42": 1491097.1541953306,
+      "2026": 1696672.128011886,
+      "117": 1493943.2634238985,
+      "scaffold": 5900276.367358809
+    },
+    "cat_d7_two_stage_blend0.5": {
+      "42": 1727407.474462884,
+      "2026": 1955418.314146643,
+      "117": 1614409.026613615,
+      "scaffold": 6244467.063560668
+    },
+    "cat_d7_two_stage_blend1.0": {
+      "42": 2507992.340140334,
+      "2026": 2778763.0384683646,
+      "117": 2072804.1577729683,
+      "scaffold": 7324824.828140264
+    },
+    "extratrees_leaf1_blend0.25": {
+      "42": 1687550.3492309656,
+      "2026": 1941642.2591983764,
+      "117": 1682414.5290154852,
+      "scaffold": 6041760.787603175
+    },
+    "extratrees_leaf1_blend0.5": {
+      "42": 2289687.399007099,
+      "2026": 2592583.0976853995,
+      "117": 2118319.20407492,
+      "scaffold": 6808785.627791196
+    },
+    "extratrees_leaf1_blend1.0": {
+      "42": 4310046.327120544,
+      "2026": 4641990.690208984,
+      "117": 3588495.0978081017,
+      "scaffold": 9578860.851568496
+    },
+    "extratrees_leaf3_blend0.25": {
+      "42": 1735321.5467651659,
+      "2026": 1965028.897544705,
+      "117": 1699907.500960077,
+      "scaffold": 6053677.977484197
+    },
+    "extratrees_leaf3_blend0.5": {
+      "42": 2423188.884122259,
+      "2026": 2668438.6046212814,
+      "117": 2184742.017122038,
+      "scaffold": 6828053.035387009
+    },
+    "extratrees_leaf3_blend1.0": {
+      "42": 4728885.657537906,
+      "2026": 4910030.625053642,
+      "117": 3847088.20053408,
+      "scaffold": 9599127.77809521
+    }
+  },
+  "settings": "Raw serialization + RDKit descriptors + 512-bit chiral Morgan r2; normalized strain/culture. CatBoost d3/5/7 800 lr.025 l2=10 seed2026: direct cap10000 or inactive classifier + log1p active regression cap5000. ExtraTrees 500 max_features.5 leaf1/3. Blend .25/.5/1. All preprocessing target-independent; train fitted within folds. V7 fixed retrieval.",
+  "passes_submission_gate": [],
+  "baseline_version": "confirmed V7, public MSE 3783018.17208",
+  "model_variants": 24,
+  "submission_gate": "Strictly >50% lower MSE than V7 in every tested molecule and scaffold protocol",
+  "submitted": false,
+  "best_by_mean_molecule_mse": "cat_d3_two_stage_blend0.25",
+  "source_sha256": {
+    "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "results/validation.csv": "d6a562f18c91516c5fdf7d6821e7e64fbd18f41903fb3e6c245e97b28cd02e63"
+  },
+  "limitations": [
+    "Repeated CV on previously explored molecules is not an independent holdout.",
+    "Literature lookup includes published measurements for validation molecules.",
+    "New qualitative primary-2019 evidence is disabled in all these candidates, matching confirmed V7."
+  ]
+}

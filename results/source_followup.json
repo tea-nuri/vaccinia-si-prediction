@@ -1,0 +1,28 @@
+{
+  "reviewed_date": "2026-11-07",
+  "sources": [
+    {
+      "doi": "10.1007/s11172-019-2467-6",
+      "publication_url": "https://link.springer.com/article/10.1007/s11172-019-2467-6",
+      "title": "Synthesis and antiviral activity of 1-hydroxy-2-(2-hydroxyphenyl)imidazoles against vaccinia virus",
+      "status": "Primary article identified; full tables not accessible in this run; no new labels extracted",
+      "chembl_document_matches": 0,
+      "next_step": "Obtain readable primary tables and structure schemes before curating exact labels."
+    },
+    {
+      "doi": "10.1021/jm061484y",
+      "publication_url": "https://doi.org/10.1021/jm061484y",
+      "document_id": "CHEMBL1142975",
+      "activity_url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1142975&limit=1000",
+      "antiviral_assay": "CHEMBL918571",
+      "cytotoxicity_assay": "CHEMBL918574",
+      "status": "Reviewed structured records; all 17 selected CC50 measurements are lower bounds (>). No exact SI labels added.",
+      "endpoint": "EC50; do not rename to IC50"
+    }
+  ],
+  "limitations": [
+    "Source identification does not establish additional usable training labels.",
+    "No competition concentrations were used as predictors or to create external labels."
+  ],
+  "team_update": "The integrated team commit 947399c independently added nine qualitative primary-2019 outcomes. These are already in primary_literature.csv, disabled by default, and evaluated in v7_refinement.json. This follow-up does not add duplicate or numerical labels."
+}

@@ -1,8 +1,9 @@
 {
+  "baseline_model": "V7: V6 plus curated primary literature and matched external assay pairs",
   "metric": "MSE on original uncapped targets; supplementary slices do not replace it",
   "source_sha256": {
     "data/train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
-    "results/validation.csv": "e1ed7782d5227d3b540b9dd49530527f1f04684f6087ef1c38ad80a03b17aeb0"
+    "results/validation.csv": "d6a562f18c91516c5fdf7d6821e7e64fbd18f41903fb3e6c245e97b28cd02e63"
   },
   "train_rows": 320,
   "inactive_rows": 81,
@@ -11,58 +12,58 @@
   "minimum_possible_train_mse_with_cap_10000": 2123347.2765277782,
   "splits": {
     "42": {
-      "mse": 6541600.6189004285,
-      "largest_target_error_share": 0.6177921869185691,
-      "top20_error_share": 0.9494948163405514,
-      "mse_on_targets_at_most_10000": 2508088.64361336,
-      "inactive_mse": 3694135.8467782773,
-      "other_target_mse": 7506640.981000408,
-      "threshold_5000_inactivity_disagreements": 10
+      "mse": 1357441.5756418915,
+      "largest_target_error_share": 2.557916458543611e-16,
+      "top20_error_share": 0.9282574825616524,
+      "mse_on_targets_at_most_10000": 1361696.8783868502,
+      "inactive_mse": 3215734.202078112,
+      "other_target_mse": 727643.6562220845,
+      "threshold_5000_inactivity_disagreements": 4
     },
     "2026": {
-      "mse": 6808110.522445816,
-      "largest_target_error_share": 0.5957407536430281,
-      "top20_error_share": 0.9334612691968025,
-      "mse_on_targets_at_most_10000": 2760869.34562399,
-      "inactive_mse": 5041518.541491049,
-      "other_target_mse": 7406829.980426301,
-      "threshold_5000_inactivity_disagreements": 9
+      "mse": 1539876.7258945308,
+      "largest_target_error_share": 2.25487020451505e-16,
+      "top20_error_share": 0.872907890146684,
+      "mse_on_targets_at_most_10000": 1544703.9256622249,
+      "inactive_mse": 2966362.801756671,
+      "other_target_mse": 1056423.2859579897,
+      "threshold_5000_inactivity_disagreements": 5
     },
     "117": {
-      "mse": 6183182.083331672,
-      "largest_target_error_share": 0.6548381346363724,
-      "top20_error_share": 0.9551410735739307,
-      "mse_on_targets_at_most_10000": 2140888.9397022906,
-      "inactive_mse": 3006089.023159361,
-      "other_target_mse": 7259937.471925634,
-      "threshold_5000_inactivity_disagreements": 8
+      "mse": 1445965.3684941554,
+      "largest_target_error_share": 2.4013176411422487e-16,
+      "top20_error_share": 0.9370327036951541,
+      "mse_on_targets_at_most_10000": 1450498.1752919422,
+      "inactive_mse": 3279890.1552672028,
+      "other_target_mse": 824426.0056129135,
+      "threshold_5000_inactivity_disagreements": 6
     },
     "2027": {
-      "mse": 6870298.426347534,
-      "largest_target_error_share": 0.5897803317818391,
-      "top20_error_share": 0.9555849487185922,
-      "mse_on_targets_at_most_10000": 2827166.43612894,
-      "inactive_mse": 3693059.1293750657,
-      "other_target_mse": 7947103.3763674935,
-      "threshold_5000_inactivity_disagreements": 12
+      "mse": 1524010.0152305046,
+      "largest_target_error_share": 2.2783460168538314e-16,
+      "top20_error_share": 0.9233918903796217,
+      "mse_on_targets_at_most_10000": 1528787.4760932955,
+      "inactive_mse": 3521537.681626595,
+      "other_target_mse": 847023.6513054695,
+      "threshold_5000_inactivity_disagreements": 6
     },
     "7": {
-      "mse": 6937490.141152248,
-      "largest_target_error_share": 0.5843241777145038,
-      "top20_error_share": 0.9470303115357767,
-      "mse_on_targets_at_most_10000": 2892786.8780147806,
-      "inactive_mse": 4050773.259733365,
-      "other_target_mse": 7915833.519373712,
-      "threshold_5000_inactivity_disagreements": 11
+      "mse": 1629329.7921037113,
+      "largest_target_error_share": 2.1310738713999717e-16,
+      "top20_error_share": 0.9194852478354603,
+      "mse_on_targets_at_most_10000": 1634437.4090068573,
+      "inactive_mse": 4062664.9907877916,
+      "other_target_mse": 804642.9674450901,
+      "threshold_5000_inactivity_disagreements": 7
     },
     "scaffold": {
-      "mse": 10650743.19983826,
-      "largest_target_error_share": 0.3798188979596868,
-      "top20_error_share": 0.8429966039679931,
-      "mse_on_targets_at_most_10000": 6626096.205867398,
-      "inactive_mse": 18697330.585096464,
-      "other_target_mse": 7923657.09855828,
-      "threshold_5000_inactivity_disagreements": 22
+      "mse": 5686744.461882243,
+      "largest_target_error_share": 6.105817082374233e-17,
+      "top20_error_share": 0.8311175134390968,
+      "mse_on_targets_at_most_10000": 5704571.247029209,
+      "inactive_mse": 18885157.045725346,
+      "other_target_mse": 1213642.2891153332,
+      "threshold_5000_inactivity_disagreements": 19
     }
   },
   "limitations": [
@@ -74,14 +75,14 @@
   ],
   "culture_error_seed42": [
     {
-      "Culture": "Vero",
-      "rows": 162,
-      "mse": 12507572.00820233
-    },
-    {
       "Culture": "BSC-40 ",
       "rows": 10,
       "mse": 4881294.444053428
+    },
+    {
+      "Culture": "Vero",
+      "rows": 162,
+      "mse": 2268006.7042457424
     },
     {
       "Culture": "Human foreskin fibroblast",
@@ -89,14 +90,14 @@
       "mse": 329050.741620898
     },
     {
-      "Culture": "cells BSC1",
-      "rows": 10,
-      "mse": 269216.55155119527
-    },
-    {
       "Culture": "cells HEL",
       "rows": 22,
       "mse": 260281.5269894823
+    },
+    {
+      "Culture": "cells BSC1",
+      "rows": 10,
+      "mse": 258087.43074936728
     },
     {
       "Culture": "BSC40",
@@ -106,7 +107,7 @@
     {
       "Culture": "A549 cells",
       "rows": 7,
-      "mse": 109100.5686142331
+      "mse": 107668.65522181401
     },
     {
       "Culture": " cells E6SM",
@@ -136,7 +137,7 @@
     {
       "Culture": "E6SM cells",
       "rows": 1,
-      "mse": 5500.546569804762
+      "mse": 5500.546569804759
     },
     {
       "Culture": "PRK cells",
@@ -151,7 +152,7 @@
     {
       "Culture": "HeLa cells",
       "rows": 17,
-      "mse": 904.3996840398129
+      "mse": 904.3996840398128
     },
     {
       "Culture": "CEM Cells",
@@ -166,24 +167,10 @@
   ],
   "largest_errors_seed42": [
     {
-      "source_row": 14,
-      "target": 36066.667,
-      "prediction": 105.1330959035879,
-      "squared_error": 1293231920.7354755,
-      "culture": "Vero"
-    },
-    {
-      "source_row": 23,
-      "target": 1.62,
-      "prediction": 9811.936624290582,
-      "squared_error": 96242312.26883213,
-      "culture": "Vero"
-    },
-    {
-      "source_row": 52,
-      "target": 21.686,
-      "prediction": 9116.522085975606,
-      "squared_error": 82716043.4307641,
+      "source_row": 173,
+      "target": 10000.0,
+      "prediction": 11.381944444444445,
+      "squared_error": 99772490.65977043,
       "culture": "Vero"
     },
     {
@@ -194,52 +181,10 @@
       "culture": "Vero"
     },
     {
-      "source_row": 51,
-      "target": 5.999,
-      "prediction": 8055.548097385514,
-      "squared_error": 64795240.671219945,
-      "culture": "Vero"
-    },
-    {
       "source_row": 115,
       "target": 10000.0,
       "prediction": 2988.9235491340696,
       "squared_error": 49155192.99988681,
-      "culture": "Vero"
-    },
-    {
-      "source_row": 88,
-      "target": 10000.0,
-      "prediction": 3088.950435228452,
-      "squared_error": 47762606.086729005,
-      "culture": "Vero"
-    },
-    {
-      "source_row": 63,
-      "target": 102.887,
-      "prediction": 6215.863719671802,
-      "squared_error": 37368484.37524942,
-      "culture": "Vero"
-    },
-    {
-      "source_row": 152,
-      "target": 10000.0,
-      "prediction": 4198.44651796075,
-      "squared_error": 33658022.80496175,
-      "culture": "Vero"
-    },
-    {
-      "source_row": 44,
-      "target": 3.964,
-      "prediction": 5554.815336076228,
-      "squared_error": 30811950.555219248,
-      "culture": "Vero"
-    },
-    {
-      "source_row": 262,
-      "target": 10000.0,
-      "prediction": 4833.438083249452,
-      "squared_error": 26693362.0396171,
       "culture": "Vero"
     },
     {
@@ -278,13 +223,6 @@
       "culture": "Vero"
     },
     {
-      "source_row": 216,
-      "target": 10000.0,
-      "prediction": 6370.0646642184765,
-      "squared_error": 13176430.541955322,
-      "culture": "Vero"
-    },
-    {
       "source_row": 269,
       "target": 10000.0,
       "prediction": 6713.831688452442,
@@ -292,18 +230,81 @@
       "culture": "Vero"
     },
     {
-      "source_row": 171,
-      "target": 10000.0,
-      "prediction": 6734.406507783214,
-      "squared_error": 10664100.856408626,
+      "source_row": 276,
+      "target": 3.51052631578947,
+      "prediction": 3122.473245187855,
+      "squared_error": 9727928.441713827,
       "culture": "Vero"
     },
     {
-      "source_row": 276,
-      "target": 3.51052631578947,
-      "prediction": 3122.4732451878554,
-      "squared_error": 9727928.44171383,
+      "source_row": 132,
+      "target": 10000.0,
+      "prediction": 7221.3620909500605,
+      "squared_error": 7720828.62960942,
       "culture": "Vero"
+    },
+    {
+      "source_row": 74,
+      "target": 2.773,
+      "prediction": 2742.5055212375264,
+      "squared_error": 7506134.287926532,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 12,
+      "target": 10000.0,
+      "prediction": 7526.4835190807535,
+      "squared_error": 6118283.781379133,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 307,
+      "target": 5.0,
+      "prediction": 2372.1458427182524,
+      "squared_error": 5603379.440698305,
+      "culture": "cells HEL"
+    },
+    {
+      "source_row": 109,
+      "target": 10000.0,
+      "prediction": 7702.302539523349,
+      "squared_error": 5279413.619880851,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 168,
+      "target": 2500.0,
+      "prediction": 218.7673100451156,
+      "squared_error": 5204022.5857187975,
+      "culture": "BSC-40 "
+    },
+    {
+      "source_row": 210,
+      "target": 10000.0,
+      "prediction": 7788.374330998444,
+      "squared_error": 4891288.099786581,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 161,
+      "target": 10000.0,
+      "prediction": 7835.045183695478,
+      "squared_error": 4687029.356640146,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 273,
+      "target": 10.1060606060606,
+      "prediction": 1790.4437979714467,
+      "squared_error": 3169602.4590873024,
+      "culture": "Vero"
+    },
+    {
+      "source_row": 261,
+      "target": 1811.594,
+      "prediction": 139.28531726845696,
+      "squared_error": 2796616.330339309,
+      "culture": "Human foreskin fibroblast"
     }
   ]
 }

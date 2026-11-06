@@ -1,0 +1,63 @@
+{
+  "heldout_duplicate_rows": [],
+  "heldout_duplicate_mse": null,
+  "test_changes": [
+    {
+      "index": 78,
+      "baseline": 9958.675884355418,
+      "prediction": 79.931
+    },
+    {
+      "index": 121,
+      "baseline": 8.888527099774358,
+      "prediction": 2.66666666666667
+    },
+    {
+      "index": 127,
+      "baseline": 277.86271831261706,
+      "prediction": 10000.0
+    },
+    {
+      "index": 257,
+      "baseline": 53.25153965331286,
+      "prediction": 6.36
+    },
+    {
+      "index": 302,
+      "baseline": 35.85499342007239,
+      "prediction": 2.66666666666667
+    },
+    {
+      "index": 408,
+      "baseline": 22.650224919220648,
+      "prediction": 2.667
+    },
+    {
+      "index": 493,
+      "baseline": 50.92300965873214,
+      "prediction": 7.667
+    },
+    {
+      "index": 519,
+      "baseline": 20.643776685933567,
+      "prediction": 12.7
+    },
+    {
+      "index": 532,
+      "baseline": 49.46253794447614,
+      "prediction": 6.64
+    },
+    {
+      "index": 564,
+      "baseline": 34.81626666518968,
+      "prediction": 2.0
+    }
+  ],
+  "policy": "Exact isomeric canonical SMILES plus nonmissing case/punctuation-normalized strain and culture; observations must agree within 1%; conflict fallback",
+  "limitation": "No gain in compound-disjoint CV; only previously observed molecular identity and context. Duplicate check does not establish public improvement.",
+  "kaggle": {
+    "submission_id": 58069092,
+    "public_mse": 4886245.4383,
+    "decision": "Reject; retain confirmed V7."
+  }
+}

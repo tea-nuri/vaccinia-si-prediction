@@ -1,0 +1,41 @@
+{
+  "selected_candidate": "a0.003_s2.0_p1.5_w0.5",
+  "baseline": {
+    "42": 1357441.5756418915,
+    "2026": 1539876.7258945308,
+    "117": 1445965.3684941554,
+    "scaffold": 5686744.461882243
+  },
+  "candidate": {
+    "42": 1265779.5980050664,
+    "2026": 1532226.7290476176,
+    "117": 1407216.2745874622,
+    "scaffold": 5662084.595237028
+  },
+  "confirmation": {
+    "2027": {
+      "baseline": 1524010.0152305043,
+      "candidate": 1519273.6862063296
+    },
+    "7": {
+      "baseline": 1629329.7921037115,
+      "candidate": 1596024.1655047212
+    }
+  },
+  "searched_combinations": 180,
+  "settings": "3 ridge alphas x 4 SMILES slopes x 3 probability powers x 5 component weights; fixed audited literature lookup; GroupKFold; original targets",
+  "kaggle": {
+    "submission_id": 58069069,
+    "public_mse": 3807091.7649,
+    "v7_public_mse": 3783018.17208,
+    "decision": "Reject calibration; public MSE worsened despite improvement on all six CV protocols."
+  },
+  "limitations": [
+    "Exploratory repeated CV, no independent holdout.",
+    "Published validation-molecule lookup remains in every candidate."
+  ],
+  "candidate_five_split_mean": 1464104.0906702394,
+  "baseline_five_split_mean": 1499324.6954729587,
+  "relative_cv_improvement": 0.023490978911415272,
+  "submission_policy_after_user_update": "No new submissions unless local MSE improves by strictly more than 50% over V7 across tested molecule and scaffold protocols."
+}

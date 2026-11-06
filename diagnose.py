@@ -17,6 +17,7 @@ def diagnose(output):
     np.testing.assert_array_equal(validation.target.to_numpy(), y)
     splits = [str(s) for s in [42, 2026, 117, 2027, 7]] + ['scaffold']
     report = {
+        'baseline_model': json.loads((ROOT/'results/metrics.json').read_text())['model'],
         'metric': 'MSE on original uncapped targets; supplementary slices do not replace it',
         'source_sha256': {name: hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
                           for name in ['data/train.csv', 'results/validation.csv']},
