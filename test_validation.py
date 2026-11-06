@@ -6,7 +6,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 from collect_data import measurement, build
-from train import fit_predict, ALLOWED
+from train import fit_predict, ALLOWED, prepare_external, augment
 
 ROOT = Path(__file__).resolve().parent
 
@@ -33,10 +33,10 @@ class DataValidationTests(unittest.TestCase):
         with zipfile.ZipFile(ROOT/'data/chembl_snapshot.zip') as z:
             payloads = {n: json.loads(z.read(n)) for n in z.namelist()}
         rows = build(payloads)
-        self.assertEqual(len(rows), 75)
-        self.assertEqual(len({r["doi"] for r in rows}), 4)
-        self.assertEqual(sum(r["usable_for_training"] for r in rows), 67)
-        self.assertTrue(all(not r["usable_for_training"] for r in rows if r["SI"] == ""))
+        self.assertEqual(len(rows), 107)
+        self.assertEqual(len({r['doi'] for r in rows}), 6)
+        self.assertEqual(sum(r['usable_for_training'] for r in rows), 98)
+        self.assertTrue(all(not r['usable_for_training'] for r in rows if r['SI']==''))
         self.assertTrue(all(r['doi'] for r in rows))
         self.assertTrue(all(r['SI_relation']=='=' for r in rows if r['usable_for_training']))
         self.assertTrue(all(not r['usable_for_training'] for r in rows
@@ -49,6 +49,26 @@ class DataValidationTests(unittest.TestCase):
         paper['activities'].append(si)
         with self.assertRaisesRegex(ValueError, 'Ambiguous'):
             build(changed)
+
+    def test_external_rows_cannot_reintroduce_validation_molecules(self):
+        frame = pd.DataFrame([
+            dict(smiles=s,SI=si,IC50=1.,CC50=si,IC50_relation='=',CC50_relation='=',SI_relation='=',
+                 quality_flags='',cell='Vero',strain='Copenhagen',doi='example')
+            for s,si in [('CCO',10.),('CCO.Cl',12.),('CCC',20.),('CCN',10000.)]])
+        external = prepare_external(frame,['OCC'])
+        self.assertEqual(external.canonical.tolist(),['CCC'])
+        original = pd.DataFrame([dict(SMILES='CCO',strain='Copenhagen',Culture='Vero')])
+        joined,labels,weights,rows = augment(original,np.array([10.]),external,.3,{'ACYCLIC'})
+        self.assertEqual(len(joined),1)
+        self.assertTrue(rows.empty)
+        self.assertIsNone(weights)
+
+    def test_repeated_external_measurements_share_compound_weight(self):
+        external = pd.DataFrame([dict(SMILES='CCC',canonical='CCC',scaffold='ACYCLIC',
+            strain='Copenhagen',Culture='Vero',**{'SI VACV':20.})]*2)
+        original = pd.DataFrame([dict(SMILES='CCO',strain='Copenhagen',Culture='Vero')])
+        _,_,weights,_ = augment(original,np.array([10.]),external,.3)
+        np.testing.assert_allclose(weights,[1.,.15,.15])
 
 
 if __name__ == '__main__':

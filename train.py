@@ -8,6 +8,7 @@ import numpy as np
 import pandas as pd
 from rdkit import Chem
 from rdkit.Chem.Scaffolds import MurckoScaffold
+from rdkit.Chem.MolStandardize import rdMolStandardize
 from sklearn.pipeline import make_pipeline
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import Ridge
@@ -34,11 +35,12 @@ def serialization_features(smiles):
                        for s in smiles], dtype=float)
 
 
-def _predict_smiles(train_smiles, targets, predict_smiles):
-    text_model = make_model().fit(train_smiles, np.minimum(targets, 10000))
+def _predict_smiles(train_smiles, targets, predict_smiles, sample_weight=None):
+    kwargs = {} if sample_weight is None else {'ridge__sample_weight': sample_weight}
+    text_model = make_model().fit(train_smiles, np.minimum(targets, 10000), **kwargs)
     tree_model = ExtraTreesRegressor(n_estimators=500, max_features=1.0,
                                     min_samples_leaf=1, n_jobs=4, random_state=42)
-    tree_model.fit(serialization_features(train_smiles), np.minimum(targets, 10000))
+    tree_model.fit(serialization_features(train_smiles), np.minimum(targets, 10000), sample_weight=sample_weight)
     text_pred = np.clip(text_model.predict(predict_smiles), 0, 10000)
     tree_pred = np.clip(tree_model.predict(serialization_features(predict_smiles)), 0, 10000)
     blended = .85*text_pred+.15*tree_pred
@@ -48,13 +50,13 @@ def _predict_smiles(train_smiles, targets, predict_smiles):
                         'characters':CHARACTERS}
 
 
-def fit_predict(training, targets, target):
+def fit_predict(training, targets, target, sample_weight=None):
     # The allowlist excludes concentrations, missingness and identifiers even
     # when a caller passes a full competition dataframe.
     training = training[ALLOWED]
     target = target[ALLOWED]
     smiles_pred, smiles_models = _predict_smiles(
-        training.SMILES.to_numpy(), targets, target.SMILES.to_numpy())
+        training.SMILES.to_numpy(), targets, target.SMILES.to_numpy(), sample_weight)
     xt = pd.DataFrame(serialization_features(training.SMILES)).astype(float)
     xv = pd.DataFrame(serialization_features(target.SMILES)).astype(float)
     categorical = []
@@ -65,13 +67,14 @@ def fit_predict(training, targets, target):
     inactive = CatBoostClassifier(iterations=700, depth=5, learning_rate=.035,
                                  l2_leaf_reg=5, verbose=False, thread_count=4,
                                  allow_writing_files=False, random_seed=42)
-    inactive.fit(xt, (targets == 10000).astype(int), cat_features=categorical)
+    inactive.fit(xt, (targets == 10000).astype(int), cat_features=categorical, sample_weight=sample_weight)
     inactive_part = 10000 * inactive.predict_proba(xv)[:, 1]
     active = targets != 10000
     active_model = ExtraTreesRegressor(n_estimators=300, min_samples_leaf=3,
                                       max_features=.5, random_state=42, n_jobs=4)
     active_model.fit(serialization_features(training.loc[active, 'SMILES']),
-                     np.minimum(targets[active], 5000))
+                     np.minimum(targets[active], 5000),
+                     sample_weight=None if sample_weight is None else sample_weight[active])
     active_pred = np.clip(active_model.predict(serialization_features(target.SMILES)), 0, 5000)
     context_pred = np.clip(inactive_part + (1-inactive_part/10000)*active_pred, 0, 10000)
     return .5*smiles_pred+.5*context_pred, {
@@ -80,11 +83,132 @@ def fit_predict(training, targets, target):
         'context_weight': .5, 'features_allowed': ALLOWED}
 
 
+def prepare_external(frame, original_smiles):
+    """Keep exact measured SI and exclude every original-train molecule upfront."""
+    canonical = lambda s: Chem.MolToSmiles(Chem.MolFromSmiles(s))
+    original = {canonical(s) for s in original_smiles}
+    uncharger = rdMolStandardize.Uncharger()
+    def parent_key(s):
+        parent = rdMolStandardize.FragmentParent(Chem.MolFromSmiles(s))
+        return Chem.MolToSmiles(uncharger.uncharge(parent))
+    original_parents = {parent_key(s) for s in original_smiles}
+    exact = frame[[c+'_relation' for c in ['IC50','CC50','SI']]].eq('=').all(axis=1)
+    clean = frame.quality_flags.fillna('').eq('')
+    numeric = frame[['IC50','CC50','SI']].apply(pd.to_numeric, errors='coerce')
+    valid = np.isfinite(numeric).all(axis=1) & numeric.gt(0).all(axis=1)
+    # A genuinely measured SI of exactly 10000 must not become an inactivity label.
+    rows = frame[exact & clean & valid & numeric.SI.ne(10000)].copy()
+    rows['canonical'] = rows.smiles.map(canonical)
+    rows = rows[~rows.canonical.isin(original)].copy()
+    # Counterions/protonation must not sneak an original validation compound
+    # into training under a different canonical SMILES. Stereo is preserved.
+    rows = rows[~rows.smiles.map(parent_key).isin(original_parents)].copy()
+    rows['scaffold'] = rows.canonical.map(
+        lambda s: MurckoScaffold.MurckoScaffoldSmiles(smiles=s) or 'ACYCLIC')
+    rows['SMILES'] = rows.smiles
+    rows['Culture'] = rows.cell
+    rows['strain'] = rows.strain.where(~rows.strain.str.contains('unspecified', case=False), 'UNKNOWN')
+    rows['SI VACV'] = pd.to_numeric(rows.SI)
+    # Retain separate experimental contexts; do not average incompatible assays.
+    return rows.reset_index(drop=True)
+
+
+def augment(training, targets, external, weight, forbidden_scaffolds=None):
+    rows = external.copy()
+    if forbidden_scaffolds is not None:
+        rows = rows[~rows.scaffold.isin(forbidden_scaffolds)].copy()
+    if not weight or rows.empty:
+        return training.reset_index(drop=True), targets, None, rows.iloc[:0]
+    # A compound with several measurements receives the same total weight as one
+    # compound with a single measurement, while its contexts stay separate.
+    counts = rows.groupby('canonical').canonical.transform('size').to_numpy()
+    weights = np.r_[np.ones(len(training)), weight/counts]
+    joined = pd.concat([training[ALLOWED], rows[ALLOWED]], ignore_index=True)
+    return joined, np.r_[targets, rows['SI VACV'].to_numpy(float)], weights, rows
+
+
+def external_ablation(output):
+    """Bounded data ablation on fixed V5 splits; never overwrites selected results."""
+    output.mkdir(parents=True, exist_ok=True)
+    training = pd.read_csv(DATA/'train.csv', usecols=ALLOWED+['SI VACV'])
+    target = pd.read_csv(DATA/'test.csv', usecols=['index']+ALLOWED)
+    external = prepare_external(pd.read_csv(DATA/'external.csv'), training.SMILES)
+    y = training['SI VACV'].to_numpy(float)
+    canonical = training.SMILES.map(lambda s: Chem.MolToSmiles(Chem.MolFromSmiles(s))).to_numpy()
+    scaffolds = training.SMILES.map(lambda s: MurckoScaffold.MurckoScaffoldSmiles(smiles=s) or 'ACYCLIC').to_numpy()
+    previous = json.loads((ROOT/'results/metrics.json').read_text())
+    for name, digest in previous['source_sha256'].items():
+        assert hashlib.sha256((DATA/name).read_bytes()).hexdigest() == digest
+    baseline = pd.read_csv(ROOT/'results/validation.csv')
+    np.testing.assert_allclose(baseline.target, y)
+    np.testing.assert_array_equal(baseline.canonical_smiles, canonical)
+    report = dict(model='fixed selected V5', original_train_rows=len(training),
+                  exclusion_rule='Exclude every original-train canonical and neutralized fragment-parent structure; also exclude validation scaffolds for scaffold CV.',
+                  external_candidate_records=len(external),
+                  external_candidate_molecules=int(external.canonical.nunique()),
+                  external_sha256=hashlib.sha256((DATA/'external.csv').read_bytes()).hexdigest(),
+                  baseline_validation_sha256=hashlib.sha256((ROOT/'results/validation.csv').read_bytes()).hexdigest(),
+                  selection_rule='Improve both molecule splits and scaffold split; among passing weights choose lowest mean molecule MSE; otherwise retain weight 0.',
+                  caveat='Repeated CV on previously explored molecules; not an independent holdout.',
+                  weights={})
+    predictions = pd.DataFrame({'source_row':np.arange(len(y)), 'target':y})
+    report['weights']['0'] = {name:float(np.mean((baseline[name]-y)**2)) for name in ['42','2026','scaffold']}
+    for weight in [.1, .3, 1.]:
+        metrics = {}
+        for seed in [42, 2026, None]:
+            name = str(seed) if seed is not None else 'scaffold'
+            groups = canonical if seed is not None else scaffolds
+            pred = np.full(len(y), np.nan); counts = []
+            for fold,(ix,va) in enumerate(GroupKFold(5,shuffle=seed is not None,random_state=seed).split(training,groups=groups)):
+                assert not set(canonical[ix]) & set(canonical[va])
+                joined, labels, weights, rows = augment(training.iloc[ix],y[ix],external,weight,
+                                                        set(scaffolds[va]) if seed is None else None)
+                assert not set(rows.canonical) & set(canonical[va])
+                pred[va], _ = fit_predict(joined, labels, training.iloc[va], weights)
+                counts.append(len(rows))
+                print(f'external weight={weight} split={name} fold={fold} records={len(rows)}',flush=True)
+            assert np.isfinite(pred).all()
+            metrics[name] = float(np.mean((pred-y)**2))
+            metrics[name+'_external_records_per_fold'] = counts
+            predictions[f'{weight}_{name}'] = pred
+            print(weight,name,metrics[name],flush=True)
+        report['weights'][str(weight)] = metrics
+    passing = [w for w in [.1,.3,1.] if all(report['weights'][str(w)][p] < report['weights']['0'][p]
+                                           for p in ['42','2026','scaffold'])]
+    selected = min(passing,key=lambda w:np.mean([report['weights'][str(w)][p] for p in ['42','2026']])) if passing else 0.
+    report['recommended_external_weight'] = selected
+    joined, labels, weights, rows = augment(training,y,external,selected)
+    pred, model = fit_predict(joined, labels, target, weights)
+    sample = pd.read_csv(DATA/'sample_submit.csv')
+    np.testing.assert_array_equal(sample['index'],target['index'])
+    assert np.isfinite(pred).all()
+    sample['SI VACV'] = pred
+    sample.to_csv(output/'submission.csv',index=False)
+    used = joined[ALLOWED].copy()
+    used['original_SI'] = labels
+    used['source'] = ['competition_train']*len(training)+['external']*len(rows)
+    used['doi'] = ['']*len(training)+rows.doi.tolist()
+    used['sample_weight'] = np.ones(len(used)) if weights is None else weights
+    used.to_csv(output/'training_used.csv',index=False)
+    predictions.to_csv(output/'validation.csv',index=False)
+    joblib.dump(model,output/'model.joblib')
+    report['full_fit_external_records'] = len(rows)
+    (output/'external_experiment.json').write_text(json.dumps(report,indent=2))
+    print(json.dumps(report,indent=2),flush=True)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, default=ROOT / 'run')
     parser.add_argument('--skip-cv', action='store_true')
+    parser.add_argument('--external-ablation', action='store_true',
+                        help='Compare fixed V5 with external molecule weights 0.1, 0.3 and 1')
     args = parser.parse_args()
+    if args.external_ablation:
+        if args.skip_cv:
+            parser.error('--external-ablation requires CV; omit --skip-cv')
+        external_ablation(args.output)
+        return
     args.output.mkdir(parents=True, exist_ok=True)
     # Only context explicitly permitted by the organizers joins SMILES.
     train = pd.read_csv(DATA / 'train.csv', usecols=ALLOWED+['SI VACV'])
