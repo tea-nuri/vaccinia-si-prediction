@@ -1,0 +1,59 @@
+{
+  "model": "V7 candidate: V6 plus curated primary literature and matched external assay pairs",
+  "status": "local_candidate_not_submitted",
+  "features_allowed": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "scores": {
+    "42": 1357441.5756418915,
+    "2026": 1539876.7258945308,
+    "117": 1445965.3684941554,
+    "2027": 1524010.0152305046,
+    "7": 1629329.7921037113,
+    "scaffold": 5686744.461882243,
+    "mean_group_mse": 1499324.6954729587
+  },
+  "baseline_scores": {
+    "42": 6541600.6189004285,
+    "2026": 6808110.522445816,
+    "117": 6183182.083331672,
+    "2027": 6870298.426347534,
+    "7": 6937490.141152248,
+    "scaffold": 10650743.19983826,
+    "mean_group_mse": 6668136.3584355395
+  },
+  "external_unmatched_rows_scores": {
+    "42": 1216716.192902717,
+    "2026": 1429004.3677421522,
+    "117": 1319725.6973126242,
+    "2027": 1410541.2862421942,
+    "7": 1533095.2084219255,
+    "scaffold": 6254450.460527853,
+    "mean_group_mse": 1381816.5505243228
+  },
+  "covered_train_rows": 45,
+  "covered_test_rows": 95,
+  "covered_train_mse": 2217430.025714623,
+  "train_rows": 320,
+  "test_rows": 597,
+  "limitations": [
+    "The CV gain includes retrieval of published measurements for validation molecules. It is NOT a compound-disjoint external-data generalization estimate.",
+    "The baseline model is unchanged. On molecules without a lookup the validation predictions are identical to V6.",
+    "Sources and curation policies were chosen after inspecting training errors; these local scores are exploratory, not an independent holdout.",
+    "The large training outlier dominates the improvement; public/private improvement is not implied by this CV reduction.",
+    "Rounded external concentration means are used for retrieval. Published SI is preserved separately and can differ.",
+    "A published stereoisomer mixture is only matched by connectivity for an explicitly allowlisted source; fenchyl series 9/10 is excluded pending review.",
+    "Matching molecular structure and coarse assay context cannot resolve all assay differences or competition annotation errors."
+  ],
+  "source_sha256": {
+    "train.csv": "7cbe50414578164b96c6f9a98eb0a872320ae91bae11eb64a8452e0da7607bab",
+    "test.csv": "8bcc39b10a0ef8595eaf0bd58880c9bcda51c8de69b573ecc840ff1cf19ab864"
+  },
+  "artifact_sha256": {
+    "data/external.csv": "a578c00918581120ddead1ed68f71f46bcaa836b09605ba07b0a03b8235bd1a0",
+    "data/primary_literature.csv": "872d13ece95eb6135ef0c078699eaa5a0815fb80d7fc8291098944bbe5a6b230",
+    "data/primary_structure_evidence.json": "568ad0dbd662530ea8279b9ab0566f334960ac4891cddd844b2a24586bb59b15"
+  }
+}

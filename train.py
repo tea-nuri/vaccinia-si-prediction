@@ -87,7 +87,7 @@ def _predict_smiles(train_smiles, targets, predict_smiles, sample_weight=None):
                         'characters':CHARACTERS}
 
 
-def fit_predict(training, targets, target, sample_weight=None):
+def fit_predict_v6(training, targets, target, sample_weight=None):
     # The allowlist excludes concentrations, missingness and identifiers even
     # when a caller passes a full competition dataframe.
     training = training[ALLOWED]
@@ -121,6 +121,10 @@ def fit_predict(training, targets, target, sample_weight=None):
         'active_regressor': active_model, 'categorical_positions': categorical,
         'context_weight': .5, 'features_allowed': ALLOWED,
         'inactivity_evidence': evidence_model}
+
+
+def fit_predict(training, targets, target, sample_weight=None):
+    return fit_predict_v6(training, targets, target, sample_weight)
 
 
 def prepare_external(frame, original_smiles):
@@ -243,7 +247,15 @@ def main():
     parser.add_argument('--skip-cv', action='store_true')
     parser.add_argument('--external-ablation', action='store_true',
                         help='Compare selected V6 with external molecule weights 0.1, 0.3 and 1')
+    parser.add_argument('--literature-ablation', action='store_true',
+                        help='Evaluate traceable literature retrieval over the selected V6 baseline')
     args = parser.parse_args()
+    if args.literature_ablation:
+        if args.external_ablation or args.skip_cv:
+            parser.error('--literature-ablation must be used without other experiment switches')
+        from literature import run_experiment
+        run_experiment(args.output)
+        return
     if args.external_ablation:
         if args.skip_cv:
             parser.error('--external-ablation requires CV; omit --skip-cv')
