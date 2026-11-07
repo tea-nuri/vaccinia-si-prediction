@@ -1,0 +1,103 @@
+{
+  "status": "completed_research_no_new_public_score",
+  "official_rows": 320,
+  "base_external_rows": 60,
+  "new_external_rows": 67,
+  "added_rows": 7,
+  "added_unique_molecules": 6,
+  "added_SI_gt1000": 6,
+  "added_SI_gt1000_range": [
+    1038,
+    7941
+  ],
+  "public_score_unchanged": 1167213.19279,
+  "new_kaggle_submissions": 0,
+  "distinct_model_settings": 24,
+  "validation_protocols": 11,
+  "data_only_ablation": {
+    "scaffold_mean": {
+      "baseline": {
+        "mse": 4125206.871384314,
+        "mae": 248.80930268874832
+      },
+      "expanded": {
+        "mse": 4123251.844321909,
+        "mae": 248.8294297868424
+      },
+      "relative_mse_reduction": 0.0004739221870220245
+    },
+    "molecular8_mean": {
+      "baseline": {
+        "mse": 4138367.577977772,
+        "mae": 247.90785445660643
+      },
+      "expanded": {
+        "mse": 4136577.0410274053,
+        "mae": 248.4696229061464
+      },
+      "relative_mse_reduction": 0.0004326674507829642
+    }
+  },
+  "best_research_ablation": {
+    "config": {
+      "pool": "expanded67",
+      "power": 0.5,
+      "weight": 1.0
+    },
+    "scaffold_mean": {
+      "mse": 4098313.886099555,
+      "mae": 263.88805162073027
+    },
+    "molecular8_mean": {
+      "mse": 4131847.590425765,
+      "mae": 260.7916126466491
+    },
+    "warning": "Weight change accounts for most of the difference; this is not a data-only gain."
+  },
+  "kernel_sweep_best_by_scaffold": "expanded67_gamma1.0_fp1_mix0.25",
+  "baseline_reproduction_max_absolute_OOF_delta": 3.724224370671436e-06,
+  "baseline_reproduction_tolerance": 0.0001,
+  "checks": {
+    "competition_parent_overlap": 0,
+    "test_targets_used": false,
+    "competition_concentrations_as_features": false,
+    "target_clipping": false,
+    "new_tests_and_existing_regression_tests_passed": 13
+  },
+  "encoder": {
+    "model": "ibm-research/MoLFormer-XL-both-10pct",
+    "revision": "361063d0ad524ef77cf39b08469f6be770dc550f",
+    "weights_sha256": "0795977fe7192c4acdaf052f0e8464af57bc4bb59211271c5e61aaba2637b9c6",
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "rows": 387,
+    "dimension": 768,
+    "max_tokens": 145,
+    "unknown_token_occurrences": 0
+  },
+  "upstream_refresh": {
+    "complete_network_replay": "not_completed_due_intermittent_ChEMBL_HTTP500",
+    "offline_snapshot_replay": "verified_byte_identical",
+    "current_downloaded_assay_matches_snapshot_under_normalization": true
+  },
+  "production_decision": "Retain run_best.py and the already confirmed Public best. No evidence for a major Public reduction.",
+  "repository_submission_constraint": "AGENTS.md permits new Kaggle uploads only with strong grounds for expected Public MSE reduction of at least 1,000,000; this series does not establish that.",
+  "further_sources_not_admitted": [
+    {
+      "doi": "10.1039/D6MD00217J",
+      "reason": "Full text returned HTTP403; downloaded archive was not a valid ZIP."
+    },
+    {
+      "doi": "10.1039/D5NJ03203B",
+      "reason": "Full text returned HTTP403."
+    },
+    {
+      "doi": "10.1038/s41392-025-02207-w",
+      "reason": "Article gives censored CC50 values; no exact SI point labels admitted. Also has a 2026 correction requiring review."
+    }
+  ],
+  "limitations": [
+    "Six new molecules from two publications remain a small, source-biased sample.",
+    "Protocols reuse the same 320 targets and do not predict exact Public Score.",
+    "The full raw MSE includes the largest target and all seven high-SI official rows."
+  ]
+}

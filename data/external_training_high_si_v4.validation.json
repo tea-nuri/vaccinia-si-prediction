@@ -1,0 +1,36 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "status": "audited_research_pool",
+  "base_rows": 60,
+  "added_rows": 7,
+  "output_rows": 67,
+  "added_unique_molecules": 6,
+  "added_high_SI_rows": 6,
+  "output_high_SI_rows": 7,
+  "competition_parent_overlap": 0,
+  "rejected": [
+    {
+      "record": "Monensin / Copenhagen",
+      "reason": "competition_parent"
+    },
+    {
+      "record": "Cidofovir",
+      "reason": "reference_compound_not_targeted"
+    },
+    {
+      "record": "ST-246",
+      "reason": "reference_compound_not_targeted"
+    }
+  ],
+  "output_sha256": "780bf9310b44d98717d9961e65c61356e4e0cc8703d30cd48c592cbb5b0a68f2",
+  "base_sha256": "442db3ba854729e034facbf00d809c1cce134f04e6f24f310a1158ec4e0cc11e",
+  "script_sha256": "50231bcc9d54b8746ec1d28c29abc01abc3ee80b029c7b123a1dd7260d972cab",
+  "sources_manifest_sha256": "c693c73a50582a9da663f12e6fae526fa3586028503fabf8a0f1505524e716fa",
+  "sources_archive_sha256": "1983806573b2ac6656dd88648a48b86a281f71e9f136d95be7b66bf2b688e709",
+  "limitations": [
+    "Small source-biased extension; not evidence of Kaggle gain.",
+    "Reported SI retained rather than replacing it with a rounded concentration ratio.",
+    "CC50/EC50 pairs and strain absent from ChEMBL records remain missing.",
+    "All validation scaffolds must be removed from the external pool in scaffold CV."
+  ]
+}

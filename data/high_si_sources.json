@@ -1,0 +1,52 @@
+{
+  "base_sha256": "442db3ba854729e034facbf00d809c1cce134f04e6f24f310a1158ec4e0cc11e",
+  "sources": [
+    {
+      "key": "article.xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9533862/fullTextXML",
+      "sha256": "52ea8637c9b079285a9274baf017344b9cd377f89d86e3b40f9c3f2178bab82e"
+    },
+    {
+      "key": "chembl/assay.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?assay_chembl_id=CHEMBL860528&limit=1000",
+      "sha256": "ad1a8a9307022550512891c02716182932142b01e86973afff9395ebe4f2ca41",
+      "normalized_json_sha256": "bb5559bdda85443c503ed7095286f8f55c51a5d9dab7cba5588a484d310c4319"
+    },
+    {
+      "key": "chembl/document.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1139008.json",
+      "sha256": "035989697bb6b2d5d137077daea369bb5e19c7c2747d854dfa263b810b050c84",
+      "normalized_json_sha256": "87b6439e37e060c9bd27773b52856cd20503787cad72b0451eb9cd93d314c014"
+    },
+    {
+      "key": "structures/Nigericin.json",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Nigericin/property/SMILES,IsomericSMILES,InChIKey/JSON",
+      "sha256": "f8891ee2963128ab0560b496bf580e4bfc257f44bbda1dd4f918be1b576529e9",
+      "normalized_json_sha256": "d0322aebfd669ba4d8a892910162c33c60ab473aadb763c86e6ca0d8c4708de1"
+    },
+    {
+      "key": "structures/Concanamycin_A.json",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Concanamycin%20A/property/SMILES,IsomericSMILES,InChIKey/JSON",
+      "sha256": "a9999cd3ba0cec49af51c78f7541993ae0355c8c29df0730588d6d6a120615d5",
+      "normalized_json_sha256": "400cd1b071d2fd317edc555f0bbf183dec85ee958ecb50c241f1000339500afb"
+    },
+    {
+      "key": "structures/Concanamycin_C.json",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Concanamycin%20C/property/SMILES,IsomericSMILES,InChIKey/JSON",
+      "sha256": "33d0abf17945e657de1b7ffb00018e628d560730f4e86ca2b3098e3b0b348c30",
+      "normalized_json_sha256": "8b0afd0059e63f446fc9365a678469bc195ae4f0dbb7c2056e144b28c7635df4"
+    },
+    {
+      "key": "structures/Monensin.json",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Monensin/property/SMILES,IsomericSMILES,InChIKey/JSON",
+      "sha256": "57c7d6a9af664df5cbf480675c3ccd3b153e307352085d6f6d0f79d29f87ac7f",
+      "normalized_json_sha256": "9581193be7f9e8aa39e3f5fc4d56a0ee6d5f3230ec8cbc57407ee0c4ab8018f3"
+    },
+    {
+      "key": "structures/Concanamycin_B.json",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/name/Concanamycin%20B/property/SMILES,IsomericSMILES,InChIKey/JSON",
+      "sha256": "5cf9624be4b8f8da8edd7d171ac8a0a2725a6f8a951625720bf2912acc30c820",
+      "normalized_json_sha256": "3adc077fa61317fe3d370c7e9d148c472daf3569d3741e53d7feeac2607216dc"
+    }
+  ]
+}

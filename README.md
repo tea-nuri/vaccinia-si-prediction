@@ -12,6 +12,38 @@
 
 ## Запуск
 
+Исследовательское расширение по редким большим SI от 7 ноября: внешний пул
+увеличен с 60 до **67 записей**. Добавлены 7 измерений для 6 новых молекул;
+6 новых измерений имеют SI > 1000. DOI, проверенные структуры, исходные единицы,
+отдельные штаммы и контрольные суммы сохраняются. Все официальные train/test
+parent-структуры исключены. Это исследовательский набор, текущий `run_best.py`
+продолжает воспроизводить подтверждённую отправку.
+
+```bash
+python collect_high_si.py --offline
+python -m unittest test_high_si -v
+python experiments/prepare_high_si_inputs.py --output run_high_si/inputs.json
+python experiments/extract_molformer.py --input run_high_si/inputs.json --output run_high_si/embeddings.npz
+python experiments/evaluate_high_si.py --embeddings run_high_si/embeddings.npz --output run_high_si/ablation
+python experiments/evaluate_high_si.py --embeddings run_high_si/embeddings.npz --output run_high_si/kernels --kernel-sweep
+```
+
+`--offline` воспроизводит набор из архивных снимков с SHA-256. Без него скрипт
+проверяет также живые источники; при HTTP-ошибках останавливается, а не подменяет
+ответы. ChEMBL иногда меняет порядок записей и опускает необязательные null-поля;
+проверка нормализованного JSON разрешает только эти различия и проверяет все
+непустые значения.
+
+На прежних трёх scaffold- и восьми molecular-протоколах вклад только новых данных
+при прежних настройках мал: scaffold MSE **4 125 206,87 → 4 123 251,84**
+(−0,0474%), molecular MSE **4 138 367,58 → 4 136 577,04** (−0,0433%).
+Вариант с весом внешних данных 1,0 даёт scaffold MSE 4 098 313,89, но увеличивает
+MAE до 263,89; большая часть этого выигрыша связана с весом уже существующих
+данных. Отдельная серия по форме молекулярного ядра не улучшила одновременно
+scaffold- и molecular-MSE. Полные метрики, ограничения и решение сохранены в
+`results/high_si_v4/`. Новых отправок этой серии в Kaggle нет; улучшение Public
+не заявляется.
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate
