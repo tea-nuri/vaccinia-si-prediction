@@ -25,8 +25,9 @@
     305.6994880925627,
     590.9595658937698
   ],
-  "status": "local_not_submitted",
-  "public_mse": null,
+  "status": "kaggle_confirmed_corrected_task",
+  "public_mse": 2002039.13858,
   "candidate_csv": "results/submission_corrected_v2.csv",
-  "training_used_csv": "data/training_used_v2.csv"
+  "training_used_csv": "data/training_used_v2.csv",
+  "kaggle_result": "results/corrected_kaggle_result.json"
 }

@@ -1,0 +1,19 @@
+{
+  "filename": "submission_corrected_v2.csv",
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "status": "Complete",
+  "public_mse": 2002039.13858,
+  "verified_source": "authenticated Kaggle Submission Details UI",
+  "submitted_at_moscow": "2026-11-07 12:22:10",
+  "code_commit": "9a562ed",
+  "submission_sha256": "fec2e98928b75792b2952eb8bef02b1baf90063fb967eb2aa339dff7c78d29d1",
+  "previous_best_recalculated_public_mse": 11059321.65299,
+  "improvement_vs_previous_best": 9057282.51441,
+  "previous_latest_recalculated_public_mse": 21046755.57358,
+  "improvement_vs_previous_latest": 19044716.435000002,
+  "new_submissions_this_correction": 1,
+  "screenshots": [
+    "results/kaggle_corrected_v2_result.png"
+  ],
+  "note": "Old pre-correction Public scores are not comparable."
+}

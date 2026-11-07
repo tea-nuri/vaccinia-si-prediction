@@ -8,5 +8,7 @@
   "model_source_sha256": "40f58112de31484780b10cb90a8494fc0c3a0652d41a56d0e4ae1563695f4aab",
   "new_unit_tests_passed": 5,
   "all11_validation_completed": true,
-  "external_test_measurements_used": false
+  "external_test_measurements_used": false,
+  "fresh_git_archive_commit": "9a562ed",
+  "fresh_git_archive_replay_max_absolute_difference": 1.0231815394945443e-12
 }

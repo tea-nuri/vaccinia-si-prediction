@@ -1,7 +1,7 @@
 {
   "task_version": "official_train_v2_zero_inactivity_2026-11-07",
   "model": "rf_log",
-  "status": "corrected_baseline_validated_all11_not_submitted",
+  "status": "kaggle_confirmed_corrected_task",
   "selection_basis": "Fixed baseline declared before comparing ten corrected regressors. No alternative passed the material-improvement gate. This migration corrects obsolete labels and removes test-measurement retrieval; it is not a claim of new model-family superiority.",
   "validation_report": "results/corrected_validation.json",
   "discovery_report": "results/corrected_discovery.json",
@@ -11,5 +11,6 @@
     "corrected_pipeline.py": "40f58112de31484780b10cb90a8494fc0c3a0652d41a56d0e4ae1563695f4aab"
   },
   "external_measurements_used": false,
-  "public_mse": null
+  "public_mse": 2002039.13858,
+  "kaggle_result": "results/corrected_kaggle_result.json"
 }
