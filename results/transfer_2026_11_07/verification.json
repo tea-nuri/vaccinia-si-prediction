@@ -1,0 +1,7 @@
+{
+  "serialized_model_module": "kernel_candidate",
+  "serialized_candidate_roundtrip": true,
+  "baseline_rows": 597,
+  "baseline_max_absolute_prediction_difference": 6.394884621840902e-14,
+  "tests_passed": 9
+}

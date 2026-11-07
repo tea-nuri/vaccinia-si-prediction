@@ -1,0 +1,146 @@
+{
+  "status": "new_public_best_verified_target_below_one_million_not_reached",
+  "date_moscow": "2026-11-07",
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "last_verified_kaggle_public_mse": 1167213.19279,
+  "verified_in_kaggle_ui_this_chat": true,
+  "required_expected_public_improvement_for_submission": 1000000,
+  "new_kaggle_submissions": 1,
+  "production_model": "hybrid_external_a0.1_sqrt",
+  "production_selection_changed": true,
+  "new_configurations": 118,
+  "protocols_per_configuration": 11,
+  "baseline": {
+    "scaffold_mean": {
+      "mse": 4286609.676838052,
+      "mae": 210.18666914667338
+    },
+    "molecular8_mean": {
+      "mse": 4272349.756538589,
+      "mae": 209.1210160061822
+    }
+  },
+  "batches": {
+    "external_transfer": {
+      "configurations": 36,
+      "best_exploratory_by_scaffold_mse": "morgan_external_a0.1_sqrt",
+      "scaffold_mean": {
+        "mse": 4235657.048989278,
+        "mae": 267.7774858291089
+      },
+      "molecular8_mean": {
+        "mse": 4283645.960898006,
+        "mae": 276.2838601511891
+      },
+      "relative_scaffold_mse_gain": 0.011886463123546798,
+      "passing_prior_material_gate": []
+    },
+    "endpoint_transfer": {
+      "configurations": 18,
+      "best_exploratory_by_scaffold_mse": "potleaf_a1.0_sqrt",
+      "scaffold_mean": {
+        "mse": 4250281.385800079,
+        "mae": 228.10359373262554
+      },
+      "molecular8_mean": {
+        "mse": 4236668.8124072375,
+        "mae": 234.68579474710157
+      },
+      "relative_scaffold_mse_gain": 0.008474830641629572,
+      "passing_prior_material_gate": [],
+      "external_teacher_validation": {
+        "toxicity": {
+          "rows": 418,
+          "log10_mse": 0.35486698702032743,
+          "dummy_log10_mse": 0.26518067995054073
+        },
+        "potency": {
+          "rows": 365,
+          "log10_mse": 0.2634698080948045,
+          "dummy_log10_mse": 0.2514841040773402
+        }
+      }
+    },
+    "molformer_evaluation": {
+      "configurations": 32,
+      "best_exploratory_by_scaffold_mse": "hybrid_external_a0.1_sqrt",
+      "scaffold_mean": {
+        "mse": 4125206.8714699415,
+        "mae": 248.809302680634
+      },
+      "molecular8_mean": {
+        "mse": 4138367.5780026475,
+        "mae": 247.90785443846448
+      },
+      "relative_scaffold_mse_gain": 0.037652787992390135,
+      "passing_prior_material_gate": []
+    },
+    "molformer_contextual": {
+      "configurations": 32,
+      "best_exploratory_by_scaffold_mse": "molformer_official_a0.1_sqrt",
+      "scaffold_mean": {
+        "mse": 4245148.606873652,
+        "mae": 229.3788838154372
+      },
+      "molecular8_mean": {
+        "mse": 4291723.684566181,
+        "mae": 252.38068803103332
+      },
+      "relative_scaffold_mse_gain": 0.00967222889185082,
+      "passing_prior_material_gate": []
+    }
+  },
+  "source_followup": {
+    "cached_documents_checked": 50,
+    "additional_direct_selectivity_records": 9,
+    "additional_direct_selectivity_range": [
+      0.8,
+      10.7
+    ],
+    "direct_new_records_admitted": false,
+    "unique_paired_endpoint_candidates": 20,
+    "paired_candidates_admitted": false,
+    "reasons": [
+      "Some candidate ratios mix cytostatic and cytotoxic endpoints or different assay durations.",
+      "No new high-valued point SI labels were established by this follow-up."
+    ]
+  },
+  "auxiliary_data_reproduction": {
+    "toxicity_exact_rows": 418,
+    "reporter_potency_rows": 365,
+    "all_three_curated_csv_byte_identical_to_evaluated_inputs": true,
+    "competition_parent_overlap": 0,
+    "artificial_SI_labels": false
+  },
+  "verification": {
+    "serialized_model_module": "kernel_candidate",
+    "serialized_candidate_roundtrip": true,
+    "baseline_rows": 597,
+    "baseline_max_absolute_prediction_difference": 6.394884621840902e-14,
+    "tests_passed": 9
+  },
+  "limitations": [
+    "Best configuration is chosen after many exploratory comparisons and is optimistic.",
+    "Repeated grouped splits are correlated because they reuse the same 320 labels.",
+    "All reported headline metrics retain the largest target and use the original SI scale.",
+    "No local result establishes a one-million reduction in hidden Kaggle Public MSE."
+  ],
+  "kaggle_candidate": {
+    "status": "complete_verified_in_kaggle_ui",
+    "filename": "submission_molformer_hybrid_v3.csv",
+    "candidate": "hybrid_external_a0.1_sqrt",
+    "submission_sha256": "5cffe7b48ff49dd5f74e4481eca5ec958e6ccccaf10dc52f69ad8615cd429b16",
+    "submitted_moscow": "2026-11-07 15:12:03",
+    "previous_best_public_mse": 2002039.13858,
+    "new_public_mse": 1167213.19279,
+    "absolute_public_mse_reduction": 834825.94579,
+    "relative_public_mse_reduction_percent": 41.698782491441335,
+    "new_team_public_best": true,
+    "verified_in_kaggle_ui": true,
+    "competition_url": "https://www.kaggle.com/competitions/molecular-activity-prediction-hack/submissions",
+    "new_submissions_this_chat": 1,
+    "submission_authorization": "Explicit user request to upload the current locally improved candidate, overriding the prior million-point threshold for this one submission."
+  },
+  "previous_best_public_mse": 2002039.13858,
+  "best_verified_pipeline": "run_best.py -> molformer_candidate.py"
+}

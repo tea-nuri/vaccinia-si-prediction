@@ -1,0 +1,16 @@
+{
+  "status": "complete_verified_in_kaggle_ui",
+  "filename": "submission_molformer_hybrid_v3.csv",
+  "candidate": "hybrid_external_a0.1_sqrt",
+  "submission_sha256": "5cffe7b48ff49dd5f74e4481eca5ec958e6ccccaf10dc52f69ad8615cd429b16",
+  "submitted_moscow": "2026-11-07 15:12:03",
+  "previous_best_public_mse": 2002039.13858,
+  "new_public_mse": 1167213.19279,
+  "absolute_public_mse_reduction": 834825.94579,
+  "relative_public_mse_reduction_percent": 41.698782491441335,
+  "new_team_public_best": true,
+  "verified_in_kaggle_ui": true,
+  "competition_url": "https://www.kaggle.com/competitions/molecular-activity-prediction-hack/submissions",
+  "new_submissions_this_chat": 1,
+  "submission_authorization": "Explicit user request to upload the current locally improved candidate, overriding the prior million-point threshold for this one submission."
+}

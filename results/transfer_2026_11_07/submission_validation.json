@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "rows": 597,
+  "unique_ids": true,
+  "exact_sample_order": true,
+  "finite_nonnegative": true,
+  "serialization_roundtrip": true,
+  "sha256": "5cffe7b48ff49dd5f74e4481eca5ec958e6ccccaf10dc52f69ad8615cd429b16"
+}
