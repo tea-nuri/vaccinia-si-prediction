@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "network_download_from_empty_cache": true,
+  "source_snapshots": 24,
+  "output_byte_identical": true,
+  "output_sha256": "442db3ba854729e034facbf00d809c1cce134f04e6f24f310a1158ec4e0cc11e",
+  "tests_passed": 9,
+  "official_pipeline_unchanged": true,
+  "portable_numeric_helpers_ast_identical": true,
+  "portable_reproduction_code_sha256": {
+    "experiments/evaluate_corrected_representations.py": "fd5b7c2fd4b80d4d483cbae54de63771f868426abe4200940c262ab0cb0c83da",
+    "experiments/evaluate_corrected_external.py": "51adfe8fecb4c63fedbee7bc8dab8066b1ba0f9b5f73ba4ef659a9ccc6ce4bdd"
+  }
+}

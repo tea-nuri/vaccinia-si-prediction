@@ -1,0 +1,45 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "status": "candidate_pool_not_used_by_selected_model",
+  "base_rows": 24,
+  "new_chembl_rows": 23,
+  "new_2026_paper_rows": 13,
+  "rows_retained": 60,
+  "parent_structures": 60,
+  "competition_parent_overlap": 0,
+  "chembl_rejections": {
+    "competition_parent": 5,
+    "existing_external_parent": 0
+  },
+  "paper_rejections": [
+    {
+      "compound": "2b",
+      "reason": "censored_or_absent_SI",
+      "CC50_text": "40 (6 dpt)/>100",
+      "EC50_text": "0.06 ± 0.02 (>1667)"
+    },
+    {
+      "compound": "5b",
+      "reason": "censored_or_absent_SI",
+      "CC50_text": "90(6 dpi)/>100",
+      "EC50_text": "1.0 ± 0.2 (>100)"
+    }
+  ],
+  "ambiguous_paper_CC50_left_missing": 4,
+  "base_sha256": "257ddc9f4ec8e600c8a16b7f7662bb77a88b68d3e5764a630edb5a8321657fc9",
+  "manifest_sha256": "c4f80dc67c9ac704878a7ba53a6fbdda160a65494c7edce2db628a6b3e98e8c1",
+  "collector_sha256": "c7b833fb50d0eee5e3ccde83d1fff997d001a2a029f29ec5451ad419c074af1d",
+  "output_sha256": "442db3ba854729e034facbf00d809c1cce134f04e6f24f310a1158ec4e0cc11e",
+  "feature_allowlist": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "used_by_selected_model": false,
+  "limitations": [
+    "Different papers use different assay contexts.",
+    "Printed selectivity is rounded; it is not a raw replicate.",
+    "Validation must exclude held-out scaffolds from external augmentation.",
+    "One explicit inactive base row has task-convention model_target=0, with measured SI left missing."
+  ]
+}

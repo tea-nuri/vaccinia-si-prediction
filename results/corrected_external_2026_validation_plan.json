@@ -1,0 +1,43 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "models": [
+    "expanded_w025_log",
+    "expanded_w025_leafmean",
+    "expanded_w1_log",
+    "expanded_w1_leafmean",
+    "expanded_w4_log",
+    "expanded_w4_leafmean"
+  ],
+  "splits": [
+    "scaffold",
+    "scaffold_shuffle42",
+    "scaffold_shuffle2026",
+    "42",
+    "2026",
+    "117",
+    "2027",
+    "7",
+    "23",
+    "101",
+    "509"
+  ],
+  "external_rows": 60,
+  "new_external_rows": 13,
+  "source_sha256": {
+    "script": "b8117711b8f998afa3793eb1eb0c5f38b5ff798173d7b9de560a0dcc270a25af",
+    "mean_helper": "171250f6bd0b0d399f7cb32622871590db8ad6ee8db8ad3a5d161054c9150f00",
+    "external": "a4f3839f0597bd4c6c9a701bd897a040213c48a2649229a323f1d539560baf66",
+    "train": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8",
+    "pipeline": "40f58112de31484780b10cb90a8494fc0c3a0652d41a56d0e4ae1563695f4aab"
+  },
+  "external_weights": {
+    "025": 0.25,
+    "1": 1.0,
+    "4": 4.0
+  },
+  "external_validation_scaffolds_excluded": true,
+  "competition_parent_overlap": 0,
+  "test_predictions_generated": false,
+  "target_clipping": false,
+  "selection_rule": "Prior corrected-task gate: >=10% scaffold MSE gain, each scaffold <=5% worse, known-Culture scaffold mean and molecular2 mean no worse."
+}

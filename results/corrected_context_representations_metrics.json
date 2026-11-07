@@ -1,0 +1,4379 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "models": [
+    "rf_parentbit_log",
+    "rf_parentbit_raw",
+    "rf_count_log",
+    "rf_count_raw",
+    "rf_atompair_log",
+    "rf_atompair_raw",
+    "rf_maccs_log",
+    "rf_maccs_raw",
+    "rf_descriptor_log",
+    "rf_descriptor_raw",
+    "rf_chiral_log",
+    "rf_chiral_raw",
+    "nn_parentbit_k3_raw",
+    "nn_parentbit_k3_log",
+    "nn_parentbit_k10_raw",
+    "nn_parentbit_k10_log",
+    "nn_count_k3_raw",
+    "nn_count_k3_log",
+    "nn_count_k10_raw",
+    "nn_count_k10_log",
+    "nn_atompair_k3_raw",
+    "nn_atompair_k3_log",
+    "nn_atompair_k10_raw",
+    "nn_atompair_k10_log"
+  ],
+  "splits": [
+    "scaffold",
+    "scaffold_shuffle42",
+    "scaffold_shuffle2026",
+    "42",
+    "2026",
+    "117",
+    "2027",
+    "7",
+    "23",
+    "101",
+    "509"
+  ],
+  "source_sha256": {
+    "script": "0954ad2fd10671af7c1b5b0463bfa5bb394d89bcdc5b6c7d7be64e97f7151e64",
+    "pipeline": "40f58112de31484780b10cb90a8494fc0c3a0652d41a56d0e4ae1563695f4aab",
+    "train": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8"
+  },
+  "test_predictions_generated": false,
+  "feature_allowlist": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "external_measurements_used": false,
+  "target_clipping": false,
+  "tree_parameters": {
+    "n_estimators": 400,
+    "min_samples_leaf": 2,
+    "max_features": 0.5,
+    "random_state": 42
+  },
+  "normalization": "Keep original annotations; append spelling-normalized cell line and strain parsed solely from allowed input text.",
+  "selection_rule": "Same frozen gate: scaffold mean MSE >=10% better, each scaffold <=5% worse, known-Culture scaffold and molecular2 means no worse.",
+  "limits": [
+    "Parent fingerprints ignore stereochemistry and cannot establish equal activity for stereoisomers.",
+    "Repeated protocols reuse 320 training labels; the minimum across models is optimistic."
+  ],
+  "status": "completed",
+  "metrics": {
+    "scaffold": {
+      "rf_parentbit_log": {
+        "mse": 4288748.678555987,
+        "mae": 210.8621788247432,
+        "rmse": 2070.929423847174,
+        "largest_row_share_of_sse": 0.9464799073289744
+      },
+      "rf_parentbit_raw": {
+        "mse": 4523657.419052467,
+        "mae": 363.76679466756116,
+        "rmse": 2126.889141223037,
+        "largest_row_share_of_sse": 0.8963054086878396
+      },
+      "rf_count_log": {
+        "mse": 4287924.664982476,
+        "mae": 210.89030665338018,
+        "rmse": 2070.7304665220136,
+        "largest_row_share_of_sse": 0.9465197346074113
+      },
+      "rf_count_raw": {
+        "mse": 4536739.563807873,
+        "mae": 368.22378203795193,
+        "rmse": 2129.9623385890823,
+        "largest_row_share_of_sse": 0.8933650740735009
+      },
+      "rf_atompair_log": {
+        "mse": 4286660.8018343225,
+        "mae": 210.47011739545178,
+        "rmse": 2070.425270767898,
+        "largest_row_share_of_sse": 0.9466038946660253
+      },
+      "rf_atompair_raw": {
+        "mse": 4634563.75080926,
+        "mae": 414.62510769022094,
+        "rmse": 2152.8036953724463,
+        "largest_row_share_of_sse": 0.8747172450103312
+      },
+      "rf_maccs_log": {
+        "mse": 4287721.310422974,
+        "mae": 210.70182938361842,
+        "rmse": 2070.6813638082936,
+        "largest_row_share_of_sse": 0.9466576574851078
+      },
+      "rf_maccs_raw": {
+        "mse": 4856887.050357876,
+        "mae": 471.5728126007766,
+        "rmse": 2203.8346240945298,
+        "largest_row_share_of_sse": 0.8347751932085314
+      },
+      "rf_descriptor_log": {
+        "mse": 4287740.690002296,
+        "mae": 210.86046131209378,
+        "rmse": 2070.6860433204974,
+        "largest_row_share_of_sse": 0.9468725114659483
+      },
+      "rf_descriptor_raw": {
+        "mse": 4740313.088420773,
+        "mae": 443.1115974344972,
+        "rmse": 2177.2260076576276,
+        "largest_row_share_of_sse": 0.8556259961722729
+      },
+      "rf_chiral_log": {
+        "mse": 4287766.292050931,
+        "mae": 210.77505565418042,
+        "rmse": 2070.6922253321304,
+        "largest_row_share_of_sse": 0.9465239337747273
+      },
+      "rf_chiral_raw": {
+        "mse": 4459298.228717079,
+        "mae": 337.44826564953974,
+        "rmse": 2111.7050524912515,
+        "largest_row_share_of_sse": 0.9091125235369821
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 5620809.125135268,
+        "mae": 359.81921579570815,
+        "rmse": 2370.824566503238,
+        "largest_row_share_of_sse": 0.7222316490467476
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4283373.764459927,
+        "mae": 214.72515807680284,
+        "rmse": 2069.631311238774,
+        "largest_row_share_of_sse": 0.9479811469214255
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4909282.673218565,
+        "mae": 370.1716818235869,
+        "rmse": 2215.6901121814317,
+        "largest_row_share_of_sse": 0.82317064360948
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4283132.9963742485,
+        "mae": 209.65865017171055,
+        "rmse": 2069.5731435187904,
+        "largest_row_share_of_sse": 0.9480882807707628
+      },
+      "nn_count_k3_raw": {
+        "mse": 5528526.043381343,
+        "mae": 321.7717580549725,
+        "rmse": 2351.281787319704,
+        "largest_row_share_of_sse": 0.7320727362306211
+      },
+      "nn_count_k3_log": {
+        "mse": 4290190.621877718,
+        "mae": 215.7866171790716,
+        "rmse": 2071.2775337645407,
+        "largest_row_share_of_sse": 0.944357152191095
+      },
+      "nn_count_k10_raw": {
+        "mse": 4842059.5691146925,
+        "mae": 351.11589303681455,
+        "rmse": 2200.468034104266,
+        "largest_row_share_of_sse": 0.8378656355943287
+      },
+      "nn_count_k10_log": {
+        "mse": 4290000.59544434,
+        "mae": 209.2156742334715,
+        "rmse": 2071.231661462411,
+        "largest_row_share_of_sse": 0.9471450253764708
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 5980726.276972489,
+        "mae": 340.56122270112905,
+        "rmse": 2445.5523459890383,
+        "largest_row_share_of_sse": 0.6794804892915665
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4389790.234249015,
+        "mae": 230.6516394758276,
+        "rmse": 2095.1826255123956,
+        "largest_row_share_of_sse": 0.9259263140766515
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4892058.567281414,
+        "mae": 355.05572161682073,
+        "rmse": 2211.7998479250814,
+        "largest_row_share_of_sse": 0.8302087347943322
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4291497.860183794,
+        "mae": 210.25236475086007,
+        "rmse": 2071.5930730198424,
+        "largest_row_share_of_sse": 0.947100602854127
+      },
+      "rf_log": {
+        "mse": 4288512.722895371,
+        "mae": 210.6205785976159,
+        "rmse": 2070.8724545213718,
+        "largest_row_share_of_sse": 0.9464836929279846
+      }
+    },
+    "scaffold_shuffle42": {
+      "rf_parentbit_log": {
+        "mse": 4284392.529752746,
+        "mae": 210.0295134994091,
+        "rmse": 2069.877419016099,
+        "largest_row_share_of_sse": 0.9472724827270906
+      },
+      "rf_parentbit_raw": {
+        "mse": 4485677.757278438,
+        "mae": 364.3939784973135,
+        "rmse": 2117.9418682481437,
+        "largest_row_share_of_sse": 0.9038846825205195
+      },
+      "rf_count_log": {
+        "mse": 4284584.4931087885,
+        "mae": 210.16010857526553,
+        "rmse": 2069.9237892030683,
+        "largest_row_share_of_sse": 0.9472895485220648
+      },
+      "rf_count_raw": {
+        "mse": 4562434.700836403,
+        "mae": 386.88228495336017,
+        "rmse": 2135.985650896654,
+        "largest_row_share_of_sse": 0.8883838205549818
+      },
+      "rf_atompair_log": {
+        "mse": 4285419.457837543,
+        "mae": 210.81585034072486,
+        "rmse": 2070.125469105084,
+        "largest_row_share_of_sse": 0.9470963863291446
+      },
+      "rf_atompair_raw": {
+        "mse": 4748573.678367508,
+        "mae": 410.41071352000745,
+        "rmse": 2179.1222265782862,
+        "largest_row_share_of_sse": 0.8537396221003318
+      },
+      "rf_maccs_log": {
+        "mse": 4284481.838844566,
+        "mae": 210.72740007399207,
+        "rmse": 2069.8989924256125,
+        "largest_row_share_of_sse": 0.9472260382409613
+      },
+      "rf_maccs_raw": {
+        "mse": 4635575.3052633945,
+        "mae": 429.87667435312795,
+        "rmse": 2153.03862140543,
+        "largest_row_share_of_sse": 0.873848006006489
+      },
+      "rf_descriptor_log": {
+        "mse": 4283302.262123295,
+        "mae": 210.89250409961178,
+        "rmse": 2069.6140369941672,
+        "largest_row_share_of_sse": 0.9471721521331355
+      },
+      "rf_descriptor_raw": {
+        "mse": 4609160.514257741,
+        "mae": 422.7894944823926,
+        "rmse": 2146.89555271274,
+        "largest_row_share_of_sse": 0.8792282149227829
+      },
+      "rf_chiral_log": {
+        "mse": 4283584.677727643,
+        "mae": 209.74650694710664,
+        "rmse": 2069.682264920788,
+        "largest_row_share_of_sse": 0.9472913967091371
+      },
+      "rf_chiral_raw": {
+        "mse": 4409754.973139608,
+        "mae": 339.22501324891573,
+        "rmse": 2099.9416594609497,
+        "largest_row_share_of_sse": 0.9181425897978903
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 5527951.771678073,
+        "mae": 379.53100920176587,
+        "rmse": 2351.15966528819,
+        "largest_row_share_of_sse": 0.7330297240611607
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4282179.9426561985,
+        "mae": 221.60239092286628,
+        "rmse": 2069.342877015841,
+        "largest_row_share_of_sse": 0.9472561694501316
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4774148.571285135,
+        "mae": 368.55886373820385,
+        "rmse": 2184.982510521568,
+        "largest_row_share_of_sse": 0.8447856154665807
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4277494.030693451,
+        "mae": 209.4681345548294,
+        "rmse": 2068.210344885996,
+        "largest_row_share_of_sse": 0.949156211715976
+      },
+      "nn_count_k3_raw": {
+        "mse": 5503157.776416713,
+        "mae": 342.6183606724633,
+        "rmse": 2345.881023499852,
+        "largest_row_share_of_sse": 0.7355761254895343
+      },
+      "nn_count_k3_log": {
+        "mse": 4285945.244754778,
+        "mae": 224.90133848807636,
+        "rmse": 2070.2524591833667,
+        "largest_row_share_of_sse": 0.9468524921516795
+      },
+      "nn_count_k10_raw": {
+        "mse": 4839527.213502545,
+        "mae": 373.96672478826724,
+        "rmse": 2199.8925458991275,
+        "largest_row_share_of_sse": 0.8382796106978944
+      },
+      "nn_count_k10_log": {
+        "mse": 4285196.451832126,
+        "mae": 211.03190093550592,
+        "rmse": 2070.0716054842464,
+        "largest_row_share_of_sse": 0.9482792804074286
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 5837467.204064174,
+        "mae": 340.20839265225436,
+        "rmse": 2416.08509868013,
+        "largest_row_share_of_sse": 0.6963660474525023
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4384714.287652,
+        "mae": 235.56171131896758,
+        "rmse": 2093.9709376330893,
+        "largest_row_share_of_sse": 0.9270875357775203
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4830608.091318486,
+        "mae": 348.4890749852276,
+        "rmse": 2197.864438794733,
+        "largest_row_share_of_sse": 0.8408184870646319
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4286919.599345457,
+        "mae": 211.44784297990046,
+        "rmse": 2070.4877684607213,
+        "largest_row_share_of_sse": 0.9481591522336642
+      },
+      "rf_log": {
+        "mse": 4284850.294814361,
+        "mae": 209.79213355680287,
+        "rmse": 2069.9879938816944,
+        "largest_row_share_of_sse": 0.9471666088449766
+      }
+    },
+    "scaffold_shuffle2026": {
+      "rf_parentbit_log": {
+        "mse": 4286304.616896272,
+        "mae": 210.42079743238975,
+        "rmse": 2070.3392516436215,
+        "largest_row_share_of_sse": 0.9471751646106268
+      },
+      "rf_parentbit_raw": {
+        "mse": 4410685.512543134,
+        "mae": 341.31355293534733,
+        "rmse": 2100.16321092984,
+        "largest_row_share_of_sse": 0.9194241094711457
+      },
+      "rf_count_log": {
+        "mse": 4286050.121738898,
+        "mae": 210.35383628312837,
+        "rmse": 2070.2777885440632,
+        "largest_row_share_of_sse": 0.9472286547137346
+      },
+      "rf_count_raw": {
+        "mse": 4472307.81018438,
+        "mae": 361.7163806718693,
+        "rmse": 2114.783159140525,
+        "largest_row_share_of_sse": 0.9062048829916054
+      },
+      "rf_atompair_log": {
+        "mse": 4286008.36429367,
+        "mae": 210.4261282356218,
+        "rmse": 2070.2677035334514,
+        "largest_row_share_of_sse": 0.947210458524935
+      },
+      "rf_atompair_raw": {
+        "mse": 4505951.263861774,
+        "mae": 395.1070823557129,
+        "rmse": 2122.7226064330152,
+        "largest_row_share_of_sse": 0.8999786447059686
+      },
+      "rf_maccs_log": {
+        "mse": 4287231.165324113,
+        "mae": 210.98103405115376,
+        "rmse": 2070.5630068471987,
+        "largest_row_share_of_sse": 0.9469832116898286
+      },
+      "rf_maccs_raw": {
+        "mse": 4699691.439612208,
+        "mae": 429.03164365884294,
+        "rmse": 2167.877173553015,
+        "largest_row_share_of_sse": 0.8626893169631026
+      },
+      "rf_descriptor_log": {
+        "mse": 4287857.546806715,
+        "mae": 210.93269024035808,
+        "rmse": 2070.7142600577986,
+        "largest_row_share_of_sse": 0.9468649042303074
+      },
+      "rf_descriptor_raw": {
+        "mse": 4639091.439320708,
+        "mae": 430.77262240346954,
+        "rmse": 2153.8550181757146,
+        "largest_row_share_of_sse": 0.873906673331701
+      },
+      "rf_chiral_log": {
+        "mse": 4285763.938717594,
+        "mae": 210.32613247685268,
+        "rmse": 2070.2086703319533,
+        "largest_row_share_of_sse": 0.9470960015695227
+      },
+      "rf_chiral_raw": {
+        "mse": 4636736.297768746,
+        "mae": 409.34974850578106,
+        "rmse": 2153.308221729705,
+        "largest_row_share_of_sse": 0.8720062058079305
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 6700879.246237931,
+        "mae": 440.0179305885511,
+        "rmse": 2588.60565676542,
+        "largest_row_share_of_sse": 0.6050875278260069
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4276343.157467628,
+        "mae": 220.285618105506,
+        "rmse": 2067.9320969189553,
+        "largest_row_share_of_sse": 0.9489963645757609
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 5183693.564848468,
+        "mae": 427.20293072473294,
+        "rmse": 2276.772620366045,
+        "largest_row_share_of_sse": 0.7788768525663148
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4278702.8431679085,
+        "mae": 211.20680164526357,
+        "rmse": 2068.502560590126,
+        "largest_row_share_of_sse": 0.9489610216462262
+      },
+      "nn_count_k3_raw": {
+        "mse": 5435315.690480694,
+        "mae": 326.3982711181018,
+        "rmse": 2331.3763511026473,
+        "largest_row_share_of_sse": 0.7446270683023548
+      },
+      "nn_count_k3_log": {
+        "mse": 4278525.90736814,
+        "mae": 219.36025751241573,
+        "rmse": 2068.4597910929137,
+        "largest_row_share_of_sse": 0.9469317904692963
+      },
+      "nn_count_k10_raw": {
+        "mse": 4772767.022306667,
+        "mae": 348.6754825000048,
+        "rmse": 2184.6663411850027,
+        "largest_row_share_of_sse": 0.850020458031141
+      },
+      "nn_count_k10_log": {
+        "mse": 4285466.866080706,
+        "mae": 209.23101766250983,
+        "rmse": 2070.1369196458254,
+        "largest_row_share_of_sse": 0.9482162496445921
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 5693555.893699219,
+        "mae": 326.9924869858179,
+        "rmse": 2386.1173260548653,
+        "largest_row_share_of_sse": 0.7137519843255408
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4286165.579942347,
+        "mae": 215.87992135148139,
+        "rmse": 2070.3056730691596,
+        "largest_row_share_of_sse": 0.9483120088007764
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4770235.041273577,
+        "mae": 341.2606981422695,
+        "rmse": 2184.086775124463,
+        "largest_row_share_of_sse": 0.8513894994419601
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4285655.434545708,
+        "mae": 210.05849242927835,
+        "rmse": 2070.182464070669,
+        "largest_row_share_of_sse": 0.9484070928027343
+      },
+      "rf_log": {
+        "mse": 4286466.012804426,
+        "mae": 210.14729528560147,
+        "rmse": 2070.378229407474,
+        "largest_row_share_of_sse": 0.9471219194309068
+      }
+    },
+    "42": {
+      "rf_parentbit_log": {
+        "mse": 4270685.0240041595,
+        "mae": 210.81341066848464,
+        "rmse": 2066.563578505186,
+        "largest_row_share_of_sse": 0.9501419261264178
+      },
+      "rf_parentbit_raw": {
+        "mse": 5037230.385969127,
+        "mae": 436.3205279937224,
+        "rmse": 2244.3775052270344,
+        "largest_row_share_of_sse": 0.7944047772499568
+      },
+      "rf_count_log": {
+        "mse": 4271870.37136841,
+        "mae": 211.35285420772038,
+        "rmse": 2066.8503505015574,
+        "largest_row_share_of_sse": 0.9499528974286536
+      },
+      "rf_count_raw": {
+        "mse": 4771626.036990376,
+        "mae": 422.08339819933246,
+        "rmse": 2184.405190661837,
+        "largest_row_share_of_sse": 0.839019786484933
+      },
+      "rf_atompair_log": {
+        "mse": 4274861.470074366,
+        "mae": 211.97884811549983,
+        "rmse": 2067.573812485147,
+        "largest_row_share_of_sse": 0.9486913985220852
+      },
+      "rf_atompair_raw": {
+        "mse": 4452458.624102576,
+        "mae": 346.8707428844103,
+        "rmse": 2110.084980303536,
+        "largest_row_share_of_sse": 0.9103025119135589
+      },
+      "rf_maccs_log": {
+        "mse": 4272159.454708921,
+        "mae": 213.02725209752833,
+        "rmse": 2066.920282620721,
+        "largest_row_share_of_sse": 0.9499482842879302
+      },
+      "rf_maccs_raw": {
+        "mse": 4564126.031046015,
+        "mae": 410.73801475356584,
+        "rmse": 2136.381527500651,
+        "largest_row_share_of_sse": 0.8870170557512226
+      },
+      "rf_descriptor_log": {
+        "mse": 4274237.044567944,
+        "mae": 212.66333013139712,
+        "rmse": 2067.422802565538,
+        "largest_row_share_of_sse": 0.9499346965075449
+      },
+      "rf_descriptor_raw": {
+        "mse": 4572015.802165415,
+        "mae": 408.62488524738086,
+        "rmse": 2138.2272569035817,
+        "largest_row_share_of_sse": 0.8859766210676263
+      },
+      "rf_chiral_log": {
+        "mse": 4271567.543549273,
+        "mae": 211.22289347145414,
+        "rmse": 2066.7770909194037,
+        "largest_row_share_of_sse": 0.9498881622761085
+      },
+      "rf_chiral_raw": {
+        "mse": 4505791.409949264,
+        "mae": 358.10840556897244,
+        "rmse": 2122.6849530604545,
+        "largest_row_share_of_sse": 0.8947176706743272
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 6549325.084399881,
+        "mae": 453.1309067560436,
+        "rmse": 2559.1649193437847,
+        "largest_row_share_of_sse": 0.5895969279310039
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4190827.6512448704,
+        "mae": 217.25897737287505,
+        "rmse": 2047.1511061093831,
+        "largest_row_share_of_sse": 0.9512454011480981
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 5313291.343078722,
+        "mae": 425.3011708139069,
+        "rmse": 2305.0577743472554,
+        "largest_row_share_of_sse": 0.7436811464412939
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4263952.226237704,
+        "mae": 214.17681022441383,
+        "rmse": 2064.9339520279345,
+        "largest_row_share_of_sse": 0.9489842666046742
+      },
+      "nn_count_k3_raw": {
+        "mse": 6222272.359624939,
+        "mae": 421.3679839171018,
+        "rmse": 2494.448307667437,
+        "largest_row_share_of_sse": 0.6220802832746886
+      },
+      "nn_count_k3_log": {
+        "mse": 4269388.3525731135,
+        "mae": 227.20067028192108,
+        "rmse": 2066.2498282088527,
+        "largest_row_share_of_sse": 0.9429726513594404
+      },
+      "nn_count_k10_raw": {
+        "mse": 4725322.54554811,
+        "mae": 374.0542136263813,
+        "rmse": 2173.7807031869866,
+        "largest_row_share_of_sse": 0.8410339789589861
+      },
+      "nn_count_k10_log": {
+        "mse": 4278462.324204634,
+        "mae": 211.57942401874044,
+        "rmse": 2068.4444213477514,
+        "largest_row_share_of_sse": 0.9482575563231589
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4587998.031348044,
+        "mae": 299.951658726357,
+        "rmse": 2141.9612581342467,
+        "largest_row_share_of_sse": 0.8423531447704788
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4237481.253582584,
+        "mae": 213.06942814226878,
+        "rmse": 2058.5143316437184,
+        "largest_row_share_of_sse": 0.9491032926636952
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4478968.261094915,
+        "mae": 333.0960829936189,
+        "rmse": 2116.3573094104204,
+        "largest_row_share_of_sse": 0.8895789494884555
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4282951.406626018,
+        "mae": 211.7343889180673,
+        "rmse": 2069.5292717490174,
+        "largest_row_share_of_sse": 0.9482675720712603
+      },
+      "rf_log": {
+        "mse": 4271986.794296271,
+        "mae": 210.23450114389343,
+        "rmse": 2066.8785146438267,
+        "largest_row_share_of_sse": 0.9500450492046422
+      }
+    },
+    "2026": {
+      "rf_parentbit_log": {
+        "mse": 4282652.876695949,
+        "mae": 215.28753001396726,
+        "rmse": 2069.457145411798,
+        "largest_row_share_of_sse": 0.9472934193431812
+      },
+      "rf_parentbit_raw": {
+        "mse": 5143643.634751005,
+        "mae": 477.456453480896,
+        "rmse": 2267.960236589479,
+        "largest_row_share_of_sse": 0.7820460014490228
+      },
+      "rf_count_log": {
+        "mse": 4283462.994572399,
+        "mae": 215.10054788339295,
+        "rmse": 2069.652868133301,
+        "largest_row_share_of_sse": 0.9470525695652783
+      },
+      "rf_count_raw": {
+        "mse": 5131462.446029611,
+        "mae": 476.71417252900545,
+        "rmse": 2265.2731504235003,
+        "largest_row_share_of_sse": 0.7852005419922755
+      },
+      "rf_atompair_log": {
+        "mse": 4284560.136682603,
+        "mae": 215.2274956654916,
+        "rmse": 2069.9179057833676,
+        "largest_row_share_of_sse": 0.9468697020770969
+      },
+      "rf_atompair_raw": {
+        "mse": 5373810.063629373,
+        "mae": 471.9755572207376,
+        "rmse": 2318.1479813914757,
+        "largest_row_share_of_sse": 0.7544914729241436
+      },
+      "rf_maccs_log": {
+        "mse": 4286610.002380981,
+        "mae": 217.2004169442292,
+        "rmse": 2070.4130028525665,
+        "largest_row_share_of_sse": 0.9468077086381792
+      },
+      "rf_maccs_raw": {
+        "mse": 5528372.75261857,
+        "mae": 537.2479229188082,
+        "rmse": 2351.249189817738,
+        "largest_row_share_of_sse": 0.7334969933645784
+      },
+      "rf_descriptor_log": {
+        "mse": 4286806.244488077,
+        "mae": 217.49439812914042,
+        "rmse": 2070.4603943297434,
+        "largest_row_share_of_sse": 0.9468316924349702
+      },
+      "rf_descriptor_raw": {
+        "mse": 5460456.548919136,
+        "mae": 536.0728606340014,
+        "rmse": 2336.7619795176265,
+        "largest_row_share_of_sse": 0.742303016567277
+      },
+      "rf_chiral_log": {
+        "mse": 4282129.170616784,
+        "mae": 213.8722604331324,
+        "rmse": 2069.3306093074602,
+        "largest_row_share_of_sse": 0.9472269047369881
+      },
+      "rf_chiral_raw": {
+        "mse": 4507144.030400862,
+        "mae": 379.08984794413504,
+        "rmse": 2123.0035398936247,
+        "largest_row_share_of_sse": 0.8953241624876186
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4317626.517596869,
+        "mae": 307.37531223518056,
+        "rmse": 2077.88991950894,
+        "largest_row_share_of_sse": 0.8943483031813668
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4243900.337515099,
+        "mae": 229.67134568197395,
+        "rmse": 2060.0728961653513,
+        "largest_row_share_of_sse": 0.9393494694046373
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4948920.953697223,
+        "mae": 429.8108782049459,
+        "rmse": 2224.617035288821,
+        "largest_row_share_of_sse": 0.7999739753505871
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4267795.053520207,
+        "mae": 216.16835239945553,
+        "rmse": 2065.8642388889466,
+        "largest_row_share_of_sse": 0.9481726498021376
+      },
+      "nn_count_k3_raw": {
+        "mse": 6560254.894002658,
+        "mae": 475.0665005211793,
+        "rmse": 2561.2994541838834,
+        "largest_row_share_of_sse": 0.5906650067066948
+      },
+      "nn_count_k3_log": {
+        "mse": 4294959.482469062,
+        "mae": 241.15702318074347,
+        "rmse": 2072.4284022539987,
+        "largest_row_share_of_sse": 0.9353237874035304
+      },
+      "nn_count_k10_raw": {
+        "mse": 4981085.654350646,
+        "mae": 442.06767186341347,
+        "rmse": 2231.834593860093,
+        "largest_row_share_of_sse": 0.7996570919738195
+      },
+      "nn_count_k10_log": {
+        "mse": 4279143.578118234,
+        "mae": 213.967880332173,
+        "rmse": 2068.6090926316247,
+        "largest_row_share_of_sse": 0.9475903492924433
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4303236.2117405115,
+        "mae": 284.5925396774558,
+        "rmse": 2074.4243085108,
+        "largest_row_share_of_sse": 0.898094917346786
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4242070.694276917,
+        "mae": 215.03146635482852,
+        "rmse": 2059.6287758421217,
+        "largest_row_share_of_sse": 0.9480764702487945
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4672056.304659365,
+        "mae": 396.14285772974614,
+        "rmse": 2161.4939982936257,
+        "largest_row_share_of_sse": 0.8538678552165251
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4284888.803406854,
+        "mae": 213.1348765373983,
+        "rmse": 2069.9972955071353,
+        "largest_row_share_of_sse": 0.9479587898536593
+      },
+      "rf_log": {
+        "mse": 4283025.368627025,
+        "mae": 213.5852593431298,
+        "rmse": 2069.5471409530696,
+        "largest_row_share_of_sse": 0.9473070947252042
+      }
+    },
+    "117": {
+      "rf_parentbit_log": {
+        "mse": 4270596.667584514,
+        "mae": 207.7603156476469,
+        "rmse": 2066.542200775129,
+        "largest_row_share_of_sse": 0.950396568161499
+      },
+      "rf_parentbit_raw": {
+        "mse": 4990327.581206406,
+        "mae": 413.01635556356814,
+        "rmse": 2233.9041119095523,
+        "largest_row_share_of_sse": 0.8059578138250816
+      },
+      "rf_count_log": {
+        "mse": 4268930.462312037,
+        "mae": 207.8928417160872,
+        "rmse": 2066.1390229875715,
+        "largest_row_share_of_sse": 0.9506083072936702
+      },
+      "rf_count_raw": {
+        "mse": 4863793.155605055,
+        "mae": 406.9123849815756,
+        "rmse": 2205.4009058683764,
+        "largest_row_share_of_sse": 0.8270290383772859
+      },
+      "rf_atompair_log": {
+        "mse": 4273089.963753399,
+        "mae": 208.47922915376134,
+        "rmse": 2067.145365897957,
+        "largest_row_share_of_sse": 0.9498655320161471
+      },
+      "rf_atompair_raw": {
+        "mse": 5314113.341311988,
+        "mae": 446.6649625511145,
+        "rmse": 2305.2360706253035,
+        "largest_row_share_of_sse": 0.763254031089202
+      },
+      "rf_maccs_log": {
+        "mse": 4266472.95461881,
+        "mae": 207.87717082565808,
+        "rmse": 2065.544227224101,
+        "largest_row_share_of_sse": 0.9513357431331589
+      },
+      "rf_maccs_raw": {
+        "mse": 5277935.529906541,
+        "mae": 486.7515926709959,
+        "rmse": 2297.375792051997,
+        "largest_row_share_of_sse": 0.7681593201351423
+      },
+      "rf_descriptor_log": {
+        "mse": 4269001.109322137,
+        "mae": 208.26713359053693,
+        "rmse": 2066.156119300315,
+        "largest_row_share_of_sse": 0.950789147040857
+      },
+      "rf_descriptor_raw": {
+        "mse": 5229413.003759484,
+        "mae": 471.73204212844803,
+        "rmse": 2286.790983837282,
+        "largest_row_share_of_sse": 0.7749378643831248
+      },
+      "rf_chiral_log": {
+        "mse": 4271647.792485924,
+        "mae": 207.285302561155,
+        "rmse": 2066.796504856229,
+        "largest_row_share_of_sse": 0.950137177054089
+      },
+      "rf_chiral_raw": {
+        "mse": 4317628.726395768,
+        "mae": 313.6096473513268,
+        "rmse": 2077.8904510093325,
+        "largest_row_share_of_sse": 0.9374246819553096
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4916606.142933102,
+        "mae": 318.3218656591929,
+        "rmse": 2217.3421348391644,
+        "largest_row_share_of_sse": 0.7866181968008384
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4254277.537832027,
+        "mae": 218.8905231342218,
+        "rmse": 2062.5900072074496,
+        "largest_row_share_of_sse": 0.9488049756333644
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4761223.428431089,
+        "mae": 366.89717733859055,
+        "rmse": 2182.0227836645263,
+        "largest_row_share_of_sse": 0.8295162586789739
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4256327.596305869,
+        "mae": 213.27520141202513,
+        "rmse": 2063.0869095377125,
+        "largest_row_share_of_sse": 0.951825828520042
+      },
+      "nn_count_k3_raw": {
+        "mse": 5970480.793137555,
+        "mae": 414.0812943811958,
+        "rmse": 2443.456730359176,
+        "largest_row_share_of_sse": 0.6509630781331676
+      },
+      "nn_count_k3_log": {
+        "mse": 4255717.657577539,
+        "mae": 229.63919795286182,
+        "rmse": 2062.9390823719295,
+        "largest_row_share_of_sse": 0.9512640995468066
+      },
+      "nn_count_k10_raw": {
+        "mse": 4779836.361096103,
+        "mae": 384.5839090000145,
+        "rmse": 2186.283687241,
+        "largest_row_share_of_sse": 0.8334954498582481
+      },
+      "nn_count_k10_log": {
+        "mse": 4265068.8005218115,
+        "mae": 211.61462679581754,
+        "rmse": 2065.2042999475407,
+        "largest_row_share_of_sse": 0.9516333614844388
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4268065.916696158,
+        "mae": 265.52331906651386,
+        "rmse": 2065.929794716209,
+        "largest_row_share_of_sse": 0.9062549758095959
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4245655.152203916,
+        "mae": 213.23656361080802,
+        "rmse": 2060.4987629707316,
+        "largest_row_share_of_sse": 0.9529926048663502
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4548219.96776483,
+        "mae": 352.4019337073714,
+        "rmse": 2132.6556139622803,
+        "largest_row_share_of_sse": 0.8767014072634971
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4270683.317052954,
+        "mae": 212.7597779597173,
+        "rmse": 2066.563165512478,
+        "largest_row_share_of_sse": 0.9514169642698478
+      },
+      "rf_log": {
+        "mse": 4271703.82101219,
+        "mae": 207.37939287789465,
+        "rmse": 2066.810059248839,
+        "largest_row_share_of_sse": 0.9498377061775584
+      }
+    },
+    "2027": {
+      "rf_parentbit_log": {
+        "mse": 4278473.647688599,
+        "mae": 212.31423533149442,
+        "rmse": 2068.447158543964,
+        "largest_row_share_of_sse": 0.9483169060485254
+      },
+      "rf_parentbit_raw": {
+        "mse": 4858076.147925677,
+        "mae": 429.0485390232705,
+        "rmse": 2204.1043868033285,
+        "largest_row_share_of_sse": 0.8280916192626582
+      },
+      "rf_count_log": {
+        "mse": 4277914.36976395,
+        "mae": 211.85574734469554,
+        "rmse": 2068.3119614226357,
+        "largest_row_share_of_sse": 0.9483986027395318
+      },
+      "rf_count_raw": {
+        "mse": 4740866.0855190065,
+        "mae": 417.9070906020834,
+        "rmse": 2177.3529997496976,
+        "largest_row_share_of_sse": 0.8496824124661577
+      },
+      "rf_atompair_log": {
+        "mse": 4280148.353124506,
+        "mae": 212.3752131395134,
+        "rmse": 2068.8519408417087,
+        "largest_row_share_of_sse": 0.9480368514122675
+      },
+      "rf_atompair_raw": {
+        "mse": 5288054.49968244,
+        "mae": 445.5537290693636,
+        "rmse": 2299.5770262555766,
+        "largest_row_share_of_sse": 0.766966264851254
+      },
+      "rf_maccs_log": {
+        "mse": 4277097.077367491,
+        "mae": 212.93637436134836,
+        "rmse": 2068.114377245004,
+        "largest_row_share_of_sse": 0.9488243652949004
+      },
+      "rf_maccs_raw": {
+        "mse": 5193220.038889716,
+        "mae": 482.3169215448603,
+        "rmse": 2278.8637604933115,
+        "largest_row_share_of_sse": 0.7801794164046787
+      },
+      "rf_descriptor_log": {
+        "mse": 4277238.104670132,
+        "mae": 212.3488811820363,
+        "rmse": 2068.1484725884966,
+        "largest_row_share_of_sse": 0.9490054167831832
+      },
+      "rf_descriptor_raw": {
+        "mse": 5216558.045509389,
+        "mae": 487.25232219316166,
+        "rmse": 2283.978556271794,
+        "largest_row_share_of_sse": 0.7772976840830144
+      },
+      "rf_chiral_log": {
+        "mse": 4276860.283567517,
+        "mae": 211.14540074652524,
+        "rmse": 2068.057127733061,
+        "largest_row_share_of_sse": 0.9485520335428047
+      },
+      "rf_chiral_raw": {
+        "mse": 4304403.785206109,
+        "mae": 315.18187558309256,
+        "rmse": 2074.7057105059766,
+        "largest_row_share_of_sse": 0.9419984348800812
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4796412.669365674,
+        "mae": 322.29309115773225,
+        "rmse": 2190.071384536512,
+        "largest_row_share_of_sse": 0.8050729192770462
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4184503.219205249,
+        "mae": 214.98627492975274,
+        "rmse": 2045.6058318271507,
+        "largest_row_share_of_sse": 0.9526831075083064
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4893150.230881387,
+        "mae": 390.40758415412523,
+        "rmse": 2212.0466158924833,
+        "largest_row_share_of_sse": 0.8102821185922918
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4263074.255393586,
+        "mae": 212.6712236579111,
+        "rmse": 2064.721350544326,
+        "largest_row_share_of_sse": 0.9496043588228388
+      },
+      "nn_count_k3_raw": {
+        "mse": 6760971.6620516945,
+        "mae": 481.72348949574445,
+        "rmse": 2600.1868513727422,
+        "largest_row_share_of_sse": 0.5731296024672022
+      },
+      "nn_count_k3_log": {
+        "mse": 4313524.740122338,
+        "mae": 244.73463273260342,
+        "rmse": 2076.90267950194,
+        "largest_row_share_of_sse": 0.9312981869610738
+      },
+      "nn_count_k10_raw": {
+        "mse": 4964898.173843541,
+        "mae": 418.6384125745359,
+        "rmse": 2228.205146265384,
+        "largest_row_share_of_sse": 0.8022642821186022
+      },
+      "nn_count_k10_log": {
+        "mse": 4272877.273556781,
+        "mae": 210.8154141591045,
+        "rmse": 2067.0939198683695,
+        "largest_row_share_of_sse": 0.9489800193784315
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4608306.77555053,
+        "mae": 289.6489670379964,
+        "rmse": 2146.69671252148,
+        "largest_row_share_of_sse": 0.8386409061156945
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4223299.49893036,
+        "mae": 213.72221646472326,
+        "rmse": 2055.066786975635,
+        "largest_row_share_of_sse": 0.9522903624037367
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4722905.301101967,
+        "mae": 397.87037189370625,
+        "rmse": 2173.224631993197,
+        "largest_row_share_of_sse": 0.8446747165096731
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4281325.103189216,
+        "mae": 212.10086281881595,
+        "rmse": 2069.1363181746183,
+        "largest_row_share_of_sse": 0.9487478541887169
+      },
+      "rf_log": {
+        "mse": 4276939.350397766,
+        "mae": 210.99572443940724,
+        "rmse": 2068.076243855087,
+        "largest_row_share_of_sse": 0.9486919508208069
+      }
+    },
+    "7": {
+      "rf_parentbit_log": {
+        "mse": 4271530.5421508085,
+        "mae": 210.0486763899663,
+        "rmse": 2066.768139427064,
+        "largest_row_share_of_sse": 0.9495834594590588
+      },
+      "rf_parentbit_raw": {
+        "mse": 4763061.436163209,
+        "mae": 396.54342394963635,
+        "rmse": 2182.443913635173,
+        "largest_row_share_of_sse": 0.8421721540885827
+      },
+      "rf_count_log": {
+        "mse": 4270742.46049233,
+        "mae": 209.92464767389401,
+        "rmse": 2066.577475076202,
+        "largest_row_share_of_sse": 0.9495636347272602
+      },
+      "rf_count_raw": {
+        "mse": 4727083.069245475,
+        "mae": 402.96874171748,
+        "rmse": 2174.1856105782404,
+        "largest_row_share_of_sse": 0.8492975009376882
+      },
+      "rf_atompair_log": {
+        "mse": 4271202.220627792,
+        "mae": 209.56428109465963,
+        "rmse": 2066.6887091741205,
+        "largest_row_share_of_sse": 0.9492574186542153
+      },
+      "rf_atompair_raw": {
+        "mse": 4819705.596749685,
+        "mae": 393.3255263087956,
+        "rmse": 2195.3827904831733,
+        "largest_row_share_of_sse": 0.8409152364534437
+      },
+      "rf_maccs_log": {
+        "mse": 4267703.61650629,
+        "mae": 210.04175400881482,
+        "rmse": 2065.842108319581,
+        "largest_row_share_of_sse": 0.9502236201493413
+      },
+      "rf_maccs_raw": {
+        "mse": 5072628.798873912,
+        "mae": 457.48044667177436,
+        "rmse": 2252.24971947471,
+        "largest_row_share_of_sse": 0.7981498149445458
+      },
+      "rf_descriptor_log": {
+        "mse": 4270278.5018398855,
+        "mae": 211.04792840271153,
+        "rmse": 2066.465219121746,
+        "largest_row_share_of_sse": 0.9500499788184391
+      },
+      "rf_descriptor_raw": {
+        "mse": 4961022.704060348,
+        "mae": 446.39799680486067,
+        "rmse": 2227.335337137259,
+        "largest_row_share_of_sse": 0.8158970440716989
+      },
+      "rf_chiral_log": {
+        "mse": 4270619.867185039,
+        "mae": 209.37672411283975,
+        "rmse": 2066.5478139121387,
+        "largest_row_share_of_sse": 0.9497868831146649
+      },
+      "rf_chiral_raw": {
+        "mse": 4443628.803122518,
+        "mae": 335.39705705751214,
+        "rmse": 2107.9916515779937,
+        "largest_row_share_of_sse": 0.9085909630469948
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4201334.707787597,
+        "mae": 270.24637339119363,
+        "rmse": 2049.7157626821327,
+        "largest_row_share_of_sse": 0.9191036226240258
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4188991.665612598,
+        "mae": 206.3123004027355,
+        "rmse": 2046.7026324340814,
+        "largest_row_share_of_sse": 0.9516623207862083
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4756082.397198699,
+        "mae": 379.9483487513035,
+        "rmse": 2180.8444229698503,
+        "largest_row_share_of_sse": 0.8310644732634326
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4259963.426973412,
+        "mae": 209.52954229641645,
+        "rmse": 2063.967884191373,
+        "largest_row_share_of_sse": 0.949330892795862
+      },
+      "nn_count_k3_raw": {
+        "mse": 6274972.431282473,
+        "mae": 431.46113158097415,
+        "rmse": 2504.9895072200347,
+        "largest_row_share_of_sse": 0.6175187291096602
+      },
+      "nn_count_k3_log": {
+        "mse": 4242040.57337767,
+        "mae": 223.61651477949073,
+        "rmse": 2059.6214636135614,
+        "largest_row_share_of_sse": 0.9469918310302828
+      },
+      "nn_count_k10_raw": {
+        "mse": 4865263.014086089,
+        "mae": 407.936339347207,
+        "rmse": 2205.7341213496447,
+        "largest_row_share_of_sse": 0.818693759761467
+      },
+      "nn_count_k10_log": {
+        "mse": 4274849.390260844,
+        "mae": 210.27284297064048,
+        "rmse": 2067.5708912298132,
+        "largest_row_share_of_sse": 0.9485422263295578
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4517206.054724097,
+        "mae": 285.05059185505024,
+        "rmse": 2125.3719803187623,
+        "largest_row_share_of_sse": 0.8555541905964352
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4229694.785299533,
+        "mae": 210.11668408497493,
+        "rmse": 2056.622178548975,
+        "largest_row_share_of_sse": 0.9508505021104263
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4638609.371288262,
+        "mae": 366.78524595434936,
+        "rmse": 2153.743107078526,
+        "largest_row_share_of_sse": 0.8593484249637338
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4282289.223511658,
+        "mae": 210.0880299110885,
+        "rmse": 2069.3692815714785,
+        "largest_row_share_of_sse": 0.9486193755769339
+      },
+      "rf_log": {
+        "mse": 4270520.158303924,
+        "mae": 209.30454772058198,
+        "rmse": 2066.52368926754,
+        "largest_row_share_of_sse": 0.949568892355836
+      }
+    },
+    "23": {
+      "rf_parentbit_log": {
+        "mse": 4266444.940394995,
+        "mae": 207.69652898862668,
+        "rmse": 2065.537445895134,
+        "largest_row_share_of_sse": 0.9508962863675594
+      },
+      "rf_parentbit_raw": {
+        "mse": 5258283.437319195,
+        "mae": 452.85898373145653,
+        "rmse": 2293.094729251104,
+        "largest_row_share_of_sse": 0.7638938060772618
+      },
+      "rf_count_log": {
+        "mse": 4265854.9327993635,
+        "mae": 207.31324322753244,
+        "rmse": 2065.3946191465116,
+        "largest_row_share_of_sse": 0.9507864001156864
+      },
+      "rf_count_raw": {
+        "mse": 5195362.649555158,
+        "mae": 456.5638950996755,
+        "rmse": 2279.333817051631,
+        "largest_row_share_of_sse": 0.772956699440449
+      },
+      "rf_atompair_log": {
+        "mse": 4266697.826942381,
+        "mae": 207.67411248419663,
+        "rmse": 2065.598660665324,
+        "largest_row_share_of_sse": 0.9505864981324695
+      },
+      "rf_atompair_raw": {
+        "mse": 5030238.65468489,
+        "mae": 404.90527709076343,
+        "rmse": 2242.819354001764,
+        "largest_row_share_of_sse": 0.8057881545220892
+      },
+      "rf_maccs_log": {
+        "mse": 4264201.28646375,
+        "mae": 208.26385299406553,
+        "rmse": 2064.9942582156855,
+        "largest_row_share_of_sse": 0.951429796286093
+      },
+      "rf_maccs_raw": {
+        "mse": 5176529.022520808,
+        "mae": 482.0188528412509,
+        "rmse": 2275.1986775929718,
+        "largest_row_share_of_sse": 0.7828116840194823
+      },
+      "rf_descriptor_log": {
+        "mse": 4265107.636017124,
+        "mae": 208.23622883401134,
+        "rmse": 2065.213702263551,
+        "largest_row_share_of_sse": 0.9514778414816417
+      },
+      "rf_descriptor_raw": {
+        "mse": 5193392.189368121,
+        "mae": 481.6603318983588,
+        "rmse": 2278.901531301456,
+        "largest_row_share_of_sse": 0.7805433680268525
+      },
+      "rf_chiral_log": {
+        "mse": 4266490.234915359,
+        "mae": 207.5319758302034,
+        "rmse": 2065.54841020862,
+        "largest_row_share_of_sse": 0.9509607837440941
+      },
+      "rf_chiral_raw": {
+        "mse": 4412860.388301031,
+        "mae": 346.8954216073338,
+        "rmse": 2100.680934435554,
+        "largest_row_share_of_sse": 0.9123103731709842
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 5123419.506739652,
+        "mae": 357.04305105826336,
+        "rmse": 2263.4971850522925,
+        "largest_row_share_of_sse": 0.7536884193660182
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4176461.2110364204,
+        "mae": 210.54273517220653,
+        "rmse": 2043.6392076480672,
+        "largest_row_share_of_sse": 0.9545175517772108
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4966789.463656688,
+        "mae": 410.6822054388869,
+        "rmse": 2228.6295034519953,
+        "largest_row_share_of_sse": 0.797095990879842
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4247159.662473384,
+        "mae": 213.55385216987165,
+        "rmse": 2060.863814635354,
+        "largest_row_share_of_sse": 0.9527794729412458
+      },
+      "nn_count_k3_raw": {
+        "mse": 6906825.833732079,
+        "mae": 471.1355391727484,
+        "rmse": 2628.084061389985,
+        "largest_row_share_of_sse": 0.5610265980704354
+      },
+      "nn_count_k3_log": {
+        "mse": 4213067.8031406235,
+        "mae": 217.85605439422233,
+        "rmse": 2052.5758946116034,
+        "largest_row_share_of_sse": 0.9535041821290111
+      },
+      "nn_count_k10_raw": {
+        "mse": 4944207.19416424,
+        "mae": 411.7944091539066,
+        "rmse": 2223.557328733451,
+        "largest_row_share_of_sse": 0.8056216725569193
+      },
+      "nn_count_k10_log": {
+        "mse": 4261247.480139973,
+        "mae": 213.79052125678407,
+        "rmse": 2064.278924985665,
+        "largest_row_share_of_sse": 0.951569974933345
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4236479.068939534,
+        "mae": 259.81509573326935,
+        "rmse": 2058.270892992352,
+        "largest_row_share_of_sse": 0.9122468226602611
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4228282.892935494,
+        "mae": 215.3309336439914,
+        "rmse": 2056.2788947357053,
+        "largest_row_share_of_sse": 0.9511680065436126
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4645801.6613734085,
+        "mae": 383.0793219270555,
+        "rmse": 2155.4121789981164,
+        "largest_row_share_of_sse": 0.8583959958162574
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4268987.673517907,
+        "mae": 213.7948783966558,
+        "rmse": 2066.152867896736,
+        "largest_row_share_of_sse": 0.9514500906679858
+      },
+      "rf_log": {
+        "mse": 4266961.953257675,
+        "mae": 206.82789835634276,
+        "rmse": 2065.662594243715,
+        "largest_row_share_of_sse": 0.9503683508155274
+      }
+    },
+    "101": {
+      "rf_parentbit_log": {
+        "mse": 4271860.682145925,
+        "mae": 208.71661227278747,
+        "rmse": 2066.848006541827,
+        "largest_row_share_of_sse": 0.9499613161269684
+      },
+      "rf_parentbit_raw": {
+        "mse": 4808674.247710006,
+        "mae": 382.65854411425096,
+        "rmse": 2192.868953610773,
+        "largest_row_share_of_sse": 0.8415783324089786
+      },
+      "rf_count_log": {
+        "mse": 4273776.711390757,
+        "mae": 208.70085246400177,
+        "rmse": 2067.3114693704856,
+        "largest_row_share_of_sse": 0.9497319111135197
+      },
+      "rf_count_raw": {
+        "mse": 4784980.05688283,
+        "mae": 388.5288197278108,
+        "rmse": 2187.4597269167793,
+        "largest_row_share_of_sse": 0.8459446816723395
+      },
+      "rf_atompair_log": {
+        "mse": 4276178.930016729,
+        "mae": 209.13786561021962,
+        "rmse": 2067.8923884034025,
+        "largest_row_share_of_sse": 0.9492723567191009
+      },
+      "rf_atompair_raw": {
+        "mse": 5048488.433157408,
+        "mae": 424.8144844290722,
+        "rmse": 2246.8841610455593,
+        "largest_row_share_of_sse": 0.8037392558697679
+      },
+      "rf_maccs_log": {
+        "mse": 4270394.624898146,
+        "mae": 208.82347179983844,
+        "rmse": 2066.4933159577713,
+        "largest_row_share_of_sse": 0.9505779738544392
+      },
+      "rf_maccs_raw": {
+        "mse": 4871645.372017665,
+        "mae": 422.3703307630778,
+        "rmse": 2207.1804122041463,
+        "largest_row_share_of_sse": 0.8328997986568651
+      },
+      "rf_descriptor_log": {
+        "mse": 4271004.621507535,
+        "mae": 208.6239453388258,
+        "rmse": 2066.640902892308,
+        "largest_row_share_of_sse": 0.9505163153707934
+      },
+      "rf_descriptor_raw": {
+        "mse": 4868575.688063381,
+        "mae": 415.7635626923666,
+        "rmse": 2206.4849167994284,
+        "largest_row_share_of_sse": 0.8335367019337713
+      },
+      "rf_chiral_log": {
+        "mse": 4272596.899343548,
+        "mae": 208.26714525014486,
+        "rmse": 2067.0261003053515,
+        "largest_row_share_of_sse": 0.9500258968286924
+      },
+      "rf_chiral_raw": {
+        "mse": 4396431.683198574,
+        "mae": 324.64151037633934,
+        "rmse": 2096.766959678298,
+        "largest_row_share_of_sse": 0.9177155540478754
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4371229.387074973,
+        "mae": 276.5813997399068,
+        "rmse": 2090.748523155038,
+        "largest_row_share_of_sse": 0.9245464035102104
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4256224.008176886,
+        "mae": 208.929788616505,
+        "rmse": 2063.0618042552396,
+        "largest_row_share_of_sse": 0.952297076621587
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4773230.389962569,
+        "mae": 360.8670861676148,
+        "rmse": 2184.7723885939627,
+        "largest_row_share_of_sse": 0.8463997539414319
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4272867.909200727,
+        "mae": 209.52800441561575,
+        "rmse": 2067.091654765392,
+        "largest_row_share_of_sse": 0.9494170404824194
+      },
+      "nn_count_k3_raw": {
+        "mse": 5895444.997383164,
+        "mae": 389.67135779118905,
+        "rmse": 2428.0537468069288,
+        "largest_row_share_of_sse": 0.6862919221680706
+      },
+      "nn_count_k3_log": {
+        "mse": 4285711.477934465,
+        "mae": 221.18457624858502,
+        "rmse": 2070.1959998836983,
+        "largest_row_share_of_sse": 0.9467757936914039
+      },
+      "nn_count_k10_raw": {
+        "mse": 4803139.233193243,
+        "mae": 374.6129740215875,
+        "rmse": 2191.606541602129,
+        "largest_row_share_of_sse": 0.8436519032472634
+      },
+      "nn_count_k10_log": {
+        "mse": 4281076.24218472,
+        "mae": 210.36964908941226,
+        "rmse": 2069.076180855775,
+        "largest_row_share_of_sse": 0.9486107113431153
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4262398.959061864,
+        "mae": 251.07607939094578,
+        "rmse": 2064.557811993131,
+        "largest_row_share_of_sse": 0.9488712108190142
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4270811.376530411,
+        "mae": 212.94732576491907,
+        "rmse": 2066.5941489635575,
+        "largest_row_share_of_sse": 0.9500070048806931
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4568049.490104419,
+        "mae": 342.6474234319804,
+        "rmse": 2137.2995789323545,
+        "largest_row_share_of_sse": 0.8878294097042426
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4283992.188043713,
+        "mae": 211.51296102252462,
+        "rmse": 2069.780710134219,
+        "largest_row_share_of_sse": 0.9485815092684333
+      },
+      "rf_log": {
+        "mse": 4273865.590184404,
+        "mae": 207.93653222974058,
+        "rmse": 2067.332965485822,
+        "largest_row_share_of_sse": 0.9496448012292685
+      }
+    },
+    "509": {
+      "rf_parentbit_log": {
+        "mse": 4264870.480196943,
+        "mae": 206.99507853319227,
+        "rmse": 2065.1562846905663,
+        "largest_row_share_of_sse": 0.9509750811571802
+      },
+      "rf_parentbit_raw": {
+        "mse": 5022407.889079331,
+        "mae": 455.557188763052,
+        "rmse": 2241.072932565857,
+        "largest_row_share_of_sse": 0.796390165850201
+      },
+      "rf_count_log": {
+        "mse": 4264178.330462499,
+        "mae": 207.35801681214298,
+        "rmse": 2064.9886998389356,
+        "largest_row_share_of_sse": 0.9509727073877025
+      },
+      "rf_count_raw": {
+        "mse": 4863506.012424582,
+        "mae": 453.76215195633284,
+        "rmse": 2205.3358049114836,
+        "largest_row_share_of_sse": 0.8243087395048877
+      },
+      "rf_atompair_log": {
+        "mse": 4261992.400372672,
+        "mae": 207.89940774317134,
+        "rmse": 2064.459348200558,
+        "largest_row_share_of_sse": 0.9509854779763641
+      },
+      "rf_atompair_raw": {
+        "mse": 4898052.588338641,
+        "mae": 425.3896238433066,
+        "rmse": 2213.154442947586,
+        "largest_row_share_of_sse": 0.8277894200453757
+      },
+      "rf_maccs_log": {
+        "mse": 4261977.465952876,
+        "mae": 208.98875291839727,
+        "rmse": 2064.455731168115,
+        "largest_row_share_of_sse": 0.9515100309304557
+      },
+      "rf_maccs_raw": {
+        "mse": 5068446.339916842,
+        "mae": 466.9318021356494,
+        "rmse": 2251.321021071149,
+        "largest_row_share_of_sse": 0.798126011307259
+      },
+      "rf_descriptor_log": {
+        "mse": 4263253.399478162,
+        "mae": 209.4773632785127,
+        "rmse": 2064.7647322341986,
+        "largest_row_share_of_sse": 0.951384543717581
+      },
+      "rf_descriptor_raw": {
+        "mse": 5084384.3877222985,
+        "mae": 469.54688671254337,
+        "rmse": 2254.857952892443,
+        "largest_row_share_of_sse": 0.7964047852108894
+      },
+      "rf_chiral_log": {
+        "mse": 4263534.351384432,
+        "mae": 208.16196227055826,
+        "rmse": 2064.832765960583,
+        "largest_row_share_of_sse": 0.951109329014273
+      },
+      "rf_chiral_raw": {
+        "mse": 4406923.135355437,
+        "mae": 338.2940429111865,
+        "rmse": 2099.2672853534964,
+        "largest_row_share_of_sse": 0.9169572398306581
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4444059.071540585,
+        "mae": 302.78068374360566,
+        "rmse": 2108.093705588199,
+        "largest_row_share_of_sse": 0.8689042804386062
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4191102.729058145,
+        "mae": 208.6400433640215,
+        "rmse": 2047.2182905245218,
+        "largest_row_share_of_sse": 0.9511829673396828
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4888055.965600696,
+        "mae": 415.43383063465205,
+        "rmse": 2210.89483368176,
+        "largest_row_share_of_sse": 0.8099350737565587
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4261754.056435831,
+        "mae": 210.48957444525803,
+        "rmse": 2064.401621883647,
+        "largest_row_share_of_sse": 0.9495166757916923
+      },
+      "nn_count_k3_raw": {
+        "mse": 6915879.0416496415,
+        "mae": 479.1096350471107,
+        "rmse": 2629.8058942913717,
+        "largest_row_share_of_sse": 0.5602921881119868
+      },
+      "nn_count_k3_log": {
+        "mse": 4239205.830617474,
+        "mae": 223.25895825907133,
+        "rmse": 2058.9331777931684,
+        "largest_row_share_of_sse": 0.947625081300319
+      },
+      "nn_count_k10_raw": {
+        "mse": 5021673.781837532,
+        "mae": 429.46357196459815,
+        "rmse": 2240.909141807747,
+        "largest_row_share_of_sse": 0.7931937920055468
+      },
+      "nn_count_k10_log": {
+        "mse": 4273454.75224743,
+        "mae": 208.32563781964396,
+        "rmse": 2067.2335988580076,
+        "largest_row_share_of_sse": 0.9488517822094863
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4773959.995135747,
+        "mae": 316.76732163720436,
+        "rmse": 2184.939357313092,
+        "largest_row_share_of_sse": 0.8095406274549015
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4238062.361833626,
+        "mae": 215.5133326299968,
+        "rmse": 2058.655474292293,
+        "largest_row_share_of_sse": 0.9489731549480669
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4758215.230109918,
+        "mae": 402.2384697010408,
+        "rmse": 2181.3333606099545,
+        "largest_row_share_of_sse": 0.8384065250066841
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4280994.990384911,
+        "mae": 209.39493451988,
+        "rmse": 2069.056545961205,
+        "largest_row_share_of_sse": 0.9488210133060314
+      },
+      "rf_log": {
+        "mse": 4263795.016229458,
+        "mae": 206.7042719384671,
+        "rmse": 2064.8958850822137,
+        "largest_row_share_of_sse": 0.9511916099187719
+      }
+    }
+  },
+  "known_culture_metrics": {
+    "scaffold": {
+      "rf_parentbit_log": {
+        "mse": 4514327.640554118,
+        "mae": 220.68271397099426,
+        "rmse": 2124.694717025041,
+        "largest_row_share_of_sse": 0.94651023539767
+      },
+      "rf_parentbit_raw": {
+        "mse": 4753807.421555064,
+        "mae": 373.5075317235768,
+        "rmse": 2180.3227792129915,
+        "largest_row_share_of_sse": 0.8978019317101332
+      },
+      "rf_count_log": {
+        "mse": 4513459.499065484,
+        "mae": 220.7425038768432,
+        "rmse": 2124.490409266534,
+        "largest_row_share_of_sse": 0.9465502289100376
+      },
+      "rf_count_raw": {
+        "mse": 4770146.610827739,
+        "mae": 379.53006550529466,
+        "rmse": 2184.0665307695504,
+        "largest_row_share_of_sse": 0.8943705413854779
+      },
+      "rf_atompair_log": {
+        "mse": 4512134.279123673,
+        "mae": 220.32719591781643,
+        "rmse": 2124.1784951184477,
+        "largest_row_share_of_sse": 0.9466333176303756
+      },
+      "rf_atompair_raw": {
+        "mse": 4878184.514273672,
+        "mae": 433.00629876800656,
+        "rmse": 2208.661249325861,
+        "largest_row_share_of_sse": 0.8747716921219636
+      },
+      "rf_maccs_log": {
+        "mse": 4513247.398091324,
+        "mae": 220.55717430548017,
+        "rmse": 2124.440490597777,
+        "largest_row_share_of_sse": 0.9466877472959561
+      },
+      "rf_maccs_raw": {
+        "mse": 5109206.834774969,
+        "mae": 488.59122772613813,
+        "rmse": 2260.355466464284,
+        "largest_row_share_of_sse": 0.8353153242905169
+      },
+      "rf_descriptor_log": {
+        "mse": 4513267.823564533,
+        "mae": 220.71856435471014,
+        "rmse": 2124.445297851779,
+        "largest_row_share_of_sse": 0.9469026025326717
+      },
+      "rf_descriptor_raw": {
+        "mse": 4985724.19907437,
+        "mae": 458.43267170868825,
+        "rmse": 2232.873529574474,
+        "largest_row_share_of_sse": 0.8563260234304252
+      },
+      "rf_chiral_log": {
+        "mse": 4513294.084315358,
+        "mae": 220.6026654239322,
+        "rmse": 2124.4514784563466,
+        "largest_row_share_of_sse": 0.9465541580378983
+      },
+      "rf_chiral_raw": {
+        "mse": 4693304.894298967,
+        "mae": 349.82827512001256,
+        "rmse": 2166.4036775954214,
+        "largest_row_share_of_sse": 0.9092468072164587
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 5911723.2822927125,
+        "mae": 366.0971385229437,
+        "rmse": 2431.403562202851,
+        "largest_row_share_of_sse": 0.7228324661596576
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4506175.223830205,
+        "mae": 218.26703596648235,
+        "rmse": 2122.775358776855,
+        "largest_row_share_of_sse": 0.9485363791102623
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 5166006.482475999,
+        "mae": 381.71924644128876,
+        "rmse": 2272.885057031261,
+        "largest_row_share_of_sse": 0.8234350727980528
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4508228.296751805,
+        "mae": 217.63337863755274,
+        "rmse": 2123.2588859467432,
+        "largest_row_share_of_sse": 0.9481582591105341
+      },
+      "nn_count_k3_raw": {
+        "mse": 5818559.933199928,
+        "mae": 334.66029549133833,
+        "rmse": 2412.1691344513815,
+        "largest_row_share_of_sse": 0.7321911506347255
+      },
+      "nn_count_k3_log": {
+        "mse": 4515838.247667413,
+        "mae": 225.79706954814665,
+        "rmse": 2125.0501753293765,
+        "largest_row_share_of_sse": 0.9443889136374882
+      },
+      "nn_count_k10_raw": {
+        "mse": 5096409.736935826,
+        "mae": 365.15930293560194,
+        "rmse": 2257.522920578178,
+        "largest_row_share_of_sse": 0.8379470270815057
+      },
+      "nn_count_k10_log": {
+        "mse": 4515640.184622687,
+        "mae": 218.89943816328147,
+        "rmse": 2125.0035728493935,
+        "largest_row_share_of_sse": 0.9471764698762645
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 6295344.813381322,
+        "mae": 357.09332792604073,
+        "rmse": 2509.052572861183,
+        "largest_row_share_of_sse": 0.6794973842556856
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4620675.013043029,
+        "mae": 241.49458976273118,
+        "rmse": 2149.5755425299735,
+        "largest_row_share_of_sse": 0.9259577373650846
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 5149361.4326527435,
+        "mae": 372.0148821711083,
+        "rmse": 2269.220446023864,
+        "largest_row_share_of_sse": 0.8302367721351037
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4517209.670523411,
+        "mae": 220.0219328440853,
+        "rmse": 2125.3728309459993,
+        "largest_row_share_of_sse": 0.9471334150207622
+      },
+      "rf_log": {
+        "mse": 4514081.4426035145,
+        "mae": 220.4581033048406,
+        "rmse": 2124.6367789821193,
+        "largest_row_share_of_sse": 0.9465135664323862
+      }
+    },
+    "scaffold_shuffle42": {
+      "rf_parentbit_log": {
+        "mse": 4631634.035121408,
+        "mae": 225.63306861106213,
+        "rmse": 2152.1231459006726,
+        "largest_row_share_of_sse": 0.9473014579586442
+      },
+      "rf_parentbit_raw": {
+        "mse": 4837858.539755145,
+        "mae": 378.9522943817323,
+        "rmse": 2199.513250643229,
+        "largest_row_share_of_sse": 0.9060375565510606
+      },
+      "rf_count_log": {
+        "mse": 4631840.139330983,
+        "mae": 225.6757110922592,
+        "rmse": 2152.171029293672,
+        "largest_row_share_of_sse": 0.9473188141657595
+      },
+      "rf_count_raw": {
+        "mse": 4923078.693461581,
+        "mae": 402.9085210644263,
+        "rmse": 2218.801183851672,
+        "largest_row_share_of_sse": 0.8900589910295043
+      },
+      "rf_atompair_log": {
+        "mse": 4632746.71630045,
+        "mae": 226.56872727550856,
+        "rmse": 2152.3816381628167,
+        "largest_row_share_of_sse": 0.9471248404477396
+      },
+      "rf_atompair_raw": {
+        "mse": 5129020.545510683,
+        "mae": 431.3751701782469,
+        "rmse": 2264.734100399136,
+        "largest_row_share_of_sse": 0.854500747364987
+      },
+      "rf_maccs_log": {
+        "mse": 4631730.700154967,
+        "mae": 226.43715702899686,
+        "rmse": 2152.1456038463025,
+        "largest_row_share_of_sse": 0.947254987997468
+      },
+      "rf_maccs_raw": {
+        "mse": 5007697.805661636,
+        "mae": 455.037658804067,
+        "rmse": 2237.788597178392,
+        "largest_row_share_of_sse": 0.8744997595000094
+      },
+      "rf_descriptor_log": {
+        "mse": 4630455.42281872,
+        "mae": 226.64907935417096,
+        "rmse": 2151.849302999334,
+        "largest_row_share_of_sse": 0.9472011203369889
+      },
+      "rf_descriptor_raw": {
+        "mse": 4979418.334159026,
+        "mae": 448.58130424959666,
+        "rmse": 2231.461031288475,
+        "largest_row_share_of_sse": 0.8798387844344718
+      },
+      "rf_chiral_log": {
+        "mse": 4630759.323299574,
+        "mae": 225.30303884318533,
+        "rmse": 2151.9199156333802,
+        "largest_row_share_of_sse": 0.9473206558493458
+      },
+      "rf_chiral_raw": {
+        "mse": 4727560.672493895,
+        "mae": 329.78304732438255,
+        "rmse": 2174.295442780004,
+        "largest_row_share_of_sse": 0.9258609093301551
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 5965701.861455719,
+        "mae": 389.72980196737467,
+        "rmse": 2442.4786307060535,
+        "largest_row_share_of_sse": 0.7343152585230968
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4626414.529414806,
+        "mae": 230.27503500173765,
+        "rmse": 2150.910163027458,
+        "largest_row_share_of_sse": 0.9478641101736149
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 5158084.52227906,
+        "mae": 385.9748905664275,
+        "rmse": 2271.1416781608013,
+        "largest_row_share_of_sse": 0.845302694471992
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4623955.416294918,
+        "mae": 223.00949166468982,
+        "rmse": 2150.3384422678487,
+        "largest_row_share_of_sse": 0.9492306125530847
+      },
+      "nn_count_k3_raw": {
+        "mse": 5943208.067484286,
+        "mae": 354.051239690837,
+        "rmse": 2437.869575568858,
+        "largest_row_share_of_sse": 0.7363375050063665
+      },
+      "nn_count_k3_log": {
+        "mse": 4630222.034475699,
+        "mae": 233.21656334532014,
+        "rmse": 2151.7950726023373,
+        "largest_row_share_of_sse": 0.9475134747798566
+      },
+      "nn_count_k10_raw": {
+        "mse": 5230396.439682986,
+        "mae": 394.3784711537685,
+        "rmse": 2287.005999048316,
+        "largest_row_share_of_sse": 0.8385240031256374
+      },
+      "nn_count_k10_log": {
+        "mse": 4632458.618210602,
+        "mae": 225.93670813361402,
+        "rmse": 2152.3147117024037,
+        "largest_row_share_of_sse": 0.9483173950410887
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 6310272.620324597,
+        "mae": 364.0268468556044,
+        "rmse": 2512.0256010488024,
+        "largest_row_share_of_sse": 0.696421526494173
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4739942.066570132,
+        "mae": 252.12069141886192,
+        "rmse": 2177.1408008142544,
+        "largest_row_share_of_sse": 0.9271441779500109
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 5221722.311790427,
+        "mae": 372.17609636836266,
+        "rmse": 2285.108818369582,
+        "largest_row_share_of_sse": 0.840908129627675
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4634340.444385105,
+        "mae": 226.8603246611881,
+        "rmse": 2152.751830654222,
+        "largest_row_share_of_sse": 0.9481933666401513
+      },
+      "rf_log": {
+        "mse": 4632129.836531004,
+        "mae": 225.39978627098895,
+        "rmse": 2152.2383317214208,
+        "largest_row_share_of_sse": 0.947195389564118
+      }
+    },
+    "scaffold_shuffle2026": {
+      "rf_parentbit_log": {
+        "mse": 4633696.700660119,
+        "mae": 226.13968472947994,
+        "rmse": 2152.6023089879186,
+        "largest_row_share_of_sse": 0.9472050347588696
+      },
+      "rf_parentbit_raw": {
+        "mse": 4748145.868276557,
+        "mae": 351.14011701400835,
+        "rmse": 2179.024063262395,
+        "largest_row_share_of_sse": 0.9233284037725182
+      },
+      "rf_count_log": {
+        "mse": 4633421.352926788,
+        "mae": 226.06356594146663,
+        "rmse": 2152.5383510931433,
+        "largest_row_share_of_sse": 0.9472585728565774
+      },
+      "rf_count_raw": {
+        "mse": 4822023.06118764,
+        "mae": 376.35831200319825,
+        "rmse": 2195.9105312347406,
+        "largest_row_share_of_sse": 0.9086299939018919
+      },
+      "rf_atompair_log": {
+        "mse": 4633383.017890581,
+        "mae": 226.15578574843448,
+        "rmse": 2152.5294464630633,
+        "largest_row_share_of_sse": 0.947238984539213
+      },
+      "rf_atompair_raw": {
+        "mse": 4865189.8345377715,
+        "mae": 410.99788617743144,
+        "rmse": 2205.717532808263,
+        "largest_row_share_of_sse": 0.9011086757876027
+      },
+      "rf_maccs_log": {
+        "mse": 4634699.340620038,
+        "mae": 226.715549019083,
+        "rmse": 2152.835186590009,
+        "largest_row_share_of_sse": 0.9470128719497443
+      },
+      "rf_maccs_raw": {
+        "mse": 5077190.749160636,
+        "mae": 455.25261659051034,
+        "rmse": 2253.2622459803997,
+        "largest_row_share_of_sse": 0.8632936615847124
+      },
+      "rf_descriptor_log": {
+        "mse": 4635377.0923418645,
+        "mae": 226.69683590916523,
+        "rmse": 2152.9925899412347,
+        "largest_row_share_of_sse": 0.9468944374512361
+      },
+      "rf_descriptor_raw": {
+        "mse": 5012359.936931239,
+        "mae": 457.8722957245751,
+        "rmse": 2238.8300375265735,
+        "largest_row_share_of_sse": 0.874407765200114
+      },
+      "rf_chiral_log": {
+        "mse": 4633113.410389232,
+        "mae": 226.04117723693633,
+        "rmse": 2152.4668198114537,
+        "largest_row_share_of_sse": 0.9471256222251007
+      },
+      "rf_chiral_raw": {
+        "mse": 4888372.361015471,
+        "mae": 381.65226816647504,
+        "rmse": 2210.966386224691,
+        "largest_row_share_of_sse": 0.8941820762804089
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 7236090.948177408,
+        "mae": 457.7712819620807,
+        "rmse": 2689.998317504568,
+        "largest_row_share_of_sse": 0.6057650928731578
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4622490.077562844,
+        "mae": 233.6622952170861,
+        "rmse": 2149.997692455237,
+        "largest_row_share_of_sse": 0.9491161788186279
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 5602002.849849621,
+        "mae": 451.82389546913083,
+        "rmse": 2366.855054676906,
+        "largest_row_share_of_sse": 0.7791535599298016
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4625444.543957928,
+        "mae": 226.1667418675559,
+        "rmse": 2150.6846686480862,
+        "largest_row_share_of_sse": 0.9489979816866735
+      },
+      "nn_count_k3_raw": {
+        "mse": 5874005.193104176,
+        "mae": 344.45791394160904,
+        "rmse": 2423.6347070266543,
+        "largest_row_share_of_sse": 0.7448820932867501
+      },
+      "nn_count_k3_log": {
+        "mse": 4625252.193432316,
+        "mae": 235.2847068885992,
+        "rmse": 2150.639949743405,
+        "largest_row_share_of_sse": 0.9469688917804886
+      },
+      "nn_count_k10_raw": {
+        "mse": 5158836.3659671815,
+        "mae": 369.7424549332422,
+        "rmse": 2271.307193218738,
+        "largest_row_share_of_sse": 0.8501706895786778
+      },
+      "nn_count_k10_log": {
+        "mse": 4632783.221761483,
+        "mae": 224.74993022291872,
+        "rmse": 2152.3901183943126,
+        "largest_row_share_of_sse": 0.9482477554671739
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 6154811.598415816,
+        "mae": 350.293264532647,
+        "rmse": 2480.8892757267135,
+        "largest_row_share_of_sse": 0.7137965110958192
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4633485.306984297,
+        "mae": 231.5908875994042,
+        "rmse": 2152.553206539689,
+        "largest_row_share_of_sse": 0.9483544178069224
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 5156779.502546314,
+        "mae": 366.25785216066015,
+        "rmse": 2270.8543552034143,
+        "largest_row_share_of_sse": 0.8514276960366564
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4632987.666784922,
+        "mae": 225.81493129798017,
+        "rmse": 2152.4376104279822,
+        "largest_row_share_of_sse": 0.9484384833667643
+      },
+      "rf_log": {
+        "mse": 4633874.165051365,
+        "mae": 225.8540400921534,
+        "rmse": 2152.6435294891176,
+        "largest_row_share_of_sse": 0.9471511771952142
+      }
+    },
+    "42": {
+      "rf_parentbit_log": {
+        "mse": 4310976.272177049,
+        "mae": 212.05807835309668,
+        "rmse": 2076.289062769693,
+        "largest_row_share_of_sse": 0.9501695487933656
+      },
+      "rf_parentbit_raw": {
+        "mse": 5082640.691655968,
+        "mae": 437.4206687225093,
+        "rmse": 2254.4712665403317,
+        "largest_row_share_of_sse": 0.7947581106391929
+      },
+      "rf_count_log": {
+        "mse": 4312172.924134565,
+        "mae": 212.6067388212604,
+        "rmse": 2076.5772136221094,
+        "largest_row_share_of_sse": 0.9499804878156822
+      },
+      "rf_count_raw": {
+        "mse": 4815962.257010766,
+        "mae": 424.1558795895032,
+        "rmse": 2194.530076579213,
+        "largest_row_share_of_sse": 0.8391628398138324
+      },
+      "rf_atompair_log": {
+        "mse": 4315198.718571665,
+        "mae": 213.28101621447692,
+        "rmse": 2077.3056391806344,
+        "largest_row_share_of_sse": 0.9487175283787069
+      },
+      "rf_atompair_raw": {
+        "mse": 4494506.348084224,
+        "mae": 349.43617669625,
+        "rmse": 2120.0250819469625,
+        "largest_row_share_of_sse": 0.9103205596400734
+      },
+      "rf_maccs_log": {
+        "mse": 4312468.674859166,
+        "mae": 214.3286179815334,
+        "rmse": 2076.6484235082175,
+        "largest_row_share_of_sse": 0.94997500660258
+      },
+      "rf_maccs_raw": {
+        "mse": 4607205.405271349,
+        "mae": 413.83445285711576,
+        "rmse": 2146.440170438335,
+        "largest_row_share_of_sse": 0.8870390516228047
+      },
+      "rf_descriptor_log": {
+        "mse": 4314566.368571262,
+        "mae": 213.97098161420593,
+        "rmse": 2077.1534292322417,
+        "largest_row_share_of_sse": 0.9499613081069832
+      },
+      "rf_descriptor_raw": {
+        "mse": 4615173.089470701,
+        "mae": 411.7323495857302,
+        "rmse": 2148.2953915769363,
+        "largest_row_share_of_sse": 0.8859979299822337
+      },
+      "rf_chiral_log": {
+        "mse": 4311869.766848099,
+        "mae": 212.52100163410867,
+        "rmse": 2076.5042178739004,
+        "largest_row_share_of_sse": 0.9499151939611434
+      },
+      "rf_chiral_raw": {
+        "mse": 4548313.05206165,
+        "mae": 360.762615918182,
+        "rmse": 2132.6774374156184,
+        "largest_row_share_of_sse": 0.8947412600431566
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 6611197.066206359,
+        "mae": 456.5773829013175,
+        "rmse": 2571.224818293095,
+        "largest_row_share_of_sse": 0.5896066498531345
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4230348.6822757125,
+        "mae": 218.40325881560588,
+        "rmse": 2056.781145935491,
+        "largest_row_share_of_sse": 0.9512768365373692
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 5363443.622740293,
+        "mae": 428.434971229577,
+        "rmse": 2315.910970382992,
+        "largest_row_share_of_sse": 0.7436993430933257
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4304170.372337835,
+        "mae": 215.36854581801796,
+        "rmse": 2074.6494577007065,
+        "largest_row_share_of_sse": 0.9490139683906574
+      },
+      "nn_count_k3_raw": {
+        "mse": 6280990.928263143,
+        "mae": 424.3367780688956,
+        "rmse": 2506.190521142226,
+        "largest_row_share_of_sse": 0.6220968519335229
+      },
+      "nn_count_k3_log": {
+        "mse": 4309629.647712827,
+        "mae": 228.34984277908248,
+        "rmse": 2075.9647510766713,
+        "largest_row_share_of_sse": 0.9430083191456394
+      },
+      "nn_count_k10_raw": {
+        "mse": 4769952.264534628,
+        "mae": 376.8194730867917,
+        "rmse": 2184.0220384727413,
+        "largest_row_share_of_sse": 0.8410497457397641
+      },
+      "nn_count_k10_log": {
+        "mse": 4318809.711737301,
+        "mae": 212.6854046820145,
+        "rmse": 2078.17461050252,
+        "largest_row_share_of_sse": 0.9482889084279679
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4631257.2512627775,
+        "mae": 301.7969376675447,
+        "rmse": 2152.0356064114685,
+        "largest_row_share_of_sse": 0.8423823044332357
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4277446.388003314,
+        "mae": 214.22809104708028,
+        "rmse": 2068.1988269997914,
+        "largest_row_share_of_sse": 0.9491337379774725
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4521194.955199951,
+        "mae": 335.26746421326635,
+        "rmse": 2126.310173798722,
+        "largest_row_share_of_sse": 0.8896106310137518
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4323347.96376716,
+        "mae": 212.90042443077726,
+        "rmse": 2079.2662080087675,
+        "largest_row_share_of_sse": 0.9482974250739836
+      },
+      "rf_log": {
+        "mse": 4312294.596196919,
+        "mae": 211.53379205887188,
+        "rmse": 2076.6065097164937,
+        "largest_row_share_of_sse": 0.9500717277857595
+      }
+    },
+    "2026": {
+      "rf_parentbit_log": {
+        "mse": 4323054.73026842,
+        "mae": 216.5351616201686,
+        "rmse": 2079.1956931151094,
+        "largest_row_share_of_sse": 0.9473214640398115
+      },
+      "rf_parentbit_raw": {
+        "mse": 5190466.203403432,
+        "mae": 479.124115235234,
+        "rmse": 2278.2594679718623,
+        "largest_row_share_of_sse": 0.7823255610701377
+      },
+      "rf_count_log": {
+        "mse": 4323869.950754034,
+        "mae": 216.32743800720124,
+        "rmse": 2079.3917261434976,
+        "largest_row_share_of_sse": 0.947081163462113
+      },
+      "rf_count_raw": {
+        "mse": 5179510.476007556,
+        "mae": 479.52326628962317,
+        "rmse": 2275.8537905602716,
+        "largest_row_share_of_sse": 0.7852785701213773
+      },
+      "rf_atompair_log": {
+        "mse": 4324987.113284912,
+        "mae": 216.53180434353172,
+        "rmse": 2079.6603360368517,
+        "largest_row_share_of_sse": 0.9468961731576744
+      },
+      "rf_atompair_raw": {
+        "mse": 5424571.12655032,
+        "mae": 475.6558096467979,
+        "rmse": 2329.070871946648,
+        "largest_row_share_of_sse": 0.7545047118175072
+      },
+      "rf_maccs_log": {
+        "mse": 4327053.278864108,
+        "mae": 218.50321924842692,
+        "rmse": 2080.157032260812,
+        "largest_row_share_of_sse": 0.9468348435472773
+      },
+      "rf_maccs_raw": {
+        "mse": 5580585.376868769,
+        "mae": 541.569931484291,
+        "rmse": 2362.3262638485753,
+        "largest_row_share_of_sse": 0.7335109731381451
+      },
+      "rf_descriptor_log": {
+        "mse": 4327253.864841365,
+        "mae": 218.82686046315797,
+        "rmse": 2080.205245845074,
+        "largest_row_share_of_sse": 0.9468582826695511
+      },
+      "rf_descriptor_raw": {
+        "mse": 5512025.460455506,
+        "mae": 540.3667329402041,
+        "rmse": 2347.7703168017747,
+        "largest_row_share_of_sse": 0.7423174711287962
+      },
+      "rf_chiral_log": {
+        "mse": 4322530.324618756,
+        "mae": 215.17048076535494,
+        "rmse": 2079.069581475992,
+        "largest_row_share_of_sse": 0.947254018079019
+      },
+      "rf_chiral_raw": {
+        "mse": 4549652.77380274,
+        "mae": 381.64809206483335,
+        "rmse": 2132.991508141263,
+        "largest_row_share_of_sse": 0.8953528182958539
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4358376.274300937,
+        "mae": 309.4485888857785,
+        "rmse": 2087.672453786977,
+        "largest_row_share_of_sse": 0.8943710933609158
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4283921.013077716,
+        "mae": 230.9323308139263,
+        "rmse": 2069.7635162205647,
+        "largest_row_share_of_sse": 0.9393806981128536
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4995643.212005479,
+        "mae": 433.04603170299254,
+        "rmse": 2235.093557774591,
+        "largest_row_share_of_sse": 0.799992063446194
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4308050.636572634,
+        "mae": 217.37171135227962,
+        "rmse": 2075.58440844323,
+        "largest_row_share_of_sse": 0.9482020640661457
+      },
+      "nn_count_k3_raw": {
+        "mse": 6622185.185543906,
+        "mae": 478.60424349940405,
+        "rmse": 2573.360679256584,
+        "largest_row_share_of_sse": 0.5906787551725535
+      },
+      "nn_count_k3_log": {
+        "mse": 4335456.219334391,
+        "mae": 242.50470425701,
+        "rmse": 2082.1758377558776,
+        "largest_row_share_of_sse": 0.9353560548111778
+      },
+      "nn_count_k10_raw": {
+        "mse": 5028144.095022555,
+        "mae": 445.5171879674811,
+        "rmse": 2242.352357463598,
+        "largest_row_share_of_sse": 0.7996700011354608
+      },
+      "nn_count_k10_log": {
+        "mse": 4319498.534228319,
+        "mae": 215.10529992943572,
+        "rmse": 2078.340331665707,
+        "largest_row_share_of_sse": 0.9476214283386161
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4343809.214131132,
+        "mae": 286.33889662228097,
+        "rmse": 2084.180705728544,
+        "largest_row_share_of_sse": 0.8981262673899973
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4282080.654413931,
+        "mae": 216.22768572413113,
+        "rmse": 2069.3188865938305,
+        "largest_row_share_of_sse": 0.9481065413980343
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4716117.318376163,
+        "mae": 398.9432641715739,
+        "rmse": 2171.6623398622914,
+        "largest_row_share_of_sse": 0.8538957428637223
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4325302.823973574,
+        "mae": 214.30574929130177,
+        "rmse": 2079.736239039358,
+        "largest_row_share_of_sse": 0.9479888106636261
+      },
+      "rf_log": {
+        "mse": 4323436.2763119,
+        "mae": 214.87349602594173,
+        "rmse": 2079.2874443693204,
+        "largest_row_share_of_sse": 0.9473339259043007
+      }
+    },
+    "117": {
+      "rf_parentbit_log": {
+        "mse": 4310890.46507948,
+        "mae": 208.9878247463604,
+        "rmse": 2076.2683990947507,
+        "largest_row_share_of_sse": 0.9504234523996148
+      },
+      "rf_parentbit_raw": {
+        "mse": 5031832.783239324,
+        "mae": 412.17232310416887,
+        "rmse": 2243.1747108148584,
+        "largest_row_share_of_sse": 0.8068742966150324
+      },
+      "rf_count_log": {
+        "mse": 4309206.691293312,
+        "mae": 209.1076244720789,
+        "rmse": 2075.86287873099,
+        "largest_row_share_of_sse": 0.9506356051093656
+      },
+      "rf_count_raw": {
+        "mse": 4906107.535119071,
+        "mae": 406.86665711711885,
+        "rmse": 2214.9734840668116,
+        "largest_row_share_of_sse": 0.827655316024951
+      },
+      "rf_atompair_log": {
+        "mse": 4313411.819835775,
+        "mae": 209.71785499982613,
+        "rmse": 2076.8754945436126,
+        "largest_row_share_of_sse": 0.9498914027805305
+      },
+      "rf_atompair_raw": {
+        "mse": 5364306.771067466,
+        "mae": 450.09464805026994,
+        "rmse": 2316.0973146799047,
+        "largest_row_share_of_sse": 0.7632679555091164
+      },
+      "rf_maccs_log": {
+        "mse": 4306728.022561636,
+        "mae": 209.10464306680936,
+        "rmse": 2075.2657715487035,
+        "largest_row_share_of_sse": 0.9513626145352351
+      },
+      "rf_maccs_raw": {
+        "mse": 5327775.235503249,
+        "mae": 490.584704989335,
+        "rmse": 2308.1973995963276,
+        "largest_row_share_of_sse": 0.7681750662041896
+      },
+      "rf_descriptor_log": {
+        "mse": 4309282.285404889,
+        "mae": 209.5301108610634,
+        "rmse": 2075.881086528053,
+        "largest_row_share_of_sse": 0.9508155055692757
+      },
+      "rf_descriptor_raw": {
+        "mse": 5278770.659660254,
+        "mae": 475.2734894040597,
+        "rmse": 2297.557542186975,
+        "largest_row_share_of_sse": 0.7749572507193169
+      },
+      "rf_chiral_log": {
+        "mse": 4311951.674715161,
+        "mae": 208.53427483083914,
+        "rmse": 2076.5239403183296,
+        "largest_row_share_of_sse": 0.950164017112494
+      },
+      "rf_chiral_raw": {
+        "mse": 4358300.511807727,
+        "mae": 315.3410058264354,
+        "rmse": 2087.6543085021826,
+        "largest_row_share_of_sse": 0.9374653455438955
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4963025.431119948,
+        "mae": 320.4969410303134,
+        "rmse": 2227.7848709244677,
+        "largest_row_share_of_sse": 0.7866356483643158
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4294396.967571221,
+        "mae": 220.04616285143712,
+        "rmse": 2072.2926838579588,
+        "largest_row_share_of_sse": 0.9488363208367296
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4806171.407183272,
+        "mae": 369.54427407765183,
+        "rmse": 2192.2982021575604,
+        "largest_row_share_of_sse": 0.829535402466294
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4296475.22756063,
+        "mae": 214.45463387351305,
+        "rmse": 2072.794062988562,
+        "largest_row_share_of_sse": 0.9518553087174242
+      },
+      "nn_count_k3_raw": {
+        "mse": 6026829.482096796,
+        "mae": 417.0370394077373,
+        "rmse": 2454.960179330165,
+        "largest_row_share_of_sse": 0.6509797424652026
+      },
+      "nn_count_k3_log": {
+        "mse": 4295842.917814426,
+        "mae": 230.8756668101662,
+        "rmse": 2072.641531431431,
+        "largest_row_share_of_sse": 0.9512972422765325
+      },
+      "nn_count_k10_raw": {
+        "mse": 4824988.0505690025,
+        "mae": 387.478758627703,
+        "rmse": 2196.5855436492798,
+        "largest_row_share_of_sse": 0.8335098490596661
+      },
+      "nn_count_k10_log": {
+        "mse": 4305287.709153829,
+        "mae": 212.70949636268702,
+        "rmse": 2074.918723505533,
+        "largest_row_share_of_sse": 0.9516653056046445
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4308298.611136411,
+        "mae": 267.0449795218233,
+        "rmse": 2075.644143666349,
+        "largest_row_share_of_sse": 0.9062884419341031
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4285679.934251568,
+        "mae": 214.2831602369384,
+        "rmse": 2070.1883813439704,
+        "largest_row_share_of_sse": 0.9530270538542696
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4591101.811327607,
+        "mae": 354.7533581329675,
+        "rmse": 2142.68565387637,
+        "largest_row_share_of_sse": 0.8767321985673342
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4310952.312418724,
+        "mae": 213.8522065418418,
+        "rmse": 2076.283292910369,
+        "largest_row_share_of_sse": 0.9514495317352708
+      },
+      "rf_log": {
+        "mse": 4312008.519762799,
+        "mae": 208.62343005370928,
+        "rmse": 2076.537627822525,
+        "largest_row_share_of_sse": 0.9498644743609627
+      }
+    },
+    "2027": {
+      "rf_parentbit_log": {
+        "mse": 4318836.199205414,
+        "mae": 213.5422924685391,
+        "rmse": 2078.1809832652725,
+        "largest_row_share_of_sse": 0.9483449537922047
+      },
+      "rf_parentbit_raw": {
+        "mse": 4902195.200692961,
+        "mae": 430.12733241669486,
+        "rmse": 2214.0901518892497,
+        "largest_row_share_of_sse": 0.8284052124844348
+      },
+      "rf_count_log": {
+        "mse": 4318271.611338014,
+        "mae": 213.08628571305852,
+        "rmse": 2078.045141795051,
+        "largest_row_share_of_sse": 0.9484266603206528
+      },
+      "rf_count_raw": {
+        "mse": 4784562.69798433,
+        "mae": 419.46278774265454,
+        "rmse": 2187.3643267604807,
+        "largest_row_share_of_sse": 0.8498901247444418
+      },
+      "rf_atompair_log": {
+        "mse": 4320532.334024033,
+        "mae": 213.637852871024,
+        "rmse": 2078.589024801207,
+        "largest_row_share_of_sse": 0.9480636553730981
+      },
+      "rf_atompair_raw": {
+        "mse": 5338025.566235274,
+        "mae": 449.10664423591527,
+        "rmse": 2310.416751634924,
+        "largest_row_share_of_sse": 0.7669768415864988
+      },
+      "rf_maccs_log": {
+        "mse": 4317449.645256879,
+        "mae": 214.20426237660988,
+        "rmse": 2077.847358507568,
+        "largest_row_share_of_sse": 0.9488517681275973
+      },
+      "rf_maccs_raw": {
+        "mse": 5242257.61842974,
+        "mae": 486.0727268565185,
+        "rmse": 2289.597697943842,
+        "largest_row_share_of_sse": 0.7801957296065724
+      },
+      "rf_descriptor_log": {
+        "mse": 4317594.189879744,
+        "mae": 213.6236837273252,
+        "rmse": 2077.8821405170565,
+        "largest_row_share_of_sse": 0.9490323441757305
+      },
+      "rf_descriptor_raw": {
+        "mse": 5265832.234329204,
+        "mae": 491.1375138101784,
+        "rmse": 2294.740123484401,
+        "largest_row_share_of_sse": 0.777311540142494
+      },
+      "rf_chiral_log": {
+        "mse": 4317211.45000258,
+        "mae": 212.42076994666033,
+        "rmse": 2077.7900399228456,
+        "largest_row_share_of_sse": 0.9485792455726367
+      },
+      "rf_chiral_raw": {
+        "mse": 4344892.066890845,
+        "mae": 316.7533868547315,
+        "rmse": 2084.4404685408613,
+        "largest_row_share_of_sse": 0.9420520728500112
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4841693.456215353,
+        "mae": 324.5025056662229,
+        "rmse": 2200.3848427525927,
+        "largest_row_share_of_sse": 0.8050913980770252
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4223961.706472305,
+        "mae": 216.10335422650542,
+        "rmse": 2055.2278964806565,
+        "largest_row_share_of_sse": 0.9527152449699069
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4939345.405778007,
+        "mae": 393.275058628079,
+        "rmse": 2222.4638142786503,
+        "largest_row_share_of_sse": 0.8103005312549258
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4303284.892501686,
+        "mae": 213.84742671696807,
+        "rmse": 2074.436042036892,
+        "largest_row_share_of_sse": 0.9496339096231547
+      },
+      "nn_count_k3_raw": {
+        "mse": 6824801.49094252,
+        "mae": 485.3248292975798,
+        "rmse": 2612.4321026473626,
+        "largest_row_share_of_sse": 0.5731425459202626
+      },
+      "nn_count_k3_log": {
+        "mse": 4354197.196478461,
+        "mae": 246.11747648742062,
+        "rmse": 2086.6713197047734,
+        "largest_row_share_of_sse": 0.9313301722767439
+      },
+      "nn_count_k10_raw": {
+        "mse": 5011801.402408332,
+        "mae": 421.8562596268201,
+        "rmse": 2238.705296015608,
+        "largest_row_share_of_sse": 0.8022775986781513
+      },
+      "nn_count_k10_log": {
+        "mse": 4313168.452495625,
+        "mae": 211.89347045815276,
+        "rmse": 2076.816903941131,
+        "largest_row_share_of_sse": 0.9490121741810523
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4651759.415027262,
+        "mae": 291.39894592836714,
+        "rmse": 2156.79378129372,
+        "largest_row_share_of_sse": 0.8386695887880538
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4263112.713281419,
+        "mae": 214.77340917464468,
+        "rmse": 2064.7306636172716,
+        "largest_row_share_of_sse": 0.9523249682316858
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4767442.483665628,
+        "mae": 400.659426780938,
+        "rmse": 2183.4473851379216,
+        "largest_row_share_of_sse": 0.8447029019867509
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4321694.333887253,
+        "mae": 213.1825156088538,
+        "rmse": 2078.8685225110444,
+        "largest_row_share_of_sse": 0.9487803539707035
+      },
+      "rf_log": {
+        "mse": 4317290.101480548,
+        "mae": 212.24604129900175,
+        "rmse": 2077.8089665511957,
+        "largest_row_share_of_sse": 0.9487194220652264
+      }
+    },
+    "7": {
+      "rf_parentbit_log": {
+        "mse": 4352944.6901990175,
+        "mae": 212.65118018112196,
+        "rmse": 2086.3711774751437,
+        "largest_row_share_of_sse": 0.9496287151504096
+      },
+      "rf_parentbit_raw": {
+        "mse": 4849068.5284042815,
+        "mae": 399.04518495097,
+        "rmse": 2202.0600646676926,
+        "largest_row_share_of_sse": 0.8430417241564404
+      },
+      "rf_count_log": {
+        "mse": 4352144.053628209,
+        "mae": 212.52622798832988,
+        "rmse": 2086.1792956570653,
+        "largest_row_share_of_sse": 0.9496083514748358
+      },
+      "rf_count_raw": {
+        "mse": 4815506.291712014,
+        "mae": 407.1342495487684,
+        "rmse": 2194.426187346481,
+        "largest_row_share_of_sse": 0.8496331640370409
+      },
+      "rf_atompair_log": {
+        "mse": 4352620.639786762,
+        "mae": 212.19424438054153,
+        "rmse": 2086.293517170286,
+        "largest_row_share_of_sse": 0.9493003624796905
+      },
+      "rf_atompair_raw": {
+        "mse": 4911675.144671105,
+        "mae": 399.5957359650019,
+        "rmse": 2216.22993948532,
+        "largest_row_share_of_sse": 0.8409369348312115
+      },
+      "rf_maccs_log": {
+        "mse": 4349040.911826257,
+        "mae": 212.6230808993745,
+        "rmse": 2085.4354249955227,
+        "largest_row_share_of_sse": 0.950269761260824
+      },
+      "rf_maccs_raw": {
+        "mse": 5169426.157626459,
+        "mae": 465.03538001468877,
+        "rmse": 2273.637208885019,
+        "largest_row_share_of_sse": 0.7981701729522601
+      },
+      "rf_descriptor_log": {
+        "mse": 4351667.185998656,
+        "mae": 213.65527768210032,
+        "rmse": 2086.06500042512,
+        "largest_row_share_of_sse": 0.9500956061484062
+      },
+      "rf_descriptor_raw": {
+        "mse": 5055667.407639325,
+        "mae": 453.5558801831883,
+        "rmse": 2248.4811334852966,
+        "largest_row_share_of_sse": 0.8159215594854198
+      },
+      "rf_chiral_log": {
+        "mse": 4352023.767224659,
+        "mae": 211.9951330945455,
+        "rmse": 2086.150466103694,
+        "largest_row_share_of_sse": 0.949830596914166
+      },
+      "rf_chiral_raw": {
+        "mse": 4528257.232974014,
+        "mae": 340.10978997140836,
+        "rmse": 2127.9702143061154,
+        "largest_row_share_of_sse": 0.9086474808293507
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4281470.704709111,
+        "mae": 274.1284951039697,
+        "rmse": 2069.171502004875,
+        "largest_row_share_of_sse": 0.9191345961061814
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4268836.5271297665,
+        "mae": 208.78979158274117,
+        "rmse": 2066.116290804989,
+        "largest_row_share_of_sse": 0.9517068103546809
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4846841.368215799,
+        "mae": 386.1824509605773,
+        "rmse": 2201.554307351013,
+        "largest_row_share_of_sse": 0.8310853207433924
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4341162.145308232,
+        "mae": 212.08576640488832,
+        "rmse": 2083.545570729911,
+        "largest_row_share_of_sse": 0.9493750350779412
+      },
+      "nn_count_k3_raw": {
+        "mse": 6394683.382093047,
+        "mae": 438.2791255689178,
+        "rmse": 2528.7711209385966,
+        "largest_row_share_of_sse": 0.6175373648063974
+      },
+      "nn_count_k3_log": {
+        "mse": 4322885.359408955,
+        "mae": 226.3868563398009,
+        "rmse": 2079.154962817576,
+        "largest_row_share_of_sse": 0.9470385606311074
+      },
+      "nn_count_k10_raw": {
+        "mse": 4958136.647774085,
+        "mae": 414.73762763770094,
+        "rmse": 2226.6873709108977,
+        "largest_row_share_of_sse": 0.8187091450169554
+      },
+      "nn_count_k10_log": {
+        "mse": 4356326.1609810395,
+        "mae": 212.80972020402223,
+        "rmse": 2087.181391489738,
+        "largest_row_share_of_sse": 0.9485875703681296
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4603328.897017108,
+        "mae": 289.0697349287321,
+        "rmse": 2145.5369717199255,
+        "largest_row_share_of_sse": 0.8555900973240089
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4310301.282293749,
+        "mae": 212.6510672366335,
+        "rmse": 2076.126509221861,
+        "largest_row_share_of_sse": 0.9508980846283193
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4727090.210871332,
+        "mae": 372.67477305371983,
+        "rmse": 2174.1872529456455,
+        "largest_row_share_of_sse": 0.8593766042689394
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4363903.181229098,
+        "mae": 212.63530419827,
+        "rmse": 2088.99573509117,
+        "largest_row_share_of_sse": 0.9486657261169573
+      },
+      "rf_log": {
+        "mse": 4351918.587394235,
+        "mae": 211.9115787833502,
+        "rmse": 2086.1252568803807,
+        "largest_row_share_of_sse": 0.9496133751946908
+      }
+    },
+    "23": {
+      "rf_parentbit_log": {
+        "mse": 4306698.442702671,
+        "mae": 208.9475538582973,
+        "rmse": 2075.258644772422,
+        "largest_row_share_of_sse": 0.9509234326883671
+      },
+      "rf_parentbit_raw": {
+        "mse": 5305941.477352496,
+        "mae": 454.327310841898,
+        "rmse": 2303.4629316211053,
+        "largest_row_share_of_sse": 0.7641968467410639
+      },
+      "rf_count_log": {
+        "mse": 4306102.766182474,
+        "mae": 208.55283654059983,
+        "rmse": 2075.115121187852,
+        "largest_row_share_of_sse": 0.9508135658788529
+      },
+      "rf_count_raw": {
+        "mse": 5242485.702647302,
+        "mae": 458.117581318783,
+        "rmse": 2289.647506199874,
+        "largest_row_share_of_sse": 0.7732581300468863
+      },
+      "rf_atompair_log": {
+        "mse": 4306956.230733005,
+        "mae": 208.93277794146604,
+        "rmse": 2075.320753698812,
+        "largest_row_share_of_sse": 0.9506130803936536
+      },
+      "rf_atompair_raw": {
+        "mse": 5077755.857524128,
+        "mae": 408.0218036688414,
+        "rmse": 2253.387640314939,
+        "largest_row_share_of_sse": 0.8058020524782687
+      },
+      "rf_maccs_log": {
+        "mse": 4304435.506256891,
+        "mae": 209.53422110178903,
+        "rmse": 2074.7133552028076,
+        "largest_row_share_of_sse": 0.9514565409217076
+      },
+      "rf_maccs_raw": {
+        "mse": 5225407.64907116,
+        "mae": 485.84325456104364,
+        "rmse": 2285.915057273817,
+        "largest_row_share_of_sse": 0.7828282539288597
+      },
+      "rf_descriptor_log": {
+        "mse": 4305351.1311902385,
+        "mae": 209.51034066703832,
+        "rmse": 2074.9340064662874,
+        "largest_row_share_of_sse": 0.9515044275358615
+      },
+      "rf_descriptor_raw": {
+        "mse": 5242441.679381446,
+        "mae": 485.5392856796505,
+        "rmse": 2289.6378926331226,
+        "largest_row_share_of_sse": 0.7805581574920784
+      },
+      "rf_chiral_log": {
+        "mse": 4306744.846232194,
+        "mae": 208.81340913848516,
+        "rmse": 2075.269824922098,
+        "largest_row_share_of_sse": 0.9509877813864414
+      },
+      "rf_chiral_raw": {
+        "mse": 4454499.642304689,
+        "mae": 349.3041991535756,
+        "rmse": 2110.568559015482,
+        "largest_row_share_of_sse": 0.9123355298965378
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 5171820.324765142,
+        "mae": 359.7547248760409,
+        "rmse": 2274.163653909969,
+        "largest_row_share_of_sse": 0.7537009232628002
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4215866.994111948,
+        "mae": 211.8119640771248,
+        "rmse": 2053.2576540979817,
+        "largest_row_share_of_sse": 0.9545445142234507
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 5013702.566217147,
+        "mae": 413.9025049240366,
+        "rmse": 2239.1298680999157,
+        "largest_row_share_of_sse": 0.797110492421689
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4287230.475655812,
+        "mae": 214.87987022096715,
+        "rmse": 2070.5628403059427,
+        "largest_row_share_of_sse": 0.9528068362302782
+      },
+      "nn_count_k3_raw": {
+        "mse": 6972051.993997809,
+        "mae": 474.73663317425104,
+        "rmse": 2640.4643519649735,
+        "largest_row_share_of_sse": 0.5610377124678152
+      },
+      "nn_count_k3_log": {
+        "mse": 4252801.322395692,
+        "mae": 219.06470159404472,
+        "rmse": 2062.23212136648,
+        "largest_row_share_of_sse": 0.9535350743445555
+      },
+      "nn_count_k10_raw": {
+        "mse": 4990932.76448682,
+        "mae": 415.06728054623323,
+        "rmse": 2234.039561978888,
+        "largest_row_share_of_sse": 0.8056321701599563
+      },
+      "nn_count_k10_log": {
+        "mse": 4301443.875117165,
+        "mae": 215.02114774814106,
+        "rmse": 2073.992255317547,
+        "largest_row_share_of_sse": 0.9515989257445568
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4276429.665852793,
+        "mae": 261.3828049394698,
+        "rmse": 2067.953013453834,
+        "largest_row_share_of_sse": 0.9122771705784358
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4268157.2689365335,
+        "mae": 216.49021720517842,
+        "rmse": 2065.951903829451,
+        "largest_row_share_of_sse": 0.9511994107600895
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4689630.92036658,
+        "mae": 385.85766538896354,
+        "rmse": 2165.5555685242944,
+        "largest_row_share_of_sse": 0.8584211307218892
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4309256.450402641,
+        "mae": 215.02276691713556,
+        "rmse": 2075.8748638592456,
+        "largest_row_share_of_sse": 0.9514791772492753
+      },
+      "rf_log": {
+        "mse": 4307221.976533993,
+        "mae": 208.094533922928,
+        "rmse": 2075.3847779469697,
+        "largest_row_share_of_sse": 0.9503951195338355
+      }
+    },
+    "101": {
+      "rf_parentbit_log": {
+        "mse": 4312164.703299922,
+        "mae": 209.9536749133632,
+        "rmse": 2076.5752342017186,
+        "largest_row_share_of_sse": 0.9499885631277133
+      },
+      "rf_parentbit_raw": {
+        "mse": 4852249.5226043025,
+        "mae": 383.4187800115947,
+        "rmse": 2202.782223145153,
+        "largest_row_share_of_sse": 0.8419135386611027
+      },
+      "rf_count_log": {
+        "mse": 4314098.216702828,
+        "mae": 209.92431037826248,
+        "rmse": 2077.040735446185,
+        "largest_row_share_of_sse": 0.9497592821148166
+      },
+      "rf_count_raw": {
+        "mse": 4829289.716311171,
+        "mae": 390.0788699517068,
+        "rmse": 2197.5644965077067,
+        "largest_row_share_of_sse": 0.8461153079739596
+      },
+      "rf_atompair_log": {
+        "mse": 4316525.118336935,
+        "mae": 210.3808510100253,
+        "rmse": 2077.6248743064602,
+        "largest_row_share_of_sse": 0.9492992704615252
+      },
+      "rf_atompair_raw": {
+        "mse": 5096150.937099869,
+        "mae": 427.9631309003238,
+        "rmse": 2257.4656004244825,
+        "largest_row_share_of_sse": 0.8037573913738993
+      },
+      "rf_maccs_log": {
+        "mse": 4310685.076732681,
+        "mae": 210.07407413259804,
+        "rmse": 2076.2189375720186,
+        "largest_row_share_of_sse": 0.9506051806345343
+      },
+      "rf_maccs_raw": {
+        "mse": 4917625.822095119,
+        "mae": 425.53428514015275,
+        "rmse": 2217.572055671499,
+        "largest_row_share_of_sse": 0.8329207073099513
+      },
+      "rf_descriptor_log": {
+        "mse": 4311303.060133597,
+        "mae": 209.88613650248632,
+        "rmse": 2076.367756476101,
+        "largest_row_share_of_sse": 0.9505430283746505
+      },
+      "rf_descriptor_raw": {
+        "mse": 4914534.508953756,
+        "mae": 418.9051811939574,
+        "rmse": 2216.874942109671,
+        "largest_row_share_of_sse": 0.8335563810115598
+      },
+      "rf_chiral_log": {
+        "mse": 4312907.27447752,
+        "mae": 209.50536247786323,
+        "rmse": 2076.754023585249,
+        "largest_row_share_of_sse": 0.9500532761014658
+      },
+      "rf_chiral_raw": {
+        "mse": 4437858.894037461,
+        "mae": 326.4861671740501,
+        "rmse": 2106.6226273439343,
+        "largest_row_share_of_sse": 0.9177526522244729
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4412486.357373005,
+        "mae": 278.3582114905,
+        "rmse": 2100.5919064332807,
+        "largest_row_share_of_sse": 0.9245696887746039
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4296361.241080899,
+        "mae": 209.98955100808504,
+        "rmse": 2072.766566953669,
+        "largest_row_share_of_sse": 0.9523286597204357
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4818273.712436119,
+        "mae": 363.40587839481435,
+        "rmse": 2195.056653582344,
+        "largest_row_share_of_sse": 0.8464224506544032
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4313170.1894049905,
+        "mae": 210.6693320749191,
+        "rmse": 2076.817322107313,
+        "largest_row_share_of_sse": 0.949446746956726
+      },
+      "nn_count_k3_raw": {
+        "mse": 5951083.661215245,
+        "mae": 392.4013880523246,
+        "rmse": 2439.484302309659,
+        "largest_row_share_of_sse": 0.6863097038136107
+      },
+      "nn_count_k3_log": {
+        "mse": 4326120.652753699,
+        "mae": 222.34438646082052,
+        "rmse": 2079.932848135655,
+        "largest_row_share_of_sse": 0.9468085357439027
+      },
+      "nn_count_k10_raw": {
+        "mse": 4848512.361237465,
+        "mae": 377.4181928642488,
+        "rmse": 2201.933777668499,
+        "largest_row_share_of_sse": 0.8436662494334617
+      },
+      "nn_count_k10_log": {
+        "mse": 4321445.076853245,
+        "mae": 211.44531191489384,
+        "rmse": 2078.8085714786835,
+        "largest_row_share_of_sse": 0.9486427782499695
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4302579.345054018,
+        "mae": 252.46956396126703,
+        "rmse": 2074.2659774132194,
+        "largest_row_share_of_sse": 0.9489060056879418
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4311074.986067157,
+        "mae": 213.99966605355527,
+        "rmse": 2076.3128343453345,
+        "largest_row_share_of_sse": 0.950040977065347
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4611120.725489862,
+        "mae": 344.9157784901535,
+        "rmse": 2147.3520264478907,
+        "largest_row_share_of_sse": 0.8878601232318015
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4324389.023239212,
+        "mae": 212.60680759558568,
+        "rmse": 2079.5165359379116,
+        "largest_row_share_of_sse": 0.9486134645575494
+      },
+      "rf_log": {
+        "mse": 4314189.67242589,
+        "mae": 209.17797645188327,
+        "rmse": 2077.062751200813,
+        "largest_row_share_of_sse": 0.9496717870523057
+      }
+    },
+    "509": {
+      "rf_parentbit_log": {
+        "mse": 4305104.483822508,
+        "mae": 208.16862965484688,
+        "rmse": 2074.8745706240916,
+        "largest_row_share_of_sse": 0.9510032555478367
+      },
+      "rf_parentbit_raw": {
+        "mse": 5061042.484381913,
+        "mae": 454.2526757057367,
+        "rmse": 2249.676084324566,
+        "largest_row_share_of_sse": 0.7977900255894393
+      },
+      "rf_count_log": {
+        "mse": 4304400.5923731495,
+        "mae": 208.48804951579294,
+        "rmse": 2074.704941039364,
+        "largest_row_share_of_sse": 0.9510020332535593
+      },
+      "rf_count_raw": {
+        "mse": 4899076.058313984,
+        "mae": 452.02801562097324,
+        "rmse": 2213.3856551251943,
+        "largest_row_share_of_sse": 0.8260681839475187
+      },
+      "rf_atompair_log": {
+        "mse": 4302202.413566489,
+        "mae": 209.10709810194436,
+        "rmse": 2074.1751164177263,
+        "largest_row_share_of_sse": 0.9510129539618217
+      },
+      "rf_atompair_raw": {
+        "mse": 4944321.814015836,
+        "mae": 428.65278329825037,
+        "rmse": 2223.58310256573,
+        "largest_row_share_of_sse": 0.8278035813393082
+      },
+      "rf_maccs_log": {
+        "mse": 4302186.123332252,
+        "mae": 210.20524321585745,
+        "rmse": 2074.171189495277,
+        "largest_row_share_of_sse": 0.9515377907805649
+      },
+      "rf_maccs_raw": {
+        "mse": 5116306.593733504,
+        "mae": 470.5827314386415,
+        "rmse": 2261.925417367581,
+        "largest_row_share_of_sse": 0.7981425649293241
+      },
+      "rf_descriptor_log": {
+        "mse": 4303474.034785823,
+        "mae": 210.6962713066755,
+        "rmse": 2074.481630380424,
+        "largest_row_share_of_sse": 0.9514123130778273
+      },
+      "rf_descriptor_raw": {
+        "mse": 5132383.359460836,
+        "mae": 473.1339095275205,
+        "rmse": 2265.476408939373,
+        "largest_row_share_of_sse": 0.7964231313600173
+      },
+      "rf_chiral_log": {
+        "mse": 4303755.376818051,
+        "mae": 209.3558186719646,
+        "rmse": 2074.5494394730754,
+        "largest_row_share_of_sse": 0.9511375899039948
+      },
+      "rf_chiral_raw": {
+        "mse": 4448511.737885202,
+        "mae": 340.64885905456225,
+        "rmse": 2109.149529522552,
+        "largest_row_share_of_sse": 0.9169814173949947
+      },
+      "nn_parentbit_k3_raw": {
+        "mse": 4486005.281754696,
+        "mae": 304.8054382450225,
+        "rmse": 2118.0191882404406,
+        "largest_row_share_of_sse": 0.8689258056780759
+      },
+      "nn_parentbit_k3_log": {
+        "mse": 4230623.672254408,
+        "mae": 209.69706368696606,
+        "rmse": 2056.8479944454834,
+        "largest_row_share_of_sse": 0.9512150036689132
+      },
+      "nn_parentbit_k10_raw": {
+        "mse": 4934204.963583297,
+        "mae": 418.5417173033889,
+        "rmse": 2221.3070394664705,
+        "largest_row_share_of_sse": 0.809953163865113
+      },
+      "nn_parentbit_k10_log": {
+        "mse": 4301953.657023555,
+        "mae": 211.6463962877382,
+        "rmse": 2074.115150377036,
+        "largest_row_share_of_sse": 0.9495459113164681
+      },
+      "nn_count_k3_raw": {
+        "mse": 6981174.810001593,
+        "mae": 482.6860843359048,
+        "rmse": 2642.1912894417,
+        "largest_row_share_of_sse": 0.5603045631109626
+      },
+      "nn_count_k3_log": {
+        "mse": 4279174.888900586,
+        "mae": 224.43839984680042,
+        "rmse": 2068.6166606939496,
+        "largest_row_share_of_sse": 0.9476582122506025
+      },
+      "nn_count_k10_raw": {
+        "mse": 5069044.720063214,
+        "mae": 432.57714175303295,
+        "rmse": 2251.453912489264,
+        "largest_row_share_of_sse": 0.7932177000256972
+      },
+      "nn_count_k10_log": {
+        "mse": 4313752.714082673,
+        "mae": 209.39354718846144,
+        "rmse": 2076.9575619358893,
+        "largest_row_share_of_sse": 0.9488836384499233
+      },
+      "nn_atompair_k3_raw": {
+        "mse": 4818982.783051934,
+        "mae": 318.78536564644486,
+        "rmse": 2195.218162974226,
+        "largest_row_share_of_sse": 0.809566942107049
+      },
+      "nn_atompair_k3_log": {
+        "mse": 4278017.994027519,
+        "mae": 216.5949099633056,
+        "rmse": 2068.3370117143672,
+        "largest_row_share_of_sse": 0.9490069197726024
+      },
+      "nn_atompair_k10_raw": {
+        "mse": 4803084.329016961,
+        "mae": 405.0620872199563,
+        "rmse": 2191.5940155551075,
+        "largest_row_share_of_sse": 0.8384346859534514
+      },
+      "nn_atompair_k10_log": {
+        "mse": 4321358.935468586,
+        "mae": 210.4406591281786,
+        "rmse": 2078.7878524439634,
+        "largest_row_share_of_sse": 0.9488539927114643
+      },
+      "rf_log": {
+        "mse": 4304018.517184459,
+        "mae": 207.87012484138995,
+        "rmse": 2074.6128595919913,
+        "largest_row_share_of_sse": 0.9512198696111526
+      }
+    }
+  },
+  "scaffold_mean": {
+    "rf_parentbit_log": {
+      "mse": 4286481.941735002,
+      "mae": 210.43749658551403
+    },
+    "rf_parentbit_raw": {
+      "mse": 4473340.22962468,
+      "mae": 356.49144203340734
+    },
+    "rf_count_log": {
+      "mse": 4286186.426610054,
+      "mae": 210.46808383725804
+    },
+    "rf_count_raw": {
+      "mse": 4523827.358276219,
+      "mae": 372.27414922106044
+    },
+    "rf_atompair_log": {
+      "mse": 4286029.541321846,
+      "mae": 210.57069865726615
+    },
+    "rf_atompair_raw": {
+      "mse": 4629696.231012846,
+      "mae": 406.7143011886471
+    },
+    "rf_maccs_log": {
+      "mse": 4286478.104863885,
+      "mae": 210.8034211695881
+    },
+    "rf_maccs_raw": {
+      "mse": 4730717.931744493,
+      "mae": 443.4937102042492
+    },
+    "rf_descriptor_log": {
+      "mse": 4286300.166310769,
+      "mae": 210.89521855068787
+    },
+    "rf_descriptor_raw": {
+      "mse": 4662855.013999741,
+      "mae": 432.22457144011975
+    },
+    "rf_chiral_log": {
+      "mse": 4285704.969498723,
+      "mae": 210.28256502604657
+    },
+    "rf_chiral_raw": {
+      "mse": 4501929.833208478,
+      "mae": 362.0076758014122
+    },
+    "nn_parentbit_k3_raw": {
+      "mse": 5949880.047683757,
+      "mae": 393.122718528675
+    },
+    "nn_parentbit_k3_log": {
+      "mse": 4280632.288194585,
+      "mae": 218.87105570172503
+    },
+    "nn_parentbit_k10_raw": {
+      "mse": 4955708.269784056,
+      "mae": 388.6444920955079
+    },
+    "nn_parentbit_k10_log": {
+      "mse": 4279776.623411869,
+      "mae": 210.11119545726783
+    },
+    "nn_count_k3_raw": {
+      "mse": 5488999.836759583,
+      "mae": 330.2627966151792
+    },
+    "nn_count_k3_log": {
+      "mse": 4284887.258000212,
+      "mae": 220.01607105985457
+    },
+    "nn_count_k10_raw": {
+      "mse": 4818117.934974634,
+      "mae": 357.9193667750289
+    },
+    "nn_count_k10_log": {
+      "mse": 4286887.971119057,
+      "mae": 209.82619761049577
+    },
+    "nn_atompair_k3_raw": {
+      "mse": 5837249.791578628,
+      "mae": 335.92070077973375
+    },
+    "nn_atompair_k3_log": {
+      "mse": 4353556.700614453,
+      "mae": 227.36442404875888
+    },
+    "nn_atompair_k10_raw": {
+      "mse": 4830967.233291159,
+      "mae": 348.26849824810597
+    },
+    "nn_atompair_k10_log": {
+      "mse": 4288024.298024986,
+      "mae": 210.58623338667962
+    },
+    "rf_log": {
+      "mse": 4286609.676838052,
+      "mae": 210.18666914667338
+    }
+  },
+  "scaffold_mean_known_culture": {
+    "rf_parentbit_log": {
+      "mse": 4593219.458778548,
+      "mae": 224.15182243717877
+    },
+    "rf_parentbit_raw": {
+      "mse": 4779937.276528922,
+      "mae": 367.86664770643915
+    },
+    "rf_count_log": {
+      "mse": 4592906.997107752,
+      "mae": 224.16059363685633
+    },
+    "rf_count_raw": {
+      "mse": 4838416.121825653,
+      "mae": 386.26563285763973
+    },
+    "rf_atompair_log": {
+      "mse": 4592754.6711049015,
+      "mae": 224.35056964725314
+    },
+    "rf_atompair_raw": {
+      "mse": 4957464.964774042,
+      "mae": 425.126451707895
+    },
+    "rf_maccs_log": {
+      "mse": 4593225.812955443,
+      "mae": 224.56996011785336
+    },
+    "rf_maccs_raw": {
+      "mse": 5064698.46319908,
+      "mae": 466.2938343735718
+    },
+    "rf_descriptor_log": {
+      "mse": 4593033.446241706,
+      "mae": 224.68815987268212
+    },
+    "rf_descriptor_raw": {
+      "mse": 4992500.823388212,
+      "mae": 454.9620905609533
+    },
+    "rf_chiral_log": {
+      "mse": 4592388.939334721,
+      "mae": 223.9822938346846
+    },
+    "rf_chiral_raw": {
+      "mse": 4769745.97593611,
+      "mae": 353.75453020362335
+    },
+    "nn_parentbit_k3_raw": {
+      "mse": 6371172.030641947,
+      "mae": 404.5327408174664
+    },
+    "nn_parentbit_k3_log": {
+      "mse": 4585026.610269285,
+      "mae": 227.40145539510203
+    },
+    "nn_parentbit_k10_raw": {
+      "mse": 5308697.951534893,
+      "mae": 406.5060108256157
+    },
+    "nn_parentbit_k10_log": {
+      "mse": 4585876.085668216,
+      "mae": 222.26987072326617
+    },
+    "nn_count_k3_raw": {
+      "mse": 5878591.064596129,
+      "mae": 344.38981637459483
+    },
+    "nn_count_k3_log": {
+      "mse": 4590437.491858476,
+      "mae": 231.43277992735534
+    },
+    "nn_count_k10_raw": {
+      "mse": 5161880.847528663,
+      "mae": 376.4267430075376
+    },
+    "nn_count_k10_log": {
+      "mse": 4593627.341531591,
+      "mae": 223.19535883993808
+    },
+    "nn_atompair_k3_raw": {
+      "mse": 6253476.344040577,
+      "mae": 357.13781310476406
+    },
+    "nn_atompair_k3_log": {
+      "mse": 4664700.795532486,
+      "mae": 241.7353895936658
+    },
+    "nn_atompair_k10_raw": {
+      "mse": 5175954.415663161,
+      "mae": 370.149610233377
+    },
+    "nn_atompair_k10_log": {
+      "mse": 4594845.927231146,
+      "mae": 224.23239626775117
+    },
+    "rf_log": {
+      "mse": 4593361.814728628,
+      "mae": 223.90397655599432
+    }
+  },
+  "molecular2_mean": {
+    "rf_parentbit_log": {
+      "mse": 4276668.950350054,
+      "mae": 213.05047034122595
+    },
+    "rf_parentbit_raw": {
+      "mse": 5090437.010360066,
+      "mae": 456.8884907373092
+    },
+    "rf_count_log": {
+      "mse": 4277666.682970405,
+      "mae": 213.22670104555667
+    },
+    "rf_count_raw": {
+      "mse": 4951544.241509994,
+      "mae": 449.39878536416893
+    },
+    "rf_atompair_log": {
+      "mse": 4279710.803378484,
+      "mae": 213.60317189049573
+    },
+    "rf_atompair_raw": {
+      "mse": 4913134.343865974,
+      "mae": 409.42315005257393
+    },
+    "rf_maccs_log": {
+      "mse": 4279384.7285449505,
+      "mae": 215.11383452087875
+    },
+    "rf_maccs_raw": {
+      "mse": 5046249.391832292,
+      "mae": 473.992968836187
+    },
+    "rf_descriptor_log": {
+      "mse": 4280521.644528011,
+      "mae": 215.07886413026876
+    },
+    "rf_descriptor_raw": {
+      "mse": 5016236.175542275,
+      "mae": 472.3488729406911
+    },
+    "rf_chiral_log": {
+      "mse": 4276848.357083028,
+      "mae": 212.54757695229327
+    },
+    "rf_chiral_raw": {
+      "mse": 4506467.720175063,
+      "mae": 368.59912675655374
+    },
+    "nn_parentbit_k3_raw": {
+      "mse": 5433475.800998375,
+      "mae": 380.2531094956121
+    },
+    "nn_parentbit_k3_log": {
+      "mse": 4217363.994379984,
+      "mae": 223.4651615274245
+    },
+    "nn_parentbit_k10_raw": {
+      "mse": 5131106.148387972,
+      "mae": 427.5560245094264
+    },
+    "nn_parentbit_k10_log": {
+      "mse": 4265873.639878956,
+      "mae": 215.17258131193466
+    },
+    "nn_count_k3_raw": {
+      "mse": 6391263.626813799,
+      "mae": 448.21724221914053
+    },
+    "nn_count_k3_log": {
+      "mse": 4282173.917521087,
+      "mae": 234.17884673133227
+    },
+    "nn_count_k10_raw": {
+      "mse": 4853204.0999493785,
+      "mae": 408.0609427448974
+    },
+    "nn_count_k10_log": {
+      "mse": 4278802.951161434,
+      "mae": 212.77365217545673
+    },
+    "nn_atompair_k3_raw": {
+      "mse": 4445617.121544277,
+      "mae": 292.27209920190637
+    },
+    "nn_atompair_k3_log": {
+      "mse": 4239775.97392975,
+      "mae": 214.05044724854866
+    },
+    "nn_atompair_k10_raw": {
+      "mse": 4575512.28287714,
+      "mae": 364.6194703616825
+    },
+    "nn_atompair_k10_log": {
+      "mse": 4283920.105016436,
+      "mae": 212.4346327277328
+    },
+    "rf_log": {
+      "mse": 4277506.0814616475,
+      "mae": 211.90988024351162
+    }
+  },
+  "molecular2_mean_known_culture": {
+    "rf_parentbit_log": {
+      "mse": 4317015.501222734,
+      "mae": 214.29661998663263
+    },
+    "rf_parentbit_raw": {
+      "mse": 5136553.4475297,
+      "mae": 458.2723919788716
+    },
+    "rf_count_log": {
+      "mse": 4318021.437444299,
+      "mae": 214.46708841423083
+    },
+    "rf_count_raw": {
+      "mse": 4997736.366509161,
+      "mae": 451.83957293956314
+    },
+    "rf_atompair_log": {
+      "mse": 4320092.915928288,
+      "mae": 214.90641027900432
+    },
+    "rf_atompair_raw": {
+      "mse": 4959538.7373172715,
+      "mae": 412.54599317152395
+    },
+    "rf_maccs_log": {
+      "mse": 4319760.976861637,
+      "mae": 216.41591861498017
+    },
+    "rf_maccs_raw": {
+      "mse": 5093895.391070059,
+      "mae": 477.70219217070337
+    },
+    "rf_descriptor_log": {
+      "mse": 4320910.116706314,
+      "mae": 216.39892103868195
+    },
+    "rf_descriptor_raw": {
+      "mse": 5063599.274963103,
+      "mae": 476.0495412629672
+    },
+    "rf_chiral_log": {
+      "mse": 4317200.045733428,
+      "mae": 213.8457411997318
+    },
+    "rf_chiral_raw": {
+      "mse": 4548982.912932195,
+      "mae": 371.20535399150765
+    },
+    "nn_parentbit_k3_raw": {
+      "mse": 5484786.6702536475,
+      "mae": 383.01298589354803
+    },
+    "nn_parentbit_k3_log": {
+      "mse": 4257134.847676715,
+      "mae": 224.6677948147661
+    },
+    "nn_parentbit_k10_raw": {
+      "mse": 5179543.417372886,
+      "mae": 430.74050146628474
+    },
+    "nn_parentbit_k10_log": {
+      "mse": 4306110.504455235,
+      "mae": 216.3701285851488
+    },
+    "nn_count_k3_raw": {
+      "mse": 6451588.056903524,
+      "mae": 451.47051078414984
+    },
+    "nn_count_k3_log": {
+      "mse": 4322542.933523608,
+      "mae": 235.42727351804623
+    },
+    "nn_count_k10_raw": {
+      "mse": 4899048.179778592,
+      "mae": 411.1683305271364
+    },
+    "nn_count_k10_log": {
+      "mse": 4319154.12298281,
+      "mae": 213.8953523057251
+    },
+    "nn_atompair_k3_raw": {
+      "mse": 4487533.232696954,
+      "mae": 294.0679171449128
+    },
+    "nn_atompair_k3_log": {
+      "mse": 4279763.5212086225,
+      "mae": 215.2278883856057
+    },
+    "nn_atompair_k10_raw": {
+      "mse": 4618656.136788057,
+      "mae": 367.1053641924201
+    },
+    "nn_atompair_k10_log": {
+      "mse": 4324325.393870367,
+      "mae": 213.60308686103951
+    },
+    "rf_log": {
+      "mse": 4317865.436254409,
+      "mae": 213.2036440424068
+    }
+  },
+  "molecular5_mean": {
+    "rf_parentbit_log": {
+      "mse": 4274787.751624806,
+      "mae": 211.2448336103119
+    },
+    "rf_parentbit_raw": {
+      "mse": 4958467.8372030845,
+      "mae": 430.4770600022187
+    },
+    "rf_count_log": {
+      "mse": 4274584.131701825,
+      "mae": 211.225327765158
+    },
+    "rf_count_raw": {
+      "mse": 4846966.158677905,
+      "mae": 425.3171576058953
+    },
+    "rf_atompair_log": {
+      "mse": 4276772.428852534,
+      "mae": 211.52501343378518
+    },
+    "rf_atompair_raw": {
+      "mse": 5049628.425095213,
+      "mae": 420.87810360688434
+    },
+    "rf_maccs_log": {
+      "mse": 4274008.6211164985,
+      "mae": 212.21659364751577
+    },
+    "rf_maccs_raw": {
+      "mse": 5127256.630266951,
+      "mae": 474.90697971200086
+    },
+    "rf_descriptor_log": {
+      "mse": 4275512.200977636,
+      "mae": 212.36433428716447
+    },
+    "rf_descriptor_raw": {
+      "mse": 5087893.220882754,
+      "mae": 470.01602140157047
+    },
+    "rf_chiral_log": {
+      "mse": 4274564.931480907,
+      "mae": 210.58051626502134
+    },
+    "rf_chiral_raw": {
+      "mse": 4415719.351014904,
+      "mae": 340.27736670100774
+    },
+    "nn_parentbit_k3_raw": {
+      "mse": 4956261.024416624,
+      "mae": 334.2735098398686
+    },
+    "nn_parentbit_k3_log": {
+      "mse": 4212500.082281969,
+      "mae": 217.42388430431183
+    },
+    "nn_parentbit_k10_raw": {
+      "mse": 4934533.670657424,
+      "mae": 398.4730318525744
+    },
+    "nn_parentbit_k10_log": {
+      "mse": 4262222.511686156,
+      "mae": 213.1642259980444
+    },
+    "nn_count_k3_raw": {
+      "mse": 6357790.4280198645,
+      "mae": 444.7400799792391
+    },
+    "nn_count_k3_log": {
+      "mse": 4275126.161223944,
+      "mae": 233.26960778552407
+    },
+    "nn_count_k10_raw": {
+      "mse": 4863281.149784898,
+      "mae": 405.4561092823104
+    },
+    "nn_count_k10_log": {
+      "mse": 4274080.27333246,
+      "mae": 211.65003765529522
+    },
+    "nn_atompair_k3_raw": {
+      "mse": 4456962.598011868,
+      "mae": 284.95341527267465
+    },
+    "nn_atompair_k3_log": {
+      "mse": 4235640.276858661,
+      "mae": 213.0352717315207
+    },
+    "nn_atompair_k10_raw": {
+      "mse": 4612151.841181868,
+      "mae": 369.2592984557584
+    },
+    "nn_atompair_k10_log": {
+      "mse": 4280427.57075734,
+      "mae": 211.96358722901746
+    },
+    "rf_log": {
+      "mse": 4274835.098527434,
+      "mae": 210.29988510498143
+    }
+  },
+  "molecular5_mean_known_culture": {
+    "rf_parentbit_log": {
+      "mse": 4323340.471385876,
+      "mae": 212.75490747385734
+    },
+    "rf_parentbit_raw": {
+      "mse": 5011240.681479193,
+      "mae": 431.5779248859153
+    },
+    "rf_count_log": {
+      "mse": 4323133.046229627,
+      "mae": 212.73086300038577
+    },
+    "rf_count_raw": {
+      "mse": 4900329.851566747,
+      "mae": 427.42856805753365
+    },
+    "rf_atompair_log": {
+      "mse": 4325350.125100629,
+      "mae": 213.07255456188005
+    },
+    "rf_atompair_raw": {
+      "mse": 5106616.991321677,
+      "mae": 424.777802918847
+    },
+    "rf_maccs_log": {
+      "mse": 4322548.106673609,
+      "mae": 213.7527647145508
+    },
+    "rf_maccs_raw": {
+      "mse": 5185449.958739912,
+      "mae": 479.4194392403898
+    },
+    "rf_descriptor_log": {
+      "mse": 4324072.778939183,
+      "mae": 213.92138286957055
+    },
+    "rf_descriptor_raw": {
+      "mse": 5145493.770310998,
+      "mae": 474.4131931846722
+    },
+    "rf_chiral_log": {
+      "mse": 4323117.396681851,
+      "mae": 212.1283320543017
+    },
+    "rf_chiral_raw": {
+      "mse": 4465883.127507395,
+      "mae": 342.9229781271181
+    },
+    "nn_parentbit_k3_raw": {
+      "mse": 5011152.586510341,
+      "mae": 337.03078271752037
+    },
+    "nn_parentbit_k3_log": {
+      "mse": 4260292.979305344,
+      "mae": 218.8549796580432
+    },
+    "nn_parentbit_k10_raw": {
+      "mse": 4990289.00318457,
+      "mae": 402.09655731977557
+    },
+    "nn_parentbit_k10_log": {
+      "mse": 4310628.654856203,
+      "mae": 214.62561683313342
+    },
+    "nn_count_k3_raw": {
+      "mse": 6429898.093787882,
+      "mae": 448.7164031685069
+    },
+    "nn_count_k3_log": {
+      "mse": 4323602.268149812,
+      "mae": 234.84690933469605
+    },
+    "nn_count_k10_raw": {
+      "mse": 4918604.492061721,
+      "mae": 409.2818613892993
+    },
+    "nn_count_k10_log": {
+      "mse": 4322618.113719223,
+      "mae": 213.0406783272624
+    },
+    "nn_atompair_k3_raw": {
+      "mse": 4507690.677714938,
+      "mae": 287.1298989337496
+    },
+    "nn_atompair_k3_log": {
+      "mse": 4283724.194448796,
+      "mae": 214.43268268388562
+    },
+    "nn_atompair_k10_raw": {
+      "mse": 4664589.355888136,
+      "mae": 372.45965727049304
+    },
+    "nn_atompair_k10_log": {
+      "mse": 4329040.123055162,
+      "mae": 213.37524001420894
+    },
+    "rf_log": {
+      "mse": 4323389.61622928,
+      "mae": 211.83766764417496
+    }
+  },
+  "molecular_extra3_mean": {
+    "rf_parentbit_log": {
+      "mse": 4267725.367579288,
+      "mae": 207.80273993153546
+    },
+    "rf_parentbit_raw": {
+      "mse": 5029788.524702844,
+      "mae": 430.3582388695865
+    },
+    "rf_count_log": {
+      "mse": 4267936.65821754,
+      "mae": 207.7907041678924
+    },
+    "rf_count_raw": {
+      "mse": 4947949.57295419,
+      "mae": 432.9516222612731
+    },
+    "rf_atompair_log": {
+      "mse": 4268289.719110594,
+      "mae": 208.2371286125292
+    },
+    "rf_atompair_raw": {
+      "mse": 4992259.892060312,
+      "mae": 418.36979512104745
+    },
+    "rf_maccs_log": {
+      "mse": 4265524.459104924,
+      "mae": 208.6920259041004
+    },
+    "rf_maccs_raw": {
+      "mse": 5038873.578151772,
+      "mae": 457.1069952466594
+    },
+    "rf_descriptor_log": {
+      "mse": 4266455.21900094,
+      "mae": 208.77917915044995
+    },
+    "rf_descriptor_raw": {
+      "mse": 5048784.0883846,
+      "mae": 455.6569271010896
+    },
+    "rf_chiral_log": {
+      "mse": 4267540.495214446,
+      "mae": 207.98702778363554
+    },
+    "rf_chiral_raw": {
+      "mse": 4405405.06895168,
+      "mae": 336.61032496495324
+    },
+    "nn_parentbit_k3_raw": {
+      "mse": 4646235.988451737,
+      "mae": 312.1350448472586
+    },
+    "nn_parentbit_k3_log": {
+      "mse": 4207929.316090484,
+      "mae": 209.37085571757768
+    },
+    "nn_parentbit_k10_raw": {
+      "mse": 4876025.273073318,
+      "mae": 395.66104074705123
+    },
+    "nn_parentbit_k10_log": {
+      "mse": 4260593.876036648,
+      "mae": 211.1904770102485
+    },
+    "nn_count_k3_raw": {
+      "mse": 6572716.6242549615,
+      "mae": 446.6388440036828
+    },
+    "nn_count_k3_log": {
+      "mse": 4245995.037230854,
+      "mae": 220.76652963395955
+    },
+    "nn_count_k10_raw": {
+      "mse": 4923006.736398338,
+      "mae": 405.29031838003067
+    },
+    "nn_count_k10_log": {
+      "mse": 4271926.158190708,
+      "mae": 210.82860272194674
+    },
+    "nn_atompair_k3_raw": {
+      "mse": 4424279.341045715,
+      "mae": 275.8861655871398
+    },
+    "nn_atompair_k3_log": {
+      "mse": 4245718.877099844,
+      "mae": 214.59719734630244
+    },
+    "nn_atompair_k10_raw": {
+      "mse": 4657355.460529249,
+      "mae": 375.9884050200256
+    },
+    "nn_atompair_k10_log": {
+      "mse": 4277991.617315509,
+      "mae": 211.56759131302013
+    },
+    "rf_log": {
+      "mse": 4268207.519890512,
+      "mae": 207.15623417485014
+    }
+  },
+  "molecular_extra3_mean_known_culture": {
+    "rf_parentbit_log": {
+      "mse": 4307989.2099417,
+      "mae": 209.02328614216913
+    },
+    "rf_parentbit_raw": {
+      "mse": 5073077.828112904,
+      "mae": 430.6662555197431
+    },
+    "rf_count_log": {
+      "mse": 4308200.5250861505,
+      "mae": 208.98839881155175
+    },
+    "rf_count_raw": {
+      "mse": 4990283.825757486,
+      "mae": 433.40815563048767
+    },
+    "rf_atompair_log": {
+      "mse": 4308561.254212143,
+      "mae": 209.47357568447856
+    },
+    "rf_atompair_raw": {
+      "mse": 5039409.536213278,
+      "mae": 421.5459059558052
+    },
+    "rf_maccs_log": {
+      "mse": 4305768.902107275,
+      "mae": 209.93784615008153
+    },
+    "rf_maccs_raw": {
+      "mse": 5086446.688299928,
+      "mae": 460.6534237132793
+    },
+    "rf_descriptor_log": {
+      "mse": 4306709.408703219,
+      "mae": 210.03091615873336
+    },
+    "rf_descriptor_raw": {
+      "mse": 5096453.182598679,
+      "mae": 459.1927921337095
+    },
+    "rf_chiral_log": {
+      "mse": 4307802.499175921,
+      "mae": 209.22486342943765
+    },
+    "rf_chiral_raw": {
+      "mse": 4446956.758075784,
+      "mae": 338.81307512739596
+    },
+    "nn_parentbit_k3_raw": {
+      "mse": 4690103.987964281,
+      "mae": 314.30612487052116
+    },
+    "nn_parentbit_k3_log": {
+      "mse": 4247617.302482418,
+      "mae": 210.49952625739198
+    },
+    "nn_parentbit_k10_raw": {
+      "mse": 4922060.414078854,
+      "mae": 398.61670020741326
+    },
+    "nn_parentbit_k10_log": {
+      "mse": 4300784.77402812,
+      "mae": 212.39853286120817
+    },
+    "nn_count_k3_raw": {
+      "mse": 6634770.155071549,
+      "mae": 449.94136852082676
+    },
+    "nn_count_k3_log": {
+      "mse": 4286032.288016658,
+      "mae": 221.94916263388856
+    },
+    "nn_count_k10_raw": {
+      "mse": 4969496.6152625,
+      "mae": 408.354205054505
+    },
+    "nn_count_k10_log": {
+      "mse": 4312213.888684361,
+      "mae": 211.95333561716544
+    },
+    "nn_atompair_k3_raw": {
+      "mse": 4465997.264652915,
+      "mae": 277.54591151572725
+    },
+    "nn_atompair_k3_log": {
+      "mse": 4285750.0830104025,
+      "mae": 215.69493107401308
+    },
+    "nn_atompair_k10_raw": {
+      "mse": 4701278.658291134,
+      "mae": 378.61184369969106
+    },
+    "nn_atompair_k10_log": {
+      "mse": 4318334.803036814,
+      "mae": 212.69007788029992
+    },
+    "rf_log": {
+      "mse": 4308476.722048114,
+      "mae": 208.3808784054004
+    }
+  },
+  "material_checks": {
+    "rf_parentbit_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": true
+    },
+    "rf_parentbit_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "rf_count_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": false
+    },
+    "rf_count_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "rf_atompair_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": false
+    },
+    "rf_atompair_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "rf_maccs_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": false
+    },
+    "rf_maccs_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "rf_descriptor_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": false
+    },
+    "rf_descriptor_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "rf_chiral_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": true
+    },
+    "rf_chiral_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "nn_parentbit_k3_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "nn_parentbit_k3_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": true
+    },
+    "nn_parentbit_k10_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "nn_parentbit_k10_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": true
+    },
+    "nn_count_k3_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "nn_count_k3_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": false
+    },
+    "nn_count_k10_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "nn_count_k10_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "nn_atompair_k3_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "nn_atompair_k3_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": true
+    },
+    "nn_atompair_k10_raw": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": false,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    },
+    "nn_atompair_k10_log": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": false,
+      "molecular2_mean_no_worse": false
+    }
+  },
+  "passing": []
+}

@@ -1,0 +1,67 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "models": [
+    "rf_parentbit_log",
+    "rf_parentbit_raw",
+    "rf_count_log",
+    "rf_count_raw",
+    "rf_atompair_log",
+    "rf_atompair_raw",
+    "rf_maccs_log",
+    "rf_maccs_raw",
+    "rf_descriptor_log",
+    "rf_descriptor_raw",
+    "rf_chiral_log",
+    "rf_chiral_raw",
+    "nn_parentbit_k3_raw",
+    "nn_parentbit_k3_log",
+    "nn_parentbit_k10_raw",
+    "nn_parentbit_k10_log",
+    "nn_count_k3_raw",
+    "nn_count_k3_log",
+    "nn_count_k10_raw",
+    "nn_count_k10_log",
+    "nn_atompair_k3_raw",
+    "nn_atompair_k3_log",
+    "nn_atompair_k10_raw",
+    "nn_atompair_k10_log"
+  ],
+  "splits": [
+    "scaffold",
+    "scaffold_shuffle42",
+    "scaffold_shuffle2026",
+    "42",
+    "2026",
+    "117",
+    "2027",
+    "7",
+    "23",
+    "101",
+    "509"
+  ],
+  "source_sha256": {
+    "script": "0954ad2fd10671af7c1b5b0463bfa5bb394d89bcdc5b6c7d7be64e97f7151e64",
+    "pipeline": "40f58112de31484780b10cb90a8494fc0c3a0652d41a56d0e4ae1563695f4aab",
+    "train": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8"
+  },
+  "test_predictions_generated": false,
+  "feature_allowlist": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "external_measurements_used": false,
+  "target_clipping": false,
+  "tree_parameters": {
+    "n_estimators": 400,
+    "min_samples_leaf": 2,
+    "max_features": 0.5,
+    "random_state": 42
+  },
+  "normalization": "Keep original annotations; append spelling-normalized cell line and strain parsed solely from allowed input text.",
+  "selection_rule": "Same frozen gate: scaffold mean MSE >=10% better, each scaffold <=5% worse, known-Culture scaffold and molecular2 means no worse.",
+  "limits": [
+    "Parent fingerprints ignore stereochemistry and cannot establish equal activity for stereoisomers.",
+    "Repeated protocols reuse 320 training labels; the minimum across models is optimistic."
+  ]
+}

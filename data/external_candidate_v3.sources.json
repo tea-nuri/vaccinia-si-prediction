@@ -1,0 +1,220 @@
+{
+  "schema_version": 1,
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "sources": [
+    {
+      "cache_key": "chembl/CHEMBL1156237/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1156237&limit=1000&offset=0",
+      "sha256": "8d9e69d1fe080d042732abb4c992ad75269c7115f879f4f9c28958a70612f31d"
+    },
+    {
+      "cache_key": "chembl/CHEMBL1156237/document.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1156237.json",
+      "sha256": "1dcefd7752482e7e02b7679f55dc1679b6b3fbce9d5ef0f50c0fbd1215740212"
+    },
+    {
+      "cache_key": "chembl/CHEMBL1773050/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1773050&limit=1000&offset=0",
+      "sha256": "83e54da1f490e3b59ad1ba15a4a58cd64b617bfd394db9b690bc49d78cebeec7"
+    },
+    {
+      "cache_key": "chembl/CHEMBL1773050/document.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL1773050.json",
+      "sha256": "3f7ecbb3b419c72765c31b63a0feac9aaa2149594094dae9cf67a02c43c524ee"
+    },
+    {
+      "cache_key": "chembl/CHEMBL2062419/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL2062419&limit=1000&offset=0",
+      "sha256": "f327df0f74e077316091ec24be8dedf7d42d968e03cf99808dff02fd2b9b90c3"
+    },
+    {
+      "cache_key": "chembl/CHEMBL2062419/document.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL2062419.json",
+      "sha256": "fd80a865bc24257d89770bcc94a3ff9c2ff6863383651b777a5a7ecd4401becd"
+    },
+    {
+      "cache_key": "chembl/CHEMBL5512660/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL5512660&limit=1000&offset=0",
+      "sha256": "fcf82b4ccbd1be76bfec34d48856d83799615ceecb4a15c78b6fd0add5191171"
+    },
+    {
+      "cache_key": "chembl/CHEMBL5512660/document.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/document/CHEMBL5512660.json",
+      "sha256": "01f988ebbb5d67d50e6e76ca7c3735b1ff4503bce7fae329b831a2a76767d75c"
+    },
+    {
+      "cache_key": "paper/article.xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12846358/fullTextXML",
+      "sha256": "7c0cb8b44f2601b6b75c403973e6b153b24b6d120e627b86961f5a6bd0cb191d"
+    },
+    {
+      "cache_key": "paper/structures/4e.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/6-chloro-2-%284-isopropylphenyl%29-7-methyl-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "cc4fa7d0a2424429a892ae632a23b34e248c3fc8abc29fa256ba3cfbb1db65a1"
+    },
+    {
+      "cache_key": "paper/structures/1d.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/2-%284-isopropylphenyl%29-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "0561931b445aab35cead44420791718f10c42409d31ca173227ffd7faf3f9e99"
+    },
+    {
+      "cache_key": "paper/structures/1e.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/2-%284-%28tert-butyl%29phenyl%29-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "5a24b6a4dec0e321d74fb699f4c1a07c8b7e72e3e8c090706b2a260eefa40ce5"
+    },
+    {
+      "cache_key": "paper/structures/2b.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/5%2C6-dichloro-2-%284-nitrophenyl%29-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "441be0045146a1da78ab944db5ffd5c6bf9ab1450835e71940a4a0df1a865ce0"
+    },
+    {
+      "cache_key": "paper/structures/2c.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/4-%285%2C6-dichloro-1H-benzo%5Bd%5Dimidazol-2-yl%29benzonitrile.json",
+      "sha256": "838fdcbf0cac310d683a469ff39191ece799b11990d90fd5ca97c2224abd36d4"
+    },
+    {
+      "cache_key": "paper/structures/2d.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/5%2C6-dichloro-2-%284-isopropylphenyl%29-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "24e0fd043ae22d4311983d4602ea3b82d5ce6c41bbb280e8099f1d711872f4e8"
+    },
+    {
+      "cache_key": "paper/structures/2e.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/2-%284-%28tert-butyl%29phenyl%29-5%2C6-dichloro-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "96f093e2285239f47a71cb401f458c162895d2cbce3fd71124a0d437acda8a65"
+    },
+    {
+      "cache_key": "paper/structures/2i.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/4-%285%2C6-dichloro-1H-benzo%5Bd%5Dimidazol-2-yl%29aniline.json",
+      "sha256": "eec0de53e006ef9617791d5c1d7b956516546a3e8bf5ced8206d3d2a5cf99d23"
+    },
+    {
+      "cache_key": "paper/structures/2j.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/5%2C6-dichloro-2-%284-%28trifluoromethyl%29phenyl%29-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "ea81b6f76a3382f8ee28a80cdcc74d4a4cef0f7ab65a698aebbcb894366a78f4"
+    },
+    {
+      "cache_key": "paper/structures/2k.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/5%2C6-dichloro-2-%28p-tolyl%29-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "a649cf47cec07818475662c2101d962d521945ef4ab2e11dc43036a1de901694"
+    },
+    {
+      "cache_key": "paper/structures/3b.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/5-chloro-2-%284-nitrophenyl%29-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "68c8cfa4d571c7d2c40741e91a30116c900fe7bbfdb7897ef17204ade0732d7b"
+    },
+    {
+      "cache_key": "paper/structures/4d.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/2-%284-%28tert-butyl%29phenyl%29-6-chloro-7-methyl-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "d00fbaace981dd69c0fa87a17679e7f71a8066cefed4c8cb3945ac38295f4f60"
+    },
+    {
+      "cache_key": "paper/structures/5b.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/5%2C6-dimethyl-2-%284-nitrophenyl%29-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "c9a81d2bd88381d0c57929af46074d1bb7a0d067b4dc4397c7538b02f27c13db"
+    },
+    {
+      "cache_key": "paper/structures/5d.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/2-%284-isopropylphenyl%29-5%2C6-dimethyl-1H-benzo%5Bd%5Dimidazole.json",
+      "sha256": "2e6228227e81fd3e8b4a1ceaa84f7f12433fd02536c69380646ef1972716b405"
+    },
+    {
+      "cache_key": "paper/structures/5i.json",
+      "url": "https://opsin.ch.cam.ac.uk/opsin/4-%285%2C6-dimethyl-1H-benzo%5Bd%5Dimidazol-2-yl%29aniline.json",
+      "sha256": "9f11055918047406b3a3597d52621f51c59ffce6f03ac22e069569a69169b2f3"
+    }
+  ],
+  "assays": {
+    "CHEMBL1777503": {
+      "culture": "BSC-1",
+      "strain": null,
+      "doi": "10.1021/jm101554k"
+    },
+    "CHEMBL1107226": {
+      "culture": "MT-4",
+      "strain": "Elstree-Lister",
+      "doi": "10.1016/j.bmc.2010.02.037"
+    },
+    "CHEMBL2067002": {
+      "culture": "HEL",
+      "strain": "Lederie",
+      "doi": "10.1016/j.ejmech.2012.07.027"
+    },
+    "CHEMBL5515755": {
+      "culture": "HEL",
+      "strain": "YS/R",
+      "doi": "10.1016/j.ejmech.2024.116412"
+    }
+  },
+  "paper": {
+    "doi": "10.3390/v18010071",
+    "table_id": "viruses-18-00071-t001",
+    "culture": "Vero-76",
+    "strain": "Elstree-Lister",
+    "url": "https://www.mdpi.com/1999-4915/18/1/71",
+    "supplement_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12846358/supplementaryFiles",
+    "supplement_pdf_sha256": "fce17599200293c9c1bfa7041dd39773b2d3f6d70d947085ed3f8adccbb2bc9f",
+    "names": {
+      "4e": {
+        "name": "6-chloro-2-(4-isopropylphenyl)-7-methyl-1H-benzo[d]imidazole",
+        "pdf_page": 7
+      },
+      "1d": {
+        "name": "2-(4-isopropylphenyl)-1H-benzo[d]imidazole",
+        "pdf_page": 4
+      },
+      "1e": {
+        "name": "2-(4-(tert-butyl)phenyl)-1H-benzo[d]imidazole",
+        "pdf_page": 4
+      },
+      "2b": {
+        "name": "5,6-dichloro-2-(4-nitrophenyl)-1H-benzo[d]imidazole",
+        "pdf_page": 5
+      },
+      "2c": {
+        "name": "4-(5,6-dichloro-1H-benzo[d]imidazol-2-yl)benzonitrile",
+        "pdf_page": 5
+      },
+      "2d": {
+        "name": "5,6-dichloro-2-(4-isopropylphenyl)-1H-benzo[d]imidazole",
+        "pdf_page": 5
+      },
+      "2e": {
+        "name": "2-(4-(tert-butyl)phenyl)-5,6-dichloro-1H-benzo[d]imidazole",
+        "pdf_page": 5
+      },
+      "2i": {
+        "name": "4-(5,6-dichloro-1H-benzo[d]imidazol-2-yl)aniline",
+        "pdf_page": 5
+      },
+      "2j": {
+        "name": "5,6-dichloro-2-(4-(trifluoromethyl)phenyl)-1H-benzo[d]imidazole",
+        "pdf_page": 5
+      },
+      "2k": {
+        "name": "5,6-dichloro-2-(p-tolyl)-1H-benzo[d]imidazole",
+        "pdf_page": 6
+      },
+      "3b": {
+        "name": "5-chloro-2-(4-nitrophenyl)-1H-benzo[d]imidazole",
+        "pdf_page": 6
+      },
+      "4d": {
+        "name": "2-(4-(tert-butyl)phenyl)-6-chloro-7-methyl-1H-benzo[d]imidazole",
+        "pdf_page": 7
+      },
+      "5b": {
+        "name": "5,6-dimethyl-2-(4-nitrophenyl)-1H-benzo[d]imidazole",
+        "pdf_page": 7
+      },
+      "5d": {
+        "name": "2-(4-isopropylphenyl)-5,6-dimethyl-1H-benzo[d]imidazole",
+        "pdf_page": 7
+      },
+      "5i": {
+        "name": "4-(5,6-dimethyl-1H-benzo[d]imidazol-2-yl)aniline",
+        "pdf_page": 8
+      }
+    }
+  },
+  "note": "Chemical names and compound labels are manually curated factual identity mappings from the author supplement. Resolver responses and source article snapshots are hash verified. Censored source labels are retained in the audit only."
+}

@@ -1,0 +1,106 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "status": "completed_local_experiments_no_material_gain",
+  "last_verified_public_mse": 2002039.13858,
+  "new_kaggle_submissions": 0,
+  "selected_model_changed": false,
+  "new_configurations_this_batch": 30,
+  "protocols_per_configuration": 11,
+  "headline_targets_clipped": false,
+  "local_error_diagnosis": {
+    "scaffold_target_1000plus": {
+      "rows": 7,
+      "mse": 195207175.63336873,
+      "mae": 7782.6365117044625,
+      "mean_target": 7814.739428571428,
+      "mean_prediction": 32.1029168669664,
+      "sse_share": 0.9957197851326328
+    },
+    "largest_target_sse_share": 0.9464836929279846,
+    "interpretation": "Observed local underprediction of large targets. The log-target objective downweights absolute tail errors; raw-target and arithmetic-mean alternatives tested so far do not resolve this robustly. This is not proof of the hidden Public error decomposition."
+  },
+  "input_issue_found": "Spelling variants such as BSC-40, BSC-40 cells and BSC40 are distinct in the selected encoder. Normalization was tested as an additional feature in this experiment; no candidate passed the prior gate.",
+  "collection_error_fixed": {
+    "issue": "An initial inventory counted duration-specific CC50 annotations as exact pairs. Two printed SI values were lower bounds; four other retained SI rows have ambiguous CC50 durations.",
+    "fix": "Only explicitly printed uncensored SI is used from the new paper; ambiguous CC50 remains missing. Decimal commas are handled. Regression checks cover actual source annotations.",
+    "new_paper_rows": 13,
+    "excluded_censored_paper_rows": [
+      {
+        "compound": "2b",
+        "reason": "censored_or_absent_SI",
+        "CC50_text": "40 (6 dpt)/>100",
+        "EC50_text": "0.06 ± 0.02 (>1667)"
+      },
+      {
+        "compound": "5b",
+        "reason": "censored_or_absent_SI",
+        "CC50_text": "90(6 dpi)/>100",
+        "EC50_text": "1.0 ± 0.2 (>100)"
+      }
+    ],
+    "ambiguous_CC50_left_missing": 4
+  },
+  "external_pool": {
+    "original_rows": 24,
+    "new_rows": 36,
+    "total_rows": 60,
+    "competition_parent_overlap": 0,
+    "used_by_selected_model": false
+  },
+  "validation": {
+    "context_representations": {
+      "best_exploratory_model": "nn_parentbit_k10_log",
+      "scaffold_mean": {
+        "mse": 4279776.623411869,
+        "mae": 210.11119545726783
+      },
+      "molecular5_mean": {
+        "mse": 4262222.511686156,
+        "mae": 213.1642259980444
+      },
+      "molecular_extra3_mean": {
+        "mse": 4260593.876036648,
+        "mae": 211.1904770102485
+      },
+      "scaffold_relative_gain": 0.0015940460973400405,
+      "passing": []
+    },
+    "external_2026_validation": {
+      "best_exploratory_model": "expanded_w025_log",
+      "scaffold_mean": {
+        "mse": 4283057.145100622,
+        "mae": 210.0571332882864
+      },
+      "molecular5_mean": {
+        "mse": 4272379.435616006,
+        "mae": 210.30261375428327
+      },
+      "molecular_extra3_mean": {
+        "mse": 4264766.132507637,
+        "mae": 207.00120630741677
+      },
+      "scaffold_relative_gain": 0.0008287509256150738,
+      "passing": []
+    }
+  },
+  "tests": "9 tests passed: corrected pipeline and candidate external source checks.",
+  "limitations": [
+    "Repeated grouped splits reuse the same 320 training labels.",
+    "Best local result across many candidates is optimistic.",
+    "Public score reduction has not been established by this batch."
+  ],
+  "source_reproduction": {
+    "status": "passed",
+    "network_download_from_empty_cache": true,
+    "source_snapshots": 24,
+    "output_byte_identical": true,
+    "output_sha256": "442db3ba854729e034facbf00d809c1cce134f04e6f24f310a1158ec4e0cc11e",
+    "tests_passed": 9,
+    "official_pipeline_unchanged": true,
+    "portable_numeric_helpers_ast_identical": true,
+    "portable_reproduction_code_sha256": {
+      "experiments/evaluate_corrected_representations.py": "fd5b7c2fd4b80d4d483cbae54de63771f868426abe4200940c262ab0cb0c83da",
+      "experiments/evaluate_corrected_external.py": "51adfe8fecb4c63fedbee7bc8dab8066b1ba0f9b5f73ba4ef659a9ccc6ce4bdd"
+    }
+  }
+}
