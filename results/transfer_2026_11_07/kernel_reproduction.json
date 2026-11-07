@@ -1,0 +1,6 @@
+{
+  "status": "passed",
+  "all_11_oof_protocols_match_export_implementation": true,
+  "max_absolute_prediction_difference": 0,
+  "export_rows": 597
+}

@@ -1,0 +1,23 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "model": "hybrid_external_a0.1_sqrt",
+  "entrypoint": "run_best.py",
+  "model_module": "molformer_candidate.py",
+  "public_mse": 1167213.19279,
+  "config": {
+    "alpha": 0.1,
+    "external_weight": 0.25,
+    "transform": "sqrt",
+    "context": "additive",
+    "molformer_rbf_weight": 0.4,
+    "chiral_morgan_weight": 0.4,
+    "context_weight": 0.2
+  },
+  "official_training_rows": 320,
+  "external_training_rows": 60,
+  "submission_sha256": "5cffe7b48ff49dd5f74e4481eca5ec958e6ccccaf10dc52f69ad8615cd429b16",
+  "kaggle_evidence": "results/transfer_2026_11_07/kaggle_result.json",
+  "validation": "results/transfer_2026_11_07/molformer_evaluation.json",
+  "baseline_entrypoint": "train.py",
+  "selection_basis": "Best verified Public result after one explicitly authorized exploratory submission; full grouped validation and known-Culture results retained."
+}

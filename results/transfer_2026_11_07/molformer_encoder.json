@@ -1,0 +1,32 @@
+{
+  "train_rows": 320,
+  "external_rows": 60,
+  "test_rows": 0,
+  "source_sha256": {
+    "train": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8",
+    "external": "442db3ba854729e034facbf00d809c1cce134f04e6f24f310a1158ec4e0cc11e"
+  },
+  "model": "ibm-research/MoLFormer-XL-both-10pct",
+  "revision": "361063d0ad524ef77cf39b08469f6be770dc550f",
+  "source_code_sha256": {
+    "configuration_molformer.py": "b88ea8d4b7b5e54f4f186cc7a230eff308928020a030f153a038fd12c05e3bed",
+    "modeling_molformer.py": "6f1ef72022de2c69e95661899422a7bb39a40a2cc5a6cb6216f14e9b7d84559c",
+    "config.json": "3ef9eaac8c7ca6282fd6256ed038d151bd4ff42a4ff855367e0d7197bbc1c284"
+  },
+  "weights_sha256": "0795977fe7192c4acdaf052f0e8464af57bc4bb59211271c5e61aaba2637b9c6",
+  "extractor_sha256": "301f32b1ae5f3652af0070d37c76368e71a135999c16a966c882b24ddd960bcc",
+  "input_sha256": "639b009320be8302c47fcc5ca24f46fdbf8abab7e5cf65645407aa20e522c1a5",
+  "embedding_sha256": "fc07cad8e5abde9b8944fc1d36305e34a396f6345ea110e57bae49d682f2db84",
+  "dimension": 768,
+  "rows": 380,
+  "precision": "float32",
+  "pooling": "publisher pooler_output",
+  "unknown_token_occurrences": 0,
+  "max_tokens": 145,
+  "inputs_exceeding_pretraining_202_tokens": 0,
+  "truncation": false,
+  "repeated_inference_delta": 0.0,
+  "torch": "2.14.1+cu126",
+  "gpu": "NVIDIA GeForce RTX 3090",
+  "seconds": 2.5487867599949823
+}

@@ -1,0 +1,3237 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "configs": {
+    "toxleaf_a0.1_raw": {
+      "rep": "toxleaf",
+      "alpha": 0.1,
+      "transform": "raw"
+    },
+    "toxleaf_a0.1_sqrt": {
+      "rep": "toxleaf",
+      "alpha": 0.1,
+      "transform": "sqrt"
+    },
+    "toxleaf_a0.1_log": {
+      "rep": "toxleaf",
+      "alpha": 0.1,
+      "transform": "log"
+    },
+    "toxleaf_a1.0_raw": {
+      "rep": "toxleaf",
+      "alpha": 1.0,
+      "transform": "raw"
+    },
+    "toxleaf_a1.0_sqrt": {
+      "rep": "toxleaf",
+      "alpha": 1.0,
+      "transform": "sqrt"
+    },
+    "toxleaf_a1.0_log": {
+      "rep": "toxleaf",
+      "alpha": 1.0,
+      "transform": "log"
+    },
+    "potleaf_a0.1_raw": {
+      "rep": "potleaf",
+      "alpha": 0.1,
+      "transform": "raw"
+    },
+    "potleaf_a0.1_sqrt": {
+      "rep": "potleaf",
+      "alpha": 0.1,
+      "transform": "sqrt"
+    },
+    "potleaf_a0.1_log": {
+      "rep": "potleaf",
+      "alpha": 0.1,
+      "transform": "log"
+    },
+    "potleaf_a1.0_raw": {
+      "rep": "potleaf",
+      "alpha": 1.0,
+      "transform": "raw"
+    },
+    "potleaf_a1.0_sqrt": {
+      "rep": "potleaf",
+      "alpha": 1.0,
+      "transform": "sqrt"
+    },
+    "potleaf_a1.0_log": {
+      "rep": "potleaf",
+      "alpha": 1.0,
+      "transform": "log"
+    },
+    "endpointmix_a0.1_raw": {
+      "rep": "endpointmix",
+      "alpha": 0.1,
+      "transform": "raw"
+    },
+    "endpointmix_a0.1_sqrt": {
+      "rep": "endpointmix",
+      "alpha": 0.1,
+      "transform": "sqrt"
+    },
+    "endpointmix_a0.1_log": {
+      "rep": "endpointmix",
+      "alpha": 0.1,
+      "transform": "log"
+    },
+    "endpointmix_a1.0_raw": {
+      "rep": "endpointmix",
+      "alpha": 1.0,
+      "transform": "raw"
+    },
+    "endpointmix_a1.0_sqrt": {
+      "rep": "endpointmix",
+      "alpha": 1.0,
+      "transform": "sqrt"
+    },
+    "endpointmix_a1.0_log": {
+      "rep": "endpointmix",
+      "alpha": 1.0,
+      "transform": "log"
+    }
+  },
+  "splits": [
+    "scaffold",
+    "scaffold_shuffle42",
+    "scaffold_shuffle2026",
+    "42",
+    "2026",
+    "117",
+    "2027",
+    "7",
+    "23",
+    "101",
+    "509"
+  ],
+  "toxicity_rows": 418,
+  "potency_rows": 365,
+  "source_sha256": {
+    "script": "daf8ebde112d21e35187aaa14e032680b5562bdb87eacd62102d89d28211a1c6",
+    "kernel_implementation": "5612cb89aca6f41a2467bde2c7b1528b8a21f9004a3882682c0aa9198b284646",
+    "toxicity": "a32011a4edb0d258a526d0c5384840b7629d4b911b8d921cf60592674eb75cc1",
+    "potency": "df79d59e94c1891d281f48b97f8772c8d462acd5a72e788e14630282b48d8a91",
+    "train": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8"
+  },
+  "feature_allowlist": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "SI_labels_created": false,
+  "competition_parent_overlap": 0,
+  "test_predictions_generated": false,
+  "target_clipping": false,
+  "teacher_target": "log10 of a separate measured endpoint",
+  "teacher_model": "ExtraTrees, 200 trees, min_samples_leaf=2, max_features=.5, seed=42",
+  "validation": "All official parents excluded globally; held-out scaffolds additionally removed for scaffold protocols.",
+  "selection": "Exploratory, no automatic production replacement or Kaggle upload.",
+  "limitations": [
+    "Reporter potency is not cellular selectivity.",
+    "Teachers retain source assay and cell context; unresolved duration remains a limitation.",
+    "Repeated outer splits are not independent data."
+  ],
+  "status": "completed",
+  "metrics": {
+    "scaffold": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5726922.949432485,
+        "mae": 573.3046563448912,
+        "rmse": 2393.0990262487016,
+        "largest_row_share_of_sse": 0.709807692528953
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4404440.945784937,
+        "mae": 269.3537118953872,
+        "rmse": 2098.675998286762,
+        "largest_row_share_of_sse": 0.9204708739523891
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4275814.314887302,
+        "mae": 210.09482472881928,
+        "rmse": 2067.8042254738,
+        "largest_row_share_of_sse": 0.9473400817183727
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4628712.815589684,
+        "mae": 392.2485986337306,
+        "rmse": 2151.4443556805472,
+        "largest_row_share_of_sse": 0.8746468434054501
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4289920.856388295,
+        "mae": 230.87232049194554,
+        "rmse": 2071.21241218478,
+        "largest_row_share_of_sse": 0.9450650602629597
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4289326.234036247,
+        "mae": 210.25927276796597,
+        "rmse": 2071.068862697773,
+        "largest_row_share_of_sse": 0.946197256637447
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5150450.05008543,
+        "mae": 540.735826857305,
+        "rmse": 2269.4602992970445,
+        "largest_row_share_of_sse": 0.7662575040033951
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4301649.30401407,
+        "mae": 263.62387304321794,
+        "rmse": 2074.041779717581,
+        "largest_row_share_of_sse": 0.933989764805866
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4262407.209312304,
+        "mae": 212.05468533393682,
+        "rmse": 2064.559810059351,
+        "largest_row_share_of_sse": 0.9482215645828465
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4543980.35256548,
+        "mae": 392.8523963602494,
+        "rmse": 2131.661406641655,
+        "largest_row_share_of_sse": 0.8780242787914785
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4268109.802267961,
+        "mae": 230.07562234231077,
+        "rmse": 2065.940415952977,
+        "largest_row_share_of_sse": 0.9467122093251881
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4286003.749111545,
+        "mae": 209.63609647319782,
+        "rmse": 2070.2665888990105,
+        "largest_row_share_of_sse": 0.9466293756837153
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5245535.155276062,
+        "mae": 493.650924616007,
+        "rmse": 2290.3133312444525,
+        "largest_row_share_of_sse": 0.7627900775479232
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4323894.494379597,
+        "mae": 254.6642445260257,
+        "rmse": 2079.3976277709844,
+        "largest_row_share_of_sse": 0.9336813961606365
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4269818.434050025,
+        "mae": 207.9503785412872,
+        "rmse": 2066.3538985493324,
+        "largest_row_share_of_sse": 0.9477523489262529
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4545805.276236651,
+        "mae": 379.9875105538039,
+        "rmse": 2132.0894156288687,
+        "largest_row_share_of_sse": 0.8826991878698347
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4275640.648240093,
+        "mae": 227.27723882231535,
+        "rmse": 2067.762232037352,
+        "largest_row_share_of_sse": 0.9466140128888761
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4287592.649722771,
+        "mae": 209.86722854083564,
+        "rmse": 2070.650296337547,
+        "largest_row_share_of_sse": 0.946425752477828
+      },
+      "rf_log": {
+        "mse": 4288512.722895371,
+        "mae": 210.6205785976159,
+        "rmse": 2070.8724545213718,
+        "largest_row_share_of_sse": 0.9464836929279846
+      }
+    },
+    "scaffold_shuffle42": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5252143.226158823,
+        "mae": 536.0709133065253,
+        "rmse": 2291.75549004662,
+        "largest_row_share_of_sse": 0.7564576593893803
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4323000.928373838,
+        "mae": 261.7263563169896,
+        "rmse": 2079.182754924116,
+        "largest_row_share_of_sse": 0.9298077163255527
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4254038.8453216255,
+        "mae": 207.59680545956763,
+        "rmse": 2062.5321440699113,
+        "largest_row_share_of_sse": 0.9494976882329422
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4499772.106974244,
+        "mae": 386.27773312379065,
+        "rmse": 2121.266627978257,
+        "largest_row_share_of_sse": 0.8932690433802777
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4275269.726549616,
+        "mae": 228.5542267165303,
+        "rmse": 2067.6725385199697,
+        "largest_row_share_of_sse": 0.9467644527188503
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4286328.587591702,
+        "mae": 209.39418458736571,
+        "rmse": 2070.3450407098094,
+        "largest_row_share_of_sse": 0.9468725389254704
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 4710614.413429419,
+        "mae": 490.48905191497954,
+        "rmse": 2170.394990187136,
+        "largest_row_share_of_sse": 0.8383863921761779
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4233545.752793849,
+        "mae": 249.53333025261003,
+        "rmse": 2057.5582015568475,
+        "largest_row_share_of_sse": 0.9456908503992589
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4247980.929464838,
+        "mae": 214.9952151800047,
+        "rmse": 2061.063058100076,
+        "largest_row_share_of_sse": 0.9472354640622482
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4349534.7081720065,
+        "mae": 363.3424532298767,
+        "rmse": 2085.55381330044,
+        "largest_row_share_of_sse": 0.9116145534280478
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4237891.8839641465,
+        "mae": 225.76094191997285,
+        "rmse": 2058.614068727829,
+        "largest_row_share_of_sse": 0.9502896881381481
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4277648.766691561,
+        "mae": 208.7389374716403,
+        "rmse": 2068.247752734561,
+        "largest_row_share_of_sse": 0.9473302603023325
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 4900847.790479647,
+        "mae": 464.534944021177,
+        "rmse": 2213.7858501850733,
+        "largest_row_share_of_sse": 0.8071930398495101
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4255333.342743953,
+        "mae": 245.68533518611648,
+        "rmse": 2062.845932866522,
+        "largest_row_share_of_sse": 0.9425814148085702
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4246941.503027009,
+        "mae": 207.0745038970227,
+        "rmse": 2060.8108848283505,
+        "largest_row_share_of_sse": 0.949597582019675
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4410596.816632779,
+        "mae": 368.50819081559365,
+        "rmse": 2100.142094390944,
+        "largest_row_share_of_sse": 0.9043442009353632
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4252658.57358209,
+        "mae": 224.5880850645709,
+        "rmse": 2062.1975108078495,
+        "largest_row_share_of_sse": 0.9496070647979089
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4282016.004059112,
+        "mae": 208.8363591051496,
+        "rmse": 2069.3032653671407,
+        "largest_row_share_of_sse": 0.9473355897875202
+      },
+      "rf_log": {
+        "mse": 4284850.294814361,
+        "mae": 209.79213355680287,
+        "rmse": 2069.9879938816944,
+        "largest_row_share_of_sse": 0.9471666088449766
+      }
+    },
+    "scaffold_shuffle2026": {
+      "toxleaf_a0.1_raw": {
+        "mse": 6059892.92721427,
+        "mae": 581.9709967915462,
+        "rmse": 2461.684977249175,
+        "largest_row_share_of_sse": 0.652646308317722
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4483432.616754605,
+        "mae": 280.0708483501737,
+        "rmse": 2117.411773074525,
+        "largest_row_share_of_sse": 0.8962749486765673
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4268747.848190848,
+        "mae": 211.55555746160513,
+        "rmse": 2066.0948303964287,
+        "largest_row_share_of_sse": 0.946939474931533
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4554714.278383924,
+        "mae": 380.6531404014765,
+        "rmse": 2134.177658580448,
+        "largest_row_share_of_sse": 0.8811628520929682
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4280366.724533465,
+        "mae": 228.7491749681648,
+        "rmse": 2068.904716156224,
+        "largest_row_share_of_sse": 0.9457539711599414
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4289072.247983189,
+        "mae": 210.2289961379317,
+        "rmse": 2071.0075441637555,
+        "largest_row_share_of_sse": 0.9463763540830157
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 4995911.381191699,
+        "mae": 530.2951915314563,
+        "rmse": 2235.153547564842,
+        "largest_row_share_of_sse": 0.7918023444291185
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4262582.6437432105,
+        "mae": 262.48808650272014,
+        "rmse": 2064.602296749476,
+        "largest_row_share_of_sse": 0.9437468649643554
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4256484.215823891,
+        "mae": 212.4698176076271,
+        "rmse": 2063.1248667552554,
+        "largest_row_share_of_sse": 0.9500314968319906
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4443828.252340128,
+        "mae": 384.1084408960313,
+        "rmse": 2108.0389589237025,
+        "largest_row_share_of_sse": 0.8970732081982431
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4244842.471168131,
+        "mae": 228.47421693559303,
+        "rmse": 2060.3015486011095,
+        "largest_row_share_of_sse": 0.9510396144056608
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4279953.841569295,
+        "mae": 209.18989750833717,
+        "rmse": 2068.804930767832,
+        "largest_row_share_of_sse": 0.9475093525558959
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5213874.0459111165,
+        "mae": 506.04295218723036,
+        "rmse": 2283.3909095709205,
+        "largest_row_share_of_sse": 0.7599181223443121
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4307593.472889112,
+        "mae": 259.9200267066402,
+        "rmse": 2075.474276614652,
+        "largest_row_share_of_sse": 0.9348366312584802
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4266361.072628361,
+        "mae": 209.3953855326155,
+        "rmse": 2065.5171441138805,
+        "largest_row_share_of_sse": 0.9487548433025094
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4498025.499328927,
+        "mae": 388.4694711330054,
+        "rmse": 2120.8548982259317,
+        "largest_row_share_of_sse": 0.8890071429560922
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4260335.590718035,
+        "mae": 228.32205467202,
+        "rmse": 2064.058039571086,
+        "largest_row_share_of_sse": 0.9490414645908803
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4283827.56552543,
+        "mae": 209.21044864671438,
+        "rmse": 2069.740941645942,
+        "largest_row_share_of_sse": 0.9471664848749157
+      },
+      "rf_log": {
+        "mse": 4286466.012804426,
+        "mae": 210.14729528560147,
+        "rmse": 2070.378229407474,
+        "largest_row_share_of_sse": 0.9471219194309068
+      }
+    },
+    "42": {
+      "toxleaf_a0.1_raw": {
+        "mse": 4932718.2531295065,
+        "mae": 500.7773332770681,
+        "rmse": 2220.9723665839488,
+        "largest_row_share_of_sse": 0.8065200319218992
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4211018.150738842,
+        "mae": 241.32569447274645,
+        "rmse": 2052.076546023282,
+        "largest_row_share_of_sse": 0.9530309221024658
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4233481.953616105,
+        "mae": 204.0959909788846,
+        "rmse": 2057.5426978840815,
+        "largest_row_share_of_sse": 0.9539514005112648
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4407543.183367519,
+        "mae": 376.46055050348565,
+        "rmse": 2099.4149621662505,
+        "largest_row_share_of_sse": 0.907367719363166
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4246611.591633812,
+        "mae": 223.65558225588592,
+        "rmse": 2060.7308392009404,
+        "largest_row_share_of_sse": 0.951604284959638
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4280691.057424234,
+        "mae": 208.96885266121086,
+        "rmse": 2068.983097423523,
+        "largest_row_share_of_sse": 0.9478034604445832
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5357383.4448321955,
+        "mae": 575.311351438284,
+        "rmse": 2314.6022217288646,
+        "largest_row_share_of_sse": 0.7256911638862653
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4216123.063504814,
+        "mae": 264.95002414198314,
+        "rmse": 2053.320010009354,
+        "largest_row_share_of_sse": 0.9412744929200747
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4227545.7217200985,
+        "mae": 210.24807829532182,
+        "rmse": 2056.0996380817974,
+        "largest_row_share_of_sse": 0.9505014693889595
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4544688.406013878,
+        "mae": 406.23402305722857,
+        "rmse": 2131.8274803590175,
+        "largest_row_share_of_sse": 0.8690046143666438
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4220689.121009795,
+        "mae": 229.38834790197043,
+        "rmse": 2054.431580999911,
+        "largest_row_share_of_sse": 0.9516665661907239
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4273832.657758662,
+        "mae": 209.5173881361664,
+        "rmse": 2067.325000516044,
+        "largest_row_share_of_sse": 0.9475449243784505
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5410550.687132956,
+        "mae": 513.530141021409,
+        "rmse": 2326.05904635565,
+        "largest_row_share_of_sse": 0.7274017834106159
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4247355.038005582,
+        "mae": 255.51748758597506,
+        "rmse": 2060.911215459216,
+        "largest_row_share_of_sse": 0.9405738728152996
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4236877.973959208,
+        "mae": 208.357528162172,
+        "rmse": 2058.367793655742,
+        "largest_row_share_of_sse": 0.9515707159226559
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4571726.44925842,
+        "mae": 400.6374917624969,
+        "rmse": 2138.159593963561,
+        "largest_row_share_of_sse": 0.8679261049983115
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4228849.74490037,
+        "mae": 228.15573104582865,
+        "rmse": 2056.4167245235994,
+        "largest_row_share_of_sse": 0.9519382695994167
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4275114.620961346,
+        "mae": 208.83187442750577,
+        "rmse": 2067.635030889481,
+        "largest_row_share_of_sse": 0.9477750558154422
+      },
+      "rf_log": {
+        "mse": 4271986.794296271,
+        "mae": 210.23450114389343,
+        "rmse": 2066.8785146438267,
+        "largest_row_share_of_sse": 0.9500450492046422
+      }
+    },
+    "2026": {
+      "toxleaf_a0.1_raw": {
+        "mse": 6166322.150575263,
+        "mae": 641.6149675662174,
+        "rmse": 2483.208036104761,
+        "largest_row_share_of_sse": 0.6478102906063657
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4484050.980755984,
+        "mae": 305.5211307788927,
+        "rmse": 2117.557786875245,
+        "largest_row_share_of_sse": 0.8980872551018
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4250809.736876883,
+        "mae": 214.8744953374863,
+        "rmse": 2061.749193494903,
+        "largest_row_share_of_sse": 0.9501118494979118
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4794059.014379369,
+        "mae": 451.06752251251874,
+        "rmse": 2189.5339719628396,
+        "largest_row_share_of_sse": 0.8366396791215094
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4284564.315281438,
+        "mae": 248.02352517205773,
+        "rmse": 2069.918915146542,
+        "largest_row_share_of_sse": 0.9437263282061107
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4280233.534315096,
+        "mae": 208.6672761215239,
+        "rmse": 2068.872527323783,
+        "largest_row_share_of_sse": 0.9475553803862594
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5672193.322870774,
+        "mae": 620.4573036261392,
+        "rmse": 2381.636689940507,
+        "largest_row_share_of_sse": 0.6922608703990368
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4338195.405258506,
+        "mae": 293.50851094414475,
+        "rmse": 2082.8335039696535,
+        "largest_row_share_of_sse": 0.9204922503826274
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4239138.808725169,
+        "mae": 214.62602979088388,
+        "rmse": 2058.9169018503803,
+        "largest_row_share_of_sse": 0.9487868621564718
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4667554.508343647,
+        "mae": 446.956606840048,
+        "rmse": 2160.4523851137396,
+        "largest_row_share_of_sse": 0.8498838241204439
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4241724.973236372,
+        "mae": 244.31078076192958,
+        "rmse": 2059.544846133818,
+        "largest_row_share_of_sse": 0.9482859106451754
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4272456.958835347,
+        "mae": 209.13724040197894,
+        "rmse": 2066.9922493408985,
+        "largest_row_share_of_sse": 0.9474664460514787
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 6018119.814846809,
+        "mae": 613.7506847788367,
+        "rmse": 2453.185646225497,
+        "largest_row_share_of_sse": 0.6581843878040774
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4385193.383537926,
+        "mae": 295.1680607992811,
+        "rmse": 2094.0853333944933,
+        "largest_row_share_of_sse": 0.9136386406220037
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4233263.922510945,
+        "mae": 212.39550293105748,
+        "rmse": 2057.4897138287097,
+        "largest_row_share_of_sse": 0.9496714432601594
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4744323.032913263,
+        "mae": 455.5637978398575,
+        "rmse": 2178.1466968304185,
+        "largest_row_share_of_sse": 0.8390216034443686
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4251870.763087846,
+        "mae": 244.40683345329504,
+        "rmse": 2062.006489584319,
+        "largest_row_share_of_sse": 0.9473661461754367
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4272366.147990619,
+        "mae": 208.30800401946811,
+        "rmse": 2066.970282319177,
+        "largest_row_share_of_sse": 0.9476345140286716
+      },
+      "rf_log": {
+        "mse": 4283025.368627025,
+        "mae": 213.5852593431298,
+        "rmse": 2069.5471409530696,
+        "largest_row_share_of_sse": 0.9473070947252042
+      }
+    },
+    "117": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5937836.748523994,
+        "mae": 537.5404422404267,
+        "rmse": 2436.76768456166,
+        "largest_row_share_of_sse": 0.6749818893558215
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4449961.178046702,
+        "mae": 278.35195764043493,
+        "rmse": 2109.493109267414,
+        "largest_row_share_of_sse": 0.9087341997036813
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4249738.492070413,
+        "mae": 209.635336798404,
+        "rmse": 2061.489386843991,
+        "largest_row_share_of_sse": 0.95399922648697
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4737860.961987777,
+        "mae": 406.4253235185886,
+        "rmse": 2176.6628039243415,
+        "largest_row_share_of_sse": 0.8475845713003843
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4278856.565638067,
+        "mae": 238.5051916054834,
+        "rmse": 2068.5397181678836,
+        "largest_row_share_of_sse": 0.9465096738177549
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4282641.539493241,
+        "mae": 208.336033689203,
+        "rmse": 2069.454406236881,
+        "largest_row_share_of_sse": 0.9478834805343663
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5328003.578244394,
+        "mae": 549.1300735942143,
+        "rmse": 2308.246862500715,
+        "largest_row_share_of_sse": 0.735865918372339
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4283159.938079742,
+        "mae": 262.6486179357522,
+        "rmse": 2069.579652509113,
+        "largest_row_share_of_sse": 0.9363039419509321
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4264829.2921775635,
+        "mae": 215.37561787660988,
+        "rmse": 2065.146312535159,
+        "largest_row_share_of_sse": 0.9482786362655011
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4561761.5133958645,
+        "mae": 399.71667801856,
+        "rmse": 2135.828062695091,
+        "largest_row_share_of_sse": 0.8697936534532137
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4250869.70912114,
+        "mae": 233.9212338453357,
+        "rmse": 2061.763737463907,
+        "largest_row_share_of_sse": 0.9486655114612155
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4281572.931789177,
+        "mae": 209.7725656301647,
+        "rmse": 2069.1962042757514,
+        "largest_row_share_of_sse": 0.9472389662295956
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5499633.101599758,
+        "mae": 501.62033271963736,
+        "rmse": 2345.1296556053694,
+        "largest_row_share_of_sse": 0.7179434783778376
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4292003.216200303,
+        "mae": 256.7318690717518,
+        "rmse": 2071.715042229578,
+        "largest_row_share_of_sse": 0.9361107871510949
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4249303.054834427,
+        "mae": 208.72882174567752,
+        "rmse": 2061.3837718470636,
+        "largest_row_share_of_sse": 0.9512124650322408
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4610565.48190671,
+        "mae": 396.9192544283038,
+        "rmse": 2147.222736910801,
+        "largest_row_share_of_sse": 0.8633835058869308
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4250483.739318545,
+        "mae": 232.7267555022534,
+        "rmse": 2061.6701334885133,
+        "largest_row_share_of_sse": 0.9497651857325815
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4278949.064863646,
+        "mae": 208.495644159653,
+        "rmse": 2068.562076628025,
+        "largest_row_share_of_sse": 0.9478042510571916
+      },
+      "rf_log": {
+        "mse": 4271703.82101219,
+        "mae": 207.37939287789465,
+        "rmse": 2066.810059248839,
+        "largest_row_share_of_sse": 0.9498377061775584
+      }
+    },
+    "2027": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5848339.959843469,
+        "mae": 547.9498576406311,
+        "rmse": 2418.334129073869,
+        "largest_row_share_of_sse": 0.6864747026427814
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4417678.197910512,
+        "mae": 272.3893159303452,
+        "rmse": 2101.827347312455,
+        "largest_row_share_of_sse": 0.9150743459819852
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4257239.788990887,
+        "mae": 210.99405877513067,
+        "rmse": 2063.3079724052072,
+        "largest_row_share_of_sse": 0.9516118075602292
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4759656.55992411,
+        "mae": 431.49534178011515,
+        "rmse": 2181.6637137570287,
+        "largest_row_share_of_sse": 0.8450163282722022
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4280199.67081185,
+        "mae": 239.9627185533982,
+        "rmse": 2068.864343259811,
+        "largest_row_share_of_sse": 0.9460926878874364
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4283480.0775138615,
+        "mae": 210.31176639579604,
+        "rmse": 2069.656995135634,
+        "largest_row_share_of_sse": 0.9474340995285212
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5739541.194044982,
+        "mae": 586.9801621680688,
+        "rmse": 2395.733957275929,
+        "largest_row_share_of_sse": 0.683179369357872
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4313549.873484232,
+        "mae": 270.60626325363756,
+        "rmse": 2076.9087301767095,
+        "largest_row_share_of_sse": 0.9277177445193724
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4251176.209494836,
+        "mae": 211.9945559479113,
+        "rmse": 2061.8380657788903,
+        "largest_row_share_of_sse": 0.9495213166754792
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4604557.52237409,
+        "mae": 413.90794824612533,
+        "rmse": 2145.8232737982153,
+        "largest_row_share_of_sse": 0.8627967044323149
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4239778.097524136,
+        "mae": 234.33162106679598,
+        "rmse": 2059.0721448079803,
+        "largest_row_share_of_sse": 0.9503938510880083
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4276864.999478161,
+        "mae": 210.6490299080221,
+        "rmse": 2068.0582679117533,
+        "largest_row_share_of_sse": 0.9473863496661173
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5781207.226004401,
+        "mae": 538.8736061577492,
+        "rmse": 2404.41411283589,
+        "largest_row_share_of_sse": 0.685664244368954
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4329149.702724908,
+        "mae": 265.993626459216,
+        "rmse": 2080.6608812405993,
+        "largest_row_share_of_sse": 0.9277603920353243
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4247504.21616698,
+        "mae": 210.84645840063484,
+        "rmse": 2060.9474074238237,
+        "largest_row_share_of_sse": 0.9502048121527849
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4680416.182554555,
+        "mae": 424.63465429340295,
+        "rmse": 2163.426953366939,
+        "largest_row_share_of_sse": 0.8523692260681683
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4249039.900255769,
+        "mae": 234.89384676372393,
+        "rmse": 2061.3199412647637,
+        "largest_row_share_of_sse": 0.9496690290283694
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4276955.80835779,
+        "mae": 209.84730595210218,
+        "rmse": 2068.080222901856,
+        "largest_row_share_of_sse": 0.9475047285031086
+      },
+      "rf_log": {
+        "mse": 4276939.350397766,
+        "mae": 210.99572443940724,
+        "rmse": 2068.076243855087,
+        "largest_row_share_of_sse": 0.9486919508208069
+      }
+    },
+    "7": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5322424.354127137,
+        "mae": 510.36955038847407,
+        "rmse": 2307.0380044826175,
+        "largest_row_share_of_sse": 0.7522140972347373
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4310575.905322225,
+        "mae": 250.03552754029533,
+        "rmse": 2076.192646485924,
+        "largest_row_share_of_sse": 0.9351380120311104
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4239391.385980921,
+        "mae": 205.16606834151722,
+        "rmse": 2058.9782383456413,
+        "largest_row_share_of_sse": 0.9541885301407068
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4634732.973337943,
+        "mae": 410.75875908826555,
+        "rmse": 2152.8429978374975,
+        "largest_row_share_of_sse": 0.8673511581124312
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4265641.074803215,
+        "mae": 234.37600291106537,
+        "rmse": 2065.342846794017,
+        "largest_row_share_of_sse": 0.9485574233090912
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4279844.2285645325,
+        "mae": 209.24732180595657,
+        "rmse": 2068.7784387325128,
+        "largest_row_share_of_sse": 0.9479711606530286
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5351317.0722531155,
+        "mae": 560.8727326349249,
+        "rmse": 2313.2913937187236,
+        "largest_row_share_of_sse": 0.7305719376435713
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4238041.773434695,
+        "mae": 258.44918414996073,
+        "rmse": 2058.650473838309,
+        "largest_row_share_of_sse": 0.9410572281940413
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4229416.503302467,
+        "mae": 209.5910548420411,
+        "rmse": 2056.554522326716,
+        "largest_row_share_of_sse": 0.9512710988588089
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4538219.699850993,
+        "mae": 411.5172848000815,
+        "rmse": 2130.3097661727493,
+        "largest_row_share_of_sse": 0.8731626764283725
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4223008.929627573,
+        "mae": 230.4428959255963,
+        "rmse": 2054.9960899299963,
+        "largest_row_share_of_sse": 0.9519579060227306
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4271012.857844474,
+        "mae": 209.67024133664736,
+        "rmse": 2066.6428955783517,
+        "largest_row_share_of_sse": 0.9478150009882274
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5497975.576180475,
+        "mae": 514.4908716728496,
+        "rmse": 2344.776231579567,
+        "largest_row_share_of_sse": 0.7203943115204618
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4266328.169406737,
+        "mae": 248.62269814387363,
+        "rmse": 2065.509179211445,
+        "largest_row_share_of_sse": 0.9390871568543376
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4220495.770722171,
+        "mae": 205.59010751790439,
+        "rmse": 2054.384523579306,
+        "largest_row_share_of_sse": 0.9535123833178525
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4584471.944306949,
+        "mae": 408.3166864696831,
+        "rmse": 2141.1380021630903,
+        "largest_row_share_of_sse": 0.8683540512641479
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4231031.047766747,
+        "mae": 228.89423591382348,
+        "rmse": 2056.947021137576,
+        "largest_row_share_of_sse": 0.9518312065582829
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4270138.146610719,
+        "mae": 208.4848155632648,
+        "rmse": 2066.431258622149,
+        "largest_row_share_of_sse": 0.9482220918169704
+      },
+      "rf_log": {
+        "mse": 4270520.158303924,
+        "mae": 209.30454772058198,
+        "rmse": 2066.52368926754,
+        "largest_row_share_of_sse": 0.949568892355836
+      }
+    },
+    "23": {
+      "toxleaf_a0.1_raw": {
+        "mse": 6151353.912770583,
+        "mae": 565.065790424614,
+        "rmse": 2480.1923136665396,
+        "largest_row_share_of_sse": 0.6501678865131925
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4492699.630730399,
+        "mae": 276.1655991765725,
+        "rmse": 2119.5989315741786,
+        "largest_row_share_of_sse": 0.8970336770495733
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4242848.081666913,
+        "mae": 209.1967810116586,
+        "rmse": 2059.81748746507,
+        "largest_row_share_of_sse": 0.9530032619811724
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4760597.968655763,
+        "mae": 417.92786019442,
+        "rmse": 2181.879457865572,
+        "largest_row_share_of_sse": 0.8425739920065136
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4272201.9130657185,
+        "mae": 234.09235443760312,
+        "rmse": 2066.9305535178773,
+        "largest_row_share_of_sse": 0.9466027152254287
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4281846.578962868,
+        "mae": 209.01507193044932,
+        "rmse": 2069.2623272468063,
+        "largest_row_share_of_sse": 0.9473332449536904
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5774616.687185876,
+        "mae": 621.7430161563013,
+        "rmse": 2403.04321375748,
+        "largest_row_share_of_sse": 0.679116595114883
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4276356.232367665,
+        "mae": 274.74154423829026,
+        "rmse": 2067.9352582630977,
+        "largest_row_share_of_sse": 0.9342494590141914
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4238567.388722669,
+        "mae": 210.94096828829143,
+        "rmse": 2058.778130037977,
+        "largest_row_share_of_sse": 0.9504654669686838
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4645917.079710477,
+        "mae": 438.67381951089703,
+        "rmse": 2155.4389529073833,
+        "largest_row_share_of_sse": 0.8533062643256654
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4227417.430740126,
+        "mae": 233.7309543446845,
+        "rmse": 2056.0684401887324,
+        "largest_row_share_of_sse": 0.9516521087007574
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4273757.856343007,
+        "mae": 209.03584644698125,
+        "rmse": 2067.306909083169,
+        "largest_row_share_of_sse": 0.9475114977319755
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5949108.891104357,
+        "mae": 590.176623876918,
+        "rmse": 2439.079517175354,
+        "largest_row_share_of_sse": 0.6670838068735039
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4307932.729154887,
+        "mae": 269.06738289165344,
+        "rmse": 2075.556004822536,
+        "largest_row_share_of_sse": 0.9316170915875314
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4227489.115508898,
+        "mae": 206.00246539560285,
+        "rmse": 2056.085872600874,
+        "largest_row_share_of_sse": 0.9530644790186058
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4708213.329804453,
+        "mae": 439.7063579459418,
+        "rmse": 2169.8417752924875,
+        "largest_row_share_of_sse": 0.845609199277212
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4235144.613424732,
+        "mae": 232.75862346677687,
+        "rmse": 2057.9466983925345,
+        "largest_row_share_of_sse": 0.9514353510640579
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4273202.772514533,
+        "mae": 207.93430644169106,
+        "rmse": 2067.1726518398345,
+        "largest_row_share_of_sse": 0.9477274914917716
+      },
+      "rf_log": {
+        "mse": 4266961.953257675,
+        "mae": 206.82789835634276,
+        "rmse": 2065.662594243715,
+        "largest_row_share_of_sse": 0.9503683508155274
+      }
+    },
+    "101": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5404211.366318075,
+        "mae": 533.1929505371305,
+        "rmse": 2324.6959728786205,
+        "largest_row_share_of_sse": 0.7401024828930874
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4329686.86073246,
+        "mae": 263.511657250771,
+        "rmse": 2080.7899607438662,
+        "largest_row_share_of_sse": 0.9310621601194401
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4252319.926728804,
+        "mae": 207.57325578048625,
+        "rmse": 2062.1154009242073,
+        "largest_row_share_of_sse": 0.9512208284025818
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4583899.356484665,
+        "mae": 398.7899250714797,
+        "rmse": 2141.004286890772,
+        "largest_row_share_of_sse": 0.8800681601580045
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4273070.147407933,
+        "mae": 234.15591266821238,
+        "rmse": 2067.140572725506,
+        "largest_row_share_of_sse": 0.9483732241151797
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4282999.673791943,
+        "mae": 208.874746683434,
+        "rmse": 2069.540933103751,
+        "largest_row_share_of_sse": 0.9477297153018064
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5485115.183058488,
+        "mae": 554.7649624611984,
+        "rmse": 2342.032276263179,
+        "largest_row_share_of_sse": 0.7345583029446592
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4355852.085139257,
+        "mae": 278.8078312044786,
+        "rmse": 2087.0678199663894,
+        "largest_row_share_of_sse": 0.9274825443687875
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4259626.127863107,
+        "mae": 213.95883645879985,
+        "rmse": 2063.8861712466382,
+        "largest_row_share_of_sse": 0.9491017496360428
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4584723.356534381,
+        "mae": 395.56050898166285,
+        "rmse": 2141.196711312247,
+        "largest_row_share_of_sse": 0.8786568481445641
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4266457.28582689,
+        "mae": 235.75373393917735,
+        "rmse": 2065.5404343238815,
+        "largest_row_share_of_sse": 0.9482958254663286
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4278871.935182063,
+        "mae": 208.53754190454916,
+        "rmse": 2068.5434332355853,
+        "largest_row_share_of_sse": 0.9475670322955448
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5475120.314589524,
+        "mae": 500.9444160049874,
+        "rmse": 2339.8975008725324,
+        "largest_row_share_of_sse": 0.7324640647046157
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4327109.296468011,
+        "mae": 262.2853755742387,
+        "rmse": 2080.170496970864,
+        "largest_row_share_of_sse": 0.9318595363120185
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4244074.345608479,
+        "mae": 207.29517417366787,
+        "rmse": 2060.115129212074,
+        "largest_row_share_of_sse": 0.9513744969317082
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4602251.132434637,
+        "mae": 393.1423749518174,
+        "rmse": 2145.2857927172868,
+        "largest_row_share_of_sse": 0.8754229646169872
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4264225.506362122,
+        "mae": 232.73224235885147,
+        "rmse": 2065.000122605837,
+        "largest_row_share_of_sse": 0.9491500489348274
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4278238.241863283,
+        "mae": 208.08279593535707,
+        "rmse": 2068.390253763366,
+        "largest_row_share_of_sse": 0.9479481328818078
+      },
+      "rf_log": {
+        "mse": 4273865.590184404,
+        "mae": 207.93653222974058,
+        "rmse": 2067.332965485822,
+        "largest_row_share_of_sse": 0.9496448012292685
+      }
+    },
+    "509": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5850753.865648639,
+        "mae": 574.185795865862,
+        "rmse": 2418.8331620119316,
+        "largest_row_share_of_sse": 0.6830892362149279
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4357875.041901148,
+        "mae": 274.0038001329184,
+        "rmse": 2087.5524045880015,
+        "largest_row_share_of_sse": 0.9244402729907959
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4230081.7587994775,
+        "mae": 206.1400389255116,
+        "rmse": 2056.7162562685885,
+        "largest_row_share_of_sse": 0.9553111206940162
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4732080.834206847,
+        "mae": 433.35894893835064,
+        "rmse": 2175.3346487855256,
+        "largest_row_share_of_sse": 0.8476944720208386
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4264843.835021003,
+        "mae": 237.54224148765417,
+        "rmse": 2065.1498335522783,
+        "largest_row_share_of_sse": 0.9482524213548222
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4277588.685499767,
+        "mae": 207.87852332755875,
+        "rmse": 2068.233228023321,
+        "largest_row_share_of_sse": 0.9482339318085774
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5495835.3509381665,
+        "mae": 601.2053184080596,
+        "rmse": 2344.3198056020783,
+        "largest_row_share_of_sse": 0.7096784704630885
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4233543.974003203,
+        "mae": 270.3745611752424,
+        "rmse": 2057.557769299128,
+        "largest_row_share_of_sse": 0.9406212667982845
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4227107.060699852,
+        "mae": 212.48841074253818,
+        "rmse": 2055.992962220409,
+        "largest_row_share_of_sse": 0.9510535313973708
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4634776.680925839,
+        "mae": 437.4820886091575,
+        "rmse": 2152.8531489457982,
+        "largest_row_share_of_sse": 0.8543432286441242
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4223404.952171862,
+        "mae": 235.60679019132257,
+        "rmse": 2055.0924437046287,
+        "largest_row_share_of_sse": 0.9518309689682316
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4269922.799899338,
+        "mae": 209.1540149541293,
+        "rmse": 2066.3791520191394,
+        "largest_row_share_of_sse": 0.947972531511596
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5744891.601632802,
+        "mae": 573.1612755897091,
+        "rmse": 2396.8503502790495,
+        "largest_row_share_of_sse": 0.6864543269441088
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4281256.87825542,
+        "mae": 266.875066038805,
+        "rmse": 2069.119831777614,
+        "largest_row_share_of_sse": 0.934353645464711
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4217982.947828958,
+        "mae": 207.56275133324553,
+        "rmse": 2053.772856921855,
+        "largest_row_share_of_sse": 0.9531854872146874
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4677241.137040951,
+        "mae": 442.1017239695684,
+        "rmse": 2162.6930288510553,
+        "largest_row_share_of_sse": 0.8497684947522238
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4229200.761527399,
+        "mae": 234.07594033249862,
+        "rmse": 2056.5020694196733,
+        "largest_row_share_of_sse": 0.9519345914856628
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4268883.461109736,
+        "mae": 207.925496393681,
+        "rmse": 2066.1276487936884,
+        "largest_row_share_of_sse": 0.9482951522892581
+      },
+      "rf_log": {
+        "mse": 4263795.016229458,
+        "mae": 206.7042719384671,
+        "rmse": 2064.8958850822137,
+        "largest_row_share_of_sse": 0.9511916099187719
+      }
+    }
+  },
+  "known_culture_metrics": {
+    "scaffold": {
+      "toxleaf_a0.1_raw": {
+        "mse": 6025633.838810723,
+        "mae": 595.5742624687244,
+        "rmse": 2454.716651430613,
+        "largest_row_share_of_sse": 0.7101264666693053
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4636028.710393664,
+        "mae": 281.042181185392,
+        "rmse": 2153.14391307076,
+        "largest_row_share_of_sse": 0.920515530560205
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4500716.196941572,
+        "mae": 219.7968449826115,
+        "rmse": 2121.4891460814906,
+        "largest_row_share_of_sse": 0.9473697553971087
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4871707.424756062,
+        "mae": 407.9683669788733,
+        "rmse": 2207.194469174853,
+        "largest_row_share_of_sse": 0.8747584887283263
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4515562.636223659,
+        "mae": 241.32778035162713,
+        "rmse": 2124.9853261196085,
+        "largest_row_share_of_sse": 0.9450950994148358
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4514939.643508348,
+        "mae": 220.10898589384965,
+        "rmse": 2124.8387335297584,
+        "largest_row_share_of_sse": 0.9462267228180128
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5419653.447582838,
+        "mae": 565.181916932117,
+        "rmse": 2328.0149156701805,
+        "largest_row_share_of_sse": 0.7665223068601595
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4527928.280174208,
+        "mae": 276.2104198023201,
+        "rmse": 2127.8929202791687,
+        "largest_row_share_of_sse": 0.9340152640354381
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4486604.264282029,
+        "mae": 222.06228578008546,
+        "rmse": 2118.1605851025624,
+        "largest_row_share_of_sse": 0.9482511880930448
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4783085.504371924,
+        "mae": 412.68435973950795,
+        "rmse": 2187.0266354966793,
+        "largest_row_share_of_sse": 0.8780337709132453
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4492614.575553836,
+        "mae": 241.02091500333498,
+        "rmse": 2119.578867500296,
+        "largest_row_share_of_sse": 0.9467401484191996
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4511441.848375474,
+        "mae": 219.5357576608108,
+        "rmse": 2124.015500973445,
+        "largest_row_share_of_sse": 0.9466589710432897
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5520232.262854973,
+        "mae": 515.5740514493051,
+        "rmse": 2349.517453192245,
+        "largest_row_share_of_sse": 0.7629812769401593
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4551324.651586788,
+        "mae": 266.8187147645956,
+        "rmse": 2133.383381295258,
+        "largest_row_share_of_sse": 0.9337107805598417
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4494401.506369087,
+        "mae": 217.62735177380407,
+        "rmse": 2120.0003552756984,
+        "largest_row_share_of_sse": 0.9477827598401775
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4783846.146163002,
+        "mae": 396.3783440332082,
+        "rmse": 2187.2005271952094,
+        "largest_row_share_of_sse": 0.8829228292906858
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4500538.21799245,
+        "mae": 237.97883265915524,
+        "rmse": 2121.4471989640588,
+        "largest_row_share_of_sse": 0.9466426494971437
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4513113.202799158,
+        "mae": 219.71185919464938,
+        "rmse": 2124.4089066842002,
+        "largest_row_share_of_sse": 0.9464555764009882
+      },
+      "rf_log": {
+        "mse": 4514081.4426035145,
+        "mae": 220.4581033048406,
+        "rmse": 2124.6367789821193,
+        "largest_row_share_of_sse": 0.9465135664323862
+      }
+    },
+    "scaffold_shuffle42": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5667212.16787003,
+        "mae": 560.0918610030413,
+        "rmse": 2380.590718260917,
+        "largest_row_share_of_sse": 0.7578966382749069
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4673131.6181093175,
+        "mae": 278.84765402357095,
+        "rmse": 2161.7427270860235,
+        "largest_row_share_of_sse": 0.9298839013170821
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4598808.07665247,
+        "mae": 222.8841784759985,
+        "rmse": 2144.48317238734,
+        "largest_row_share_of_sse": 0.9495292439260613
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4862708.845820677,
+        "mae": 408.36918444230304,
+        "rmse": 2205.15506162734,
+        "largest_row_share_of_sse": 0.8936198416040323
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4621720.488475749,
+        "mae": 244.3284543119001,
+        "rmse": 2149.8187106069545,
+        "largest_row_share_of_sse": 0.9468039335486105
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4633720.782288403,
+        "mae": 224.94588974785398,
+        "rmse": 2152.607902588951,
+        "largest_row_share_of_sse": 0.9469027738630991
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5082040.056867649,
+        "mae": 510.06018761744053,
+        "rmse": 2254.338052925437,
+        "largest_row_share_of_sse": 0.840121232187809
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4576629.189624019,
+        "mae": 267.44100182356647,
+        "rmse": 2139.305772820711,
+        "largest_row_share_of_sse": 0.9457274308775816
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4592272.496122132,
+        "mae": 231.22262916560106,
+        "rmse": 2142.9588181115687,
+        "largest_row_share_of_sse": 0.9472642011169543
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4701904.816926543,
+        "mae": 389.65618389368484,
+        "rmse": 2168.387607630735,
+        "largest_row_share_of_sse": 0.9116717229351161
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4581358.942761353,
+        "mae": 242.35783442832528,
+        "rmse": 2140.4109284811066,
+        "largest_row_share_of_sse": 0.9503199300518841
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4624340.160160218,
+        "mae": 224.40564096241843,
+        "rmse": 2150.427901641954,
+        "largest_row_share_of_sse": 0.9473599631940914
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5293885.564171854,
+        "mae": 490.64469329791433,
+        "rmse": 2300.844532812214,
+        "largest_row_share_of_sse": 0.8078529982161091
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4600107.153794119,
+        "mae": 262.6063240016188,
+        "rmse": 2144.7860391643076,
+        "largest_row_share_of_sse": 0.942633299989709
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4591140.397343904,
+        "mae": 222.41103083090275,
+        "rmse": 2142.6946579818377,
+        "largest_row_share_of_sse": 0.949628134100398
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4766621.413275769,
+        "mae": 392.7281701078181,
+        "rmse": 2183.2593554765244,
+        "largest_row_share_of_sse": 0.9046461209716552
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4597306.890529309,
+        "mae": 240.65965022328626,
+        "rmse": 2144.1331326504214,
+        "largest_row_share_of_sse": 0.9496404935413255
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4629060.291220089,
+        "mae": 224.38382933647847,
+        "rmse": 2151.5251082011778,
+        "largest_row_share_of_sse": 0.947365509496344
+      },
+      "rf_log": {
+        "mse": 4632129.836531004,
+        "mae": 225.39978627098895,
+        "rmse": 2152.2383317214208,
+        "largest_row_share_of_sse": 0.947195389564118
+      }
+    },
+    "scaffold_shuffle2026": {
+      "toxleaf_a0.1_raw": {
+        "mse": 6548554.004810359,
+        "mae": 619.5562612932048,
+        "rmse": 2559.0142642842693,
+        "largest_row_share_of_sse": 0.6529135629260105
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4846811.568370575,
+        "mae": 300.51280159958065,
+        "rmse": 2201.547539430065,
+        "largest_row_share_of_sse": 0.8963013205451121
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4614721.276568806,
+        "mae": 227.27967838291173,
+        "rmse": 2148.19023286319,
+        "largest_row_share_of_sse": 0.9469684618564504
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4923723.7833855,
+        "mae": 408.4532519196604,
+        "rmse": 2218.946548113654,
+        "largest_row_share_of_sse": 0.8812150470455824
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4627284.4553518705,
+        "mae": 245.3492775818485,
+        "rmse": 2151.1123762723023,
+        "largest_row_share_of_sse": 0.9457823871287335
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4636692.133643195,
+        "mae": 225.92846520855628,
+        "rmse": 2153.2979667577815,
+        "largest_row_share_of_sse": 0.9464054859265513
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5383882.775526076,
+        "mae": 543.5345704728642,
+        "rmse": 2320.3195416851695,
+        "largest_row_share_of_sse": 0.794317592494271
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4607955.47060483,
+        "mae": 280.646751717335,
+        "rmse": 2146.614886421137,
+        "largest_row_share_of_sse": 0.9437964248702126
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4601452.933866021,
+        "mae": 228.29435443174958,
+        "rmse": 2145.099749164598,
+        "largest_row_share_of_sse": 0.9500628015894437
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4803061.619270375,
+        "mae": 407.77955834002864,
+        "rmse": 2191.588834446456,
+        "largest_row_share_of_sse": 0.8972743666562758
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4588862.667267062,
+        "mae": 245.03810364856335,
+        "rmse": 2142.1630813892443,
+        "largest_row_share_of_sse": 0.9510719910266215
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4626831.47704331,
+        "mae": 224.84237870461988,
+        "rmse": 2151.0070843777594,
+        "largest_row_share_of_sse": 0.947539179397246
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5632042.667905567,
+        "mae": 536.6822591100132,
+        "rmse": 2373.192505446106,
+        "largest_row_share_of_sse": 0.7605358105082223
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4656575.385812602,
+        "mae": 277.9038146152402,
+        "rmse": 2157.9099577629745,
+        "largest_row_share_of_sse": 0.9348933293850427
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4612132.591011658,
+        "mae": 224.8543000330038,
+        "rmse": 2147.587621265232,
+        "largest_row_share_of_sse": 0.9487856275100707
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4861114.331528074,
+        "mae": 414.1843347954189,
+        "rmse": 2204.7934895422914,
+        "largest_row_share_of_sse": 0.8893026678792798
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4605612.612365241,
+        "mae": 244.81049947246055,
+        "rmse": 2146.0691070804874,
+        "largest_row_share_of_sse": 0.9490735265543677
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4631019.335003731,
+        "mae": 224.78801332329923,
+        "rmse": 2151.9803286749,
+        "largest_row_share_of_sse": 0.9471962640860796
+      },
+      "rf_log": {
+        "mse": 4633874.165051365,
+        "mae": 225.8540400921534,
+        "rmse": 2152.6435294891176,
+        "largest_row_share_of_sse": 0.9471511771952142
+      }
+    },
+    "42": {
+      "toxleaf_a0.1_raw": {
+        "mse": 4978888.389187177,
+        "mae": 503.8328213203373,
+        "rmse": 2231.342284183934,
+        "largest_row_share_of_sse": 0.8066029276716759
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4250757.29235116,
+        "mae": 242.74191657609356,
+        "rmse": 2061.7364750013908,
+        "largest_row_share_of_sse": 0.9530562043506005
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4273423.401088849,
+        "mae": 205.26344260340176,
+        "rmse": 2067.2260159665293,
+        "largest_row_share_of_sse": 0.9539788689355911
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4449161.464462496,
+        "mae": 379.3241146927097,
+        "rmse": 2109.303549625444,
+        "largest_row_share_of_sse": 0.9073867846201756
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4286697.672967639,
+        "mae": 225.05898993357357,
+        "rmse": 2070.4341749902696,
+        "largest_row_share_of_sse": 0.9516270771009956
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4321083.594903254,
+        "mae": 210.27104523043738,
+        "rmse": 2078.721625158899,
+        "largest_row_share_of_sse": 0.9478295041053287
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5407447.982069303,
+        "mae": 578.7828113495186,
+        "rmse": 2325.392006107638,
+        "largest_row_share_of_sse": 0.7257765503367553
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4255911.030825516,
+        "mae": 266.61702045673707,
+        "rmse": 2062.985950224944,
+        "largest_row_share_of_sse": 0.9412993193206788
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4267431.853565949,
+        "mae": 211.48224076575,
+        "rmse": 2065.7763319309156,
+        "largest_row_share_of_sse": 0.950528684632216
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4587643.687820271,
+        "mae": 409.5876945301383,
+        "rmse": 2141.878541799294,
+        "largest_row_share_of_sse": 0.8690149166313863
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4260518.25676651,
+        "mae": 230.81103123061078,
+        "rmse": 2064.1022883487412,
+        "largest_row_share_of_sse": 0.9516920959884355
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4314158.083604111,
+        "mae": 210.81428323992222,
+        "rmse": 2077.055146981926,
+        "largest_row_share_of_sse": 0.9475714871704799
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5461530.74694105,
+        "mae": 517.1733050259289,
+        "rmse": 2336.9918157625307,
+        "largest_row_share_of_sse": 0.7274316025087991
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4287405.756238583,
+        "mae": 257.0255985295055,
+        "rmse": 2070.6051666695375,
+        "largest_row_share_of_sse": 0.9406056985355425
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4276845.650373448,
+        "mae": 209.53957104817516,
+        "rmse": 2068.053589821465,
+        "largest_row_share_of_sse": 0.9515994088205458
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4614843.594034491,
+        "mae": 403.44678203479566,
+        "rmse": 2148.218702561378,
+        "largest_row_share_of_sse": 0.8679540159684775
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4268747.1096663065,
+        "mae": 229.53263198477865,
+        "rmse": 2066.0946516716767,
+        "largest_row_share_of_sse": 0.9519657646683198
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4315450.626869355,
+        "mae": 210.10616110648948,
+        "rmse": 2077.3662717174734,
+        "largest_row_share_of_sse": 0.9478019579746939
+      },
+      "rf_log": {
+        "mse": 4312294.596196919,
+        "mae": 211.53379205887188,
+        "rmse": 2076.6065097164937,
+        "largest_row_share_of_sse": 0.9500717277857595
+      }
+    },
+    "2026": {
+      "toxleaf_a0.1_raw": {
+        "mse": 6224382.09841401,
+        "mae": 646.4003169982595,
+        "rmse": 2494.871158680145,
+        "largest_row_share_of_sse": 0.6478411401787713
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4526398.458945022,
+        "mae": 307.70781276517914,
+        "rmse": 2127.5334213461892,
+        "largest_row_share_of_sse": 0.898104781838674
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4290924.209094799,
+        "mae": 216.2105884588472,
+        "rmse": 2071.4546118838325,
+        "largest_row_share_of_sse": 0.9501370942443492
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4839409.930117601,
+        "mae": 454.99098684040246,
+        "rmse": 2199.86588912088,
+        "largest_row_share_of_sse": 0.8366429168158537
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4325021.002458302,
+        "mae": 249.71276647028355,
+        "rmse": 2079.6684837873327,
+        "largest_row_share_of_sse": 0.9437462369375978
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4320624.941131235,
+        "mae": 209.96668108303035,
+        "rmse": 2078.6113011169828,
+        "largest_row_share_of_sse": 0.9475807183763739
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5724775.829706804,
+        "mae": 624.1545063464539,
+        "rmse": 2392.6503776579652,
+        "largest_row_share_of_sse": 0.6923935909112052
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4379176.975810942,
+        "mae": 295.6449036708914,
+        "rmse": 2092.648316323348,
+        "largest_row_share_of_sse": 0.9205077853409735
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4279136.093374914,
+        "mae": 215.90187521534835,
+        "rmse": 2068.607283506203,
+        "largest_row_share_of_sse": 0.9488136349306063
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4711688.181219551,
+        "mae": 450.78544296838703,
+        "rmse": 2170.642342998853,
+        "largest_row_share_of_sse": 0.8498908168736015
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4281754.506693261,
+        "mae": 245.87882949463832,
+        "rmse": 2069.2400795203203,
+        "largest_row_share_of_sse": 0.9483109311874435
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4312769.0257666875,
+        "mae": 210.40757600121208,
+        "rmse": 2076.7207385122074,
+        "largest_row_share_of_sse": 0.9474930898222965
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 6074937.123555897,
+        "mae": 618.7189067369777,
+        "rmse": 2464.7387536118094,
+        "largest_row_share_of_sse": 0.6581991775037237
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4426562.805119551,
+        "mae": 297.1320724710413,
+        "rmse": 2103.939829253572,
+        "largest_row_share_of_sse": 0.9136656440780208
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4273199.071466982,
+        "mae": 213.62041965021194,
+        "rmse": 2067.1717566440825,
+        "largest_row_share_of_sse": 0.9496997310925744
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4789092.157940462,
+        "mae": 458.9722713921228,
+        "rmse": 2188.39945118355,
+        "largest_row_share_of_sse": 0.8390443491153836
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4291990.035650447,
+        "mae": 245.9478348669375,
+        "rmse": 2071.7118611550322,
+        "largest_row_share_of_sse": 0.9473924685376623
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4312676.663934725,
+        "mae": 209.56392410940538,
+        "rmse": 2076.698500970886,
+        "largest_row_share_of_sse": 0.9476613150586374
+      },
+      "rf_log": {
+        "mse": 4323436.2763119,
+        "mae": 214.87349602594173,
+        "rmse": 2079.2874443693204,
+        "largest_row_share_of_sse": 0.9473339259043007
+      }
+    },
+    "117": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5993713.815851855,
+        "mae": 541.1986563585767,
+        "rmse": 2448.206244549641,
+        "largest_row_share_of_sse": 0.6750175850688083
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4491997.1076276405,
+        "mae": 280.3301085635816,
+        "rmse": 2119.433204332621,
+        "largest_row_share_of_sse": 0.9087498310116743
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4289852.544337172,
+        "mae": 210.95628029817001,
+        "rmse": 2071.1959212824777,
+        "largest_row_share_of_sse": 0.9540224197134266
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4782678.961849008,
+        "mae": 409.98797597414335,
+        "rmse": 2186.9336894037297,
+        "largest_row_share_of_sse": 0.8475880804334169
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4319259.938008223,
+        "mae": 240.128939845402,
+        "rmse": 2078.2829302114337,
+        "largest_row_share_of_sse": 0.9465295141193923
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4323057.540871828,
+        "mae": 209.64789677617222,
+        "rmse": 2079.196369002175,
+        "largest_row_share_of_sse": 0.9479084170761245
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5378296.929371828,
+        "mae": 553.6530343993455,
+        "rmse": 2319.11554894788,
+        "largest_row_share_of_sse": 0.7358836224642966
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4323590.797442285,
+        "mae": 264.42974852489925,
+        "rmse": 2079.324601268952,
+        "largest_row_share_of_sse": 0.9363264156485199
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4305070.945755861,
+        "mae": 216.67104809656203,
+        "rmse": 2074.866488657972,
+        "largest_row_share_of_sse": 0.9483049600720723
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4604888.118095631,
+        "mae": 402.9437918038023,
+        "rmse": 2145.900304789491,
+        "largest_row_share_of_sse": 0.8698020852557616
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4290981.676159792,
+        "mae": 235.37894344769833,
+        "rmse": 2071.468483023527,
+        "largest_row_share_of_sse": 0.9486913967727458
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4321971.614372648,
+        "mae": 211.0479663760187,
+        "rmse": 2078.9352116823284,
+        "largest_row_share_of_sse": 0.9472654713570164
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5551553.598533229,
+        "mae": 505.7008626822836,
+        "rmse": 2356.1735077309627,
+        "largest_row_share_of_sse": 0.7179598382562586
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4332492.370519015,
+        "mae": 258.3970422595439,
+        "rmse": 2081.4639969307696,
+        "largest_row_share_of_sse": 0.936138697162079
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4289394.051486006,
+        "mae": 209.95999052937407,
+        "rmse": 2071.085235205448,
+        "largest_row_share_of_sse": 0.9512397919362416
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4654065.229154182,
+        "mae": 399.86595492486265,
+        "rmse": 2157.3282617984178,
+        "largest_row_share_of_sse": 0.8634082465734488
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4290588.7990233265,
+        "mae": 234.17029485819484,
+        "rmse": 2071.373650267698,
+        "largest_row_share_of_sse": 0.9497918238664897
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4319322.611027175,
+        "mae": 209.7607868388331,
+        "rmse": 2078.298008233462,
+        "largest_row_share_of_sse": 0.9478308551662609
+      },
+      "rf_log": {
+        "mse": 4312008.519762799,
+        "mae": 208.62343005370928,
+        "rmse": 2076.537627822525,
+        "largest_row_share_of_sse": 0.9498644743609627
+      }
+    },
+    "2027": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5903427.8192092655,
+        "mae": 552.2001261866768,
+        "rmse": 2429.6970632589705,
+        "largest_row_share_of_sse": 0.6865048442335008
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4459415.107697324,
+        "mae": 274.3458924426753,
+        "rmse": 2111.7327263878174,
+        "largest_row_share_of_sse": 0.9150888680891126
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4297414.92103045,
+        "mae": 212.3070625171577,
+        "rmse": 2073.0207237339546,
+        "largest_row_share_of_sse": 0.9516370965778962
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4804699.784998806,
+        "mae": 435.50648527106523,
+        "rmse": 2191.96254187858,
+        "largest_row_share_of_sse": 0.8450164765885618
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4320615.63988871,
+        "mae": 241.60258922480972,
+        "rmse": 2078.609063746406,
+        "largest_row_share_of_sse": 0.9461125382033807
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4323901.734917975,
+        "mae": 211.63094924144232,
+        "rmse": 2079.399368788491,
+        "largest_row_share_of_sse": 0.947459518892027
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5792677.573543333,
+        "mae": 590.5694853326911,
+        "rmse": 2406.7981995886844,
+        "largest_row_share_of_sse": 0.6833186599713855
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4354305.031706366,
+        "mae": 272.58773250309036,
+        "rmse": 2086.6971585992937,
+        "largest_row_share_of_sse": 0.9277320364925615
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4291288.772892948,
+        "mae": 213.25856211077868,
+        "rmse": 2071.54260706676,
+        "largest_row_share_of_sse": 0.9495477333448387
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4648115.470716621,
+        "mae": 417.54394788978504,
+        "rmse": 2155.948856238622,
+        "largest_row_share_of_sse": 0.8628001024104278
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4279788.683634796,
+        "mae": 235.8176719288409,
+        "rmse": 2068.765014117069,
+        "largest_row_share_of_sse": 0.9504190548301723
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4317218.417300308,
+        "mae": 211.934056517283,
+        "rmse": 2077.7917165347226,
+        "largest_row_share_of_sse": 0.9474130439520793
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5835792.462285551,
+        "mae": 543.3066907586111,
+        "rmse": 2415.738492114896,
+        "largest_row_share_of_sse": 0.6856791076954614
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4369991.399634235,
+        "mae": 267.7399034721692,
+        "rmse": 2090.4524389792355,
+        "largest_row_share_of_sse": 0.9277876037245876
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4287575.276845156,
+        "mae": 212.0793341275542,
+        "rmse": 2070.646101303928,
+        "largest_row_share_of_sse": 0.9502327670988181
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4724598.996012947,
+        "mae": 427.9297028260507,
+        "rmse": 2173.614270291062,
+        "largest_row_share_of_sse": 0.8523893141014993
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4289132.301948406,
+        "mae": 236.36922871636312,
+        "rmse": 2071.0220428446446,
+        "largest_row_share_of_sse": 0.9496954507511546
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4317309.29842045,
+        "mae": 211.12020230497836,
+        "rmse": 2077.813586061187,
+        "largest_row_share_of_sse": 0.947531598315551
+      },
+      "rf_log": {
+        "mse": 4317290.101480548,
+        "mae": 212.24604129900175,
+        "rmse": 2077.8089665511957,
+        "largest_row_share_of_sse": 0.9487194220652264
+      }
+    },
+    "7": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5423563.9619085295,
+        "mae": 517.4740054498652,
+        "rmse": 2328.854645938327,
+        "largest_row_share_of_sse": 0.7522921496622643
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4392759.51758033,
+        "mae": 253.246993224507,
+        "rmse": 2095.891103464188,
+        "largest_row_share_of_sse": 0.935177199332818
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4320190.259796647,
+        "mae": 207.6091588981339,
+        "rmse": 2078.506737972395,
+        "largest_row_share_of_sse": 0.9542346041301264
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4723178.997353366,
+        "mae": 417.5266171792779,
+        "rmse": 2173.287601159443,
+        "largest_row_share_of_sse": 0.867372414580621
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4346962.4220815925,
+        "mae": 237.40927277921523,
+        "rmse": 2084.9370307233726,
+        "largest_row_share_of_sse": 0.9485983855117309
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4361412.545653526,
+        "mae": 211.79253935466326,
+        "rmse": 2088.399517729672,
+        "largest_row_share_of_sse": 0.948017271441985
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5452698.9159127455,
+        "mae": 569.2665665906733,
+        "rmse": 2335.101478718376,
+        "largest_row_share_of_sse": 0.7306888547260436
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4318881.434260726,
+        "mae": 262.18632214456636,
+        "rmse": 2078.191866565916,
+        "largest_row_share_of_sse": 0.9410881754484854
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4310036.916443433,
+        "mae": 212.18602732919425,
+        "rmse": 2076.062840196181,
+        "largest_row_share_of_sse": 0.951314460275326
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4624882.394855138,
+        "mae": 418.6822221364299,
+        "rmse": 2150.553973946048,
+        "largest_row_share_of_sse": 0.873173037381196
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4303535.650342545,
+        "mae": 233.54926103939812,
+        "rmse": 2074.4964811593545,
+        "largest_row_share_of_sse": 0.9519950057349624
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4352418.751664649,
+        "mae": 212.2546279311718,
+        "rmse": 2086.245132208737,
+        "largest_row_share_of_sse": 0.947859821190246
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5602810.8865714455,
+        "mae": 522.8306668829748,
+        "rmse": 2367.025746917732,
+        "largest_row_share_of_sse": 0.7204227975329185
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4347641.000373125,
+        "mae": 251.92992912157345,
+        "rmse": 2085.0997578948413,
+        "largest_row_share_of_sse": 0.9391323791798144
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4300938.127017747,
+        "mae": 208.08850892190418,
+        "rmse": 2073.870325506816,
+        "largest_row_share_of_sse": 0.9535576230888909
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4671881.649297555,
+        "mae": 414.7333039657514,
+        "rmse": 2161.4535963785006,
+        "largest_row_share_of_sse": 0.8683896765665251
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4311690.591621257,
+        "mae": 231.87295641839614,
+        "rmse": 2076.461073947994,
+        "largest_row_share_of_sse": 0.9518727491070094
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4351525.94088085,
+        "mae": 211.04040735821883,
+        "rmse": 2086.0311457120793,
+        "largest_row_share_of_sse": 0.9482672423388965
+      },
+      "rf_log": {
+        "mse": 4351918.587394235,
+        "mae": 211.9115787833502,
+        "rmse": 2086.1252568803807,
+        "largest_row_share_of_sse": 0.9496133751946908
+      }
+    },
+    "23": {
+      "toxleaf_a0.1_raw": {
+        "mse": 6209502.934717676,
+        "mae": 569.7396727841415,
+        "rmse": 2491.8874241662033,
+        "largest_row_share_of_sse": 0.6501747639608209
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4535156.095910583,
+        "mae": 278.24792125805027,
+        "rmse": 2129.5905934969246,
+        "largest_row_share_of_sse": 0.8970457815318037
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4282898.689389802,
+        "mae": 210.561894770298,
+        "rmse": 2069.516535181539,
+        "largest_row_share_of_sse": 0.9530260760119169
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4805634.84341075,
+        "mae": 421.62413742412184,
+        "rmse": 2192.1758240184,
+        "largest_row_share_of_sse": 0.8425768153288915
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4312543.282148437,
+        "mae": 235.71160674295626,
+        "rmse": 2076.666386820097,
+        "largest_row_share_of_sse": 0.9466223744790598
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4322255.084545262,
+        "mae": 210.3541989709484,
+        "rmse": 2079.0033873337634,
+        "largest_row_share_of_sse": 0.9473581656219741
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5828752.573819385,
+        "mae": 626.32424205245,
+        "rmse": 2414.2809641421986,
+        "largest_row_share_of_sse": 0.6791764217384505
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4316749.180078578,
+        "mae": 276.784765420058,
+        "rmse": 2077.6787961758137,
+        "largest_row_share_of_sse": 0.9342661887312241
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4278564.695038419,
+        "mae": 212.26598897823328,
+        "rmse": 2068.469167050459,
+        "largest_row_share_of_sse": 0.9504910845667156
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4689862.287105981,
+        "mae": 442.42006299073927,
+        "rmse": 2165.6089875843195,
+        "largest_row_share_of_sse": 0.853310351242049
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4267313.618400914,
+        "mae": 235.2635158242299,
+        "rmse": 2065.747714122156,
+        "largest_row_share_of_sse": 0.9516768443426314
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4314083.599798725,
+        "mae": 210.34532742396001,
+        "rmse": 2077.037216758218,
+        "largest_row_share_of_sse": 0.9475378348105457
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 6005283.102134087,
+        "mae": 595.0952259956271,
+        "rmse": 2450.567914205621,
+        "largest_row_share_of_sse": 0.6670978592982063
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4348576.256236615,
+        "mae": 270.9098874111606,
+        "rmse": 2085.3240170862214,
+        "largest_row_share_of_sse": 0.9316439892962555
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4267376.133444648,
+        "mae": 207.2688727267305,
+        "rmse": 2065.76284540231,
+        "largest_row_share_of_sse": 0.9530914504635656
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4752642.5088306265,
+        "mae": 443.1353098461274,
+        "rmse": 2180.0556205818757,
+        "largest_row_share_of_sse": 0.8456319815416065
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4275108.552387021,
+        "mae": 234.26311987422957,
+        "rmse": 2067.6335633731187,
+        "largest_row_share_of_sse": 0.951461232558068
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4313522.820165605,
+        "mae": 209.23269461641343,
+        "rmse": 2076.902217285543,
+        "largest_row_share_of_sse": 0.9477539352528145
+      },
+      "rf_log": {
+        "mse": 4307221.976533993,
+        "mae": 208.094533922928,
+        "rmse": 2075.3847779469697,
+        "largest_row_share_of_sse": 0.9503951195338355
+      }
+    },
+    "101": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5455290.97503266,
+        "mae": 537.6032844216777,
+        "rmse": 2335.656433432079,
+        "largest_row_share_of_sse": 0.7401112127107168
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4370574.902965669,
+        "mae": 265.3631968805914,
+        "rmse": 2090.591998206649,
+        "largest_row_share_of_sse": 0.9310806750153955
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4292444.113249503,
+        "mae": 208.86530787096805,
+        "rmse": 2071.821448206747,
+        "largest_row_share_of_sse": 0.9512471081034181
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4627246.447602423,
+        "mae": 402.14758424495125,
+        "rmse": 2151.1035418134625,
+        "largest_row_share_of_sse": 0.8800745620209234
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4313412.286854128,
+        "mae": 235.71432885787618,
+        "rmse": 2076.8756069765295,
+        "largest_row_share_of_sse": 0.9483945533745064
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4323414.18814021,
+        "mae": 210.18545515766326,
+        "rmse": 2079.282132886302,
+        "largest_row_share_of_sse": 0.9477557146717439
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5536096.056974777,
+        "mae": 558.2679953792189,
+        "rmse": 2352.8909998074237,
+        "largest_row_share_of_sse": 0.7346815321828233
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4396996.407777109,
+        "mae": 280.82970849986077,
+        "rmse": 2096.9016209105066,
+        "largest_row_share_of_sse": 0.9274990505552663
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4299817.969693897,
+        "mae": 215.23532753213144,
+        "rmse": 2073.600243463985,
+        "largest_row_share_of_sse": 0.9491282543935922
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4628095.012182871,
+        "mae": 398.9901903092409,
+        "rmse": 2151.3007721336576,
+        "largest_row_share_of_sse": 0.8786600554167593
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4306720.847324569,
+        "mae": 237.25340241179023,
+        "rmse": 2075.2640427966194,
+        "largest_row_share_of_sse": 0.9483207082029481
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4319244.615305363,
+        "mae": 209.80238204744805,
+        "rmse": 2078.279243822967,
+        "largest_row_share_of_sse": 0.9475936600857209
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5526840.360658655,
+        "mae": 504.9600901108331,
+        "rmse": 2350.923299612017,
+        "largest_row_share_of_sse": 0.7324766512950306
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4367935.272732706,
+        "mae": 263.99388227398543,
+        "rmse": 2089.960591191304,
+        "largest_row_share_of_sse": 0.9318861153752307
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4284113.458950057,
+        "mae": 208.50537387014057,
+        "rmse": 2069.810005519844,
+        "largest_row_share_of_sse": 0.9514023952054395
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4645710.547725538,
+        "mae": 396.0801364454566,
+        "rmse": 2155.3910428795834,
+        "largest_row_share_of_sse": 0.8754408683449484
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4304460.576254781,
+        "mae": 234.17421253260363,
+        "rmse": 2074.719396991984,
+        "largest_row_share_of_sse": 0.9491765924230549
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4318603.577391986,
+        "mae": 209.3430340074387,
+        "rmse": 2078.12501486123,
+        "largest_row_share_of_sse": 0.9479750711156476
+      },
+      "rf_log": {
+        "mse": 4314189.67242589,
+        "mae": 209.17797645188327,
+        "rmse": 2077.062751200813,
+        "largest_row_share_of_sse": 0.9496717870523057
+      }
+    },
+    "509": {
+      "toxleaf_a0.1_raw": {
+        "mse": 5905958.858292464,
+        "mae": 578.610276337872,
+        "rmse": 2430.2178623103864,
+        "largest_row_share_of_sse": 0.6831083107711721
+      },
+      "toxleaf_a0.1_sqrt": {
+        "mse": 4399042.106659848,
+        "mae": 275.985405912471,
+        "rmse": 2097.389355045898,
+        "largest_row_share_of_sse": 0.9244559614012863
+      },
+      "toxleaf_a0.1_log": {
+        "mse": 4270001.9123468185,
+        "mae": 207.43311232637686,
+        "rmse": 2066.3982947018753,
+        "largest_row_share_of_sse": 0.955336215148015
+      },
+      "toxleaf_a1.0_raw": {
+        "mse": 4776854.551570027,
+        "mae": 437.2504828269407,
+        "rmse": 2185.6016452158037,
+        "largest_row_share_of_sse": 0.8476961369410205
+      },
+      "toxleaf_a1.0_sqrt": {
+        "mse": 4305114.704511127,
+        "mae": 239.18380475180345,
+        "rmse": 2074.8770335880454,
+        "largest_row_share_of_sse": 0.9482723393305756
+      },
+      "toxleaf_a1.0_log": {
+        "mse": 4317954.734347205,
+        "mae": 209.1884441182122,
+        "rmse": 2077.9688963858925,
+        "largest_row_share_of_sse": 0.9482593756210715
+      },
+      "potleaf_a0.1_raw": {
+        "mse": 5547808.739469157,
+        "mae": 606.515951462742,
+        "rmse": 2355.3786828170873,
+        "largest_row_share_of_sse": 0.7096832894294994
+      },
+      "potleaf_a0.1_sqrt": {
+        "mse": 4273507.3051398415,
+        "mae": 272.2388368743821,
+        "rmse": 2067.246309741498,
+        "largest_row_share_of_sse": 0.9406436633388318
+      },
+      "potleaf_a0.1_log": {
+        "mse": 4266989.218705934,
+        "mae": 213.74680786810328,
+        "rmse": 2065.669193918991,
+        "largest_row_share_of_sse": 0.9510807257041574
+      },
+      "potleaf_a1.0_raw": {
+        "mse": 4678581.560033165,
+        "mae": 440.999853654818,
+        "rmse": 2163.00290338066,
+        "largest_row_share_of_sse": 0.8543537031414259
+      },
+      "potleaf_a1.0_sqrt": {
+        "mse": 4263257.0455678,
+        "mae": 237.08122783979852,
+        "rmse": 2064.765615165024,
+        "largest_row_share_of_sse": 0.9518570994605522
+      },
+      "potleaf_a1.0_log": {
+        "mse": 4310210.3584469715,
+        "mae": 210.42062396878512,
+        "rmse": 2076.1046116337616,
+        "largest_row_share_of_sse": 0.947999320983202
+      },
+      "endpointmix_a0.1_raw": {
+        "mse": 5799133.297285614,
+        "mae": 577.9268925842051,
+        "rmse": 2408.138969678788,
+        "largest_row_share_of_sse": 0.6864692848494813
+      },
+      "endpointmix_a0.1_sqrt": {
+        "mse": 4321644.133152096,
+        "mae": 268.6444888069362,
+        "rmse": 2078.8564484235308,
+        "largest_row_share_of_sse": 0.934381616053325
+      },
+      "endpointmix_a0.1_log": {
+        "mse": 4257776.086611214,
+        "mae": 208.77870101060148,
+        "rmse": 2063.4379289455774,
+        "largest_row_share_of_sse": 0.9532133994474257
+      },
+      "endpointmix_a1.0_raw": {
+        "mse": 4721375.584485408,
+        "mae": 445.53331012225766,
+        "rmse": 2172.872657217953,
+        "largest_row_share_of_sse": 0.8497918321468545
+      },
+      "endpointmix_a1.0_sqrt": {
+        "mse": 4269105.128017021,
+        "mae": 235.5446963038362,
+        "rmse": 2066.181291178734,
+        "largest_row_share_of_sse": 0.951961263612563
+      },
+      "endpointmix_a1.0_log": {
+        "mse": 4309161.085706676,
+        "mae": 209.1862330018312,
+        "rmse": 2075.8518939718883,
+        "largest_row_share_of_sse": 0.9483219789559328
+      },
+      "rf_log": {
+        "mse": 4304018.517184459,
+        "mae": 207.87012484138995,
+        "rmse": 2074.6128595919913,
+        "largest_row_share_of_sse": 0.9512198696111526
+      }
+    }
+  },
+  "folds": {
+    "scaffold": [
+      {
+        "fold": 0,
+        "toxicity_rows": 409,
+        "potency_rows": 363
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 416,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 408,
+        "potency_rows": 341
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 393,
+        "potency_rows": 365
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 409,
+        "potency_rows": 360
+      }
+    ],
+    "scaffold_shuffle42": [
+      {
+        "fold": 0,
+        "toxicity_rows": 411,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 404,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 401,
+        "potency_rows": 361
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 411,
+        "potency_rows": 363
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 408,
+        "potency_rows": 340
+      }
+    ],
+    "scaffold_shuffle2026": [
+      {
+        "fold": 0,
+        "toxicity_rows": 417,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 405,
+        "potency_rows": 363
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 403,
+        "potency_rows": 365
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 405,
+        "potency_rows": 337
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 405,
+        "potency_rows": 364
+      }
+    ],
+    "42": [
+      {
+        "fold": 0,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      }
+    ],
+    "2026": [
+      {
+        "fold": 0,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      }
+    ],
+    "117": [
+      {
+        "fold": 0,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      }
+    ],
+    "2027": [
+      {
+        "fold": 0,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      }
+    ],
+    "7": [
+      {
+        "fold": 0,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      }
+    ],
+    "23": [
+      {
+        "fold": 0,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      }
+    ],
+    "101": [
+      {
+        "fold": 0,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      }
+    ],
+    "509": [
+      {
+        "fold": 0,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 1,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 2,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 3,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      },
+      {
+        "fold": 4,
+        "toxicity_rows": 418,
+        "potency_rows": 365
+      }
+    ]
+  },
+  "auxiliary_validation": {
+    "toxicity": {
+      "rows": 418,
+      "log10_mse": 0.35486698702032743,
+      "dummy_log10_mse": 0.26518067995054073
+    },
+    "potency": {
+      "rows": 365,
+      "log10_mse": 0.2634698080948045,
+      "dummy_log10_mse": 0.2514841040773402
+    }
+  },
+  "scaffold_mean": {
+    "toxleaf_a0.1_raw": {
+      "mse": 5679653.034268525,
+      "mae": 563.7821888143209
+    },
+    "toxleaf_a0.1_sqrt": {
+      "mse": 4403624.83030446,
+      "mae": 270.3836388541835
+    },
+    "toxleaf_a0.1_log": {
+      "mse": 4266200.336133258,
+      "mae": 209.74906254999735
+    },
+    "toxleaf_a1.0_raw": {
+      "mse": 4561066.400315951,
+      "mae": 386.3931573863326
+    },
+    "toxleaf_a1.0_sqrt": {
+      "mse": 4281852.435823792,
+      "mae": 229.39190739221354
+    },
+    "toxleaf_a1.0_log": {
+      "mse": 4288242.356537046,
+      "mae": 209.96081783108778
+    },
+    "potleaf_a0.1_raw": {
+      "mse": 4952325.281568849,
+      "mae": 520.506690101247
+    },
+    "potleaf_a0.1_sqrt": {
+      "mse": 4265925.90018371,
+      "mae": 258.54842993284933
+    },
+    "potleaf_a0.1_log": {
+      "mse": 4255624.118200344,
+      "mae": 213.1732393738562
+    },
+    "potleaf_a1.0_raw": {
+      "mse": 4445781.104359205,
+      "mae": 380.10109682871916
+    },
+    "potleaf_a1.0_sqrt": {
+      "mse": 4250281.385800079,
+      "mae": 228.10359373262554
+    },
+    "potleaf_a1.0_log": {
+      "mse": 4281202.119124134,
+      "mae": 209.18831048439176
+    },
+    "endpointmix_a0.1_raw": {
+      "mse": 5120085.6638889415,
+      "mae": 488.07627360813814
+    },
+    "endpointmix_a0.1_sqrt": {
+      "mse": 4295607.103337554,
+      "mae": 253.4232021395941
+    },
+    "endpointmix_a0.1_log": {
+      "mse": 4261040.3365684645,
+      "mae": 208.14008932364177
+    },
+    "endpointmix_a1.0_raw": {
+      "mse": 4484809.197399452,
+      "mae": 378.98839083413424
+    },
+    "endpointmix_a1.0_sqrt": {
+      "mse": 4262878.270846739,
+      "mae": 226.72912618630207
+    },
+    "endpointmix_a1.0_log": {
+      "mse": 4284478.739769105,
+      "mae": 209.30467876423322
+    },
+    "rf_log": {
+      "mse": 4286609.676838052,
+      "mae": 210.18666914667338
+    }
+  },
+  "molecular2_mean": {
+    "toxleaf_a0.1_raw": {
+      "mse": 5549520.201852385,
+      "mae": 571.1961504216428
+    },
+    "toxleaf_a0.1_sqrt": {
+      "mse": 4347534.565747413,
+      "mae": 273.4234126258196
+    },
+    "toxleaf_a0.1_log": {
+      "mse": 4242145.845246494,
+      "mae": 209.48524315818545
+    },
+    "toxleaf_a1.0_raw": {
+      "mse": 4600801.098873444,
+      "mae": 413.76403650800216
+    },
+    "toxleaf_a1.0_sqrt": {
+      "mse": 4265587.953457625,
+      "mae": 235.83955371397184
+    },
+    "toxleaf_a1.0_log": {
+      "mse": 4280462.295869665,
+      "mae": 208.8180643913674
+    },
+    "potleaf_a0.1_raw": {
+      "mse": 5514788.383851485,
+      "mae": 597.8843275322115
+    },
+    "potleaf_a0.1_sqrt": {
+      "mse": 4277159.23438166,
+      "mae": 279.22926754306394
+    },
+    "potleaf_a0.1_log": {
+      "mse": 4233342.265222633,
+      "mae": 212.43705404310285
+    },
+    "potleaf_a1.0_raw": {
+      "mse": 4606121.457178762,
+      "mae": 426.59531494863825
+    },
+    "potleaf_a1.0_sqrt": {
+      "mse": 4231207.047123084,
+      "mae": 236.84956433195
+    },
+    "potleaf_a1.0_log": {
+      "mse": 4273144.808297005,
+      "mae": 209.32731426907267
+    },
+    "endpointmix_a0.1_raw": {
+      "mse": 5714335.250989882,
+      "mae": 563.6404129001228
+    },
+    "endpointmix_a0.1_sqrt": {
+      "mse": 4316274.210771754,
+      "mae": 275.3427741926281
+    },
+    "endpointmix_a0.1_log": {
+      "mse": 4235070.948235076,
+      "mae": 210.37651554661474
+    },
+    "endpointmix_a1.0_raw": {
+      "mse": 4658024.741085841,
+      "mae": 428.10064480117717
+    },
+    "endpointmix_a1.0_sqrt": {
+      "mse": 4240360.253994108,
+      "mae": 236.28128224956185
+    },
+    "endpointmix_a1.0_log": {
+      "mse": 4273740.384475982,
+      "mae": 208.56993922348693
+    },
+    "rf_log": {
+      "mse": 4277506.0814616475,
+      "mae": 211.90988024351162
+    }
+  },
+  "molecular8_mean": {
+    "toxleaf_a0.1_raw": {
+      "mse": 5701745.076367084,
+      "mae": 551.3370859925529
+    },
+    "toxleaf_a0.1_sqrt": {
+      "mse": 4381693.243267284,
+      "mae": 270.16308536537207
+    },
+    "toxleaf_a0.1_log": {
+      "mse": 4244488.8905913,
+      "mae": 208.4595032436349
+    },
+    "toxleaf_a1.0_raw": {
+      "mse": 4676303.856542999,
+      "mae": 415.785528950903
+    },
+    "toxleaf_a1.0_sqrt": {
+      "mse": 4270748.63920788,
+      "mae": 236.28919113642004
+    },
+    "toxleaf_a1.0_log": {
+      "mse": 4281165.671945693,
+      "mae": 208.91244907689156
+    },
+    "potleaf_a0.1_raw": {
+      "mse": 5525500.729178499,
+      "mae": 583.8081150608988
+    },
+    "potleaf_a0.1_sqrt": {
+      "mse": 4281852.793159014,
+      "mae": 271.76081713043624
+    },
+    "potleaf_a0.1_log": {
+      "mse": 4242175.88908822,
+      "mae": 212.40294403029966
+    },
+    "potleaf_a1.0_raw": {
+      "mse": 4597774.845893646,
+      "mae": 418.75611975797005
+    },
+    "potleaf_a1.0_sqrt": {
+      "mse": 4236668.8124072375,
+      "mae": 234.68579474710157
+    },
+    "potleaf_a1.0_log": {
+      "mse": 4274786.624641279,
+      "mae": 209.43423358982992
+    },
+    "endpointmix_a0.1_raw": {
+      "mse": 5672075.901636385,
+      "mae": 543.318493977762
+    },
+    "endpointmix_a0.1_sqrt": {
+      "mse": 4304541.051719222,
+      "mae": 265.0326958205994
+    },
+    "endpointmix_a0.1_log": {
+      "mse": 4234623.918392507,
+      "mae": 208.3473512074953
+    },
+    "endpointmix_a1.0_raw": {
+      "mse": 4647401.086277492,
+      "mae": 420.12779270763394
+    },
+    "endpointmix_a1.0_sqrt": {
+      "mse": 4242480.759580441,
+      "mae": 233.58052610463145
+    },
+    "endpointmix_a1.0_log": {
+      "mse": 4274231.03303396,
+      "mae": 208.4887803615904
+    },
+    "rf_log": {
+      "mse": 4272349.756538589,
+      "mae": 209.1210160061822
+    }
+  }
+}

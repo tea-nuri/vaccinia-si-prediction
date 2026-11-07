@@ -1,0 +1,177 @@
+{
+  "status": "curated_external_toxicity_auxiliary_pool",
+  "counts": {
+    "CC50_records": 2170,
+    "competition_parent_excluded": 435,
+    "unresolved_cell": 854,
+    "unsupported_relation_or_units": 34
+  },
+  "interval_rows": 847,
+  "relation_counts": {
+    "=": 418,
+    ">": 397,
+    ">=": 32
+  },
+  "exact_rows_before_context_deduplication": 418,
+  "exact_rows_retained": 418,
+  "exact_unique_parents": 297,
+  "exact_unique_stereochemical_structures": 298,
+  "source_documents": 23,
+  "cell_counts": {
+    "MT-4": 183,
+    "Vero-76": 130,
+    "HEL": 68,
+    "Vero": 22,
+    "HeLa": 14,
+    "Human foreskin fibroblast": 1
+  },
+  "conflicting_contexts_rejected": [],
+  "competition_parent_overlap": 0,
+  "SI_labels_created": false,
+  "sample_weighting": "Each stereochemical structure/cell context has total weight 1; independent assay rows retained, identical assay duplicates deduplicated.",
+  "exact_sha256": "a32011a4edb0d258a526d0c5384840b7629d4b911b8d921cf60592674eb75cc1",
+  "interval_sha256": "35ab19fd3c9e939c03b1e4e0d323b05eab5eec99398bb5ab3c9ec060519904a4",
+  "script_sha256": "0d69ab298ab51fb680532c31a1cecfab2ebe76c55370051428febb48bc17d474",
+  "sources": [
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL1138863/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1138863&limit=1000&offset=0",
+      "sha256": "fc99f8f762693fcebe0c762fc6219890333d12af8189d58c255ecdc323a17249"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL1143708/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1143708&limit=1000&offset=0",
+      "sha256": "5f5b46a66ddcbce9451999163e728484df9b6508a871c9280beb1a400339a98e"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL1156237/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1156237&limit=1000&offset=0",
+      "sha256": "8d9e69d1fe080d042732abb4c992ad75269c7115f879f4f9c28958a70612f31d"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL1629620/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1629620&limit=1000&offset=0",
+      "sha256": "f5eb090d412a3e002cd9f89238c8d8afe81a42cedc435a385423adbc5433f645"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL1667805/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1667805&limit=1000&offset=0",
+      "sha256": "175a54949bd334f883a320a68eb65dd3ab39997b6a88034a617674b52ba7e244"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL1799947/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1799947&limit=1000&offset=0",
+      "sha256": "6bb716c036eba68ea5fa2351450628fdcba224932f5ce9f7a5d6e26621f8aa77"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL1806434/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1806434&limit=1000&offset=0",
+      "sha256": "c71e43e77dafaa9856e4bf10c20db92adc2474fa6261d46d02b3d5333444d2be"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL1806488/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1806488&limit=1000&offset=0",
+      "sha256": "a0fc088575a244dd3530368b546bc51f9bac79e812528cf414c61ba6db543886"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL1811861/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL1811861&limit=1000&offset=0",
+      "sha256": "25450912e6f9a39fb6d8a1889457b59ebf169b96e6b27e9dd7a4def693c569f2"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL2021854/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL2021854&limit=1000&offset=0",
+      "sha256": "2222a629a0ad4d7141eed9d98f74302c63be98740b3bd69e92103b894661493c"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL2034874/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL2034874&limit=1000&offset=0",
+      "sha256": "d3de01aa1d8e914efda6ab37db9d4784fd787407c6545e24d89e9469b7821f94"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL2062419/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL2062419&limit=1000&offset=0",
+      "sha256": "f327df0f74e077316091ec24be8dedf7d42d968e03cf99808dff02fd2b9b90c3"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL2146385/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL2146385&limit=1000&offset=0",
+      "sha256": "44bd259fbe6580bbcc6ac361530f1f6967d96e7cd94986567fc1adfc7e506e61"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL3045116/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL3045116&limit=1000&offset=0",
+      "sha256": "5e90cca66936299312f9017c5994bc0ef6c1dfb5c7e9fb126bc0d2e3408a50ab"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL3046758/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL3046758&limit=1000&offset=0",
+      "sha256": "11564ffd1f95470701bf0010dcdadbe7442b159be8b97f3bcaf59227576771ff"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL3046811/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL3046811&limit=1000&offset=0",
+      "sha256": "51291141bdc44f15986f03418c8ba928de3914f331429ed8dd3e8198883cad96"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL3351523/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL3351523&limit=1000&offset=0",
+      "sha256": "021f2fa142933ac255a895a2a026ee1ed19a1ef27659f6adfc4f8a5251ca9cfa"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL3421576/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL3421576&limit=1000&offset=0",
+      "sha256": "28ace386388258f0842e73ecd0c5449cc41aed998b6c9d3ae20a0fba71fd5ee8"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL3616436/activity_1000.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL3616436&limit=1000&offset=1000",
+      "sha256": "fac4b7b9184cbcfa11f38773a1a0dd9ffeeefb97939db1c30b8f818ca460aa00"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL3734667/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL3734667&limit=1000&offset=0",
+      "sha256": "aa2553b9cdb4fb01b93ebef9305d3e76f8e8765877cc725ee4f1752612e95794"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL3808296/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL3808296&limit=1000&offset=0",
+      "sha256": "7b9fc7a0eac3bc998a04278f6e4b7cb9f701b5b96dfd09dbc70ccc0ba280d202"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL4000146/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL4000146&limit=1000&offset=0",
+      "sha256": "c6eae8fa70f6005c739cce8fb249ad94b626fcfad74c54de8f4ecc455a26e7a0"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL4130485/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL4130485&limit=1000&offset=0",
+      "sha256": "4929ec4c816823192b2f73db9e57ef0c9d900af10da4e4bfff5018d8263c0216"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL4145483/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL4145483&limit=1000&offset=0",
+      "sha256": "b6c8cb35651ca8dd566ec73046439ca8d3f0ab8345a22dd7ef499e2354a08cce"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL4196014/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL4196014&limit=1000&offset=0",
+      "sha256": "f792771785ffd14c27f6afde67940915ed501ef4c7e2f288008bbb19a4d84856"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL5346934/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL5346934&limit=1000&offset=0",
+      "sha256": "d95f1420cd02062a265bfb3fa859b0fff0c03736870ff15066dbcc44e484ed89"
+    },
+    {
+      "path": "/Users/sserivanov/Documents/Codex/2026-11-06/codex-resume-01a1b208-854e-7860-8598/work/gpu_pretrained/source_expansion/CHEMBL5512660/activity_0.json",
+      "url": "https://www.ebi.ac.uk/chembl/api/data/activity.json?document_chembl_id=CHEMBL5512660&limit=1000&offset=0",
+      "sha256": "fcf82b4ccbd1be76bfec34d48856d83799615ceecb4a15c78b6fd0add5191171"
+    }
+  ],
+  "limitations": [
+    "Different durations and assay conditions remain; no cross-assay CC50/IC50 ratio is constructed.",
+    "Only exact CC50 values enter point regression; inequalities remain separate intervals.",
+    "Fold validation scaffolds must be excluded before auxiliary training."
+  ]
+}

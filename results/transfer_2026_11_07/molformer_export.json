@@ -1,0 +1,59 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "candidate": "hybrid_external_a0.1_sqrt",
+  "config": {
+    "alpha": 0.1,
+    "external_weight": 0.25,
+    "transform": "sqrt",
+    "context": "additive",
+    "molformer_rbf_weight": 0.4,
+    "chiral_morgan_weight": 0.4,
+    "context_weight": 0.2
+  },
+  "status": "submitted_kaggle_public_verified",
+  "public_score": 1167213.19279,
+  "feature_allowlist": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "official_rows": 320,
+  "external_rows": 60,
+  "test_rows": 597,
+  "competition_parent_overlap": 0,
+  "test_fitted_transforms": false,
+  "test_outcomes_used": false,
+  "source_sha256": {
+    "script": "cbd9d8dc679a9a05817f13d612b7bf9149d36325536f249b2450b5b0468dde9a",
+    "pipeline": "40f58112de31484780b10cb90a8494fc0c3a0652d41a56d0e4ae1563695f4aab",
+    "train": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8",
+    "external": "442db3ba854729e034facbf00d809c1cce134f04e6f24f310a1158ec4e0cc11e",
+    "test": "1b0c6a014bbe556c42ef2277e867d2e1a647ad31c157a9cd81bbc7e262481abd",
+    "embeddings": "ea21ed8171b4e0f93ffac116b55aea35607c13af704dcd376dab4cc2dcf199b3"
+  },
+  "encoder": {
+    "model": "ibm-research/MoLFormer-XL-both-10pct",
+    "revision": "361063d0ad524ef77cf39b08469f6be770dc550f",
+    "weights_sha256": "0795977fe7192c4acdaf052f0e8464af57bc4bb59211271c5e61aaba2637b9c6",
+    "extractor_sha256": "301f32b1ae5f3652af0070d37c76368e71a135999c16a966c882b24ddd960bcc",
+    "max_tokens": 180,
+    "unknown_token_occurrences": 0,
+    "truncation": false
+  },
+  "submission_sha256": "5cffe7b48ff49dd5f74e4481eca5ec958e6ccccaf10dc52f69ad8615cd429b16",
+  "training_used_sha256": "48a0f2c162bcdd956c70e2fb37ab37c577dbf63926e7fde972870ec066c5e9aa",
+  "prediction_quantiles": [
+    0.0,
+    9.68163785839313,
+    170.3653423696404,
+    320.2915280777821,
+    2274.6814793751337,
+    8775.632594570205
+  ],
+  "submission_authorization": "User explicitly requested uploading the current locally improved candidate in this chat; one exploratory submission.",
+  "limitations": [
+    "Candidate chosen after exploratory comparisons; local quality is optimistic.",
+    "The source-scale MSE improvement does not guarantee Public improvement."
+  ],
+  "kaggle_result": "results/transfer_2026_11_07/kaggle_result.json"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "all_11_oof_protocols_match_export_implementation": true,
+  "max_absolute_prediction_difference": 4.774847184307873e-11,
+  "training_embedding_delta_with_appended_test": 1.9073486328125e-06,
+  "run_best_replay_byte_identical_submission": true,
+  "submission_sha256": "5cffe7b48ff49dd5f74e4481eca5ec958e6ccccaf10dc52f69ad8615cd429b16"
+}

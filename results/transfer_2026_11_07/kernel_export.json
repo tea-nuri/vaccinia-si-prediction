@@ -1,0 +1,48 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "status": "exploratory_not_kaggle_verified",
+  "config": {
+    "alpha": 0.1,
+    "external_weight": 0.25,
+    "molecular_kernel_weight": 0.8,
+    "context_kernel_weight": 0.2,
+    "transform": "log",
+    "radius": 2,
+    "fingerprint_size": 2048
+  },
+  "feature_allowlist": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "training_rows": 380,
+  "official_rows": 320,
+  "external_rows": 60,
+  "test_parent_overlap": 0,
+  "test_outcomes_used": false,
+  "competition_concentrations_used": false,
+  "source_sha256": {
+    "script": "8b17cefbcd560d33480297d2091ceeb790a9af5ce880c5283a89b963c07b5e38",
+    "pipeline": "40f58112de31484780b10cb90a8494fc0c3a0652d41a56d0e4ae1563695f4aab",
+    "train": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8",
+    "external": "442db3ba854729e034facbf00d809c1cce134f04e6f24f310a1158ec4e0cc11e",
+    "test": "1b0c6a014bbe556c42ef2277e867d2e1a647ad31c157a9cd81bbc7e262481abd"
+  },
+  "submission_sha256": "8788839d75f36554031483e893b07d71c3c1096728db06d193476b47573623a5",
+  "training_used_sha256": "48a0f2c162bcdd956c70e2fb37ab37c577dbf63926e7fde972870ec066c5e9aa",
+  "prediction_summary": {
+    "count": 597.0,
+    "mean": 47.38484582202127,
+    "std": 258.04047197989456,
+    "min": 0.0,
+    "25%": 1.358314321226552,
+    "50%": 5.436002196642725,
+    "75%": 23.37488608862753,
+    "max": 5264.670181370614
+  },
+  "limitations": [
+    "Selected after exploratory comparison on reused splits.",
+    "Local gains are modest and do not establish any Public improvement.",
+    "Original-scale MSE is evaluated on the full uncapped target."
+  ]
+}
