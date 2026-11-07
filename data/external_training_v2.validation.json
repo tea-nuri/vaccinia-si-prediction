@@ -1,0 +1,34 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "rows_proposed": 230,
+  "rows_excluded_competition_parent": 206,
+  "rows_excluded_conflicting_external_context": 0,
+  "rows_retained": 24,
+  "parent_structures_retained": 24,
+  "measured_rows": 23,
+  "explicit_inactive_rows": 1,
+  "test_parent_overlap": 0,
+  "train_parent_overlap": 0,
+  "policy": "Exclude all official train/test parent connectivities; no lookup or test-compound concentration feature is allowed.",
+  "used_by_current_model": false,
+  "source_sha256": {
+    "train_v2.csv": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8",
+    "test.csv": "1b0c6a014bbe556c42ef2277e867d2e1a647ad31c157a9cd81bbc7e262481abd",
+    "external.csv": "a578c00918581120ddead1ed68f71f46bcaa836b09605ba07b0a03b8235bd1a0",
+    "primary_literature.csv": "9caf3fac7f1aa1fbce11c9611c3b6fe51891b7cb6a9bbeda9e0300c9cd7fc204",
+    "literature_candidates.csv": "12df79381aa0d2c0b0eed88209f946580d857667a87d039652880550e16d38da",
+    "camphor2022.csv": "bb98ffaba6f5a05030ab76150adafb3ee24cdd9cf2417a56b777d973c4e1be2c"
+  },
+  "collector_sha256": "de44d8e9ea1a424d3e3c4c7b2cae2bce770959b2dae78f69a46eda686f106dd1",
+  "output_sha256": "257ddc9f4ec8e600c8a16b7f7662bb77a88b68d3e5764a630edb5a8321657fc9",
+  "source_urls_and_snapshot_hashes": [
+    "data/sources.json",
+    "data/evidence_sources.json",
+    "data/primary_structure_evidence.json"
+  ],
+  "limitations": [
+    "Outside-competition external records have different assay contexts.",
+    "Model_target zero is a task convention for an explicit inactive annotation, not a measured SI.",
+    "Additional fold-level scaffold exclusions are required if this pool is used for scaffold validation."
+  ]
+}

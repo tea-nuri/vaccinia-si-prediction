@@ -1,0 +1,12 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "status": "passed",
+  "rows": 597,
+  "independent_cli_replay_max_absolute_difference": 1.0231815394945443e-12,
+  "reloaded_model_max_absolute_difference": 1.0231815394945443e-12,
+  "submission_sha256": "fec2e98928b75792b2952eb8bef02b1baf90063fb967eb2aa339dff7c78d29d1",
+  "model_source_sha256": "40f58112de31484780b10cb90a8494fc0c3a0652d41a56d0e4ae1563695f4aab",
+  "new_unit_tests_passed": 5,
+  "all11_validation_completed": true,
+  "external_test_measurements_used": false
+}

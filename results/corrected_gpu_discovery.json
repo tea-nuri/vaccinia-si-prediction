@@ -1,0 +1,2442 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "status": "completed_discovery",
+  "trainer_provenance": {
+    "status": "completed",
+    "variants": [
+      "descriptors_context",
+      "fingerprint_context",
+      "serialized_context"
+    ],
+    "splits": [
+      "scaffold",
+      "scaffold_shuffle42",
+      "scaffold_shuffle2026",
+      "42",
+      "2026"
+    ],
+    "training_config": {
+      "package": "tabpfn==9.2.0",
+      "package_commit": "f02b3b5941717472eafd078c15ae2043676b3fcf",
+      "model": "Prior-Labs/TabPFN-v2-reg",
+      "model_revision": "02a44705ff7790b50cded404bc59adb94da456a1",
+      "checkpoint_filename": "tabpfn-v2-regressor.ckpt",
+      "checkpoint_sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+      "model_version": "v2",
+      "n_estimators": 4,
+      "seed": 42,
+      "device": "cuda",
+      "fit_mode": "fit_preprocessors",
+      "inference_precision": "auto",
+      "enable_torch_compile": false,
+      "n_preprocessing_jobs": 1,
+      "inference_config": {
+        "MIN_UNIQUE_FOR_NUMERICAL_FEATURES": 0,
+        "MAX_UNIQUE_FOR_CATEGORICAL_FEATURES": 10000
+      },
+      "preprocessing": {
+        "numeric": "float64; nonfinite values become NaN; no global fitted transform",
+        "context": "train-fold sorted ordinal dictionary; unknown to NaN; declared categorical",
+        "context_columns": 2,
+        "internal": "pinned TabPFN v2 default preprocessors fitted on training fold"
+      },
+      "target_transform": "none outside estimator; pinned v2 internal standardization and (None,safepower)",
+      "target_clipping": null,
+      "prediction_clipping": null,
+      "prediction_type": "mean",
+      "external_corrections": false,
+      "max_input_features": 500
+    },
+    "input": {
+      "labeled_rows": 320,
+      "input_rows": 917,
+      "unused_unlabeled_rows": 597,
+      "input_shapes": {
+        "descriptors": [
+          917,
+          217
+        ],
+        "fingerprint": [
+          917,
+          256
+        ],
+        "serialized": [
+          917,
+          41
+        ]
+      },
+      "nonfinite_to_nan_labeled": {
+        "descriptors": 24,
+        "fingerprint": 0,
+        "serialized": 0
+      }
+    },
+    "numeric_sha256": "c2b03c1d839ebb171956b32a4eec6651283b840605b6b86b4c3b5b79bee50964",
+    "folds_input_sha256": "0e43e2b9f6fd7d08c1df3a9f4c155ace81bf0c1b979a3baa7467d5a58e0be026",
+    "normalized_folds_sha256": "9b3300eaa8b7868fb393ba23211c9c37c4d0e5656d615392afd955eb704721ef",
+    "script_sha256": "9ac2864d3464c062ebc70273f4ed34749b5349e7520c5570040da290f52a262b",
+    "source_sha256": {
+      "data/train_v2.csv": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8",
+      "data/test.csv": "1b0c6a014bbe556c42ef2277e867d2e1a647ad31c157a9cd81bbc7e262481abd"
+    },
+    "input_metadata_sha256": "f67e05356644a9274555ebd65991857fb00646f4b7ab9634256c48205d0e4d71",
+    "sources": {
+      "package": "https://github.com/PriorLabs/TabPFN/tree/f02b3b5941717472eafd078c15ae2043676b3fcf",
+      "model": "https://huggingface.co/Prior-Labs/TabPFN-v2-reg/tree/02a44705ff7790b50cded404bc59adb94da456a1",
+      "weights_license": "https://huggingface.co/Prior-Labs/TabPFN-v2-reg/blob/02a44705ff7790b50cded404bc59adb94da456a1/LICENSE.txt",
+      "model_limits": "https://docs.priorlabs.ai/models",
+      "telemetry_opt_out": "https://github.com/PriorLabs/tabpfn_common_utils"
+    },
+    "fold_results": [
+      {
+        "split": "scaffold",
+        "variant": "descriptors_context",
+        "fold": 0,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "6a74d32e6ffe0c068e0f772428ab814a23c27b0a936d545606b4df5ed5637f1e",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          13,
+          16
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0770668520053732,
+        "predict_seconds": 1.1332047179967049,
+        "total_seconds": 2.210271570002078,
+        "peak_gpu_memory_bytes": 288456704,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "descriptors_context",
+        "fold": 1,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "64ed2791cf6346cd6dbce82cacbe4285858e3a984fc8d647e351645698f328dc",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          5
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.1012550290033687,
+        "predict_seconds": 0.2600649249943672,
+        "total_seconds": 1.3613199539977359,
+        "peak_gpu_memory_bytes": 288771072,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "descriptors_context",
+        "fold": 2,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "067860667b69ad7f17d6000693b6ed898b099a0dd9e1253cdfd3f850b6999c0a",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          9
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0697956160001922,
+        "predict_seconds": 0.2649080999981379,
+        "total_seconds": 1.3347037159983302,
+        "peak_gpu_memory_bytes": 288965120,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "descriptors_context",
+        "fold": 3,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "f33645c12b870ec258c13b0b74fefc10a179877ed654bd1b56b6a3450bfe17ad",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          4
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0161120250049862,
+        "predict_seconds": 0.25547041499521583,
+        "total_seconds": 1.271582440000202,
+        "peak_gpu_memory_bytes": 289022464,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "descriptors_context",
+        "fold": 4,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "b35591813aab7a16e40574fffbad3bde82f0b4d59e1211b2642a4e01517a558d",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          14,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          2,
+          2
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0091147939965595,
+        "predict_seconds": 0.24239650399977108,
+        "total_seconds": 1.2515112979963305,
+        "peak_gpu_memory_bytes": 285938176,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "fingerprint_context",
+        "fold": 0,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "1f9f9a23ae8697307286ea621068192293dbf1f8ef0398ca30be2caa3c983185",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          13,
+          16
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.1201707470027031,
+        "predict_seconds": 0.2918291610039887,
+        "total_seconds": 1.4119999080066918,
+        "peak_gpu_memory_bytes": 337453056,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "fingerprint_context",
+        "fold": 1,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "082c5885ac47b6253c0560eea7c5e1151dc4bd970cc1ab0d0afa20b5f536d161",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          5
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.080467646002944,
+        "predict_seconds": 0.29130879099830054,
+        "total_seconds": 1.3717764370012446,
+        "peak_gpu_memory_bytes": 337453056,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "fingerprint_context",
+        "fold": 2,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "13c45f0290ebdac7f7a4ac432e395565de7a8b8526f1e890393e2c16996aa208",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          9
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.1128191969983163,
+        "predict_seconds": 0.2881558699955349,
+        "total_seconds": 1.4009750669938512,
+        "peak_gpu_memory_bytes": 337453056,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "fingerprint_context",
+        "fold": 3,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "4f018369e56daf532e4c9543ddf0bfd71734c54508c7e756391768b5b8f957d0",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          4
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.1790483220029273,
+        "predict_seconds": 0.2874432050011819,
+        "total_seconds": 1.4664915270041092,
+        "peak_gpu_memory_bytes": 337453056,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "fingerprint_context",
+        "fold": 4,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "97f01d8511b82ee604708367b5a004d3e954da26e9491f960f5ceae3b76c94d6",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          14,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          2,
+          2
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.0696746869944036,
+        "predict_seconds": 0.28713164000510005,
+        "total_seconds": 1.3568063269995037,
+        "peak_gpu_memory_bytes": 337453056,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "serialized_context",
+        "fold": 0,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "1389f454453dda4f4c4259a96a9c65b1be4edd6d37e4111808977b4526ba9058",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          13,
+          16
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.30845013400539756,
+        "predict_seconds": 0.1335475449959631,
+        "total_seconds": 0.44199767900136067,
+        "peak_gpu_memory_bytes": 118683648,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "serialized_context",
+        "fold": 1,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "9c1b921e33ac2e3c0296238cfbd6036ba4ef534f8bb04c3f30ee928044447e42",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          5
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.30009759300446603,
+        "predict_seconds": 0.13883000799978618,
+        "total_seconds": 0.4389276010042522,
+        "peak_gpu_memory_bytes": 118683648,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "serialized_context",
+        "fold": 2,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "a5d793970a3fded46c3cc6a7f7f78e4d2f963efe8856ca12824f62b268f7cca4",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          9
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3189740649977466,
+        "predict_seconds": 0.13441686200530967,
+        "total_seconds": 0.4533909270030563,
+        "peak_gpu_memory_bytes": 118683648,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "serialized_context",
+        "fold": 3,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "d7000946e260fe22faf550d67c6a585469b134a31b0322db25feaf318667571f",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          4
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3166191450000042,
+        "predict_seconds": 0.13357078599801753,
+        "total_seconds": 0.45018993099802174,
+        "peak_gpu_memory_bytes": 118683648,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold",
+        "variant": "serialized_context",
+        "fold": 4,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "e31176900fa05577d72b83d4ac23599a5ea280fb18f075d72c8f8bb7ee90c7a8",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          14,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          2,
+          2
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.38784861800377257,
+        "predict_seconds": 0.1694847539984039,
+        "total_seconds": 0.5573333720021765,
+        "peak_gpu_memory_bytes": 118683648,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "descriptors_context",
+        "fold": 0,
+        "train_rows": 253,
+        "validation_rows": 67,
+        "cache_signature": "08ba5e89372703b723acbed7ed30db38b8d4d77728da44a2e137bebf4e180890",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          37
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          0
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 0.9916867629945045,
+        "predict_seconds": 0.26956805100053316,
+        "total_seconds": 1.2612548139950377,
+        "peak_gpu_memory_bytes": 289359360,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "descriptors_context",
+        "fold": 1,
+        "train_rows": 257,
+        "validation_rows": 63,
+        "cache_signature": "534dc88643beabf9bf3c8ef408797ac5b1fb3fc5043c958fc0a0fa57cdeb13a4",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          32
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          7
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0210349409971968,
+        "predict_seconds": 0.2689587130007567,
+        "total_seconds": 1.2899936539979535,
+        "peak_gpu_memory_bytes": 289680896,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "descriptors_context",
+        "fold": 2,
+        "train_rows": 258,
+        "validation_rows": 62,
+        "cache_signature": "742ed4072ac3ef16440830507f0cfb03efb167046eb00b648c71c3506a911dd7",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          32
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          8
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0388391870001215,
+        "predict_seconds": 0.27474517200607806,
+        "total_seconds": 1.3135843590061995,
+        "peak_gpu_memory_bytes": 289837056,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "descriptors_context",
+        "fold": 3,
+        "train_rows": 257,
+        "validation_rows": 63,
+        "cache_signature": "6fd6bc817fd14aeab2fc957373920efe4ca534717e6bb3015d9dba6bee05e405",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          13,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          22,
+          15
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0281678950050264,
+        "predict_seconds": 0.270144825000898,
+        "total_seconds": 1.2983127200059243,
+        "peak_gpu_memory_bytes": 290053632,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "descriptors_context",
+        "fold": 4,
+        "train_rows": 255,
+        "validation_rows": 65,
+        "cache_signature": "5c4927bb5ceb5e2219a2121b04c5faddf71a55012a2d0e87c5bd7cfdf6e5347f",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          2
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0266529579967028,
+        "predict_seconds": 0.2567660109998542,
+        "total_seconds": 1.283418968996557,
+        "peak_gpu_memory_bytes": 290043904,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "fingerprint_context",
+        "fold": 0,
+        "train_rows": 253,
+        "validation_rows": 67,
+        "cache_signature": "8ebf658289be8fda74afd558b26df8bce2bb0341087ea7118920aadb1ea9278d",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          37
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          0
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.1874001719988883,
+        "predict_seconds": 0.2996676530019613,
+        "total_seconds": 1.4870678250008496,
+        "peak_gpu_memory_bytes": 338482176,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "fingerprint_context",
+        "fold": 1,
+        "train_rows": 257,
+        "validation_rows": 63,
+        "cache_signature": "ec73ccc96f0acaa5c79addd3407cb0cb26dd945c225ad61b72458fd907aa4dc6",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          32
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          7
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2096480340042035,
+        "predict_seconds": 0.3088691109951469,
+        "total_seconds": 1.5185171449993504,
+        "peak_gpu_memory_bytes": 338362368,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "fingerprint_context",
+        "fold": 2,
+        "train_rows": 258,
+        "validation_rows": 62,
+        "cache_signature": "3c8f9e6b26f7597f255fb1c930c16dd4784e1070ef39abee60fbf435f357ae7a",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          32
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          8
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2050058059976436,
+        "predict_seconds": 0.3103946760020335,
+        "total_seconds": 1.5154004819996771,
+        "peak_gpu_memory_bytes": 338332160,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "fingerprint_context",
+        "fold": 3,
+        "train_rows": 257,
+        "validation_rows": 63,
+        "cache_signature": "cc235504cc854f277599425ad4f7cbbccb55865203fc7c8a8feb4710b31b9488",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          13,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          22,
+          15
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.1844485520050512,
+        "predict_seconds": 0.31357217999902787,
+        "total_seconds": 1.498020732004079,
+        "peak_gpu_memory_bytes": 338362368,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "fingerprint_context",
+        "fold": 4,
+        "train_rows": 255,
+        "validation_rows": 65,
+        "cache_signature": "7b535a991700d199e6762dd1375a96278391dbbcc8da4f6ae7327201e0459b89",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          2
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.1797701720061013,
+        "predict_seconds": 0.2969251299946336,
+        "total_seconds": 1.476695302000735,
+        "peak_gpu_memory_bytes": 338422272,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "serialized_context",
+        "fold": 0,
+        "train_rows": 253,
+        "validation_rows": 67,
+        "cache_signature": "d3f9a947f639bd873cd5896442a42afc1abac21cec53cd9502dc9c6fb4092275",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          37
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          0
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3438261409974075,
+        "predict_seconds": 0.16315101500367746,
+        "total_seconds": 0.506977156001085,
+        "peak_gpu_memory_bytes": 119712768,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "serialized_context",
+        "fold": 1,
+        "train_rows": 257,
+        "validation_rows": 63,
+        "cache_signature": "9eb1bfa719ebc2655a6ca36c7ad4b39680519efd2c9addccb14732166a3111f3",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          32
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          7
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3293816820005304,
+        "predict_seconds": 0.15700333299901104,
+        "total_seconds": 0.48638501499954145,
+        "peak_gpu_memory_bytes": 119592960,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "serialized_context",
+        "fold": 2,
+        "train_rows": 258,
+        "validation_rows": 62,
+        "cache_signature": "cc0f6e7ef76fc5404b1ba410bd59144b33f27010faf588e462bafc47ae6a557d",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          32
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          8
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.34492455999861704,
+        "predict_seconds": 0.15107141099724686,
+        "total_seconds": 0.4959959709958639,
+        "peak_gpu_memory_bytes": 119562752,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "serialized_context",
+        "fold": 3,
+        "train_rows": 257,
+        "validation_rows": 63,
+        "cache_signature": "06c9ab8a3c9aac7775494da98c5778b86bdf9c0d04641286a6e2f49cd6913283",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          13,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          22,
+          15
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.34001813099894207,
+        "predict_seconds": 0.18817324999690754,
+        "total_seconds": 0.5281913809958496,
+        "peak_gpu_memory_bytes": 119592960,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle42",
+        "variant": "serialized_context",
+        "fold": 4,
+        "train_rows": 255,
+        "validation_rows": 65,
+        "cache_signature": "724d062fda20eff230a77a915edc00ee95e1803b95a7bf391d797ac199bea145",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          2
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.33873738200054504,
+        "predict_seconds": 0.15107489300135057,
+        "total_seconds": 0.4898122750018956,
+        "peak_gpu_memory_bytes": 119652864,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "descriptors_context",
+        "fold": 0,
+        "train_rows": 262,
+        "validation_rows": 58,
+        "cache_signature": "be733534981c7646fcdded8bef724fde5deee05e6fac568e6e8ab9bb412a81e4",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          8,
+          2
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0554010210034903,
+        "predict_seconds": 0.2866282799950568,
+        "total_seconds": 1.3420293009985471,
+        "peak_gpu_memory_bytes": 290157056,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "descriptors_context",
+        "fold": 1,
+        "train_rows": 261,
+        "validation_rows": 59,
+        "cache_signature": "0825c58d399afc54cd392c1d29cfc36839cb9e23fe56161fc2794da8531a82d7",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          4
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0943706370017026,
+        "predict_seconds": 0.26848185799462954,
+        "total_seconds": 1.362852494996332,
+        "peak_gpu_memory_bytes": 290373632,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "descriptors_context",
+        "fold": 2,
+        "train_rows": 243,
+        "validation_rows": 77,
+        "cache_signature": "c64064cead88248c20fd5ff19a87934234c8d29c8c328e413b854b70a0b4af5f",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          32
+        ],
+        "context_unknown_validation_rows": [
+          13,
+          18
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 0.9639143480017083,
+        "predict_seconds": 0.25959190399589716,
+        "total_seconds": 1.2235062519976054,
+        "peak_gpu_memory_bytes": 287963136,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "descriptors_context",
+        "fold": 3,
+        "train_rows": 267,
+        "validation_rows": 53,
+        "cache_signature": "f70723544e776a10b29f03415a013eafd71903a9f8d1b418fe57a5f334a86a8d",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          14,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          2,
+          2
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0071678219974274,
+        "predict_seconds": 0.2648340140003711,
+        "total_seconds": 1.2720018359977985,
+        "peak_gpu_memory_bytes": 291751936,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "descriptors_context",
+        "fold": 4,
+        "train_rows": 247,
+        "validation_rows": 73,
+        "cache_signature": "48ab4c25b3f24b976df5b02cada61c7d109edd5396793bd8ea57257bde3bd336",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          6
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 0.8739242980009294,
+        "predict_seconds": 0.26397294199705357,
+        "total_seconds": 1.137897239997983,
+        "peak_gpu_memory_bytes": 288136192,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "fingerprint_context",
+        "fold": 0,
+        "train_rows": 262,
+        "validation_rows": 58,
+        "cache_signature": "7e491ca39865901e3258bf8f6b0be53374ebb7f3e85f4767c6b46abc14f23412",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          8,
+          2
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.235235548003402,
+        "predict_seconds": 0.31597676599631086,
+        "total_seconds": 1.551212313999713,
+        "peak_gpu_memory_bytes": 339156992,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "fingerprint_context",
+        "fold": 1,
+        "train_rows": 261,
+        "validation_rows": 59,
+        "cache_signature": "319a9b5dabb80e8945c8a00e850fce94b4c688261d6925464051286665d2408d",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          4
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2791941269970266,
+        "predict_seconds": 0.31628911799634807,
+        "total_seconds": 1.5954832449933747,
+        "peak_gpu_memory_bytes": 336495104,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "fingerprint_context",
+        "fold": 2,
+        "train_rows": 243,
+        "validation_rows": 77,
+        "cache_signature": "ac2b894dc722a920459fc2734de0812f7d014bb0e0befa79807abde634b8de5a",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          32
+        ],
+        "context_unknown_validation_rows": [
+          13,
+          18
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2708594239957165,
+        "predict_seconds": 0.29930310800409643,
+        "total_seconds": 1.570162531999813,
+        "peak_gpu_memory_bytes": 339849216,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "fingerprint_context",
+        "fold": 3,
+        "train_rows": 267,
+        "validation_rows": 53,
+        "cache_signature": "04ac79221ea9df48b51beedc10027e5fd9742d30cec8f8fd78a556590e059b4e",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          14,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          2,
+          2
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2346616150025511,
+        "predict_seconds": 0.3119950059990515,
+        "total_seconds": 1.5466566210016026,
+        "peak_gpu_memory_bytes": 339007488,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "fingerprint_context",
+        "fold": 4,
+        "train_rows": 247,
+        "validation_rows": 73,
+        "cache_signature": "12a9b48cb13e82a98a5cf19eb43c20f7b08be4c476f5cd5aca6eda64ec69e71b",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          6
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2475881819991628,
+        "predict_seconds": 0.30647454599966295,
+        "total_seconds": 1.5540627279988257,
+        "peak_gpu_memory_bytes": 339649536,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "serialized_context",
+        "fold": 0,
+        "train_rows": 262,
+        "validation_rows": 58,
+        "cache_signature": "5b7522579a60a18dbc4efec783209755c7e2ab33203b022e898d90b0d55ab1b1",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          8,
+          2
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3341813109946088,
+        "predict_seconds": 0.160587664002378,
+        "total_seconds": 0.4947689749969868,
+        "peak_gpu_memory_bytes": 120387584,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "serialized_context",
+        "fold": 1,
+        "train_rows": 261,
+        "validation_rows": 59,
+        "cache_signature": "9e408c01a5645bcc0d8d3290c19be534df01e1c0a4fcfcae14319af1cc8d544e",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          4
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3389001810064656,
+        "predict_seconds": 0.15507490699383197,
+        "total_seconds": 0.49397508800029755,
+        "peak_gpu_memory_bytes": 120417792,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "serialized_context",
+        "fold": 2,
+        "train_rows": 243,
+        "validation_rows": 77,
+        "cache_signature": "d2a583e6be5bf7ca6ae4158cee909016a87e794dc9d8a2fe369a2afb8843ca8c",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          32
+        ],
+        "context_unknown_validation_rows": [
+          13,
+          18
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3327379949987517,
+        "predict_seconds": 0.15342030600004364,
+        "total_seconds": 0.4861583009987953,
+        "peak_gpu_memory_bytes": 118526976,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "serialized_context",
+        "fold": 3,
+        "train_rows": 267,
+        "validation_rows": 53,
+        "cache_signature": "b4d61d354223c3bb73bb5b6197622c95d2b8228d793c337e3d2045d854995d83",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          14,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          2,
+          2
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3394903049993445,
+        "predict_seconds": 0.15851364199625095,
+        "total_seconds": 0.49800394699559547,
+        "peak_gpu_memory_bytes": 120238080,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "scaffold_shuffle2026",
+        "variant": "serialized_context",
+        "fold": 4,
+        "train_rows": 247,
+        "validation_rows": 73,
+        "cache_signature": "06c090a72e7f7dae29b28abd89d9833fdcd9427d297dc76fd8238c8ec8793d54",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          6
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.33458527000038885,
+        "predict_seconds": 0.15520308399572968,
+        "total_seconds": 0.48978835399611853,
+        "peak_gpu_memory_bytes": 118327296,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "descriptors_context",
+        "fold": 0,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "807861db40c4f7bc11fa1457e67611a8c1f00f53d58013395faad6e7e8a22b1e",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          1
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0520259660042939,
+        "predict_seconds": 0.2636927220009966,
+        "total_seconds": 1.3157186880052905,
+        "peak_gpu_memory_bytes": 291406848,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "descriptors_context",
+        "fold": 1,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "1b9cc832e5f32cb7a401427b822e0f3da18b9114417c5a9e653e4c4cd495f9ad",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          1
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0775557679953636,
+        "predict_seconds": 0.2631041940039722,
+        "total_seconds": 1.3406599619993358,
+        "peak_gpu_memory_bytes": 292641280,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "descriptors_context",
+        "fold": 2,
+        "train_rows": 258,
+        "validation_rows": 62,
+        "cache_signature": "54385761e9b8879196be623f6ab8b8023538a119c698372857a1160056363ef4",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          4
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 0.9812582349986769,
+        "predict_seconds": 0.2631091950024711,
+        "total_seconds": 1.244367430001148,
+        "peak_gpu_memory_bytes": 287213056,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "descriptors_context",
+        "fold": 3,
+        "train_rows": 254,
+        "validation_rows": 66,
+        "cache_signature": "89dd4c3766d1277687965474b85f6f483f0ec6ddb56094d4e9d6383913ad6f77",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          2
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0363330219988711,
+        "predict_seconds": 0.2604012800002238,
+        "total_seconds": 1.296734301999095,
+        "peak_gpu_memory_bytes": 292033536,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "descriptors_context",
+        "fold": 4,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "1e61e67a379856a393ccbf1035128db4c3b9372cd05611d40e1414642a2c14cf",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          2
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0258520850038622,
+        "predict_seconds": 0.2541460290012765,
+        "total_seconds": 1.2799981140051386,
+        "peak_gpu_memory_bytes": 291901952,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "fingerprint_context",
+        "fold": 0,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "4f3a8a305e6b770e3bb9bfe69e00eedfab7bddeeab3f674ed083264e1120c5ee",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          1
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2215745729990886,
+        "predict_seconds": 0.3027145010055392,
+        "total_seconds": 1.5242890740046278,
+        "peak_gpu_memory_bytes": 340282880,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "fingerprint_context",
+        "fold": 1,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "31a5c86760406c551bfd1f07798ddbf97c5741fd7eb534527aa50b00b6b542fd",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          1
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.1993258980000974,
+        "predict_seconds": 0.2981543580026482,
+        "total_seconds": 1.4974802560027456,
+        "peak_gpu_memory_bytes": 340282880,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "fingerprint_context",
+        "fold": 2,
+        "train_rows": 258,
+        "validation_rows": 62,
+        "cache_signature": "1a5b808e196d39b13d7e69e9c0803ba3f123de76a985d13b241f51d5f28cd1ac",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          4
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.200977217995387,
+        "predict_seconds": 0.30671784299920546,
+        "total_seconds": 1.5076950609945925,
+        "peak_gpu_memory_bytes": 340223488,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "fingerprint_context",
+        "fold": 3,
+        "train_rows": 254,
+        "validation_rows": 66,
+        "cache_signature": "300dad18de650fbdb53b740f6525b542c021829549712d6db765c7c65d81a5a9",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          2
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.229573671000253,
+        "predict_seconds": 0.30611857100302586,
+        "total_seconds": 1.5356922420032788,
+        "peak_gpu_memory_bytes": 340343808,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "fingerprint_context",
+        "fold": 4,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "f1377cdfd21db3ef169591c06d04a4ca7d019411f93248eac787fb4aafe16691",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          2
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2911164409961202,
+        "predict_seconds": 0.3032915560033871,
+        "total_seconds": 1.5944079969995073,
+        "peak_gpu_memory_bytes": 340282880,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "serialized_context",
+        "fold": 0,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "e48017bddb770b95c00b87096031ad5552abf402ed50ec8243f007033e5d9b3a",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          1
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.34839353000279516,
+        "predict_seconds": 0.16464750199520495,
+        "total_seconds": 0.5130410319980001,
+        "peak_gpu_memory_bytes": 121513472,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "serialized_context",
+        "fold": 1,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "18618b12d7471e5584c32f8377be22afad2c56bbb36da1adcefce51b63f87095",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          1
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.33863585100334603,
+        "predict_seconds": 0.15432437399431365,
+        "total_seconds": 0.4929602249976597,
+        "peak_gpu_memory_bytes": 121513472,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "serialized_context",
+        "fold": 2,
+        "train_rows": 258,
+        "validation_rows": 62,
+        "cache_signature": "141100094515e8bcedda5678b4793d870274440d807b5181b3767184625ff069",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          4
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3347166959938477,
+        "predict_seconds": 0.1563032770063728,
+        "total_seconds": 0.4910199730002205,
+        "peak_gpu_memory_bytes": 121454080,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "serialized_context",
+        "fold": 3,
+        "train_rows": 254,
+        "validation_rows": 66,
+        "cache_signature": "69c6f0e5e77c5369cc10580950c41af34a14249e50fdd6f29f88d174b0bf4c71",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          2
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3295457259955583,
+        "predict_seconds": 0.1578105209991918,
+        "total_seconds": 0.4873562469947501,
+        "peak_gpu_memory_bytes": 121574400,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "42",
+        "variant": "serialized_context",
+        "fold": 4,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "e4dab20b8dfa3a59e51b86b4e02766e8a01d4b8cbb9f31efc75f8acc8f311fba",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          2
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3293138799999724,
+        "predict_seconds": 0.1513927159976447,
+        "total_seconds": 0.4807065959976171,
+        "peak_gpu_memory_bytes": 121513472,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "descriptors_context",
+        "fold": 0,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "e3f5d53f3c732347368e745bfd8c5ad20e32f994829156a0be88a7d554984405",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          2
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 0.9839943769984529,
+        "predict_seconds": 0.2649975359963719,
+        "total_seconds": 1.2489919129948248,
+        "peak_gpu_memory_bytes": 292226560,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "descriptors_context",
+        "fold": 1,
+        "train_rows": 254,
+        "validation_rows": 66,
+        "cache_signature": "f9f5f530a964c73316b71040cab17f8f7dedffa5037f59dfc672517adc56d69f",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          1
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.022524132997205,
+        "predict_seconds": 0.26066114800050855,
+        "total_seconds": 1.2831852809977136,
+        "peak_gpu_memory_bytes": 292344832,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "descriptors_context",
+        "fold": 2,
+        "train_rows": 258,
+        "validation_rows": 62,
+        "cache_signature": "7aadd9b57b8f9041717878d1b99e8ba32db950bd1f546ecceb6c22d0ae0f6f5e",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          5
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.038302978995489,
+        "predict_seconds": 0.26694618000328774,
+        "total_seconds": 1.3052491589987767,
+        "peak_gpu_memory_bytes": 292410880,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "descriptors_context",
+        "fold": 3,
+        "train_rows": 255,
+        "validation_rows": 65,
+        "cache_signature": "313a3ce93bc26efba07e4d76a40e605b7c9f5e7be3380f1bde7aa268eae18326",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          2
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0181629340004292,
+        "predict_seconds": 0.25461118199746124,
+        "total_seconds": 1.2727741159978905,
+        "peak_gpu_memory_bytes": 292942336,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "descriptors_context",
+        "fold": 4,
+        "train_rows": 257,
+        "validation_rows": 63,
+        "cache_signature": "f3c3cda39a2b6b93f29e8fbad32e54e60ec79c1a24a2502ccfba5e91026dfda6",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          4
+        ],
+        "input_feature_count": 219,
+        "fit_seconds": 1.0531388069939567,
+        "predict_seconds": 0.269754175998969,
+        "total_seconds": 1.3228929829929257,
+        "peak_gpu_memory_bytes": 294118400,
+        "categorical_feature_indices": [
+          217,
+          218
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "fingerprint_context",
+        "fold": 0,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "cea025acb0fa1a27f0d1dd8c7884f0e748f15f0e99ba176e6669603e52dd08e1",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          2
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2001618330032215,
+        "predict_seconds": 0.2990621290009585,
+        "total_seconds": 1.49922396200418,
+        "peak_gpu_memory_bytes": 341224448,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "fingerprint_context",
+        "fold": 1,
+        "train_rows": 254,
+        "validation_rows": 66,
+        "cache_signature": "44997ac40af4d0becd2cd7cbff37919e8df49433fb1df8f46120994228cfd8a9",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          1
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2057687710039318,
+        "predict_seconds": 0.2990202590008266,
+        "total_seconds": 1.5047890300047584,
+        "peak_gpu_memory_bytes": 341285376,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "fingerprint_context",
+        "fold": 2,
+        "train_rows": 258,
+        "validation_rows": 62,
+        "cache_signature": "071b0ff3665ebdbba15f0a4a738152c84f0d9cd3f17ab58b036d959b8536928a",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          5
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.1787470529961865,
+        "predict_seconds": 0.30930712199915433,
+        "total_seconds": 1.4880541749953409,
+        "peak_gpu_memory_bytes": 341165056,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "fingerprint_context",
+        "fold": 3,
+        "train_rows": 255,
+        "validation_rows": 65,
+        "cache_signature": "387f9718c814d168b264d6631e8f054749f53b8b410de1d320dcf1ba5a0cae28",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          2
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.1781093120007426,
+        "predict_seconds": 0.29801683600089746,
+        "total_seconds": 1.47612614800164,
+        "peak_gpu_memory_bytes": 341255168,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "fingerprint_context",
+        "fold": 4,
+        "train_rows": 257,
+        "validation_rows": 63,
+        "cache_signature": "ea4ff810bd851bfef7515fbae656518b10dbdc39c007bf81b58296f20460b55f",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          4
+        ],
+        "input_feature_count": 258,
+        "fit_seconds": 1.2510795799971675,
+        "predict_seconds": 0.3239181250028196,
+        "total_seconds": 1.574997704999987,
+        "peak_gpu_memory_bytes": 341195264,
+        "categorical_feature_indices": [
+          256,
+          257
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "serialized_context",
+        "fold": 0,
+        "train_rows": 256,
+        "validation_rows": 64,
+        "cache_signature": "ce0f89f382d7b1795e3152fae28426f77db1dd278b4fd318ff91627a3db216b0",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          2
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.32977297300385544,
+        "predict_seconds": 0.15086673299811082,
+        "total_seconds": 0.48063970600196626,
+        "peak_gpu_memory_bytes": 122455040,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "serialized_context",
+        "fold": 1,
+        "train_rows": 254,
+        "validation_rows": 66,
+        "cache_signature": "fa51eb8329ac83c1c5d93b69d526c4901f5945e35bca8358a66fcb0c72d2dc95",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          36
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          1
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.33104806899791583,
+        "predict_seconds": 0.15122819200041704,
+        "total_seconds": 0.4822762609983329,
+        "peak_gpu_memory_bytes": 122515968,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "serialized_context",
+        "fold": 2,
+        "train_rows": 258,
+        "validation_rows": 62,
+        "cache_signature": "00e8416a8b6f61b3598d3158fe43dd66be2fb876f2ec54ba1c2eeeb1529f92f2",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          33
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          5
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.32889579699985916,
+        "predict_seconds": 0.2375906889938051,
+        "total_seconds": 0.5664864859936642,
+        "peak_gpu_memory_bytes": 122395648,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "serialized_context",
+        "fold": 3,
+        "train_rows": 255,
+        "validation_rows": 65,
+        "cache_signature": "60575e3dc59475b7073a6d854b7c17ebfeb2265f79eabf20e61ce1339ac4dbbb",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          15,
+          35
+        ],
+        "context_unknown_validation_rows": [
+          1,
+          2
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.3227790279997862,
+        "predict_seconds": 0.1518200060017989,
+        "total_seconds": 0.4745990340015851,
+        "peak_gpu_memory_bytes": 122485760,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      },
+      {
+        "split": "2026",
+        "variant": "serialized_context",
+        "fold": 4,
+        "train_rows": 257,
+        "validation_rows": 63,
+        "cache_signature": "c7df9df2663fcf6016587d9f16a53110348b870c5341aa259e085cc8e86033e4",
+        "loaded_from_cache": false,
+        "context_training_cardinalities": [
+          16,
+          34
+        ],
+        "context_unknown_validation_rows": [
+          0,
+          4
+        ],
+        "input_feature_count": 43,
+        "fit_seconds": 0.32274579600198194,
+        "predict_seconds": 0.16012065899849404,
+        "total_seconds": 0.482866455000476,
+        "peak_gpu_memory_bytes": 122425856,
+        "categorical_feature_indices": [
+          41,
+          42
+        ],
+        "n_estimators": 4
+      }
+    ],
+    "runtime": {
+      "versions": {
+        "python": "3.14.4",
+        "tabpfn": "9.2.0",
+        "torch": "2.14.1+cu126",
+        "numpy": "2.5.4",
+        "scikit-learn": "1.9.1",
+        "scipy": "1.18.1",
+        "pandas": "3.1.1",
+        "huggingface-hub": "1.33.0"
+      },
+      "cuda_runtime": "12.6",
+      "gpu": {
+        "name": "NVIDIA GeForce RTX 3090",
+        "memory_bytes": 25351356416,
+        "compute_capability": [
+          8,
+          6
+        ]
+      },
+      "environment": {
+        "TORCH_FORCE_WEIGHTS_ONLY_LOAD": "1",
+        "TABPFN_NO_BROWSER": "1",
+        "TABPFN_DISABLE_TELEMETRY": "1",
+        "HF_HUB_DISABLE_TELEMETRY": "1",
+        "HF_HUB_DISABLE_IMPLICIT_TOKEN": "1",
+        "DO_NOT_TRACK": "1"
+      },
+      "telemetry_note": "HF opt-out enabled; common-utils compatibility opt-out set; no cloud inference used."
+    },
+    "checkpoint": {
+      "sha256": "2ab5a07d5c41dfe6db9aa7ae106fc6de898326c2765be66505a07e2868c10736",
+      "restricted_load_verified": true,
+      "tensor_elements": 11091865
+    },
+    "raw_predictions_sha256": "c1e4dc71e1f8f4ea3e5f3ca92c53bd109766f5ce70d25734927ef0f6392ff9b9",
+    "raw_predictions_file": "raw_oof.npz",
+    "all_predictions_are_oof": true,
+    "unlabeled_predictions_exported": false
+  },
+  "metrics": {
+    "scaffold": {
+      "descriptors_context": {
+        "mse": 4269101.491500085,
+        "mae": 227.02924091647938,
+        "rmse": 2066.180411169384,
+        "largest_row_share_of_sse": 0.9488840570444828
+      },
+      "fingerprint_context": {
+        "mse": 4266508.150721227,
+        "mae": 222.7267162038279,
+        "rmse": 2065.552747019845,
+        "largest_row_share_of_sse": 0.9497465091047471
+      },
+      "serialized_context": {
+        "mse": 4261619.949746692,
+        "mae": 221.93610265136627,
+        "rmse": 2064.3691408628188,
+        "largest_row_share_of_sse": 0.9497350041365477
+      }
+    },
+    "scaffold_shuffle42": {
+      "descriptors_context": {
+        "mse": 4259043.8347065095,
+        "mae": 230.95606011019055,
+        "rmse": 2063.745099256812,
+        "largest_row_share_of_sse": 0.9507772178918573
+      },
+      "fingerprint_context": {
+        "mse": 4254232.471739801,
+        "mae": 220.91124406888147,
+        "rmse": 2062.5790825420004,
+        "largest_row_share_of_sse": 0.9531945678646464
+      },
+      "serialized_context": {
+        "mse": 4239431.710225565,
+        "mae": 222.69571744725704,
+        "rmse": 2058.9880306173627,
+        "largest_row_share_of_sse": 0.953033847913587
+      }
+    },
+    "scaffold_shuffle2026": {
+      "descriptors_context": {
+        "mse": 4254515.894226154,
+        "mae": 227.94523639308946,
+        "rmse": 2062.647787244869,
+        "largest_row_share_of_sse": 0.9511091546114238
+      },
+      "fingerprint_context": {
+        "mse": 4250977.294002982,
+        "mae": 227.28999205157461,
+        "rmse": 2061.789827795981,
+        "largest_row_share_of_sse": 0.9527549455769917
+      },
+      "serialized_context": {
+        "mse": 4246239.035095558,
+        "mae": 223.72936379792162,
+        "rmse": 2060.640442943785,
+        "largest_row_share_of_sse": 0.9523693834121066
+      }
+    },
+    "42": {
+      "descriptors_context": {
+        "mse": 4263509.240056385,
+        "mae": 222.80224987009115,
+        "rmse": 2064.826685234474,
+        "largest_row_share_of_sse": 0.9504730149154577
+      },
+      "fingerprint_context": {
+        "mse": 4236258.882625816,
+        "mae": 218.25037764218342,
+        "rmse": 2058.2174041208127,
+        "largest_row_share_of_sse": 0.9537831574935763
+      },
+      "serialized_context": {
+        "mse": 4242289.44441739,
+        "mae": 217.9839256756984,
+        "rmse": 2059.681879421526,
+        "largest_row_share_of_sse": 0.9526579485670784
+      }
+    },
+    "2026": {
+      "descriptors_context": {
+        "mse": 4267197.977681356,
+        "mae": 232.8143637257198,
+        "rmse": 2065.7197238931894,
+        "largest_row_share_of_sse": 0.9489950560328505
+      },
+      "fingerprint_context": {
+        "mse": 4253694.676682728,
+        "mae": 230.9169333552618,
+        "rmse": 2062.448708861078,
+        "largest_row_share_of_sse": 0.9503651377143675
+      },
+      "serialized_context": {
+        "mse": 4254641.663592624,
+        "mae": 228.0522666062903,
+        "rmse": 2062.6782743783924,
+        "largest_row_share_of_sse": 0.9510189636754586
+      }
+    }
+  },
+  "known_culture_metrics": {
+    "scaffold": {
+      "descriptors_context": {
+        "mse": 4493269.124845791,
+        "mae": 234.79095847200523,
+        "rmse": 2119.733267381958,
+        "largest_row_share_of_sse": 0.9489942753401542
+      },
+      "fingerprint_context": {
+        "mse": 4490664.1317624785,
+        "mae": 230.5102892879364,
+        "rmse": 2119.1187158256325,
+        "largest_row_share_of_sse": 0.9498304888635896
+      },
+      "serialized_context": {
+        "mse": 4485750.093862568,
+        "mae": 231.044025161587,
+        "rmse": 2117.9589452731534,
+        "largest_row_share_of_sse": 0.9497700744546274
+      }
+    },
+    "scaffold_shuffle42": {
+      "descriptors_context": {
+        "mse": 4603803.72538214,
+        "mae": 245.1114489407183,
+        "rmse": 2145.647623768204,
+        "largest_row_share_of_sse": 0.950894518694821
+      },
+      "fingerprint_context": {
+        "mse": 4598789.669895032,
+        "mae": 234.31552868839964,
+        "rmse": 2144.4788807295427,
+        "largest_row_share_of_sse": 0.9532734488560931
+      },
+      "serialized_context": {
+        "mse": 4582969.6444516415,
+        "mae": 237.3697845756061,
+        "rmse": 2140.787155336009,
+        "largest_row_share_of_sse": 0.9530753907342184
+      }
+    },
+    "scaffold_shuffle2026": {
+      "descriptors_context": {
+        "mse": 4598792.925030768,
+        "mae": 241.20275304658747,
+        "rmse": 2144.4796396866927,
+        "largest_row_share_of_sse": 0.9512505590768938
+      },
+      "fingerprint_context": {
+        "mse": 4595132.508609548,
+        "mae": 240.60299773901923,
+        "rmse": 2143.626018831071,
+        "largest_row_share_of_sse": 0.952862476275894
+      },
+      "serialized_context": {
+        "mse": 4590229.302595859,
+        "mae": 237.5199077322197,
+        "rmse": 2142.482042537547,
+        "largest_row_share_of_sse": 0.9524314988601397
+      }
+    },
+    "42": {
+      "descriptors_context": {
+        "mse": 4303739.886805705,
+        "mae": 224.07221314299488,
+        "rmse": 2074.5457061259713,
+        "largest_row_share_of_sse": 0.9504990796659945
+      },
+      "fingerprint_context": {
+        "mse": 4276209.412502224,
+        "mae": 219.38857036369131,
+        "rmse": 2067.8997588138122,
+        "largest_row_share_of_sse": 0.9538144390214608
+      },
+      "serialized_context": {
+        "mse": 4282372.671096918,
+        "mae": 219.43159242768132,
+        "rmse": 2069.3894440382455,
+        "largest_row_share_of_sse": 0.952672324609003
+      }
+    },
+    "2026": {
+      "descriptors_context": {
+        "mse": 4307464.273915076,
+        "mae": 234.19557438156914,
+        "rmse": 2075.443151212549,
+        "largest_row_share_of_sse": 0.9490208946544314
+      },
+      "fingerprint_context": {
+        "mse": 4293803.7484723,
+        "mae": 232.10061447797432,
+        "rmse": 2072.149547805925,
+        "largest_row_share_of_sse": 0.9503976104782326
+      },
+      "serialized_context": {
+        "mse": 4294825.493836295,
+        "mae": 229.52556559258792,
+        "rmse": 2072.3960755213507,
+        "largest_row_share_of_sse": 0.9510368815035992
+      }
+    }
+  },
+  "target_clipping": false,
+  "prediction_transform": "lower bound zero, no upper clipping",
+  "external_measurements_used": false,
+  "selection_rule": "Compare to fixed rf_log. A model may be selected only if scaffold mean improves >=10%, each scaffold worsens <=5%, known-Culture scaffold mean does not worsen, and two molecular mean does not worsen. Choose smallest scaffold mean, then confirm all eight molecular protocols.",
+  "scaffold_mean": {
+    "descriptors_context": {
+      "mse": 4260887.073477583,
+      "mae": 228.64351247325314
+    },
+    "fingerprint_context": {
+      "mse": 4257239.305488003,
+      "mae": 223.64265077476134
+    },
+    "serialized_context": {
+      "mse": 4249096.8983559385,
+      "mae": 222.78706129884827
+    }
+  },
+  "scaffold_mean_known_culture": {
+    "descriptors_context": {
+      "mse": 4565288.591752899,
+      "mae": 240.36838681977034
+    },
+    "fingerprint_context": {
+      "mse": 4561528.77008902,
+      "mae": 235.14293857178507
+    },
+    "serialized_context": {
+      "mse": 4552983.01363669,
+      "mae": 235.31123915647095
+    }
+  },
+  "molecular2_mean": {
+    "descriptors_context": {
+      "mse": 4265353.608868871,
+      "mae": 227.80830679790546
+    },
+    "fingerprint_context": {
+      "mse": 4244976.779654272,
+      "mae": 224.5836554987226
+    },
+    "serialized_context": {
+      "mse": 4248465.554005006,
+      "mae": 223.01809614099434
+    }
+  },
+  "molecular2_mean_known_culture": {
+    "descriptors_context": {
+      "mse": 4305602.08036039,
+      "mae": 229.133893762282
+    },
+    "fingerprint_context": {
+      "mse": 4285006.580487262,
+      "mae": 225.74459242083282
+    },
+    "serialized_context": {
+      "mse": 4288599.082466606,
+      "mae": 224.47857901013464
+    }
+  },
+  "material_checks": {
+    "descriptors_context": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": true
+    },
+    "fingerprint_context": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": true
+    },
+    "serialized_context": {
+      "scaffold_mean_improves10percent": false,
+      "each_scaffold_no_more_than5percent_worse": true,
+      "known_culture_scaffold_mean_no_worse": true,
+      "molecular2_mean_no_worse": true
+    }
+  },
+  "passing": []
+}

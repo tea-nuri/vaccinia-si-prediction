@@ -1,0 +1,5 @@
+# Preserve official bytes, including CRLF and spaces in original data fields.
+data/train_v2.csv -text -whitespace
+data/test.csv -text -whitespace
+data/sample_submit.csv -text -whitespace
+data/training_used_v2.csv -whitespace

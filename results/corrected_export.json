@@ -1,0 +1,32 @@
+{
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "model": "rf_log",
+  "train_rows": 320,
+  "test_rows": 597,
+  "feature_allowlist": [
+    "SMILES",
+    "strain",
+    "Culture"
+  ],
+  "external_measurements_used": false,
+  "inactivity_prediction": "SI is a nonnegative regression target; 10000 has no sentinel role",
+  "source_sha256": {
+    "data/train_v2.csv": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8",
+    "data/test.csv": "1b0c6a014bbe556c42ef2277e867d2e1a647ad31c157a9cd81bbc7e262481abd",
+    "corrected_pipeline.py": "40f58112de31484780b10cb90a8494fc0c3a0652d41a56d0e4ae1563695f4aab"
+  },
+  "submission_sha256": "fec2e98928b75792b2952eb8bef02b1baf90063fb967eb2aa339dff7c78d29d1",
+  "training_used_sha256": "7fc63ec2454b4cba8a38f4dfd059509d7af4b25724e257517a9713d9716d00fc",
+  "prediction_quantiles": [
+    0.014052365725305079,
+    5.284133266141383,
+    30.78590742980064,
+    45.277499881809405,
+    305.6994880925627,
+    590.9595658937698
+  ],
+  "status": "local_not_submitted",
+  "public_mse": null,
+  "candidate_csv": "results/submission_corrected_v2.csv",
+  "training_used_csv": "data/training_used_v2.csv"
+}

@@ -1,4 +1,9 @@
-"""Reproduce V6: SMILES/context model with traceable external inactivity evidence."""
+"""Entrypoint for corrected train_v2 regression.
+
+Older helper functions below remain for reproducing historical experiments.
+The supported CLI delegates to corrected_pipeline and does not use the former
+SI=10000 convention or test-compound literature retrieval.
+"""
 from pathlib import Path
 import argparse
 import json
@@ -308,7 +313,7 @@ def external_ablation(output):
     print(json.dumps(report,indent=2),flush=True)
 
 
-def main():
+def legacy_main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output', type=Path, default=ROOT / 'run')
     parser.add_argument('--skip-cv', action='store_true')
@@ -435,6 +440,13 @@ def main():
         ],
     }
     (args.output / 'metrics.json').write_text(json.dumps(report, indent=2))
+
+
+def main():
+    from corrected_pipeline import main as corrected_main
+    from threadpoolctl import threadpool_limits
+    with threadpool_limits(limits=1):
+        corrected_main()
 
 
 if __name__ == '__main__':

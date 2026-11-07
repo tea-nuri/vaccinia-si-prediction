@@ -1,0 +1,79 @@
+{
+  "scaffold": {
+    "old_submitted_model_mse_on_corrected_labels": 20269510.746461023,
+    "corrected_rf_log_mse": 4288512.722895371,
+    "mse_reduction": 15980998.023565646,
+    "largest_corrected_error_share": 0.9464836929279846,
+    "diagnostic_mse_excluding_largest_target": 230224.8163116864
+  },
+  "scaffold_shuffle42": {
+    "old_submitted_model_mse_on_corrected_labels": 18101259.013377495,
+    "corrected_rf_log_mse": 4284850.294814361,
+    "mse_reduction": 13816408.718563136,
+    "largest_corrected_error_share": 0.9471666088449766,
+    "diagnostic_mse_excluding_largest_target": 227092.8367815871
+  },
+  "scaffold_shuffle2026": {
+    "old_submitted_model_mse_on_corrected_labels": 18264895.321958028,
+    "corrected_rf_log_mse": 4286466.012804426,
+    "mse_reduction": 13978429.309153605,
+    "largest_corrected_error_share": 0.9471219194309068,
+    "diagnostic_mse_excluding_largest_target": 227370.62839548732
+  },
+  "42": {
+    "old_submitted_model_mse_on_corrected_labels": 24122640.410515796,
+    "corrected_rf_log_mse": 4271986.794296271,
+    "mse_reduction": 19850653.616219528,
+    "largest_corrected_error_share": 0.9500450492046422,
+    "diagnostic_mse_excluding_largest_target": 214075.8772238127
+  },
+  "2026": {
+    "old_submitted_model_mse_on_corrected_labels": 24304719.97864464,
+    "corrected_rf_log_mse": 4283025.368627025,
+    "mse_reduction": 20021694.610017616,
+    "largest_corrected_error_share": 0.9473070947252042,
+    "diagnostic_mse_excluding_largest_target": 226392.52668449894
+  },
+  "117": {
+    "old_submitted_model_mse_on_corrected_labels": 24325808.363190584,
+    "corrected_rf_log_mse": 4271703.82101219,
+    "mse_reduction": 20054104.542178392,
+    "largest_corrected_error_share": 0.9498377061775584,
+    "diagnostic_mse_excluding_largest_target": 214950.1815092759
+  },
+  "2027": {
+    "old_submitted_model_mse_on_corrected_labels": 24308723.584351115,
+    "corrected_rf_log_mse": 4276939.350397766,
+    "mse_reduction": 20031784.23395335,
+    "largest_corrected_error_share": 0.9486919508208069,
+    "diagnostic_mse_excluding_largest_target": 220129.31864740865
+  },
+  "7": {
+    "old_submitted_model_mse_on_corrected_labels": 24248945.255318124,
+    "corrected_rf_log_mse": 4270520.158303924,
+    "mse_reduction": 19978425.097014196,
+    "largest_corrected_error_share": 0.949568892355836,
+    "diagnostic_mse_excluding_largest_target": 216042.1936551714
+  },
+  "23": {
+    "old_submitted_model_mse_on_corrected_labels": 24112231.408138257,
+    "corrected_rf_log_mse": 4266961.953257675,
+    "mse_reduction": 19845269.45488058,
+    "largest_corrected_error_share": 0.9503683508155274,
+    "diagnostic_mse_excluding_largest_target": 212440.23448032772
+  },
+  "101": {
+    "old_submitted_model_mse_on_corrected_labels": 24341655.020816613,
+    "corrected_rf_log_mse": 4273865.590184404,
+    "mse_reduction": 20067789.43063221,
+    "largest_corrected_error_share": 0.9496448012292685,
+    "diagnostic_mse_excluding_largest_target": 215885.99504764943
+  },
+  "509": {
+    "old_submitted_model_mse_on_corrected_labels": 24317454.597710505,
+    "corrected_rf_log_mse": 4263795.016229458,
+    "mse_reduction": 20053659.581481047,
+    "largest_corrected_error_share": 0.9511916099187719,
+    "diagnostic_mse_excluding_largest_target": 208761.34959601169
+  }
+}

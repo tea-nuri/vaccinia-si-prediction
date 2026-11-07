@@ -1,0 +1,67 @@
+{
+  "archive_sha256": "fc748c1cdf13e7db6a9ea746c7e796edfe9f45f14af9d1edcc6686852f7a8f71",
+  "source_url": "https://www.kaggle.com/competitions/molecular-activity-prediction-hack/data",
+  "files": {
+    "sample_submit.csv": {
+      "sha256": "3eea4d23f5700361c09da24cd45be05c5dbbecf76cc29b022c3676835606884c",
+      "rows": 597,
+      "columns_read": [
+        "index"
+      ],
+      "index_unique": true
+    },
+    "test.csv": {
+      "sha256": "1b0c6a014bbe556c42ef2277e867d2e1a647ad31c157a9cd81bbc7e262481abd",
+      "rows": 597,
+      "columns_read": [
+        "index",
+        "SMILES",
+        "strain",
+        "Culture"
+      ],
+      "index_unique": true
+    },
+    "train_v2.csv": {
+      "sha256": "d9a876a67b5623d9cdb6592fc53d31ffaa7c535b09968c3a538138740fe246e8",
+      "rows": 320,
+      "columns_read": [
+        "SI VACV",
+        "SMILES",
+        "strain",
+        "Culture"
+      ],
+      "target_summary": {
+        "zeros": 83,
+        "equals10000": 0,
+        "min": 0.0,
+        "max": 36066.667,
+        "quantiles": [
+          0.0,
+          1.8445,
+          132.20000000000005,
+          352.67335000000037,
+          2466.7338500000005,
+          36066.667
+        ]
+      }
+    }
+  },
+  "target_changes": {
+    "rows": 81,
+    "old_values": {
+      "10000.0": 81
+    },
+    "new_values": {
+      "0.0": 81
+    }
+  },
+  "task_version": "official_train_v2_zero_inactivity_2026-11-07",
+  "official_train_input_rows_preserved": true,
+  "test_allowed_features_and_ids_preserved": true,
+  "train_rows_with_zero_target": 83,
+  "legacy_scores_comparable": false,
+  "legacy_latest_submission_recalculated_public_mse": 21046755.57358,
+  "legacy_team_best_recalculated_public_mse": 11059321.65299,
+  "external_test_measurement_retrieval_allowed": false,
+  "source_note": "Organizer correction and clarifications supplied by the user; current files downloaded from the authenticated Kaggle Data page on 2026-11-07."
+}
